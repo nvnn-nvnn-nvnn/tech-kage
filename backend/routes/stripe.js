@@ -16,10 +16,10 @@ router.post("/create-checkout-session", async (req, res) => {
     return res.status(400).json({ error: "Invalid total price" });
   }
 
-  
+
 
   const LABOUR_FEE = 150; // ← change this to your actual labour fee
-  const grandTotal = Math.round((totalPrice + LABOUR_FEE) * 100); // Stripe uses cents
+  const grandTotal = Math.round(totalPrice * 100);
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -51,7 +51,7 @@ router.post("/create-checkout-session", async (req, res) => {
 
       // Metadata — passed to webhook so we can write the order to Supabase
       metadata: {
-        user_id:    userId || "",
+        user_id: userId || "",
         build_name: buildName || "Custom Build",
         total_price: totalPrice.toString(),
       },
@@ -59,14 +59,14 @@ router.post("/create-checkout-session", async (req, res) => {
       // Store build data for webhook (metadata has 500 char limit so we use this)
       payment_intent_data: {
         metadata: {
-          user_id:    userId || "",
+          user_id: userId || "",
           build_name: buildName || "Custom Build",
         },
       },
 
       // Where Stripe redirects after payment
       success_url: `${process.env.CLIENT_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url:  `${process.env.CLIENT_URL}/cart`,
+      cancel_url: `${process.env.CLIENT_URL}/cart`,
     });
 
     res.json({ url: session.url });

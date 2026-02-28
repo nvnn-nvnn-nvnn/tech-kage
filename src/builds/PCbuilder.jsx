@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from '../context/CartContext';
 import { supabase } from '../lib/supabase';
 import TechKageLogo from '../assets/TechKage.svg';
+import { createPortal } from "react-dom";
 
 // ─── THEME ───────────────────────────────────────────────────────
 const T = {
@@ -1014,61 +1015,65 @@ function ResultsStep({ config }) {
           </button>
         </div>
 
-        {/* Modals */}
-        {showAuthModal && (
-          <>
-            <div onClick={() => setShowAuthModal(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", zIndex: 9998 }} />
-            <div style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", background: T.bgCard, border: `1px solid ${T.border}`, borderRadius: 12, padding: "32px 28px", zIndex: 9999, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <div style={{ fontSize: 28, marginBottom: 16 }}>🔒</div>
-              <div style={{ fontSize: 16, fontWeight: 700, color: T.text, marginBottom: 8 }}>Account Required</div>
-              <div style={{ fontSize: 13, color: T.textMid, marginBottom: 24, lineHeight: 1.6 }}>You need to be logged in to save builds to your profile.</div>
+
+        {/* Auth Modal */}
+        {showAuthModal && createPortal(
+          <div onClick={() => setShowAuthModal(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.92)", backdropFilter: "blur(8px)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div onClick={(e) => e.stopPropagation()} style={{ background: "#0A0C10", border: `1px solid ${T.border}`, borderRadius: 16, padding: "48px 40px", maxWidth: 420, width: "90%", textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+              <div style={{ fontSize: 48, marginBottom: 20 }}>🔒</div>
+              <div style={{ fontSize: 20, fontWeight: 800, color: T.text, marginBottom: 12 }}>Account Required</div>
+              <div style={{ fontSize: 14, color: T.textMid, marginBottom: 32, lineHeight: 1.7 }}>You need to be logged in to save builds to your profile.</div>
               <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-                <div onClick={() => setShowAuthModal(false)} style={{ padding: "10px 20px", fontSize: 11, letterSpacing: 2, fontWeight: 600, cursor: "pointer", borderRadius: 8, border: `1px solid ${T.border}`, color: T.textMid, background: "transparent" }}>CANCEL</div>
-                <div onClick={() => { setShowAuthModal(false); window.dispatchEvent(new CustomEvent('open-auth-modal')); }} style={{ padding: "10px 20px", fontSize: 11, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 8, background: T.green, color: "#050608", boxShadow: "0 4px 14px rgba(15,217,128,0.28)" }}>LOG IN →</div>
+                <div onClick={() => setShowAuthModal(false)} style={{ padding: "12px 24px", fontSize: 11, letterSpacing: 2, fontWeight: 600, cursor: "pointer", borderRadius: 10, border: `1px solid ${T.border}`, color: T.textMid, background: "transparent" }}>CANCEL</div>
+                <div onClick={() => { setShowAuthModal(false); window.dispatchEvent(new CustomEvent('open-auth-modal')); }} style={{ padding: "12px 24px", fontSize: 11, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 10, background: T.green, color: "#050608" }}>LOG IN →</div>
               </div>
             </div>
-          </>
+          </div>,
+          document.body
         )}
 
-        {saveStatus === "error" && (
-          <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div onClick={(e) => e.stopPropagation()} style={{ background: T.bgCard, border: "1px solid rgba(255,100,100,0.3)", borderRadius: 16, padding: "48px 40px", maxWidth: 420, width: "90%", textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
-              <div style={{ fontSize: 48, marginBottom: 20 }}>⚠️</div>
-              <div style={{ fontSize: 20, fontWeight: 800, color: T.text, marginBottom: 12, letterSpacing: 0.5 }}>Save Failed</div>
-              <div style={{ fontSize: 14, color: T.textMid, marginBottom: 32, lineHeight: 1.7 }}>Something went wrong. Please try again.</div>
-              <div onClick={() => setSaveStatus(null)} style={{ padding: "12px 24px", fontSize: 12, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 10, background: T.green, color: "#050608", display: "inline-block" }}>CLOSE</div>
+        {/* Save Error Modal */}
+        {saveStatus === "error" && createPortal(
+          <>
+            <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", zIndex: 9998 }} />
+            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: "1px solid rgba(255,100,100,0.3)", borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+              <div style={{ fontSize: 36, marginBottom: 16 }}>⚠️</div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: T.text, marginBottom: 8 }}>Save Failed</div>
+              <div style={{ fontSize: 13, color: T.textMid, marginBottom: 28, lineHeight: 1.6 }}>Something went wrong. Please try again.</div>
+              <div onClick={() => setSaveStatus(null)} style={{ padding: "10px 24px", fontSize: 11, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 8, background: T.green, color: "#050608", display: "inline-block" }}>CLOSE</div>
             </div>
-          </div>
+          </>,
+          document.body
         )}
 
-        {saveStatus === "saved" && (
-          <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div onClick={(e) => e.stopPropagation()} style={{ background: T.bgCard, border: "1px solid rgba(15,217,128,0.3)", borderRadius: 16, padding: "48px 40px", maxWidth: 420, width: "90%", textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
-              <div style={{ fontSize: 48, marginBottom: 20 }}>✅</div>
-              <div style={{ fontSize: 20, fontWeight: 800, color: T.green, marginBottom: 12, letterSpacing: 0.5 }}>Build Saved!</div>
-              <div style={{ fontSize: 14, color: T.textMid, marginBottom: 32, lineHeight: 1.7 }}>Your build has been saved to your profile.</div>
-              <div onClick={() => setSaveStatus(null)} style={{ padding: "12px 24px", fontSize: 12, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 10, background: T.green, color: "#050608", display: "inline-block" }}>DONE</div>
+        {/* Duplicate Build Modal */}
+        {saveStatus === "duplicate" && createPortal(
+          <>
+            <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", zIndex: 9998 }} />
+            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: "1px solid rgba(255,170,0,0.3)", borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+              <div style={{ fontSize: 36, marginBottom: 16 }}>📋</div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: "#ffaa00", marginBottom: 8 }}>Already Saved</div>
+              <div style={{ fontSize: 13, color: T.textMid, marginBottom: 28, lineHeight: 1.6 }}>A build named <strong style={{ color: T.text }}>"{lastSavedBuildName || "This build"}"</strong> is already in your profile.</div>
+              <div onClick={() => setSaveStatus(null)} style={{ padding: "10px 24px", fontSize: 11, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 8, background: "#ffaa00", color: "#050608", display: "inline-block" }}>GOT IT</div>
             </div>
-          </div>
+          </>,
+          document.body
         )}
 
-        {saveStatus === "duplicate" && (
-          <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div onClick={(e) => e.stopPropagation()} style={{ background: T.bgCard, border: "1px solid rgba(255,170,0,0.3)", borderRadius: 16, padding: "48px 40px", maxWidth: 420, width: "90%", textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
-              <div style={{ fontSize: 48, marginBottom: 20 }}>⚠️</div>
-              <div style={{ fontSize: 20, fontWeight: 800, color: "#ffaa00", marginBottom: 12, letterSpacing: 0.5 }}>Already Saved</div>
-              <div style={{ fontSize: 14, color: T.textMid, marginBottom: 32, lineHeight: 1.7 }}>A build named <strong style={{ color: T.text }}>"{lastSavedBuildName || "This build"}"</strong> is already in your profile.</div>
-              <div onClick={() => setSaveStatus(null)} style={{ padding: "12px 24px", fontSize: 12, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 10, background: "#ffaa00", color: "#050608", display: "inline-block" }}>GOT IT</div>
+        {/* Save Success Modal */}
+        {saveStatus === "saved" && createPortal(
+          <>
+            <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", zIndex: 9998 }} />
+            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: `1px solid rgba(15,217,128,0.3)`, borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+              <div style={{ fontSize: 36, marginBottom: 16 }}>✅</div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: T.green, marginBottom: 8 }}>Build Saved!</div>
+              <div style={{ fontSize: 13, color: T.textMid, marginBottom: 28, lineHeight: 1.6 }}>
+                <strong style={{ color: T.text }}>"{lastSavedBuildName}"</strong> has been saved to your profile.
+              </div>
+              <div onClick={() => setSaveStatus(null)} style={{ padding: "10px 24px", fontSize: 11, letterSpacing: 2, fontWeight: 700, cursor: "pointer", borderRadius: 8, background: T.green, color: "#050608", display: "inline-block" }}>DONE</div>
             </div>
-          </div>
-        )}
-
-        {showExportModal && (
-          <ExportModal
-            config={config}
-            currentBuild={{ ...config.generatedBuild, ...localBuild }}
-            onClose={() => setShowExportModal(false)}
-          />
+          </>,
+          document.body
         )}
       </div>
 
