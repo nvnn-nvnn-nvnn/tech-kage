@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import TechKageLanding from "../assets/TechKageLanding.png";
 
 const blogPosts = [
   {
@@ -7,7 +8,7 @@ const blogPosts = [
     title: "Top 10 GPU Benchmarks for 2024: Which Card Reigns Supreme?",
     date: "February 15, 2024",
     excerpt: "Dive deep into the latest GPU benchmarks comparing NVIDIA RTX 40-series, AMD RX 7000-series, and Intel Arc GPUs across gaming, rendering, and AI workloads.",
-    image: "https://picsum.photos/400/250",
+    image: TechKageLanding,
     readTime: "8 min read",
     category: "Hardware Reviews",
     content: `
@@ -69,7 +70,7 @@ function BlogDetail() {
             marginBottom: "24px"
           }}
         />
-        
+
         <div style={{
           background: "rgba(15,217,128,0.1)",
           color: "#0FD980",
@@ -82,7 +83,7 @@ function BlogDetail() {
         }}>
           {post.category}
         </div>
-        
+
         <h1 style={{
           fontSize: 48,
           marginBottom: 16,
@@ -92,7 +93,7 @@ function BlogDetail() {
         }}>
           {post.title}
         </h1>
-        
+
         <div style={{
           display: "flex",
           justifyContent: "space-between",
@@ -104,9 +105,9 @@ function BlogDetail() {
           <span style={{ fontSize: "14px", opacity: 0.6 }}>{post.date}</span>
           <span style={{ fontSize: "14px", opacity: 0.6 }}>{post.readTime}</span>
         </div>
-        
-        <div 
-          style={{ lineHeight: 1.8, fontSize: "18px" }}
+
+        <div
+          className="blog-content"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>

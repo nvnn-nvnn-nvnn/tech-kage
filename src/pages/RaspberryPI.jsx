@@ -102,6 +102,17 @@ function RaspberryPI() {
         </p>
 
         <div style={{
+          background: "rgba(255,193,7,0.1)",
+          border: "1px solid rgba(255,193,7,0.3)",
+          borderRadius: "8px",
+          padding: "16px",
+          marginBottom: "32px",
+          color: "#FFC107"
+        }}>
+          <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
+        </div>
+
+        <div style={{
           marginBottom: "4rem"
         }}>
           <h2 style={{
@@ -220,14 +231,14 @@ function RaspberryPI() {
                     cursor: "pointer",
                     transition: "all 0.2s"
                   }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = "#0CCF70";
-                    e.target.style.transform = "translateY(-1px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = "#0FD980";
-                    e.target.style.transform = "translateY(0)";
-                  }}
+                    onMouseEnter={(e) => {
+                      e.target.style.background = "#0CCF70";
+                      e.target.style.transform = "translateY(-1px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.background = "#0FD980";
+                      e.target.style.transform = "translateY(0)";
+                    }}
                   >
                     View Specs
                   </button>
@@ -358,14 +369,14 @@ function RaspberryPI() {
                     cursor: "pointer",
                     transition: "all 0.2s"
                   }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = "#0CCF70";
-                    e.target.style.transform = "translateY(-1px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = "#0FD980";
-                    e.target.style.transform = "translateY(0)";
-                  }}
+                    onMouseEnter={(e) => {
+                      e.target.style.background = "#0CCF70";
+                      e.target.style.transform = "translateY(-1px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.background = "#0FD980";
+                      e.target.style.transform = "translateY(0)";
+                    }}
                   >
                     Start Tutorial →
                   </button>

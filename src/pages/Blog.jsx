@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TechKageLanding from "../assets/TechKageLanding.png";
 
 const blogPosts = [
   {
@@ -7,7 +8,7 @@ const blogPosts = [
     title: "Top 10 GPU Benchmarks for 2024: Which Card Reigns Supreme?",
     date: "February 15, 2024",
     excerpt: "Dive deep into the latest GPU benchmarks comparing NVIDIA RTX 40-series, AMD RX 7000-series, and Intel Arc GPUs across gaming, rendering, and AI workloads.",
-    image: "https://picsum.photos/400/250",
+    image: TechKageLanding,
     readTime: "8 min read",
     category: "Hardware Reviews"
   }
@@ -49,76 +50,76 @@ function Blog() {
                   cursor: "pointer"
                 }}
               >
-              <img
-                src={post.image}
-                alt={post.title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover"
-                }}
-              />
-              <div style={{ padding: "24px" }}>
-                <div style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "12px"
-                }}>
-                  <span style={{
-                    background: "rgba(15,217,128,0.1)",
-                    color: "#0FD980",
-                    padding: "4px 12px",
-                    borderRadius: "20px",
-                    fontSize: "12px",
-                    fontWeight: 600
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover"
+                  }}
+                />
+                <div style={{ padding: "24px" }}>
+                  <div style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "12px"
                   }}>
-                    {post.category}
-                  </span>
-                  <span style={{
-                    fontSize: "14px",
-                    opacity: 0.6
+                    <span style={{
+                      background: "rgba(15,217,128,0.1)",
+                      color: "#0FD980",
+                      padding: "4px 12px",
+                      borderRadius: "20px",
+                      fontSize: "12px",
+                      fontWeight: 600
+                    }}>
+                      {post.category}
+                    </span>
+                    <span style={{
+                      fontSize: "14px",
+                      opacity: 0.6
+                    }}>
+                      {post.readTime}
+                    </span>
+                  </div>
+                  <h2 style={{
+                    fontSize: "20px",
+                    fontWeight: 700,
+                    marginBottom: "12px",
+                    lineHeight: 1.4
                   }}>
-                    {post.readTime}
-                  </span>
+                    {post.title}
+                  </h2>
+                  <p style={{
+                    fontSize: "16px",
+                    opacity: 0.8,
+                    lineHeight: 1.6,
+                    marginBottom: "16px"
+                  }}>
+                    {post.excerpt}
+                  </p>
+                  <div style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center"
+                  }}>
+                    <span style={{
+                      fontSize: "14px",
+                      opacity: 0.6
+                    }}>
+                      {post.date}
+                    </span>
+                    <span style={{
+                      color: "#0FD980",
+                      fontSize: "14px",
+                      fontWeight: 600
+                    }}>
+                      Read More →
+                    </span>
+                  </div>
                 </div>
-                <h2 style={{
-                  fontSize: "20px",
-                  fontWeight: 700,
-                  marginBottom: "12px",
-                  lineHeight: 1.4
-                }}>
-                  {post.title}
-                </h2>
-                <p style={{
-                  fontSize: "16px",
-                  opacity: 0.8,
-                  lineHeight: 1.6,
-                  marginBottom: "16px"
-                }}>
-                  {post.excerpt}
-                </p>
-                <div style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                }}>
-                  <span style={{
-                    fontSize: "14px",
-                    opacity: 0.6
-                  }}>
-                    {post.date}
-                  </span>
-                  <span style={{
-                    color: "#0FD980",
-                    fontSize: "14px",
-                    fontWeight: 600
-                  }}>
-                    Read More →
-                  </span>
-                </div>
-              </div>
-            </article>
+              </article>
             </Link>
           ))}
         </div>
@@ -131,7 +132,7 @@ function Blog() {
           border: "1px solid rgba(15,217,128,0.2)",
           borderRadius: "12px"
         }}>
-          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontFamily: "'Orbitron', sans-serif", fontWeight:"700" }}>
+          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontFamily: "'Orbitron', sans-serif", fontWeight: "700" }}>
             Stay Updated
           </h3>
           <p style={{ fontSize: 16, opacity: 0.8, marginBottom: 24 }}>

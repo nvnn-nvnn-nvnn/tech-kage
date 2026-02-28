@@ -74,4 +74,33 @@
       background-color: #f9f9f9;
     }
   }
+
+  .blog-content {
+    line-height: 1.8;
+    font-size: 18px;
+    color: #f5f5f5;
+  }
+
+  .blog-content h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    margin-top: 32px;
+    font-weight: 700;
+    color: #0FD980;
+    font-family: "'Orbitron', sans-serif";
+  }
+
+  .blog-content p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .blog-content ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+  }
+
+  .blog-content li {
+    margin-bottom: 8px;
+  }
 }

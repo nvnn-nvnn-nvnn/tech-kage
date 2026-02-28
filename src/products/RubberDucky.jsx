@@ -92,6 +92,17 @@ function RubberDucky() {
             <p style={{ fontSize: 18, opacity: 0.8, lineHeight: 1.6, marginBottom: "24px", fontFamily: "'Orbitron', sans-serif" }}>
               {productInfo.description}
             </p>
+
+            <div style={{
+              background: "rgba(255,193,7,0.1)",
+              border: "1px solid rgba(255,193,7,0.3)",
+              borderRadius: "8px",
+              padding: "16px",
+              marginBottom: "32px",
+              color: "#FFC107"
+            }}>
+              <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
+            </div>
             <div style={{ marginBottom: "24px" }}>
               <span style={{
                 fontSize: "32px",
@@ -121,14 +132,14 @@ function RubberDucky() {
               transition: "all 0.2s",
               marginRight: "16px"
             }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#0CCF70";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "#0FD980";
-              e.target.style.transform = "translateY(0)";
-            }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#0CCF70";
+                e.target.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#0FD980";
+                e.target.style.transform = "translateY(0)";
+              }}
             >
               Add to Cart
             </button>
@@ -143,14 +154,14 @@ function RubberDucky() {
               cursor: "pointer",
               transition: "all 0.2s"
             }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "rgba(15,217,128,0.1)";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "transparent";
-              e.target.style.transform = "translateY(0)";
-            }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "rgba(15,217,128,0.1)";
+                e.target.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "transparent";
+                e.target.style.transform = "translateY(0)";
+              }}
             >
               Learn More
             </button>
@@ -306,100 +317,100 @@ function RubberDucky() {
           </div>
         </div>
 
-    {/* // Sample Payloads Section */}
-    <div style={{ margin: "4rem 0" }}>
-  <h2 style={{
-    fontSize: 32,
-    marginBottom: 24,
-    fontWeight: 700,
-    color: "#0FD980"
-  }}>
-    Sample Payloads
-  </h2>
-
-  <div style={{
-    background: "#0A0C10",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "12px",
-    padding: "28px 32px",
-    fontFamily: "system-ui, sans-serif"
-  }}>
-    <p style={{
-      fontSize: 16,
-      lineHeight: 1.6,
-      color: "rgba(255,255,255,0.8)",
-      marginBottom: 24,
-      fontWeight: 700
-    }}>
-      The Rubber Ducky can execute various automated tasks. Here are some common payload examples:
-    </p>
-
-    <ul 
-    
-    style={{
-      listStyle: "none",
-      padding: 0,
-      margin: 0,
-      fontSize: 15,
-      color: "rgba(255,255,255,0.9)",
-      lineHeight: 1.7
-    }}
-    
-    
-    >
-      {productInfo.payloads.map((payload, index) => (
-        <li
-          key={index}
-          style={{
-            position: "relative",
-            paddingLeft: "28px",
-            marginBottom: "14px",
-            transition: "all 0.2s ease"
-          }}
-        >
-          {/* Custom bullet */}
-          <span style={{
-            position: "absolute",
-            left: 0,
-            color: "#0FD980",
+        {/* // Sample Payloads Section */}
+        <div style={{ margin: "4rem 0" }}>
+          <h2 style={{
+            fontSize: 32,
+            marginBottom: 24,
             fontWeight: 700,
-            fontSize: 18
+            color: "#0FD980"
           }}>
-            •
-          </span>
+            Sample Payloads
+          </h2>
 
-          {/* Payload text */}
-          <span style={{
-            color: "rgba(255,255,255,0.95)"
+          <div style={{
+            background: "#0A0C10",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "12px",
+            padding: "28px 32px",
+            fontFamily: "system-ui, sans-serif"
           }}>
-            {payload}
-          </span>
+            <p style={{
+              fontSize: 16,
+              lineHeight: 1.6,
+              color: "rgba(255,255,255,0.8)",
+              marginBottom: 24,
+              fontWeight: 700
+            }}>
+              The Rubber Ducky can execute various automated tasks. Here are some common payload examples:
+            </p>
 
-          {/* Optional subtle hover hint */}
-          <span style={{
-            opacity: 0,
-            transition: "opacity 0.2s",
-            marginLeft: 8,
-            fontSize: 13,
-            color: "rgba(15,217,128,0.6)"
-          }} className="copy-hint">
-            (click to copy)
-          </span>
-        </li>
-      ))}
-    </ul>
+            <ul
 
-    {/* Optional footer note */}
-    <p style={{
-      marginTop: 28,
-      fontSize: 14,
-      color: "rgba(255,255,255,0.5)",
-      fontStyle: "italic"
-    }}>
-      Note: These are example payloads only. Always use responsibly and in accordance with applicable laws.
-    </p>
-  </div>
-</div>
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                fontSize: 15,
+                color: "rgba(255,255,255,0.9)",
+                lineHeight: 1.7
+              }}
+
+
+            >
+              {productInfo.payloads.map((payload, index) => (
+                <li
+                  key={index}
+                  style={{
+                    position: "relative",
+                    paddingLeft: "28px",
+                    marginBottom: "14px",
+                    transition: "all 0.2s ease"
+                  }}
+                >
+                  {/* Custom bullet */}
+                  <span style={{
+                    position: "absolute",
+                    left: 0,
+                    color: "#0FD980",
+                    fontWeight: 700,
+                    fontSize: 18
+                  }}>
+                    •
+                  </span>
+
+                  {/* Payload text */}
+                  <span style={{
+                    color: "rgba(255,255,255,0.95)"
+                  }}>
+                    {payload}
+                  </span>
+
+                  {/* Optional subtle hover hint */}
+                  <span style={{
+                    opacity: 0,
+                    transition: "opacity 0.2s",
+                    marginLeft: 8,
+                    fontSize: 13,
+                    color: "rgba(15,217,128,0.6)"
+                  }} className="copy-hint">
+                    (click to copy)
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Optional footer note */}
+            <p style={{
+              marginTop: 28,
+              fontSize: 14,
+              color: "rgba(255,255,255,0.5)",
+              fontStyle: "italic"
+            }}>
+              Note: These are example payloads only. Always use responsibly and in accordance with applicable laws.
+            </p>
+          </div>
+        </div>
         <div style={{
           textAlign: "center",
           padding: "3rem",
@@ -407,7 +418,7 @@ function RubberDucky() {
           border: "1px solid rgba(15,217,128,0.2)",
           borderRadius: "12px"
         }}>
-          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontWeight: 700,  fontFamily: "'Orbitron', sans-serif" }}>
+          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontWeight: 700, fontFamily: "'Orbitron', sans-serif" }}>
             Ethical Use Only
           </h3>
           <p style={{ fontSize: 20, opacity: 0.8, marginBottom: 24, maxWidth: "600px", margin: "0 auto 24px", fontFamily: "Arial, sans-serif" }}>
@@ -431,14 +442,14 @@ function RubberDucky() {
               cursor: "pointer",
               transition: "all 0.2s"
             }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#0CCF70";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "#0FD980";
-              e.target.style.transform = "translateY(0)";
-            }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#0CCF70";
+                e.target.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#0FD980";
+                e.target.style.transform = "translateY(0)";
+              }}
             >
               View Documentation
             </button>
@@ -453,14 +464,14 @@ function RubberDucky() {
               cursor: "pointer",
               transition: "all 0.2s"
             }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "rgba(15,217,128,0.1)";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "transparent";
-              e.target.style.transform = "translateY(0)";
-            }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "rgba(15,217,128,0.1)";
+                e.target.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "transparent";
+                e.target.style.transform = "translateY(0)";
+              }}
             >
               Community Scripts
             </button>

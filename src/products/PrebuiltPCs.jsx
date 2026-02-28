@@ -128,12 +128,23 @@ function PrebuiltPCs() {
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <h1 style={{ fontSize: 48, marginBottom: 16, fontWeight: 800, letterSpacing: -1,fontFamily: "'Orbitron', sans-serif" }}>
+        <h1 style={{ fontSize: 48, marginBottom: 16, fontWeight: 800, letterSpacing: -1, fontFamily: "'Orbitron', sans-serif" }}>
           Prebuilt PCs
         </h1>
-        <p style={{ fontSize: 18, opacity: 0.8, marginBottom: 48, lineHeight: 1.6 , fontFamily: "'Orbitron', sans-serif"}}>
+        <p style={{ fontSize: 18, opacity: 0.8, marginBottom: 48, lineHeight: 1.6, fontFamily: "'Orbitron', sans-serif" }}>
           Ready-to-use gaming rigs and workstations. Skip the assembly and get gaming faster with our curated builds.
         </p>
+
+        <div style={{
+          background: "rgba(255,193,7,0.1)",
+          border: "1px solid rgba(255,193,7,0.3)",
+          borderRadius: "8px",
+          padding: "16px",
+          marginBottom: "32px",
+          color: "#FFC107"
+        }}>
+          <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
+        </div>
 
         <div style={{
           display: "grid",
@@ -288,18 +299,18 @@ function PrebuiltPCs() {
                   cursor: "pointer",
                   transition: "all 0.2s"
                 }}
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent card click
-                  handleAddToCart(pc);
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = "#0CCF70";
-                  e.target.style.transform = "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = "#0FD980";
-                  e.target.style.transform = "translateY(0)";
-                }}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent card click
+                    handleAddToCart(pc);
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = "#0CCF70";
+                    e.target.style.transform = "translateY(-1px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = "#0FD980";
+                    e.target.style.transform = "translateY(0)";
+                  }}
                 >
                   Add to Cart
                 </button>
@@ -320,13 +331,13 @@ function PrebuiltPCs() {
         }}>
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg, #04050A 0%, #071A10 25%, #050B18 50%, #100710 75%, #04050A 100%)", backgroundSize: "300% 300%", animation: "aurora 12s ease infinite", zIndex: 0 }} />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontFamily: "'Orbitron', sans-serif"}}>
+            <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontFamily: "'Orbitron', sans-serif" }}>
               Custom Build Service
             </h3>
             <p style={{ fontSize: 16, opacity: 0.8, marginBottom: 24 }}>
               Not finding what you need? Let us  <span className="price-span">build a custom PC </span> tailored to your exact specifications and budget.
             </p>
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.7 }}
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.7 }}
               style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}
             >
               <motion.button type="button" onClick={() => navigate("/builder")}

@@ -19,9 +19,9 @@ function Footer() {
   const links = {
     Explore: [
       { label: "PC Builder", path: "/builder" },
-      { label: "Budget AI", path: "/" },
+      // { label: "Budget AI", path: "/" },
       { label: "Part Picker", path: "/manual" },
-      { label: "Benchmarks", path: "/" },
+      // { label: "Benchmarks", path: "/" },
       { label: "Build Gallery", path: "/gallery" },
     ],
     Resources: [
@@ -265,17 +265,17 @@ function Footer() {
               <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
                 {items.map((item, index) => (
                   <li key={index} style={{ marginBottom: 8 }}>
-                   <Link
-                    to={item.path}
-                    style={{
-                      fontSize: 14, color: "rgba(255,255,255,0.6)", textDecoration: "none",
-                      transition: "color 0.2s ease",
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = "#fff"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
-                  >
-                    {item.label}
-                  </Link>
+                    <Link
+                      to={item.path}
+                      style={{
+                        fontSize: 14, color: "rgba(255,255,255,0.6)", textDecoration: "none",
+                        transition: "color 0.2s ease",
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = "#fff"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
+                    >
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -78,10 +78,10 @@ const projects = [
 
 function getDifficultyColor(difficulty) {
   switch (difficulty.toLowerCase()) {
-    case 'beginner':    return '#4CAF50';
+    case 'beginner': return '#4CAF50';
     case 'intermediate': return '#FF9800';
-    case 'advanced':    return '#F44336';
-    default:            return '#0FD980';
+    case 'advanced': return '#F44336';
+    default: return '#0FD980';
   }
 }
 
@@ -104,6 +104,17 @@ export default function ThreeDPrinting() {
           From desktop FDM machines to industrial resin systems — explore technologies, projects, and guides
           for makers at every level.
         </p>
+
+        <div style={{
+          background: "rgba(255,193,7,0.1)",
+          border: "1px solid rgba(255,193,7,0.3)",
+          borderRadius: "8px",
+          padding: "16px",
+          marginBottom: "32px",
+          color: "#FFC107"
+        }}>
+          <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
+        </div>
 
         {/* Printer Types */}
         <div style={{ marginBottom: "4rem" }}>

@@ -142,6 +142,17 @@ function DesktopAccessories() {
         </p>
 
         <div style={{
+          background: "rgba(255,193,7,0.1)",
+          border: "1px solid rgba(255,193,7,0.3)",
+          borderRadius: "8px",
+          padding: "16px",
+          marginBottom: "32px",
+          color: "#FFC107"
+        }}>
+          <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
+        </div>
+
+        <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
           gap: "2rem"
@@ -293,23 +304,23 @@ function DesktopAccessories() {
                   cursor: "pointer",
                   transition: "all 0.2s"
                 }}
-                onClick={() => {
-                  if (accessory.id === 1) {
-                    window.open("https://axiomforge.us/products/magegee-mini-60-gaming-keyboard-rgb-backlit-61-key-ultra-compact-keyboard-ts91-ergonomic-waterproof-mechanical-feeling-office?variant=48160974307547", "_blank");
-                  } else if (accessory.id === 2) {
-                    window.open("https://axiomforge.us/products/e-yooso-x-41pro-wired-mouse-large-gaming-mouse-rgb-backlit-11-programmable-side-buttons-support-for-computer-pc-laptop-mac?variant=48160817643739", "_blank");
-                  } else if (accessory.id === 7) {
-                    window.open("https://axiomforge.us/products/wireless-charging-rgb-luminous-mouse-pad-charger-phone-gaming-mousepad-keyboard-game-table-pad-laptop-mouse-mat-deskpad-mausepad?variant=48155129839835", "_blank");
-                  }
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = "#0CCF70";
-                  e.target.style.transform = "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = "#0FD980";
-                  e.target.style.transform = "translateY(0)";
-                }}
+                  onClick={() => {
+                    if (accessory.id === 1) {
+                      window.open("https://axiomforge.us/products/magegee-mini-60-gaming-keyboard-rgb-backlit-61-key-ultra-compact-keyboard-ts91-ergonomic-waterproof-mechanical-feeling-office?variant=48160974307547", "_blank");
+                    } else if (accessory.id === 2) {
+                      window.open("https://axiomforge.us/products/e-yooso-x-41pro-wired-mouse-large-gaming-mouse-rgb-backlit-11-programmable-side-buttons-support-for-computer-pc-laptop-mac?variant=48160817643739", "_blank");
+                    } else if (accessory.id === 7) {
+                      window.open("https://axiomforge.us/products/wireless-charging-rgb-luminous-mouse-pad-charger-phone-gaming-mousepad-keyboard-game-table-pad-laptop-mouse-mat-deskpad-mausepad?variant=48155129839835", "_blank");
+                    }
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = "#0CCF70";
+                    e.target.style.transform = "translateY(-1px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = "#0FD980";
+                    e.target.style.transform = "translateY(0)";
+                  }}
                 >
                   Add to Cart
                 </button>
@@ -326,7 +337,7 @@ function DesktopAccessories() {
           borderRadius: "12px",
           textAlign: "center"
         }}>
-          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontWeight: 700, fontFamily: "'Orbitron', sans-serif"}}>
+          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontWeight: 700, fontFamily: "'Orbitron', sans-serif" }}>
             Complete Your Setup
           </h3>
           <p style={{ fontSize: 16, opacity: 0.8, marginBottom: 24 }}>
@@ -349,14 +360,14 @@ function DesktopAccessories() {
               cursor: "pointer",
               transition: "all 0.2s"
             }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#0CCF70";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "#0FD980";
-              e.target.style.transform = "translateY(0)";
-            }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#0CCF70";
+                e.target.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#0FD980";
+                e.target.style.transform = "translateY(0)";
+              }}
             >
               View Bundles
             </button>
@@ -371,14 +382,14 @@ function DesktopAccessories() {
               cursor: "pointer",
               transition: "all 0.2s"
             }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "rgba(15,217,128,0.1)";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "transparent";
-              e.target.style.transform = "translateY(0)";
-            }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "rgba(15,217,128,0.1)";
+                e.target.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "transparent";
+                e.target.style.transform = "translateY(0)";
+              }}
             >
               Compare Products
             </button>
