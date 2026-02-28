@@ -30,6 +30,10 @@ const GLOBAL_STYLES = `
     0%, 100% { box-shadow: 0 0 8px rgba(15,217,128,0.4); }
     50%       { box-shadow: 0 0 20px rgba(15,217,128,0.8); }
   }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
   .profile-card {
     opacity: 0;
     animation: fadeUp 0.5s ease-out forwards;
@@ -102,7 +106,7 @@ const OrderModal = ({ order, onClose }: { order: any; onClose: () => void }) => 
           background: T.card, borderRadius: 14, padding: 28, maxWidth: 600, width: '92%',
           border: '1px solid rgba(255,255,255,0.08)', zIndex: 9999,
           boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
-          maxHeight: '80vh', overflowY: 'auto'
+          maxHeight: '80vh', overflowY: 'auto', animation: "modalIn 0.5s ease"
         }}
         onClick={e => e.stopPropagation()}
       >
@@ -256,7 +260,7 @@ Created: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "shor
           position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
           background: T.card, border: `1px solid ${T.border}`, borderRadius: 12,
           boxShadow: '0 20px 60px rgba(0,0,0,0.8)', maxWidth: 620, width: '92%',
-          maxHeight: '86vh', overflow: 'hidden', zIndex: 9999,
+          maxHeight: '86vh', overflow: 'hidden', zIndex: 9999, animation: "modalIn 0.5s ease"
         }}
         onClick={e => e.stopPropagation()}
       >
@@ -345,7 +349,7 @@ const DeleteAccountModal = ({ onClose, onConfirm }: { onClose: () => void; onCon
           position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
           background: T.card, borderRadius: 14, padding: 28, maxWidth: 420, width: '92%',
           border: '1px solid rgba(255,100,100,0.25)', zIndex: 9999,
-          boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.8)', animation: "modalIn 0.5s ease"
         }}
         onClick={e => e.stopPropagation()}
       >
@@ -411,7 +415,7 @@ const ResetPasswordModal = ({
   return (
     <>
       <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
-        <div style={{ background: T.bg, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, maxWidth: 420, width: '90%', fontFamily: T.mono }}>
+        <div style={{ background: T.bg, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, maxWidth: 420, width: '90%', fontFamily: T.mono, animation: "modalIn 0.5s ease" }}>
           <h3 className="price-span">Reset Password</h3>
           <p style={{ margin: 0, fontSize: 13, color: T.textMid, marginBottom: 16 }}>
             Are you sure you want to reset your password? This will send a password reset email to your registered email address.

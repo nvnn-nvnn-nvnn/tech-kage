@@ -81,6 +81,7 @@ function DeniedModal({ onClose }) {
         zIndex: 9999, fontFamily: T.mono, opacity: visible ? 1 : 0,
         transform: visible ? "translate(-50%, -50%) scale(1)" : "translate(-50%, -48%) scale(0.96)",
         transition: "opacity 0.25s ease, transform 0.25s ease", textAlign: "center",
+        animation: "modalIn 0.5s ease"
       }}>
         <div style={{ fontSize: 32, marginBottom: 16 }}>🔒</div>
         <div style={{ fontSize: 16, fontWeight: 700, color: T.text, marginBottom: 8 }}>Account Required</div>
@@ -98,7 +99,7 @@ function DeniedModal({ onClose }) {
 // Only renders when history has more than 1 build.
 // Clicking a card sets it as the active build shown in the summary above.
 // Clicking the active card again deselects it (back to latest).
-function RecentlyViewed({ history, activeBuildId, onSelect }) {
+function RecentlyViewed({ history, activeBuildId, onSelect, onClear }) {
   if (!history || history.length <= 1) return null;
 
   return (
@@ -123,9 +124,14 @@ function RecentlyViewed({ history, activeBuildId, onSelect }) {
             {history.length}
           </span>
         </div>
-        <span style={{ fontSize: 10, color: T.textDim, fontFamily: T.mono, letterSpacing: 1 }}>
-          LAST {history.length} BUILDS
-        </span>
+        <button
+          onClick={onClear}
+          style={{ fontSize: 10, color: T.textDim, background: "transparent", border: "none", cursor: "pointer", fontFamily: T.mono, letterSpacing: 1 }}
+          onMouseEnter={e => e.currentTarget.style.color = T.text}
+          onMouseLeave={e => e.currentTarget.style.color = T.textDim}
+        >
+          Clear All
+        </button>
       </div>
 
       {/* Cards */}
@@ -137,8 +143,8 @@ function RecentlyViewed({ history, activeBuildId, onSelect }) {
 
           return (
             <div
-              key={build.addedAt}
-              onClick={() => onSelect(build.addedAt)}
+              key={build.id}
+              onClick={() => onSelect(build.id)}
               style={{
                 padding: "14px 16px", borderRadius: 10, cursor: "pointer",
                 border: `1px solid ${isActive ? "rgba(15,217,128,0.35)" : T.border}`,
@@ -279,6 +285,7 @@ export default function Cart() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@300;400;500&display=swap');
         @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes modalIn { from { opacity: 0; transform: translate(-50%, -48%) scale(0.96); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
       `}</style>
 
       <div style={{ minHeight: "100vh", background: T.bg, padding: "3rem 1.5rem", color: T.text, position: "relative", overflow: "hidden" }}>
@@ -352,11 +359,11 @@ export default function Cart() {
             </div>
 
             {/* ── Recently Viewed ── */}
-            <RecentlyViewed
+            {/* <RecentlyViewed
               history={history}
               activeBuildId={activeBuildId}
               onSelect={(id) => setActiveBuildId(prev => prev === id ? null : id)}
-            />
+            /> */}
 
             {/* ── Order summary ── */}
             <div style={{ background: T.card, borderRadius: 14, border: `1px solid ${T.border}`, padding: "24px 28px" }}>

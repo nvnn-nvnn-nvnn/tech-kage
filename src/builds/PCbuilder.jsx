@@ -1030,7 +1030,7 @@ function ResultsStep({ config }) {
         {/* Auth Modal */}
         {showAuthModal && createPortal(
           <div onClick={() => setShowAuthModal(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.92)", backdropFilter: "blur(8px)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div onClick={(e) => e.stopPropagation()} style={{ background: "#0A0C10", border: `1px solid ${T.border}`, borderRadius: 16, padding: "48px 40px", maxWidth: 420, width: "90%", textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+            <div onClick={(e) => e.stopPropagation()} style={{ background: "#0A0C10", border: `1px solid ${T.border}`, borderRadius: 16, padding: "48px 40px", maxWidth: 420, width: "90%", textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)", animation: "modalIn 0.5s ease" }}>
               <div style={{ fontSize: 48, marginBottom: 20 }}>🔒</div>
               <div style={{ fontSize: 20, fontWeight: 800, color: T.text, marginBottom: 12 }}>Account Required</div>
               <div style={{ fontSize: 14, color: T.textMid, marginBottom: 32, lineHeight: 1.7 }}>You need to be logged in to save builds to your profile.</div>
@@ -1047,7 +1047,7 @@ function ResultsStep({ config }) {
         {saveStatus === "error" && createPortal(
           <>
             <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", zIndex: 9998 }} />
-            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: "1px solid rgba(255,100,100,0.3)", borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: "1px solid rgba(255,100,100,0.3)", borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)", animation: "modalIn 0.5s ease" }}>
               <div style={{ fontSize: 36, marginBottom: 16 }}>⚠️</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: T.text, marginBottom: 8 }}>Save Failed</div>
               <div style={{ fontSize: 13, color: T.textMid, marginBottom: 28, lineHeight: 1.6 }}>Something went wrong. Please try again.</div>
@@ -1061,7 +1061,7 @@ function ResultsStep({ config }) {
         {saveStatus === "duplicate" && createPortal(
           <>
             <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", zIndex: 9998 }} />
-            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: "1px solid rgba(255,170,0,0.3)", borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: "1px solid rgba(255,170,0,0.3)", borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)", animation: "modalIn 0.5s ease" }}>
               <div style={{ fontSize: 36, marginBottom: 16 }}>📋</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: "#ffaa00", marginBottom: 8 }}>Already Saved</div>
               <div style={{ fontSize: 13, color: T.textMid, marginBottom: 28, lineHeight: 1.6 }}>A build named <strong style={{ color: T.text }}>"{lastSavedBuildName || "This build"}"</strong> is already in your profile.</div>
@@ -1075,7 +1075,7 @@ function ResultsStep({ config }) {
         {saveStatus === "saved" && createPortal(
           <>
             <div onClick={() => setSaveStatus(null)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", zIndex: 9998 }} />
-            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: `1px solid rgba(15,217,128,0.3)`, borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)" }}>
+            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "#0A0C10", border: `1px solid rgba(15,217,128,0.3)`, borderRadius: 16, padding: "40px 36px", maxWidth: 420, width: "90%", zIndex: 9999, textAlign: "center", boxShadow: "0 25px 80px rgba(0,0,0,0.6)", animation: "modalIn 0.5s ease" }}>
               <div style={{ fontSize: 36, marginBottom: 16 }}>✅</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: T.green, marginBottom: 8 }}>Build Saved!</div>
               <div style={{ fontSize: 13, color: T.textMid, marginBottom: 28, lineHeight: 1.6 }}>
@@ -1250,7 +1250,7 @@ function ExportModal({ config, currentBuild, onClose }) {
   return (
     <>
       <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(4px)', zIndex: 9998 }} />
-      <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: T.bgCard, border: `1px solid ${T.border}`, borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.8)', maxWidth: 600, width: '90%', maxHeight: '80vh', overflow: 'hidden', zIndex: 9999 }}>
+      <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: T.bgCard, border: `1px solid ${T.border}`, borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.8)', maxWidth: 600, width: '90%', maxHeight: '80vh', overflow: 'hidden', zIndex: 9999, animation: "modalIn 0.5s ease" }}>
         <div style={{ padding: '20px 24px', borderBottom: `1px solid ${T.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: 10, letterSpacing: 3, color: T.green, marginBottom: 4, fontWeight: 600 }}>EXPORT BUILD</div>
@@ -1465,6 +1465,7 @@ export default function PCBuilder() {
         @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes spin   { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        @keyframes modalIn { from { opacity: 0; transform: translate(-50%, -48%) scale(0.96); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
       `}</style>

@@ -37,6 +37,7 @@ function Footer() {
       { label: "Careers", path: "/careers" },
       { label: "Press Kit", path: "#" },
       { label: "Contact", path: "/contact" },
+      { label: "Terms of Service", path: "/terms-of-service" },
       { label: "Privacy Policy", path: "/privacy-policy" },
       { label: "Affiliate Disclosure", path: "/affiliate-notice" },
     ],
