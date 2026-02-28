@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+**/node_modules/
+node_modules_backup/
+**/node_modules_backup/
+
+# Environment variables
+.env
+*.env
+.env.local
+.env.production
+
+# Build output
+dist/
+.next/
+src/assets/*.exe

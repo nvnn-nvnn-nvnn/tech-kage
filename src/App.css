@@ -1,0 +1,124 @@
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+
+.matrix-span {
+  background: linear-gradient(
+    135deg,
+    #00ff41 0%,
+    #39ff14 25%,
+    #00e676 50%,
+    #69ff47 75%,
+    #00ff41 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Optional: animated shimmer effect */
+  background-size: 200% 200%;
+  animation: matrixShimmer 3s ease infinite;
+  
+  /* Optional: subtle glow */
+  filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6));
+}
+
+
+
+  
+.price-span {
+  background: linear-gradient(
+    135deg,
+    #00ff41 0%,
+    #39ff14 25%,
+    #00e676 50%,
+    #69ff47 75%,
+    #00ff41 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;                    /* fallback for non-webkit browsers */
+
+  /* Animated shimmer effect */
+  background-size: 200% 200%;
+  animation: matrixShimmer 3s ease infinite;
+
+  /* Subtle glow */
+  filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6));
+
+  font-size: 20px;
+  font-weight: 900;
+}
+
+
+
+.build-span {
+  background: linear-gradient(
+    135deg,
+    #00ff41 0%,
+    #39ff14 25%,
+    #00e676 50%,
+    #69ff47 75%,
+    #00ff41 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  background-size: 200% 200%;
+  animation: matrixShimmer 3s ease infinite;
+
+  filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6));
+
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 8px;
+  border-top: 1px solid #ccc;
+}
+
+
+
+@keyframes matrixShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
