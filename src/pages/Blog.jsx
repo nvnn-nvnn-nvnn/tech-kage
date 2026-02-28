@@ -5,12 +5,12 @@ import TechKageLanding from "../assets/TechKageLanding.png";
 const blogPosts = [
   {
     id: 1,
-    title: "Top 10 GPU Benchmarks for 2024: Which Card Reigns Supreme?",
-    date: "February 15, 2024",
-    excerpt: "Dive deep into the latest GPU benchmarks comparing NVIDIA RTX 40-series, AMD RX 7000-series, and Intel Arc GPUs across gaming, rendering, and AI workloads.",
+    title: "Introduction to TechKage!",
+    date: "February 28, 2024",
+    excerpt: "TechKage is your ultimate destination for custom PC building, hardware reviews, and technology insights.",
     image: TechKageLanding,
-    readTime: "8 min read",
-    category: "Hardware Reviews"
+    readTime: "5 min read",
+    category: "Technology"
   }
 ];
 
@@ -87,7 +87,8 @@ function Blog() {
                     fontSize: "20px",
                     fontWeight: 700,
                     marginBottom: "12px",
-                    lineHeight: 1.4
+                    lineHeight: 1.4,
+                    fontFamily: "'Orbitron', sans-serif"
                   }}>
                     {post.title}
                   </h2>

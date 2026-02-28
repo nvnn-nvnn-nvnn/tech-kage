@@ -1016,6 +1016,17 @@ function ResultsStep({ config }) {
         </div>
 
 
+        {/* Export Modal */}
+        {showExportModal && createPortal(
+          <ExportModal
+            config={config}
+            currentBuild={{ ...config.generatedBuild, ...localBuild }}
+            onClose={() => setShowExportModal(false)}
+          />,
+          document.body
+        )}
+
+
         {/* Auth Modal */}
         {showAuthModal && createPortal(
           <div onClick={() => setShowAuthModal(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.92)", backdropFilter: "blur(8px)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}>

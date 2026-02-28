@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 import TechKageLogo from "../assets/TechKage.svg";
 
 function Footer() {
@@ -132,14 +133,15 @@ function Footer() {
           {/* Brand */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{
+              {/* <div style={{
                 width: 32, height: 32, borderRadius: 8,
                 background: "linear-gradient(135deg, #0FD980, rgba(15,217,128,0.3))",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 16, fontWeight: 800, color: "#050608",
-              }}>T</div>
+              }}>T</div> */}
+              <img src={TechKageLogo} alt="Tech Kage Logo" style={{ width: 40, height: 40 }} />
               <span style={{ fontSize: 20, fontWeight: 800, letterSpacing: 1, color: "#fff" }}>
-                TECHKAGE
+                TECH KΛGE
               </span>
             </div>
             <p style={{

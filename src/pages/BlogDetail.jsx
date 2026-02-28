@@ -5,28 +5,30 @@ import TechKageLanding from "../assets/TechKageLanding.png";
 const blogPosts = [
   {
     id: 1,
-    title: "Top 10 GPU Benchmarks for 2024: Which Card Reigns Supreme?",
-    date: "February 15, 2024",
-    excerpt: "Dive deep into the latest GPU benchmarks comparing NVIDIA RTX 40-series, AMD RX 7000-series, and Intel Arc GPUs across gaming, rendering, and AI workloads.",
+    title: "Introduction to TechKage!",
+    date: "February 28, 2024",
+    excerpt: "TechKage is your ultimate destination for custom PC building, hardware reviews, and technology insights.",
     image: TechKageLanding,
-    readTime: "8 min read",
-    category: "Hardware Reviews",
+    readTime: "5 min read",
+    category: "Technology",
     content: `
-      <h2>Introduction</h2>
-      <p>GPU benchmarking has become increasingly important as graphics cards power everything from gaming to AI workloads. In 2024, the landscape is more competitive than ever with NVIDIA's RTX 40-series, AMD's RX 7000-series, and Intel's Arc GPUs all vying for performance supremacy.</p>
+      <h2>Welcome to TechKage</h2>
+      <p>TechKage is your ultimate destination for custom PC building, hardware reviews, and technology insights. Whether you're a gamer, content creator, or enthusiast, we provide the tools and knowledge to build the perfect PC tailored to your needs.</p>
       
-      <h2>Methodology</h2>
-      <p>Our benchmarks were conducted using the latest drivers and software versions across multiple test systems. We focused on real-world performance rather than synthetic benchmarks alone.</p>
-      
-      <h2>Key Findings</h2>
+      <h2>Our Mission</h2>
+      <p>At TechKage, we believe that building a PC should be accessible and enjoyable for everyone. Our platform offers comprehensive tools and resources to help you every step of the way:</p>
       <ul>
-        <li>NVIDIA RTX 4090 leads in raw performance but at a premium price</li>
-        <li>AMD RX 7800 XT offers excellent value for 1440p gaming</li>
-        <li>Intel Arc GPUs show promise but need driver improvements</li>
+        <li><strong>Interactive PC Builder:</strong> Our easy-to-use builder ensures compatibility and optimizes performance for your specific use case.</li>
+        <li><strong>Hardware Reviews & Benchmarks:</strong> In-depth reviews of the latest components with real-world testing and performance data.</li>
+        <li><strong>Expert Guides & Tutorials:</strong> Step-by-step guides for beginners and advanced users alike.</li>
+        <li><strong>Community Insights:</strong> Connect with fellow PC enthusiasts and share your builds.</li>
       </ul>
       
-      <h2>Conclusion</h2>
-      <p>Choose your GPU based on your specific use case and budget. The "best" GPU depends on what you're planning to do with it.</p>
+      <h2>Why Choose TechKage?</h2>
+      <p>With years of experience in the PC building community, TechKage stands out for its commitment to quality, accuracy, and user experience. Our team of experts tests every component and provides unbiased recommendations based on real data.</p>
+      
+      <h2>Get Started Today</h2>
+      <p>Ready to build your dream PC? Start with our PC builder tool and explore our extensive blog for the latest tech news, reviews, and tips. Join the TechKage community and elevate your PC building experience.</p>
     `
   }
 ];

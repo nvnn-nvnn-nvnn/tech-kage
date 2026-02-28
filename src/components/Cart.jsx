@@ -4,16 +4,16 @@ import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 
 const T = {
-  bg:          "#050608",
-  card:        "#0A0C10",
-  green:       "#0FD980",
-  border:      "rgba(255,255,255,0.08)",
+  bg: "#050608",
+  card: "#0A0C10",
+  green: "#0FD980",
+  border: "rgba(255,255,255,0.08)",
   borderGreen: "rgba(15,217,128,0.25)",
-  text:        "#f5f5f5",
-  textMid:     "rgba(255,255,255,0.45)",
-  textDim:     "rgba(255,255,255,0.2)",
-  mono:        "'JetBrains Mono', monospace",
-  display:     "'Orbitron', sans-serif",
+  text: "#f5f5f5",
+  textMid: "rgba(255,255,255,0.45)",
+  textDim: "rgba(255,255,255,0.2)",
+  mono: "'JetBrains Mono', monospace",
+  display: "'Orbitron', sans-serif",
 };
 
 const PART_ORDER = ["CPU", "GPU", "MOTHERBOARD", "RAM", "STORAGE", "PSU", "CASE", "COOLING"];
@@ -230,7 +230,7 @@ export default function Cart() {
 
   // ── Single source of truth for which build is displayed ───────
   const buildItem = activeBuildId
-    ? history.find(b => b.addedAt === activeBuildId)
+    ? history.find(b => b.id === activeBuildId)
     : [...items].reverse().find(i => i.type === "custom_build" && i.build);
 
   if (!buildItem) return <EmptyCart navigate={navigate} />;
@@ -256,11 +256,11 @@ export default function Cart() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          buildName:  buildItem.name,
+          buildName: buildItem.name,
           totalPrice: orderTotal,
-          userId:     user.id,
-          buildData:  buildItem.build,
-          config:     buildItem.config,
+          userId: user.id,
+          buildData: buildItem.build,
+          config: buildItem.config,
         }),
       });
 
@@ -355,7 +355,7 @@ export default function Cart() {
             <RecentlyViewed
               history={history}
               activeBuildId={activeBuildId}
-              onSelect={(addedAt) => setActiveBuildId(prev => prev === addedAt ? null : addedAt)}
+              onSelect={(id) => setActiveBuildId(prev => prev === id ? null : id)}
             />
 
             {/* ── Order summary ── */}
@@ -363,9 +363,9 @@ export default function Cart() {
               <div style={{ fontSize: 9, letterSpacing: 3, color: T.textMid, fontFamily: T.mono, marginBottom: 16, textTransform: "uppercase" }}>Order Summary</div>
 
               {[
-                { label: "Parts",      value: `$${partsTotal.toFixed(2)}` },
+                { label: "Parts", value: `$${partsTotal.toFixed(2)}` },
                 { label: "Labour Fee", value: `$${LABOUR_FEE.toFixed(2)}` },
-                { label: "Shipping",   value: "TBD" },
+                { label: "Shipping", value: "TBD" },
               ].map(row => (
                 <div key={row.label} style={{ display: "flex", justifyContent: "space-between", marginBottom: 10, fontSize: 13 }}>
                   <span style={{ color: T.textMid, fontFamily: T.mono }}>{row.label}</span>

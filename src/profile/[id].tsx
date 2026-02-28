@@ -83,6 +83,140 @@ function StatPill({ label, value, accent }: { label: string; value: number | str
 }
 
 // ─────────────────────────────────────────────
+// OrderModal
+// ─────────────────────────────────────────────
+const OrderModal = ({ order, onClose }: { order: any; onClose: () => void }) => {
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+  };
+
+  const formatAddress = (address: any) => {
+    if (!address) return "No shipping address";
+    return `${address.line1 || ''} ${address.line2 || ''}, ${address.city || ''}, ${address.state || ''} ${address.postal_code || ''}, ${address.country || ''}`.replace(/,\s*,/g, ',').trim();
+  };
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', zIndex: 9998, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div
+        style={{
+          background: T.card, borderRadius: 14, padding: 28, maxWidth: 600, width: '92%',
+          border: '1px solid rgba(255,255,255,0.08)', zIndex: 9999,
+          boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
+          maxHeight: '80vh', overflowY: 'auto'
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+          <h2 style={{ margin: 0, fontSize: 24, fontWeight: 900, color: T.text, fontFamily: T.display }}>
+            Order Details
+          </h2>
+          <button
+            onClick={onClose}
+            style={{ background: 'transparent', border: 'none', color: T.textMid, cursor: 'pointer', fontSize: 20, padding: 4 }}
+          >
+            ✕
+          </button>
+        </div>
+
+        <div style={{ display: 'grid', gap: 20 }}>
+          {/* Order ID */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Order ID</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 13, color: T.text, fontFamily: T.mono }}>{order.id}</span>
+              <button
+                onClick={() => copyToClipboard(order.id)}
+                style={{ background: 'transparent', border: 'none', color: T.green, cursor: 'pointer', fontSize: 12 }}
+              >
+                📋
+              </button>
+            </div>
+          </div>
+
+          {/* Build Name */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Build Name</span>
+            <span style={{ fontSize: 14, color: T.text, fontWeight: 600 }}>{order.build_data?.build_name || order.build_name || 'Custom Build'}</span>
+          </div>
+
+          {/* Total Price */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Total Price</span>
+            <span style={{ fontSize: 16, color: T.green, fontWeight: 700 }}>${order.total_price}</span>
+          </div>
+
+          {/* Status */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Status</span>
+            <span style={{
+              fontSize: 12, fontWeight: 700, padding: '4px 12px', borderRadius: 20,
+              background: order.status === "paid" ? "rgba(15,217,128,0.1)" : "rgba(255,255,255,0.05)",
+              color: order.status === "paid" ? "#0FD980" : "rgba(255,255,255,0.4)",
+              border: `1px solid ${order.status === "paid" ? "rgba(15,217,128,0.3)" : "rgba(255,255,255,0.1)"}`
+            }}>
+              {order.status?.toUpperCase() || "PENDING"}
+            </span>
+          </div>
+
+          {/* Date */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Order Date</span>
+            <span style={{ fontSize: 13, color: T.text }}>{new Date(order.created_at).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          </div>
+
+          {/* Stripe Session ID */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Stripe Session ID</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 12, color: T.text, fontFamily: T.mono }}>{order.stripe_session_id}</span>
+              <button
+                onClick={() => copyToClipboard(order.stripe_session_id)}
+                style={{ background: 'transparent', border: 'none', color: T.green, cursor: 'pointer', fontSize: 12 }}
+              >
+                📋
+              </button>
+            </div>
+          </div>
+
+          {/* Customer Info */}
+          <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 20 }}>
+            <h3 style={{ margin: '0 0 16px', fontSize: 16, fontWeight: 700, color: T.text, fontFamily: T.display }}>
+              Customer Information
+            </h3>
+            <div style={{ display: 'grid', gap: 12 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Name</span>
+                <span style={{ fontSize: 13, color: T.text }}>{order.customer_name || 'N/A'}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Email</span>
+                <span style={{ fontSize: 13, color: T.text }}>{order.customer_email || 'N/A'}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: 13, color: T.textMid, fontFamily: T.mono }}>Phone</span>
+                <span style={{ fontSize: 13, color: T.text }}>{order.customer_phone || 'N/A'}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Shipping Address */}
+          {order.shipping_address && (
+            <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 20 }}>
+              <h3 style={{ margin: '0 0 16px', fontSize: 16, fontWeight: 700, color: T.text, fontFamily: T.display }}>
+                Shipping Address
+              </h3>
+              <p style={{ fontSize: 13, color: T.text, lineHeight: 1.5, margin: 0 }}>
+                {formatAddress(order.shipping_address)}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ─────────────────────────────────────────────
 // BuildModal
 // ─────────────────────────────────────────────
 const BuildModal = ({ build, onClose }: { build: any; onClose: () => void }) => {
@@ -236,7 +370,7 @@ const DeleteAccountModal = ({ onClose, onConfirm }: { onClose: () => void; onCon
             style={{ width: '100%', padding: '10px', borderRadius: 8, border: `1px solid ${T.border}`, background: T.bg, color: T.text, fontFamily: T.mono, fontSize: 13 }}
           />
         </div>
-        <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' , padding: '20px 0', marginTop: 20}}>
+        <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', padding: '20px 0', marginTop: 20 }}>
           <button
             onClick={onClose}
             style={{ padding: '10px 18px', fontSize: 12, borderRadius: 8, border: `1px solid ${T.border}`, background: T.bgHover, color: T.text, cursor: 'pointer', fontFamily: T.mono, transition: 'all 0.15s' }}
@@ -273,7 +407,7 @@ const ResetPasswordModal = ({
   onConfirm: () => void;
 }) => {
   if (!open) return null;
-  
+
   return (
     <>
       <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
@@ -282,7 +416,7 @@ const ResetPasswordModal = ({
           <p style={{ margin: 0, fontSize: 13, color: T.textMid, marginBottom: 16 }}>
             Are you sure you want to reset your password? This will send a password reset email to your registered email address.
           </p>
-          <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' , padding: '20px 0', marginTop: 20}}>
+          <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', padding: '20px 0', marginTop: 20 }}>
             <button
               onClick={onClose}
               style={{ padding: '10px 18px', fontSize: 12, borderRadius: 8, border: `1px solid ${T.border}`, background: T.bgHover, color: T.text, cursor: 'pointer', fontFamily: T.mono, transition: 'all 0.15s' }}
@@ -462,7 +596,7 @@ const Profile = () => {
   };
 
   // Reset Password Logic:
-    const handlePasswordReset = async () => {
+  const handlePasswordReset = async () => {
     const { error } = await supabase.auth.resetPasswordForEmail(user.email, {
       redirectTo: "https://techkage.com/reset-password", // your reset page URL
     });
@@ -662,7 +796,7 @@ const Profile = () => {
         />,
         document.body
       )}
-      
+
       {resendEmailModalOpen && createPortal(
         <ResetPasswordModal
           open={resendEmailModalOpen}
