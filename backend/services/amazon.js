@@ -26,3 +26,5 @@ async function enrichBuild(buildData) {
 
   return enriched;
 }
+
+module.exports = { enrichBuild };
