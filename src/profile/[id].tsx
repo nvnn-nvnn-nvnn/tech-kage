@@ -265,17 +265,7 @@ const BuildModal = ({ build, onClose }: { build: any; onClose: () => void }) => 
       .map(([category, part]: [string, any]) =>
         `${category.padEnd(14)} ${part?.name || '—'}\n${' '.repeat(14)}${part?.price || '—'}`
       ).join('\n\n');
-
-    const text = `PC BUILD - ${build.build_name || 'CUSTOM'}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-${partsText}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TOTAL: $${totalPrice.toFixed(2)}
-
-Created: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-`;
+    const text = `PC BUILD - ${build.build_name || 'CUSTOM'}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${partsText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTOTAL: $${totalPrice.toFixed(2)}\n\nCreated: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
     navigator.clipboard.writeText(text);
     alert('Build copied to clipboard!');
   };
@@ -288,30 +278,29 @@ Created: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "shor
           position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
           background: T.card, border: `1px solid ${T.border}`, borderRadius: 12,
           boxShadow: '0 20px 60px rgba(0,0,0,0.8)', maxWidth: 620, width: '92%',
-          maxHeight: '86vh', overflow: 'hidden', zIndex: 9999, animation: "modalIn 0.5s ease"
+          height: '90vh',
+          display: 'flex', flexDirection: 'column',
+          overflow: 'hidden',
+          zIndex: 9999, animation: "modalIn 0.5s ease"
         }}
         onClick={e => e.stopPropagation()}
       >
-        {/* Header */}
-        <div style={{ padding: '20px 24px', borderBottom: `1px solid ${T.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {/* ── HEADER (fixed) ── */}
+        <div style={{ padding: '20px 24px', borderBottom: `1px solid ${T.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
           <div>
             <div style={{ fontSize: 10, letterSpacing: 3, color: T.green, marginBottom: 4, fontWeight: 600 }}>BUILD DETAILS</div>
             <div style={{ fontSize: 20, fontWeight: 800, color: T.text }}>{build.build_name || 'Your Build'}</div>
           </div>
           <div
             onClick={onClose}
-            style={{
-              width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', borderRadius: 8, border: `1px solid ${T.border}`,
-              color: T.textDim, fontSize: 20, transition: 'all 0.15s', alignSelf: 'flex-start',
-            }}
+            style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', borderRadius: 8, border: `1px solid ${T.border}`, color: T.textDim, fontSize: 20, transition: 'all 0.15s', alignSelf: 'flex-start' }}
             onMouseEnter={e => { e.currentTarget.style.background = T.bgHover; e.currentTarget.style.color = T.text; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = T.textDim; }}
           >×</div>
         </div>
 
-        {/* Content */}
-        <div style={{ padding: '20px 24px', maxHeight: 'calc(86vh - 180px)', overflowY: 'auto' }}>
+        {/* ── CONTENT (scrolls) ── */}
+        <div style={{ padding: '20px 24px', overflowY: 'auto', flex: 1 }}>
           <div style={{ marginBottom: 20 }}>
             <div style={{ fontSize: 14, color: T.textMid, marginBottom: 4 }}>Total Price</div>
             <div style={{ fontSize: 26, fontWeight: 900, color: T.text }}>${totalPrice.toFixed(2)}</div>
@@ -319,7 +308,7 @@ Created: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "shor
           <div style={{ marginBottom: 16, fontSize: 13, color: T.textDim }}>
             Created: {new Date(build.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
           </div>
-          <h3 style={{ color: T.text, margin: '20px 0 12px', fontSize: 15, letterSpacing: 0.5 }}>Build Parts</h3>
+          <h3 style={{ color: "#0FD980", margin: '20px 0 12px', fontSize: 25, letterSpacing: 0.5, fontFamily: "'Orbitron', sans-serif", fontWeight: 700 }}>Build Parts</h3>
           {Object.entries(build.build_data || {}).map(([key, value]: [string, any]) => (
             <div key={key} style={{ marginBottom: 14, padding: '14px 16px', background: 'rgba(255,255,255,0.02)', border: `1px solid ${T.border}`, borderRadius: 8 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
@@ -342,21 +331,29 @@ Created: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "shor
           ))}
         </div>
 
-        {/* Footer */}
-        <div style={{ padding: '16px 24px', borderTop: `1px solid ${T.border}`, background: 'rgba(255,255,255,0.01)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: 10, color: T.textDim, letterSpacing: 2, marginBottom: 2 }}>TOTAL</div>
-            <div style={{ fontSize: 22, fontWeight: 900, color: T.text }}>${totalPrice.toFixed(2)}</div>
+        {/* ── FOOTER (fixed) ── */}
+        <div style={{ borderTop: `1px solid ${T.border}`, background: 'rgba(255,255,255,0.01)', flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 12, padding: '16px 24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: 10, color: T.textDim, letterSpacing: 2, marginBottom: 2 }}>TOTAL</div>
+              <div style={{ fontSize: 22, fontWeight: 900, color: T.text }}>${totalPrice.toFixed(2)}</div>
+            </div>
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button onClick={copyToClipboard} style={{ padding: '10px 20px', fontSize: 12, letterSpacing: 1, fontWeight: 600, cursor: 'pointer', borderRadius: 8, border: `1px solid ${T.border}`, color: T.text, background: T.bgHover, transition: 'all 0.15s' }}>
+                📋 Copy Build
+              </button>
+              <button onClick={() => window.print()} style={{ padding: '10px 20px', fontSize: 12, letterSpacing: 1, fontWeight: 700, cursor: 'pointer', borderRadius: 8, background: T.green, color: '#050608', border: 'none', boxShadow: '0 4px 14px rgba(15,217,128,0.28)', transition: 'all 0.15s' }}>
+                🖨️ Print
+              </button>
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: 10 }}>
-            <button onClick={copyToClipboard} style={{ padding: '10px 20px', fontSize: 12, letterSpacing: 1, fontWeight: 600, cursor: 'pointer', borderRadius: 8, border: `1px solid ${T.border}`, color: T.text, background: T.bgHover, transition: 'all 0.15s' }}>
-              📋 Copy Build
-            </button>
-            <button onClick={() => window.print()} style={{ padding: '10px 20px', fontSize: 12, letterSpacing: 1, fontWeight: 700, cursor: 'pointer', borderRadius: 8, background: T.green, color: '#050608', border: 'none', boxShadow: '0 4px 14px rgba(15,217,128,0.28)', transition: 'all 0.15s' }}>
-              🖨️ Print
-            </button>
+          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(255,255,255,0.02)', border: `1px solid ${T.border}` }}>
+            <p style={{ margin: 0, fontSize: 11, color: T.textDim, fontFamily: T.mono, lineHeight: 1.7 }}>
+              💡 <span style={{ color: T.textMid }}>Affiliate Disclosure:</span> As an Amazon Associate, we earn from qualifying purchases. This helps support the site at no extra cost to you.
+            </p>
           </div>
         </div>
+
       </div>
     </>
   );

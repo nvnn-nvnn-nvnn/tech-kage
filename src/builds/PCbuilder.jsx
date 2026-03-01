@@ -60,6 +60,7 @@ const USAGE_OPTIONS = [
 const EXISTING_PARTS = ["CPU", "GPU", "MOTHERBOARD", "RAM", "STORAGE", "PSU", "CASE", "CPU COOLER", "MONITOR", "OS"];
 const PART_CATEGORIES = ["CPU", "GPU", "MOTHERBOARD", "RAM", "STORAGE", "PSU", "CASE", "COOLING"];
 
+/*
 const MOCK_PARTS = {
   CPU: [
     {
@@ -294,6 +295,9 @@ const MOCK_PARTS = {
     },
   ],
 };
+*/
+
+// archive mock_parts
 
 // ─── HELPERS ─────────────────────────────────────────────────────
 
@@ -885,7 +889,7 @@ function ResultsStep({ config }) {
   const buildData = config.generatedBuild;
   const parts = localBuild[cat]
     ? [localBuild[cat]]
-    : (buildData && buildData[cat] ? [buildData[cat]] : (MOCK_PARTS[cat] || []));
+    : (buildData && buildData[cat] ? [buildData[cat]] : []);
 
   const isUpgrade = config.mode === "upgrade";
 
@@ -1110,6 +1114,11 @@ function ResultsStep({ config }) {
           <div style={{ fontSize: 12, color: T.textMid }}>All parts are socket, chipset, and DDR generation compatible with each other.</div>
         </div>
       </div>
+
+      <div style={{ marginTop: 20, textAlign: "center", fontSize: 11, color: T.textDim, lineHeight: 1.4 }}>
+        💡 Affiliate Disclosure: As an Amazon Associate, we earn from qualifying purchases. This helps support the site at no extra cost to you.
+      </div>
+
     </div>
   );
 }
@@ -1121,7 +1130,11 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
   const [currentPart, setCurrentPart] = useState(part);
   const [loadingAlt, setLoadingAlt] = useState(false);
 
+  console.log(currentPart);
+
   useEffect(() => { setCurrentPart(part); }, [part]);
+
+  console.log("PART DATA:", currentPart);
 
   const fetchAlternative = async (type) => {
     setLoadingAlt(true);
@@ -1188,9 +1201,9 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 16, minWidth: 140 }}>
           <span style={{ fontSize: isMobile ? 20 : 24, fontWeight: 800, color: T.text }}>{currentPart.price}</span>
-          <button style={{ padding: "8px 20px", fontSize: 13, fontWeight: 600, color: hover ? T.green : T.textMid, background: hover ? "rgba(15,217,128,0.12)" : "transparent", border: `1px solid ${hover ? "rgba(15,217,128,0.3)" : T.border}`, borderRadius: 8, cursor: "pointer", transition: "all 0.2s ease", letterSpacing: 0.4 }}>
-            View Details →
-          </button>
+          <a href={currentPart?.link || "#"} target="_blank" rel="noopener noreferrer" style={{ padding: "8px 20px", fontSize: 13, fontWeight: 600, color: hover ? T.green : T.textMid, background: hover ? "rgba(15,217,128,0.12)" : "transparent", border: `1px solid ${hover ? "rgba(15,217,128,0.3)" : T.border}`, borderRadius: 8, cursor: "pointer", transition: "all 0.2s ease", letterSpacing: 0.4, textDecoration: "none", display: "inline-block" }}>
+            View on Amazon →
+          </a>
         </div>
       </div>
 
@@ -1250,36 +1263,64 @@ function ExportModal({ config, currentBuild, onClose }) {
   return (
     <>
       <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(4px)', zIndex: 9998 }} />
-      <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: T.bgCard, border: `1px solid ${T.border}`, borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.8)', maxWidth: 600, width: '90%', maxHeight: '80vh', overflow: 'hidden', zIndex: 9999, animation: "modalIn 0.5s ease" }}>
-        <div style={{ padding: '20px 24px', borderBottom: `1px solid ${T.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{
+        position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+        background: T.card, border: `1px solid ${T.border}`, borderRadius: 12,
+        boxShadow: '0 20px 60px rgba(0,0,0,0.8)', maxWidth: 600, width: '90%',
+        height: '90vh', display: 'flex', flexDirection: 'column',
+        overflow: 'hidden', zIndex: 9999, animation: "modalIn 0.5s ease"
+      }}>
+
+        {/* Header — fixed */}
+        <div style={{ padding: '20px 24px', borderBottom: `1px solid ${T.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
           <div>
             <div style={{ fontSize: 10, letterSpacing: 3, color: T.green, marginBottom: 4, fontWeight: 600 }}>EXPORT BUILD</div>
             <div style={{ fontSize: 18, fontWeight: 800, color: T.text }}>Your Parts List</div>
           </div>
           <div onClick={onClose} style={{ width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', borderRadius: 6, border: `1px solid ${T.border}`, color: T.textDim, fontSize: 18 }}>×</div>
         </div>
-        <div style={{ padding: '20px 24px', maxHeight: 'calc(80vh - 180px)', overflowY: 'auto' }}>
+
+        {/* Content — scrolls */}
+        <div style={{ padding: '20px 24px', overflowY: 'auto', flex: 1 }}>
           {Object.entries(buildData).map(([category, part]) => (
             <div key={category} style={{ marginBottom: 16, padding: '14px 16px', background: 'rgba(255,255,255,0.02)', border: `1px solid ${T.border}`, borderRadius: 8 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
                 <span style={{ fontSize: 9, letterSpacing: 2, color: T.textDim, fontWeight: 600 }}>{category}</span>
                 <span style={{ fontSize: 14, fontWeight: 700, color: T.green }}>{part.price}</span>
               </div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: T.text, marginBottom: 4 }}>{part.name || 'Unnamed part'}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: T.text, marginBottom: 4 }}>
+                <a href={part?.link || "#"} target="_blank" rel="noopener noreferrer"
+                  style={{ color: T.green, textDecoration: "none" }}
+                  onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
+                  onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+                >
+                  {part.name || 'Unnamed part'}
+                </a>
+              </div>
               <div style={{ fontSize: 11, color: T.textMid, lineHeight: 1.5 }}>Optimized choice for your build</div>
             </div>
           ))}
         </div>
-        <div style={{ padding: '16px 24px', borderTop: `1px solid ${T.border}`, background: 'rgba(255,255,255,0.01)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: 9, color: T.textDim, letterSpacing: 2, marginBottom: 2 }}>TOTAL</div>
-            <div style={{ fontSize: 22, fontWeight: 900, color: T.text }}>${totalPrice}</div>
+
+        {/* Footer — fixed */}
+        <div style={{ borderTop: `1px solid ${T.border}`, background: 'rgba(255,255,255,0.01)', flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 12, padding: '16px 24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: 9, color: T.textDim, letterSpacing: 2, marginBottom: 2 }}>TOTAL</div>
+              <div style={{ fontSize: 22, fontWeight: 900, color: T.text }}>${totalPrice}</div>
+            </div>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <div onClick={copyToClipboard} style={{ padding: '10px 20px', fontSize: 11, letterSpacing: 2, fontWeight: 600, cursor: 'pointer', borderRadius: 8, border: `1px solid ${T.border}`, color: T.text, background: T.bgHover }}>📋 COPY</div>
+              <div onClick={() => window.print()} style={{ padding: '10px 20px', fontSize: 11, letterSpacing: 2, fontWeight: 700, cursor: 'pointer', borderRadius: 8, background: T.green, color: '#050608', boxShadow: '0 4px 14px rgba(15,217,128,0.28)' }}>🖨️ PRINT</div>
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: 8 }}>
-            <div onClick={copyToClipboard} style={{ padding: '10px 20px', fontSize: 11, letterSpacing: 2, fontWeight: 600, cursor: 'pointer', borderRadius: 8, border: `1px solid ${T.border}`, color: T.text, background: T.bgHover }}>📋 COPY</div>
-            <div onClick={() => window.print()} style={{ padding: '10px 20px', fontSize: 11, letterSpacing: 2, fontWeight: 700, cursor: 'pointer', borderRadius: 8, background: T.green, color: '#050608', boxShadow: '0 4px 14px rgba(15,217,128,0.28)' }}>🖨️ PRINT</div>
+          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(255,255,255,0.02)', border: `1px solid ${T.border}` }}>
+            <p style={{ margin: 0, fontSize: 11, color: T.textDim, fontFamily: T.mono, lineHeight: 1.7 }}>
+              💡 <span style={{ color: T.textMid }}>Affiliate Disclosure:</span> As an Amazon Associate, we earn from qualifying purchases. This helps support the site at no extra cost to you.
+            </p>
           </div>
         </div>
+
       </div>
     </>
   );

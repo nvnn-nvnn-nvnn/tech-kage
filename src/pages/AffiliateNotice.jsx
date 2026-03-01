@@ -40,65 +40,15 @@ export default function AffiliateNotice() {
           lineHeight: 1.6,
         }}>
           <p style={{ marginBottom: "1.5rem" }}>
-            At Tech Kage, we are committed to transparency and honesty in all our business practices.
-            This Affiliate Disclosure page outlines our affiliate marketing relationships and how they work.
-          </p>
-
-          <h2 style={{
-            fontSize: "24px",
-            fontWeight: 700,
-            color: T.green,
-            marginBottom: "1rem",
-            marginTop: "2rem"
-          }}>
-            What is Affiliate Marketing?
-          </h2>
-
-          <p style={{ marginBottom: "1.5rem" }}>
-            Affiliate marketing is a type of performance-based marketing where we earn a commission by promoting
-            other companies' products. When you click on an affiliate link and make a purchase, we may receive a
-            small percentage of the sale at no extra cost to you.
-          </p>
-
-          <h2 style={{
-            fontSize: "24px",
-            fontWeight: 700,
-            color: T.green,
-            marginBottom: "1rem",
-            marginTop: "2rem"
-          }}>
-            How It Works on This Site
-          </h2>
-
-          <p style={{ marginBottom: "1.5rem" }}>
-            Some of the links on this website are affiliate links. This means that if you click on the link and
-            purchase the item, we will receive an affiliate commission. The price will be the same whether you
-            use the affiliate link or go directly to the merchant's website.
+            Tech Kage is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
           </p>
 
           <p style={{ marginBottom: "1.5rem" }}>
-            We only recommend products that we believe in and that align with our mission of providing quality
-            PC building experiences. Our recommendations are not influenced by affiliate commissions.
-          </p>
-
-          <h2 style={{
-            fontSize: "24px",
-            fontWeight: 700,
-            color: T.green,
-            marginBottom: "1rem",
-            marginTop: "2rem"
-          }}>
-            Transparency
-          </h2>
-
-          <p style={{ marginBottom: "1.5rem" }}>
-            We will always clearly mark affiliate links when possible. However, some affiliate links may not be
-            explicitly marked if they are integrated into our content naturally.
+            When you click on links to Amazon.com on this site and make a purchase, we may earn a small commission at no additional cost to you.
           </p>
 
           <p style={{ marginBottom: "1.5rem" }}>
-            If you have any questions about our affiliate relationships or this disclosure, please contact us
-            at <a href="mailto:TechKage@Proton.me" style={{ color: T.green }}>TechKage@Proton.me</a>.
+            Our Associate ID is: techkage-20
           </p>
 
           <p style={{ marginBottom: "1.5rem", fontSize: "14px", color: T.textDim }}>
