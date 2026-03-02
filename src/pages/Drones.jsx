@@ -5,7 +5,7 @@ const featuredDrones = [
     id: 1,
     name: "DJI Mavic 3 Pro",
     price: "$2,199",
-    image: "https://via.placeholder.com/300x200?text=DJI+Mavic+3+Pro",
+    image: "https://www.amazon.com/dp/B0BYHSDY4C?tag=techkage-20",
     specs: {
       camera: "4/3 CMOS Hasselblad",
       video: "5.1K/50fps, 4K/120fps",
@@ -20,7 +20,7 @@ const featuredDrones = [
     id: 2,
     name: "DJI Mini 3 Pro",
     price: "$669",
-    image: "https://via.placeholder.com/300x200?text=DJI+Mini+3+Pro",
+    image: "https://www.amazon.com/dp/B09WDBDGBZ?tag=techkage-20",
     specs: {
       camera: "1/1.3\" CMOS",
       video: "4K/60fps, 2.7K/60fps",
@@ -35,7 +35,7 @@ const featuredDrones = [
     id: 3,
     name: "DJI Air 2S",
     price: "$999",
-    image: "https://via.placeholder.com/300x200?text=DJI+Air+2S",
+    image: "https://www.amazon.com/dp/B096GYH52L?tag=techkage-20",
     specs: {
       camera: "1\" CMOS",
       video: "5.4K/30fps, 4K/60fps",
@@ -46,51 +46,51 @@ const featuredDrones = [
     highlights: ["1-inch sensor", "MasterShots AI", "FocusTrack subject tracking"],
     rating: 4.6
   },
-  {
-    id: 4,
-    name: "Parrot Anafi USA",
-    price: "$699",
-    image: "https://via.placeholder.com/300x200?text=Parrot+Anafi+USA",
-    specs: {
-      camera: "1/2.4\" CMOS",
-      video: "4K/30fps, 1080p/120fps",
-      flightTime: "25 minutes",
-      range: "4 km",
-      maxSpeed: "15 m/s"
-    },
-    highlights: ["Foldable & waterproof", "Thermal imaging option", "Cellular connectivity"],
-    rating: 4.3
-  },
-  {
-    id: 5,
-    name: "Skydio 2+",
-    price: "$1,099",
-    image: "https://via.placeholder.com/300x200?text=Skydio+2+Plus",
-    specs: {
-      camera: "1/2.3\" CMOS",
-      video: "4K/30fps, 1080p/60fps",
-      flightTime: "27 minutes",
-      range: "3.5 km",
-      maxSpeed: "14 m/s"
-    },
-    highlights: ["Autonomous flight", "6-directional sensing", "Cinematic modes"],
-    rating: 4.5
-  },
-  {
-    id: 6,
-    name: "Autel Robotics EVO II Pro",
-    price: "$1,499",
-    image: "https://via.placeholder.com/300x200?text=Autel+EVO+II+Pro",
-    specs: {
-      camera: "1\" CMOS",
-      video: "6K/30fps, 4K/60fps",
-      flightTime: "40 minutes",
-      range: "9 km",
-      maxSpeed: "20 m/s"
-    },
-    highlights: ["6K video recording", "40-minute flight time", "9km transmission"],
-    rating: 4.4
-  }
+  // {
+  //   id: 4,
+  //   name: "Parrot Anafi USA",
+  //   price: "$699",
+  //   image: "https://via.placeholder.com/300x200?text=Parrot+Anafi+USA",
+  //   specs: {
+  //     camera: "1/2.4\" CMOS",
+  //     video: "4K/30fps, 1080p/120fps",
+  //     flightTime: "25 minutes",
+  //     range: "4 km",
+  //     maxSpeed: "15 m/s"
+  //   },
+  //   highlights: ["Foldable & waterproof", "Thermal imaging option", "Cellular connectivity"],
+  //   rating: 4.3
+  // },
+  // {
+  //   id: 5,
+  //   name: "Skydio 2+",
+  //   price: "$1,099",
+  //   image: "https://via.placeholder.com/300x200?text=Skydio+2+Plus",
+  //   specs: {
+  //     camera: "1/2.3\" CMOS",
+  //     video: "4K/30fps, 1080p/60fps",
+  //     flightTime: "27 minutes",
+  //     range: "3.5 km",
+  //     maxSpeed: "14 m/s"
+  //   },
+  //   highlights: ["Autonomous flight", "6-directional sensing", "Cinematic modes"],
+  //   rating: 4.5
+  // },
+  // {
+  //   id: 6,
+  //   name: "Autel Robotics EVO II Pro",
+  //   price: "$1,499",
+  //   image: "https://via.placeholder.com/300x200?text=Autel+EVO+II+Pro",
+  //   specs: {
+  //     camera: "1\" CMOS",
+  //     video: "6K/30fps, 4K/60fps",
+  //     flightTime: "40 minutes",
+  //     range: "9 km",
+  //     maxSpeed: "20 m/s"
+  //   },
+  //   highlights: ["6K video recording", "40-minute flight time", "9km transmission"],
+  //   rating: 4.4
+  // }
 ];
 
 function Drones() {
@@ -253,7 +253,7 @@ function Drones() {
                   </ul>
                 </div>
 
-                <button style={{
+                <a href={drone.image} target="_blank" rel="noopener noreferrer" style={{
                   width: "100%",
                   padding: "12px",
                   background: "#0FD980",
@@ -263,19 +263,13 @@ function Drones() {
                   fontSize: "16px",
                   fontWeight: 600,
                   cursor: "pointer",
-                  transition: "all 0.2s"
-                }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = "#0CCF70";
-                    e.target.style.transform = "translateY(-1px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = "#0FD980";
-                    e.target.style.transform = "translateY(0)";
-                  }}
-                >
-                  Learn More
-                </button>
+                  transition: "all 0.2s",
+                  textDecoration: "none",
+                  display: "inline-block",
+                  textAlign: "center"
+                }}>
+                  Buy on Amazon
+                </a>
               </div>
             </div>
           ))}

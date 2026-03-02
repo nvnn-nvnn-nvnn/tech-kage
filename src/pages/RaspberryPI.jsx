@@ -3,30 +3,30 @@ import React from "react";
 const raspberryPiModels = [
   {
     name: "Raspberry Pi 5",
-    price: "$60",
+    price: "$140",
     specs: "2.4GHz quad-core ARM Cortex-A76 CPU, 4GB/8GB RAM, Gigabit Ethernet, WiFi 6, Bluetooth 5.0",
-    image: "https://via.placeholder.com/300x200?text=Raspberry+Pi+5",
+    image: "https://www.amazon.com/dp/B0CK2FCG1K?tag=techkage-20",
     highlights: ["Latest flagship model", "Massive performance boost", "PoE+ support", "PCIe interface"]
   },
   {
     name: "Raspberry Pi 4 Model B",
     price: "$35",
     specs: "1.5GHz quad-core ARM Cortex-A72 CPU, 2GB/4GB/8GB RAM, Gigabit Ethernet, WiFi 5, Bluetooth 5.0",
-    image: "https://via.placeholder.com/300x200?text=Raspberry+Pi+4",
+    image: "https://www.amazon.com/dp/B081YD3VL5?tag=techkage-20",  // Popular 4GB variant; swap to 8GB if needed: B0899VXM8F
     highlights: ["Most popular model", "4K video output", "USB 3.0 ports", "Micro-HDMI dual"]
   },
   {
     name: "Raspberry Pi Zero 2 W",
     price: "$15",
     specs: "1GHz quad-core ARM Cortex-A53 CPU, 512MB RAM, Mini-HDMI, Micro-USB, WiFi, Bluetooth",
-    image: "https://via.placeholder.com/300x200?text=Raspberry+Pi+Zero+2+W",
+    image: "https://www.amazon.com/dp/B09LH5SBPS?tag=techkage-20",
     highlights: ["Ultra-compact", "Wireless connectivity", "Perfect for IoT", "Camera interface"]
   },
   {
     name: "Raspberry Pi Pico",
     price: "$4",
     specs: "133MHz dual-core ARM Cortex-M0+ CPU, 264KB RAM, 25 GPIO pins, Micro-USB",
-    image: "https://via.placeholder.com/300x200?text=Raspberry+Pi+Pico",
+    image: "https://www.amazon.com/dp/B08ZSKMJJD?tag=techkage-20",  // Common 3-pack for value; single often B08T1XXF7V or similar
     highlights: ["Microcontroller board", "RP2040 chip", "Programmable in C/C++", "Low power consumption"]
   }
 ];
@@ -37,7 +37,7 @@ const projects = [
     description: "Build a complete media streaming server with Plex, Kodi, or Jellyfin for movies, TV shows, and music.",
     difficulty: "Intermediate",
     time: "4-6 hours",
-    image: "https://via.placeholder.com/400x250?text=Media+Server",
+    image: "https://raspberrytips.com/raspberry-pi-media-center-guide/",
     tags: ["Streaming", "NAS", "Docker"]
   },
   {
@@ -45,7 +45,7 @@ const projects = [
     description: "Transform your Pi into a retro gaming machine with RetroPie, supporting NES, SNES, Genesis, and more.",
     difficulty: "Beginner",
     time: "2-3 hours",
-    image: "https://via.placeholder.com/400x250?text=Retro+Gaming",
+    image: "https://www.geeky-gadgets.com/raspberry-pi-retro-gaming-console-build-guide-2025/",
     tags: ["Gaming", "Emulation", "Arcade"]
   },
   {
@@ -53,33 +53,33 @@ const projects = [
     description: "Create a central smart home controller with Home Assistant, MQTT, and various IoT integrations.",
     difficulty: "Advanced",
     time: "6-8 hours",
-    image: "https://via.placeholder.com/400x250?text=Smart+Home+Hub",
+    image: "https://www.digitalcitizen.life/how-to-build-your-own-smart-home-hub-with-raspberry-pi/",
     tags: ["IoT", "Automation", "MQTT"]
   },
-  {
-    title: "Network Attached Storage (NAS)",
-    description: "Set up a personal cloud storage solution with Samba, RAID, and remote access capabilities.",
-    difficulty: "Intermediate",
-    time: "3-5 hours",
-    image: "https://via.placeholder.com/400x250?text=NAS+Server",
-    tags: ["Storage", "Networking", "Cloud"]
-  },
-  {
-    title: "AI-Powered Security Camera",
-    description: "Build a smart security system with motion detection, facial recognition, and mobile notifications.",
-    difficulty: "Advanced",
-    time: "8-10 hours",
-    image: "https://via.placeholder.com/400x250?text=AI+Security+Camera",
-    tags: ["AI", "Computer Vision", "Security"]
-  },
-  {
-    title: "Portable VPN Router",
-    description: "Create a travel router with built-in VPN, ad-blocking, and network monitoring features.",
-    difficulty: "Intermediate",
-    time: "3-4 hours",
-    image: "https://via.placeholder.com/400x250?text=VPN+Router",
-    tags: ["Networking", "Privacy", "Travel"]
-  }
+  // {
+  //   title: "Network Attached Storage (NAS)",
+  //   description: "Set up a personal cloud storage solution with Samba, RAID, and remote access capabilities.",
+  //   difficulty: "Intermediate",
+  //   time: "3-5 hours",
+  //   image: "https://via.placeholder.com/400x250?text=NAS+Server",
+  //   tags: ["Storage", "Networking", "Cloud"]
+  // },
+  // {
+  //   title: "AI-Powered Security Camera",
+  //   description: "Build a smart security system with motion detection, facial recognition, and mobile notifications.",
+  //   difficulty: "Advanced",
+  //   time: "8-10 hours",
+  //   image: "https://via.placeholder.com/400x250?text=AI+Security+Camera",
+  //   tags: ["AI", "Computer Vision", "Security"]
+  // },
+  // {
+  //   title: "Portable VPN Router",
+  //   description: "Create a travel router with built-in VPN, ad-blocking, and network monitoring features.",
+  //   difficulty: "Intermediate",
+  //   time: "3-4 hours",
+  //   image: "https://via.placeholder.com/400x250?text=VPN+Router",
+  //   tags: ["Networking", "Privacy", "Travel"]
+  // }
 ];
 
 function RaspberryPI() {
@@ -219,7 +219,7 @@ function RaspberryPI() {
                       ))}
                     </div>
                   </div>
-                  <button style={{
+                  <a href={model.image} target="_blank" rel="noopener noreferrer" style={{
                     width: "100%",
                     padding: "10px",
                     background: "#0FD980",
@@ -229,19 +229,13 @@ function RaspberryPI() {
                     fontSize: "14px",
                     fontWeight: 600,
                     cursor: "pointer",
-                    transition: "all 0.2s"
-                  }}
-                    onMouseEnter={(e) => {
-                      e.target.style.background = "#0CCF70";
-                      e.target.style.transform = "translateY(-1px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.background = "#0FD980";
-                      e.target.style.transform = "translateY(0)";
-                    }}
-                  >
-                    View Specs
-                  </button>
+                    transition: "all 0.2s",
+                    textDecoration: "none",
+                    display: "inline-block",
+                    textAlign: "center"
+                  }}>
+                    Buy on Amazon
+                  </a>
                 </div>
               </div>
             ))}
@@ -357,7 +351,7 @@ function RaspberryPI() {
                       </span>
                     ))}
                   </div>
-                  <button style={{
+                  <a href={project.image} target="_blank" rel="noopener noreferrer" style={{
                     width: "100%",
                     padding: "12px",
                     background: "#0FD980",
@@ -367,19 +361,13 @@ function RaspberryPI() {
                     fontSize: "14px",
                     fontWeight: 600,
                     cursor: "pointer",
-                    transition: "all 0.2s"
-                  }}
-                    onMouseEnter={(e) => {
-                      e.target.style.background = "#0CCF70";
-                      e.target.style.transform = "translateY(-1px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.background = "#0FD980";
-                      e.target.style.transform = "translateY(0)";
-                    }}
-                  >
+                    transition: "all 0.2s",
+                    textDecoration: "none",
+                    display: "inline-block",
+                    textAlign: "center"
+                  }}>
                     Start Tutorial →
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -402,42 +390,94 @@ function RaspberryPI() {
             gap: "2rem",
             marginBottom: "24px"
           }}>
-            <div style={{
+            <a href="https://www.raspberrypi.com/documentation/" target="_blank" rel="noopener noreferrer" style={{
               padding: "1.5rem",
               background: "#0A0C10",
               borderRadius: "8px",
-              border: "1px solid rgba(255,255,255,0.08)"
-            }}>
+              border: "1px solid rgba(255,255,255,0.08)",
+              textDecoration: "none",
+              color: "inherit",
+              display: "block",
+              transition: "all 0.2s"
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(15,217,128,0.3)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <h4 style={{ margin: 0, fontSize: 16, marginBottom: "8px" }}>📚 Documentation</h4>
               <p style={{ margin: 0, fontSize: 14, opacity: 0.7 }}>Official guides and API references</p>
-            </div>
-            <div style={{
+            </a>
+            <a href="https://www.reddit.com/r/raspberry_pi/" target="_blank" rel="noopener noreferrer" style={{
               padding: "1.5rem",
               background: "#0A0C10",
               borderRadius: "8px",
-              border: "1px solid rgba(255,255,255,0.08)"
-            }}>
+              border: "1px solid rgba(255,255,255,0.08)",
+              textDecoration: "none",
+              color: "inherit",
+              display: "block",
+              transition: "all 0.2s"
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(15,217,128,0.3)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <h4 style={{ margin: 0, fontSize: 16, marginBottom: "8px" }}>💬 Community</h4>
               <p style={{ margin: 0, fontSize: 14, opacity: 0.7 }}>Forums, Discord, and Reddit communities</p>
-            </div>
-            <div style={{
+            </a>
+            <a href="https://www.adafruit.com/category/789" target="_blank" rel="noopener noreferrer" style={{
               padding: "1.5rem",
               background: "#0A0C10",
               borderRadius: "8px",
-              border: "1px solid rgba(255,255,255,0.08)"
-            }}>
+              border: "1px solid rgba(255,255,255,0.08)",
+              textDecoration: "none",
+              color: "inherit",
+              display: "block",
+              transition: "all 0.2s"
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(15,217,128,0.3)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <h4 style={{ margin: 0, fontSize: 16, marginBottom: "8px" }}>🛠️ Accessories</h4>
               <p style={{ margin: 0, fontSize: 14, opacity: 0.7 }}>Cases, power supplies, and add-ons</p>
-            </div>
-            <div style={{
+            </a>
+            <a href="https://www.raspberrypi.com/resources/learn/" target="_blank" rel="noopener noreferrer" style={{
               padding: "1.5rem",
               background: "#0A0C10",
               borderRadius: "8px",
-              border: "1px solid rgba(255,255,255,0.08)"
-            }}>
+              border: "1px solid rgba(255,255,255,0.08)",
+              textDecoration: "none",
+              color: "inherit",
+              display: "block",
+              transition: "all 0.2s"
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(15,217,128,0.3)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
               <h4 style={{ margin: 0, fontSize: 16, marginBottom: "8px" }}>🎯 Learning</h4>
               <p style={{ margin: 0, fontSize: 14, opacity: 0.7 }}>Tutorials, courses, and certifications</p>
-            </div>
+            </a>
           </div>
           <p style={{ fontSize: 16, opacity: 0.8 }}>
             Join thousands of makers, educators, and enthusiasts building amazing projects with Raspberry Pi.
