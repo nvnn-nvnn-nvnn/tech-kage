@@ -84,7 +84,7 @@ const PARTS_CATALOG = {
       badge: "1440P SOLID",
       spec: "16GB GDDR7 · ~180W TDP · DLSS 4 · Frame Gen",
       rating: 4.7,
-      asin: "example-asin-5060ti",
+      asin: "B0F5BD1X83",
       reason: "Newer gen card with DLSS advantages and more VRAM for demanding titles. Great for 1440p high-refresh gaming, edges out older cards in ray tracing and upscaling."
     },
     {
@@ -112,8 +112,8 @@ const PARTS_CATALOG = {
   MOTHERBOARD: [
     {
       name: "ASUS TUF Gaming X670E-Plus WiFi",
-      price: "$209",
-      priceNumeric: 209,
+      price: "$210",
+      priceNumeric: 210,
       badge: "BEST PICK",
       spec: "ATX · X670E · DDR5 · WiFi 6E · PCIe 5.0 · AM5",
       rating: 4.7,
@@ -122,8 +122,8 @@ const PARTS_CATALOG = {
     },
     {
       name: "MSI MAG Z790 Tomahawk WiFi",
-      price: "$189",
-      priceNumeric: 189,
+      price: "$220",
+      priceNumeric: 220,
       badge: "INTEL PICK",
       spec: "ATX · Z790 · DDR5 · WiFi 6E · PCIe 5.0 · LGA1700",
       rating: 4.8,
@@ -132,8 +132,8 @@ const PARTS_CATALOG = {
     },
     {
       name: "Gigabyte X670 AORUS Elite AX",
-      price: "$239",
-      priceNumeric: 239,
+      price: "$280",
+      priceNumeric: 280,
       badge: "PREMIUM AM5",
       spec: "ATX · X670 · DDR5 · WiFi 6E · Dual M.2 Thermal Guard",
       rating: 4.6,
@@ -209,8 +209,8 @@ const PARTS_CATALOG = {
   PSU: [
     {
       name: "Corsair RM850x 850W",
-      price: "$175",
-      priceNumeric: 175,
+      price: "$150",
+      priceNumeric: 150,
       badge: "BEST PICK",
       spec: "80+ Gold · Fully Modular · Zero RPM Mode · 10yr Warranty",
       rating: 4.9,
@@ -219,8 +219,8 @@ const PARTS_CATALOG = {
     },
     {
       name: "Seasonic Focus GX-850 850W",
-      price: "$155",
-      priceNumeric: 155,
+      price: "$145",
+      priceNumeric: 145,
       badge: "PREMIUM",
       spec: "80+ Gold · Fully Modular · Fluid Bearing Fan · 10yr Warranty",
       rating: 4.8,
