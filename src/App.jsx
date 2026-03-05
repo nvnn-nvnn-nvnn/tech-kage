@@ -34,6 +34,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AdminOrders from "./AdminOrders";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
+import NotFound from "./pages/NotFound";
 import { useAuth } from './context/AuthContext';
 import { Navigate } from 'react-router-dom';
 
@@ -95,6 +96,9 @@ function App() {
         <Route path="/admin/orders" element={
           user?.email === 'devanlee2nd@gmail.com' ? <AdminOrders /> : <Navigate to="/admin/login" />
         } />
+
+        {/* 404 - Catch all unmatched routes */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />
