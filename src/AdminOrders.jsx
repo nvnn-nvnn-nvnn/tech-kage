@@ -11,15 +11,29 @@ const T = {
 export default function AdminOrders() {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [expanded, setExpanded] = useState(null);
     const [filter, setFilter] = useState('all');
 
     useEffect(() => {
-        supabase
-            .from('orders')
-            .select('*')
-            .order('created_at', { ascending: false })
-            .then(({ data }) => { setOrders(data || []); setLoading(false); });
+        const fetchOrders = async () => {
+            const { data, error } = await supabase
+                .from('orders')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                console.error('Failed to fetch orders:', error);
+                setError(error.message);
+                setLoading(false);
+                return;
+            }
+
+            setOrders(data || []);
+            setLoading(false);
+        };
+
+        fetchOrders();
     }, []);
 
     const filtered = filter === 'all' ? orders : orders.filter(o => o.status === filter);
@@ -34,6 +48,41 @@ export default function AdminOrders() {
     }[s] || '#888');
 
     if (loading) return <div style={{ color: T.text, padding: 40 }}>Loading orders...</div>;
+
+    if (error) return (
+        <div style={{ background: T.bg, minHeight: '100vh', padding: '32px 24px', fontFamily: 'sans-serif' }}>
+            <div style={{
+                background: 'rgba(255,85,85,0.1)',
+                border: '1px solid rgba(255,85,85,0.3)',
+                borderRadius: 10,
+                padding: 24,
+                maxWidth: 600,
+                margin: '40px auto'
+            }}>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#ff5555', marginBottom: 8 }}>
+                    ⚠️ Failed to Load Orders
+                </div>
+                <div style={{ fontSize: 13, color: T.textMid }}>
+                    {error}
+                </div>
+                <button
+                    onClick={() => window.location.reload()}
+                    style={{
+                        marginTop: 16,
+                        padding: '8px 16px',
+                        background: T.green,
+                        color: '#000',
+                        border: 'none',
+                        borderRadius: 6,
+                        cursor: 'pointer',
+                        fontWeight: 600
+                    }}
+                >
+                    Retry
+                </button>
+            </div>
+        </div>
+    );
 
     return (
         <div style={{ background: T.bg, minHeight: '100vh', padding: '32px 24px', fontFamily: 'sans-serif' }}>
