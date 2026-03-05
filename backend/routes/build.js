@@ -93,14 +93,14 @@ router.post('/generate-build', async (req, res) => {
 
       console.log(`Final total after enforcement: $${totalPrice}`);
 
-      // If still over budget after swaps, return error with budget difference
+      // If still over budget after swaps, return build with warning
       if (totalPrice > config.budget) {
         const difference = totalPrice - config.budget;
-        return res.status(400).json({
-          success: false,
-          error: `Unable to create a build within your budget`,
+        return res.json({
+          success: true,
+          build: enrichedBuild,
           totalPrice,
-          budget: config.budget,
+          budgetWarning: `This build comes in at $${totalPrice.toFixed(2)}, which is $${difference.toFixed(2)} over your $${config.budget} budget.`,
           difference: difference
         });
       }

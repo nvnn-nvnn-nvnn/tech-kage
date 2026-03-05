@@ -1430,8 +1430,18 @@ export default function PCBuilder() {
         });
         const data = await response.json();
         if (data.success) {
-          setConfig((c) => ({ ...c, generatedBuild: data.build, totalPrice: data.totalPrice }));
+          setConfig((c) => ({
+            ...c,
+            generatedBuild: data.build,
+            totalPrice: data.totalPrice,
+            budgetWarning: data.budgetWarning || null
+          }));
           setDone(true);
+
+          // Show warning if over budget
+          if (data.budgetWarning) {
+            alert(`⚠️ Budget Notice\n\n${data.budgetWarning}\n\nThe build is still shown below, but you may want to adjust your requirements.`);
+          }
         } else {
           // Handle budget error specifically
           if (data.difference) {
