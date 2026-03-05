@@ -93,39 +93,15 @@ router.post('/generate-build', async (req, res) => {
 
       console.log(`Final total after enforcement: $${totalPrice}`);
 
-      // If STILL over budget after all swaps, force cheapest parts in expensive categories
+      // If still over budget after swaps, return error with budget difference
       if (totalPrice > config.budget) {
-        console.error(`Still over budget after swaps! Forcing cheapest parts...`);
-
-        // Aggressively swap to cheapest options starting with most expensive categories
-        for (const [category] of sorted) {
-          if (totalPrice <= config.budget) break;
-
-          const cheapestPart = PARTS_CATALOG[category]
-            .sort((a, b) => a.priceNumeric - b.priceNumeric)[0];
-
-          if (cheapestPart && cheapestPart.priceNumeric < enrichedBuild[category].priceNumeric) {
-            const saving = enrichedBuild[category].priceNumeric - cheapestPart.priceNumeric;
-            console.log(`FORCING cheapest ${category}: ${enrichedBuild[category].name} → ${cheapestPart.name} (saves $${saving})`);
-            enrichedBuild[category] = {
-              ...cheapestPart,
-              reason: `Cheapest option to stay within $${config.budget} budget`,
-              link: cheapestPart.asin ? `https://www.amazon.com/dp/${cheapestPart.asin}?tag=techkage-20` : null
-            };
-            totalPrice -= saving;
-          }
-        }
-
-        console.log(`Final total after forcing cheapest: $${totalPrice}`);
-      }
-
-      // If STILL over (shouldn't happen), return error instead of broken build
-      if (totalPrice > config.budget) {
+        const difference = totalPrice - config.budget;
         return res.status(400).json({
           success: false,
-          error: `Unable to create a build within $${config.budget} budget. Current total: $${totalPrice}. Try increasing your budget or adjusting requirements.`,
+          error: `Unable to create a build within your budget`,
           totalPrice,
-          budget: config.budget
+          budget: config.budget,
+          difference: difference
         });
       }
     }

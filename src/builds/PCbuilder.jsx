@@ -1433,10 +1433,15 @@ export default function PCBuilder() {
           setConfig((c) => ({ ...c, generatedBuild: data.build, totalPrice: data.totalPrice }));
           setDone(true);
         } else {
-          alert('Failed to generate build. Check console for details.');
+          // Handle budget error specifically
+          if (data.difference) {
+            alert(`Sorry, we couldn't create a build within your $${config.budget} budget.\n\nThe difference is $${data.difference.toFixed(2)} above your budget.\n\nPlease try again with a higher budget or different requirements.`);
+          } else {
+            alert(`Failed to generate build: ${data.error || 'Unknown error'}`);
+          }
         }
       } catch (error) {
-        alert("Could not connect to backend. Make sure it's running on port 3001.");
+        alert("Could not connect to backend. Make sure it's running.");
       } finally {
         setLoading(false);
       }
