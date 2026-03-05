@@ -1,34 +1,34 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { supabase } from "../lib/supabase";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "./AuthContext";
 
 export type CartItemType = "custom_build" | "prebuild";
 
 export interface CartItem {
-  id:       string;
-  type:     CartItemType;
-  name:     string;
-  price:    number;
-  addedAt:  string;
-  build?:   Record<string, any>;
-  config?:  Record<string, any>;
+  id: string;
+  type: CartItemType;
+  name: string;
+  price: number;
+  addedAt: string;
+  build?: Record<string, any>;
+  config?: Record<string, any>;
   imageUrl?: string;
-  specs?:   string;
-  sku?:     string;
+  specs?: string;
+  sku?: string;
   quantity: number;
 }
 
 interface CartContextType {
-  items:          CartItem[];
-  history:        CartItem[];
-  addBuild:       (build: any, price: number, config: any, name: string) => void;
-  addPrebuild:    (prebuild: Omit<CartItem, "id" | "type" | "addedAt" | "quantity">) => void;
-  removeItem:     (id: string) => void;
-  clearCart:      () => void;
-  clearHistory:   () => void;
+  items: CartItem[];
+  history: CartItem[];
+  addBuild: (build: any, price: number, config: any, name: string) => void;
+  addPrebuild: (prebuild: Omit<CartItem, "id" | "type" | "addedAt" | "quantity">) => void;
+  removeItem: (id: string) => void;
+  clearCart: () => void;
+  clearHistory: () => void;
   updateQuantity: (id: string, quantity: number) => void;
-  cartCount:      number;
-  cartTotal:      number;
+  cartCount: number;
+  cartTotal: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -43,9 +43,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
 
   // ── All useState at the top ───────────────────────────────────
-  const [authReady, setAuthReady]   = useState(false);
-  const [items, setItems]           = useState<CartItem[]>([]);
-  const [history, setHistory]       = useState<CartItem[]>(() => {
+  const [authReady, setAuthReady] = useState(false);
+  const [items, setItems] = useState<CartItem[]>([]);
+  const [history, setHistory] = useState<CartItem[]>(() => {
     try {
       const saved = localStorage.getItem("cart_history");
       return saved ? JSON.parse(saved) : [];
@@ -87,7 +87,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         try {
           const saved = localStorage.getItem("tk_cart_v2");
           if (saved) setItems(JSON.parse(saved));
-        } catch {}
+        } catch { }
       }
     };
 
@@ -105,14 +105,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // ── All functions after ───────────────────────────────────────
   const addBuild = async (build: any, price: number, config: any, name: string) => {
     const item: CartItem = {
-      id:       generateId(),
-      type:     "custom_build",
-      name:     name || "Custom Build",
+      id: generateId(),
+      type: "custom_build",
+      name: name || "Custom Build",
       price,
       build,
       config,
       quantity: 1,
-      addedAt:  new Date().toISOString(),
+      addedAt: new Date().toISOString(),
     };
 
     setItems(prev => [
@@ -136,8 +136,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         .eq("item_data->>type", "custom_build");
 
       await supabase.from("cart_items").insert({
-        user_id:   user.id,
-        item_id:   item.id,
+        user_id: user.id,
+        item_id: item.id,
         item_data: item,
       });
     }
@@ -149,18 +149,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     const item: CartItem = {
       ...prebuild,
-      id:       generateId(),
-      type:     "prebuild",
+      id: generateId(),
+      type: "prebuild",
       quantity: 1,
-      addedAt:  new Date().toISOString(),
+      addedAt: new Date().toISOString(),
     };
 
     setItems(prev => [...prev, item]);
 
     if (user) {
       await supabase.from("cart_items").insert({
-        user_id:   user.id,
-        item_id:   item.id,
+        user_id: user.id,
+        item_id: item.id,
         item_data: item,
       });
     }

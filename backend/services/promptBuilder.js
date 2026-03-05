@@ -1,8 +1,14 @@
-const { getPartNamesForCategory } = require('./partsCatalog');
+const { getPartNamesForCategory, PARTS_CATALOG } = require('./partsCatalog');
+
+// Helper to format parts with prices for Claude
+function formatPartsWithPrices(category) {
+  const parts = PARTS_CATALOG[category] || [];
+  return parts.map(p => `${p.name} ($${p.priceNumeric})`).join(', ');
+}
 
 function buildPrompt(config) {
   const constraints = [];
-  
+
   // Budget constraint (always required)
   if (config.budget) {
     constraints.push(`Budget: $${config.budget} maximum, do not exceed this under any circumstances`);
@@ -121,15 +127,18 @@ Build a PC with the following requirements:
 
 ${constraints.map((c, i) => `${i + 1}. ${c}`).join('\n')}
 
-For each category, you MUST choose from these specific parts only:
-CPU: ${getPartNamesForCategory('CPU').join(', ')}
-GPU: ${getPartNamesForCategory('GPU').join(', ')}
-MOTHERBOARD: ${getPartNamesForCategory('MOTHERBOARD').join(', ')}
-RAM: ${getPartNamesForCategory('RAM').join(', ')}
-STORAGE: ${getPartNamesForCategory('STORAGE').join(', ')}
-PSU: ${getPartNamesForCategory('PSU').join(', ')}
-CASE: ${getPartNamesForCategory('CASE').join(', ')}
-COOLING: ${getPartNamesForCategory('COOLING').join(', ')}
+For each category, you MUST choose from these specific parts only (prices shown):
+CPU: ${formatPartsWithPrices('CPU')}
+GPU: ${formatPartsWithPrices('GPU')}
+MOTHERBOARD: ${formatPartsWithPrices('MOTHERBOARD')}
+RAM: ${formatPartsWithPrices('RAM')}
+STORAGE: ${formatPartsWithPrices('STORAGE')}
+PSU: ${formatPartsWithPrices('PSU')}
+CASE: ${formatPartsWithPrices('CASE')}
+COOLING: ${formatPartsWithPrices('COOLING')}
+
+IMPORTANT: Add up the prices as you select parts to ensure the total stays under $${config.budget}.
+Choose cheaper alternatives if needed to stay within budget
 
 Return ONLY valid JSON in exactly this format with no additional text:
 {

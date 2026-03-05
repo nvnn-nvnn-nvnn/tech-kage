@@ -27,7 +27,7 @@ import Gallery from "./pages/Gallery";
 import AffiliateNotice from "./pages/AffiliateNotice";
 import BlogDetail from "./pages/BlogDetail";
 import Placeholder from "./components/Placeholder";
-import ManualPartPicker from "./components/ManualPartPicker";
+import ManualPartPicker from "./pages/ManualPartPicker";
 import Careers from "./pages/Careers";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";

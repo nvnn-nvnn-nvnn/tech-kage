@@ -11,11 +11,11 @@ interface AuthContextType {
   signOut: () => Promise<{ error: any }>;
 }
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext < AuthContextType | undefined > (undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState < User | null > (null);
+  const [session, setSession] = useState < Session | null > (null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

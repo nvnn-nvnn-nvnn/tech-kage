@@ -52,54 +52,54 @@ const prebuiltPCs = [
     },
     highlights: ["Video editing powerhouse", "Multi-threaded performance", "Professional cooling"]
   },
-  {
-    id: 4,
-    name: "Budget Gaming Starter",
-    price: "$799",
-    image: "https://via.placeholder.com/400x300?text=Budget+Gaming+Starter",
-    category: "Gaming",
-    badge: "Entry Level",
-    specs: {
-      cpu: "AMD Ryzen 5 7600",
-      gpu: "RTX 4060 Ti 8GB",
-      ram: "16GB DDR5-5200",
-      storage: "512GB NVMe SSD",
-      psu: "650W Bronze"
-    },
-    highlights: ["1080p gaming", "Easy to upgrade", "Silent operation"]
-  },
-  {
-    id: 5,
-    name: "Compact Mini-ITX Build",
-    price: "$1,499",
-    image: "https://via.placeholder.com/400x300?text=Mini-ITX+Gaming+PC",
-    category: "Gaming",
-    badge: "Compact",
-    specs: {
-      cpu: "AMD Ryzen 7 7700X",
-      gpu: "RTX 4070 12GB",
-      ram: "32GB DDR5-5600",
-      storage: "1TB NVMe SSD",
-      psu: "750W SFX Gold"
-    },
-    highlights: ["Small footprint", "High performance", "Cable management"]
-  },
-  {
-    id: 6,
-    name: "Streaming & Gaming Hybrid",
-    price: "$1,899",
-    image: "https://via.placeholder.com/400x300?text=Streaming+Gaming+Hybrid",
-    category: "Streaming",
-    badge: "Streamer Favorite",
-    specs: {
-      cpu: "AMD Ryzen 7 7800X3D",
-      gpu: "RTX 4070 Ti 12GB",
-      ram: "32GB DDR5-5600",
-      storage: "1TB NVMe SSD + 500GB SSD",
-      psu: "850W Gold Modular"
-    },
-    highlights: ["Dual PC streaming ready", "Great for content creation", "RGB lighting"]
-  }
+  // {
+  //   id: 4,
+  //   name: "Budget Gaming Starter",
+  //   price: "$799",
+  //   image: "https://via.placeholder.com/400x300?text=Budget+Gaming+Starter",
+  //   category: "Gaming",
+  //   badge: "Entry Level",
+  //   specs: {
+  //     cpu: "AMD Ryzen 5 7600",
+  //     gpu: "RTX 4060 Ti 8GB",
+  //     ram: "16GB DDR5-5200",
+  //     storage: "512GB NVMe SSD",
+  //     psu: "650W Bronze"
+  //   },
+  //   highlights: ["1080p gaming", "Easy to upgrade", "Silent operation"]
+  // },
+  // {
+  //   id: 5,
+  //   name: "Compact Mini-ITX Build",
+  //   price: "$1,499",
+  //   image: "https://via.placeholder.com/400x300?text=Mini-ITX+Gaming+PC",
+  //   category: "Gaming",
+  //   badge: "Compact",
+  //   specs: {
+  //     cpu: "AMD Ryzen 7 7700X",
+  //     gpu: "RTX 4070 12GB",
+  //     ram: "32GB DDR5-5600",
+  //     storage: "1TB NVMe SSD",
+  //     psu: "750W SFX Gold"
+  //   },
+  //   highlights: ["Small footprint", "High performance", "Cable management"]
+  // },
+  // {
+  //   id: 6,
+  //   name: "Streaming & Gaming Hybrid",
+  //   price: "$1,899",
+  //   image: "https://via.placeholder.com/400x300?text=Streaming+Gaming+Hybrid",
+  //   category: "Streaming",
+  //   badge: "Streamer Favorite",
+  //   specs: {
+  //     cpu: "AMD Ryzen 7 7800X3D",
+  //     gpu: "RTX 4070 Ti 12GB",
+  //     ram: "32GB DDR5-5600",
+  //     storage: "1TB NVMe SSD + 500GB SSD",
+  //     psu: "850W Gold Modular"
+  //   },
+  //   highlights: ["Dual PC streaming ready", "Great for content creation", "RGB lighting"]
+  // }
 ];
 
 function PrebuiltPCs() {
