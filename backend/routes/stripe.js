@@ -2,13 +2,31 @@ const express = require("express");
 const router = express.Router();
 const Stripe = require("stripe");
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+// Initialize Stripe with timeout and retry configuration
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
+  timeout: 20000, // 20 seconds
+  maxNetworkRetries: 2,
+});
 
 // ─── POST /api/create-checkout-session ───────────────────────────
 // Called from Cart.jsx when user clicks "Checkout with Stripe"
 // Body: { buildName, totalPrice, userId, buildData, config }
 
 router.post("/create-checkout-session", async (req, res) => {
+  // Validate environment variables
+  if (!process.env.STRIPE_SECRET_KEY) {
+    console.error(" STRIPE_SECRET_KEY is not set");
+    return res.status(500).json({ error: "Stripe is not configured on the server" });
+  }
+
+  if (!process.env.CLIENT_URL) {
+    console.error(" CLIENT_URL is not set");
+    return res.status(500).json({ error: "Client URL is not configured" });
+  }
+
+  console.log(" Stripe key present:", process.env.STRIPE_SECRET_KEY.substring(0, 7) + "...");
+  console.log(" Client URL:", process.env.CLIENT_URL);
+
   const { buildName, totalPrice, userId, buildData, config } = req.body;
 
   const buildSummary = Object.entries(buildData || {}).reduce((acc, [cat, part]) => {
@@ -21,10 +39,10 @@ router.post("/create-checkout-session", async (req, res) => {
     return res.status(400).json({ error: "Invalid total price" });
   }
 
-
-
   const LABOUR_FEE = 150; // ← change this to your actual labour fee
   const grandTotal = Math.round(totalPrice * 100);
+
+  console.log("Creating Stripe session for:", { buildName, totalPrice, grandTotal });
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -79,8 +97,18 @@ router.post("/create-checkout-session", async (req, res) => {
     res.json({ url: session.url });
 
   } catch (err) {
-    console.error("Stripe error:", err.message);
-    res.status(500).json({ error: err.message });
+    console.error("❌ Stripe error details:");
+    console.error("Message:", err.message);
+    console.error("Type:", err.type);
+    console.error("Code:", err.code);
+    console.error("Status:", err.statusCode);
+    console.error("Full error:", JSON.stringify(err, null, 2));
+
+    // Return user-friendly error
+    res.status(500).json({
+      error: err.message || "Failed to create checkout session",
+      details: err.type || "unknown_error"
+    });
   }
 });
 

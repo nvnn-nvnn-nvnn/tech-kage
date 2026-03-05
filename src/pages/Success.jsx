@@ -9,11 +9,55 @@ export default function Success() {
   const { clearCart } = useCart();
   const { user } = useAuth();
   const sessionId = searchParams.get("session_id");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Clear the cart now that payment is confirmed
-    clearCart();
-  }, []);
+    try {
+      console.log("Success page loaded");
+      console.log("Session ID:", sessionId);
+      console.log("User:", user);
+
+      // Clear the cart now that payment is confirmed
+      clearCart();
+      console.log("Cart cleared successfully");
+      setLoading(false);
+    } catch (err) {
+      console.error("Error on success page:", err);
+      setError(err.message);
+      setLoading(false);
+    }
+  }, [sessionId, user]);
+
+  if (loading) {
+    return (
+      <div style={{
+        minHeight: "100vh", background: "#050608",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        flexDirection: "column", gap: 20, fontFamily: "system-ui, sans-serif",
+        color: "#f5f5f5", textAlign: "center", padding: "0 2rem 2rem 2rem",
+      }}>
+        <p style={{ fontSize: 18, color: "#fff" }}>
+          Loading...
+        </p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div style={{
+        minHeight: "100vh", background: "#050608",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        flexDirection: "column", gap: 20, fontFamily: "system-ui, sans-serif",
+        color: "#f5f5f5", textAlign: "center", padding: "0 2rem 2rem 2rem",
+      }}>
+        <p style={{ fontSize: 18, color: "#fff" }}>
+          An error occurred: {error}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div style={{
@@ -33,7 +77,7 @@ export default function Success() {
         Session: {sessionId}
       </p>
       <p style={{ fontSize: 18, color: "#fff", fontFamily: "monospace" }}>
-        You can check your order history in your <Link to={`/profile/${user?.id}`} className="price-span">profile</Link>. 
+        You can check your order history in your <Link to={`/profile/${user?.id}`} className="price-span">profile</Link>.
       </p>
       <button
         onClick={() => navigate("/")}

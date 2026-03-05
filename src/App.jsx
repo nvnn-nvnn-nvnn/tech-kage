@@ -32,6 +32,8 @@ import Careers from "./pages/Careers";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AdminOrders from "./AdminOrders";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminLogin from "./pages/AdminLogin";
 import { useAuth } from './context/AuthContext';
 import { Navigate } from 'react-router-dom';
 
@@ -86,8 +88,12 @@ function App() {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/affiliate-notice" element={<AffiliateNotice />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={
+          user?.email === 'devanlee2nd@gmail.com' ? <AdminDashboard /> : <Navigate to="/admin/login" />
+        } />
         <Route path="/admin/orders" element={
-          user?.email === 'devanlee2nd@gmail.com' ? <AdminOrders /> : <Navigate to="/" />
+          user?.email === 'devanlee2nd@gmail.com' ? <AdminOrders /> : <Navigate to="/admin/login" />
         } />
       </Routes>
 
