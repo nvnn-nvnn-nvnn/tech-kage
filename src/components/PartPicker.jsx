@@ -191,6 +191,8 @@ function PartModal({ category, onSelect, onClose }) {
 export default function PartPicker() {
     const [selections, setSelections] = useState({});
     const [modalCategory, setModalCategory] = useState(null);
+    const [catalog, setCatalog] = useState({})
+
 
     const selectPart = (catId, part) => setSelections(prev => ({ ...prev, [catId]: part }));
     const removePart = (catId) => setSelections(prev => { const n = { ...prev }; delete n[catId]; return n; });
@@ -246,7 +248,7 @@ export default function PartPicker() {
                     {/* Column headers */}
                     <div style={{
                         display: "grid",
-                        gridTemplateColumns: "160px 1fr 90px 100px 120px",
+                        gridTemplateColumns: "160px 1fr 90px 100px 120px 100px",
                         padding: "0.7rem 1.25rem",
                         background: "rgba(15,217,128,0.06)",
                         borderBottom: `1px solid ${T.border}`,
@@ -260,6 +262,7 @@ export default function PartPicker() {
                         <div style={{ textAlign: "right" }}>BASE</div>
                         <div style={{ textAlign: "right" }}>SAVINGS</div>
                         <div style={{ textAlign: "right" }}>FINAL PRICE</div>
+                        <div style={{ textAlign: "right" }}>ACTION</div>
                     </div>
 
                     {/* Rows */}
@@ -273,7 +276,7 @@ export default function PartPicker() {
                                 key={cat.id}
                                 style={{
                                     display: "grid",
-                                    gridTemplateColumns: "160px 1fr 90px 100px 120px",
+                                    gridTemplateColumns: "160px 1fr 90px 100px 120px 100px",
                                     alignItems: "center",
                                     padding: "0.9rem 1.25rem",
                                     borderBottom: i < initialCategories.length - 1 ? `1px solid ${T.border}` : "none",
@@ -290,7 +293,7 @@ export default function PartPicker() {
                                 </div>
 
                                 {/* Selection */}
-                                <div style={{ paddingRight: "1rem" }}>
+                                <div>
                                     {part ? (
                                         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
                                             <span style={{ fontSize: "0.9rem", fontWeight: 500 }}>{part.name}</span>
@@ -306,14 +309,6 @@ export default function PartPicker() {
                                             }}>
                                                 {part.avail}
                                             </span>
-                                            <div style={{ display: "flex", gap: "0.4rem" }}>
-                                                <button onClick={() => setModalCategory(cat)} style={btnStyle(T.blue, T.border)}>
-                                                    ↺ Change
-                                                </button>
-                                                <button onClick={() => removePart(cat.id)} style={btnStyle(T.red, "rgba(255,107,107,0.3)")}>
-                                                    × Remove
-                                                </button>
-                                            </div>
                                         </div>
                                     ) : (
                                         <button
@@ -346,6 +341,16 @@ export default function PartPicker() {
                                     {finalPrice !== null ? (
                                         <span style={{ fontWeight: 700, fontSize: "0.95rem" }}>${finalPrice.toFixed(2)}</span>
                                     ) : "—"}
+
+                                </div>
+
+                                {/* Action */}
+                                <div style={{ textAlign: "right" }}>
+                                    {part && (
+                                        <button onClick={() => removePart(cat.id)} style={btnStyle(T.red, "rgba(255,107,107,0.3)")}>
+                                            × Remove
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         );
@@ -354,7 +359,7 @@ export default function PartPicker() {
                     {/* Total row */}
                     <div style={{
                         display: "grid",
-                        gridTemplateColumns: "160px 1fr 90px 100px 120px",
+                        gridTemplateColumns: "160px 1fr 90px 100px 120px 100px",
                         alignItems: "center",
                         padding: "1rem 1.25rem",
                         background: "rgba(15,217,128,0.06)",

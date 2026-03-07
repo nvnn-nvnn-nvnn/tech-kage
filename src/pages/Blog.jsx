@@ -5,11 +5,11 @@ import TechKageLanding from "../assets/TechKageLanding.png";
 const blogPosts = [
   {
     id: 1,
-    title: "Introduction to TechKage!",
+    title: "Welcome to TechKage",
     date: "February 28, 2024",
-    excerpt: "TechKage is your ultimate destination for custom PC building, hardware reviews, and technology insights.",
+    excerpt: "TechKage is the ultimate destination for customized PC budgeting, hardware reviews, and technology insights. Whether you're a gamer, content creator, or enthusiast, we provide the tools and knowledge to build the perfect PC tailored to your needs.",
     image: TechKageLanding,
-    readTime: "5 min read",
+    readTime: "8 min read",
     category: "Technology"
   }
 ];
@@ -25,6 +25,21 @@ function Blog() {
         fontFamily: "system-ui, -apple-system, sans-serif"
       }}
     >
+      <style>{`
+        .newsletter-form {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+        
+        @media (max-width: 600px) {
+          .newsletter-form {
+            flex-direction: column;
+          }
+        }
+      `}</style>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <h1 style={{ fontSize: 48, marginBottom: 16, fontWeight: 800, letterSpacing: -1, fontFamily: "'Orbitron', sans-serif" }}>
           Tech Blog
@@ -35,7 +50,7 @@ function Blog() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
           gap: "2rem"
         }}>
           {blogPosts.map(post => (
@@ -131,7 +146,8 @@ function Blog() {
           padding: "3rem",
           background: "rgba(15,217,128,0.05)",
           border: "1px solid rgba(15,217,128,0.2)",
-          borderRadius: "12px"
+          borderRadius: "12px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))"
         }}>
           <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontFamily: "'Orbitron', sans-serif", fontWeight: "700" }}>
             Stay Updated
@@ -139,7 +155,7 @@ function Blog() {
           <p style={{ fontSize: 16, opacity: 0.8, marginBottom: 24 }}>
             Subscribe to our newsletter for the latest in PC building tips, hardware reviews, and tech news.
           </p>
-          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", maxWidth: "400px", margin: "0 auto" }}>
+          <div className="newsletter-form">
             <input
               type="email"
               placeholder="Enter your email"

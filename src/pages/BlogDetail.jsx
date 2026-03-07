@@ -5,15 +5,19 @@ import TechKageLanding from "../assets/TechKageLanding.png";
 const blogPosts = [
   {
     id: 1,
-    title: "Introduction to TechKage!",
+    title: "Welcome to TechKage",
     date: "February 28, 2024",
-    excerpt: "TechKage is your ultimate destination for custom PC building, hardware reviews, and technology insights.",
+    excerpt: "TechKage is the ultimate destination for customized PC budgeting, hardware reviews, and technology insights. Whether you're a gamer, content creator, or enthusiast, we provide the tools and knowledge to build the perfect PC tailored to your needs.",
     image: TechKageLanding,
-    readTime: "5 min read",
+    readTime: "8 min read",
     category: "Technology",
     content: `
       <h2>Welcome to TechKage</h2>
-      <p>TechKage is your ultimate destination for custom PC building, hardware reviews, and technology insights. Whether you're a gamer, content creator, or enthusiast, we provide the tools and knowledge to build the perfect PC tailored to your needs.</p>
+      <p>TechKage is the ultimate destination for customized PC budgeting, hardware reviews, and technology insights. Whether you're a gamer, content creator, or enthusiast, we provide the tools and knowledge to build the perfect PC tailored to your needs.</p>
+      
+      <p>TechKage also serves as your bridge into the technology world by connecting techheads like you with a vast library of resources for the different branches of buildable technology!</p>
+      
+      <p>From Computers, to Robotics, to even Drone technology; TechKage is your go-to destination for the latest and more relevant information on tech news!</p>
       
       <h2>Our Mission</h2>
       <p>At TechKage, we believe that building a PC should be accessible and enjoyable for everyone. Our platform offers comprehensive tools and resources to help you every step of the way:</p>
@@ -21,6 +25,7 @@ const blogPosts = [
         <li><strong>Interactive PC Builder:</strong> Our easy-to-use builder ensures compatibility and optimizes performance for your specific use case.</li>
         <li><strong>Hardware Reviews & Benchmarks:</strong> In-depth reviews of the latest components with real-world testing and performance data.</li>
         <li><strong>Expert Guides & Tutorials:</strong> Step-by-step guides for beginners and advanced users alike.</li>
+        <li><strong>Price Optimization and Price Matching:</strong> Dedicated Price-matching to ensure you never overspend on parts!</li>
         <li><strong>Community Insights:</strong> Connect with fellow PC enthusiasts and share your builds.</li>
       </ul>
       

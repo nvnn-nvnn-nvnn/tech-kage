@@ -710,13 +710,14 @@ const Profile = () => {
   // Reset Password Logic:
   const handlePasswordReset = async () => {
     const { error } = await supabase.auth.resetPasswordForEmail(user.email, {
-      redirectTo: "https://techkage.com/reset-password", // your reset page URL
+      redirectTo: `${window.location.origin}/reset-password`,
     });
 
     if (error) {
       alert("Failed to send reset email: " + error.message);
     } else {
       alert("Reset email sent! Check your inbox.");
+      setResendEmailModalOpen(false);
     }
   };
 
@@ -724,16 +725,54 @@ const Profile = () => {
   const handleDeleteAccount = async () => {
     try {
       // Delete all user data first
-      await supabase.from("saved_builds").delete().eq("user_id", user.id);
-      await supabase.from("orders").delete().eq("user_id", user.id);
-      // Delete the auth user
-      const { error } = await supabase.rpc("delete_user"); // or your preferred method
-      if (error) throw error;
+      const { error: buildsError } = await supabase
+        .from("saved_builds")
+        .delete()
+        .eq("user_id", user.id);
+
+      if (buildsError) {
+        console.error("Error deleting builds:", buildsError);
+      }
+
+      const { error: ordersError } = await supabase
+        .from("orders")
+        .delete()
+        .eq("user_id", user.id);
+
+      if (ordersError) {
+        console.error("Error deleting orders:", ordersError);
+      }
+
+      // Delete the auth user using the admin API
+      // Note: This requires admin privileges. For client-side deletion,
+      // you should call a backend endpoint that uses the service role key
+      const { data, error } = await supabase.auth.admin.deleteUser(user.id);
+
+      if (error) {
+        // If admin API fails, try alternative approach
+        console.error("Admin delete failed:", error);
+
+        // Alternative: Call backend endpoint to delete user
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/delete-account`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userId: user.id }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to delete account via backend');
+        }
+      }
+
+      // Sign out and redirect
       await signOut();
       navigate("/");
+      alert("Your account has been successfully deleted.");
     } catch (err) {
       console.error("Failed to delete account:", err);
-      alert("Something went wrong. Please try again.");
+      alert("Something went wrong deleting your account. Please contact support or try again later.");
     } finally {
       setDeleteAccountModalOpen(false);
     }
