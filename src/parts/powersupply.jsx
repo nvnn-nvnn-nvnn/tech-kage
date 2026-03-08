@@ -11,7 +11,7 @@ const T = {
     display: "'Orbitron', sans-serif",
 };
 
-export default function Motherboard() {
+export default function powersupply() {
     return (
         <div style={{
             minHeight: "100vh",
@@ -49,7 +49,7 @@ export default function Motherboard() {
                     backgroundClip: "text",
                     marginBottom: 8,
                 }}>
-                    Choose a Motherboard
+                    Choose a PSU
                 </h1>
                 {/* <p style={{
                     fontSize: 14,
@@ -63,7 +63,7 @@ export default function Motherboard() {
             </div>
 
             {/* CPU parts list */}
-            <PartsList partType="motherboard" />
+            <PartsList partType="powersupply" />
         </div>
     );
-}   
+}

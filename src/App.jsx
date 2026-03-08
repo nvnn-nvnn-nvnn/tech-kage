@@ -28,6 +28,7 @@ import AffiliateNotice from "./pages/AffiliateNotice";
 import BlogDetail from "./pages/BlogDetail";
 import Placeholder from "./components/Placeholder";
 import ManualPartPicker from "./pages/ManualPartPicker";
+import PartsPage from "./components/parts-components/PartsPage";
 import Careers from "./pages/Careers";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -37,13 +38,15 @@ import AdminLogin from "./pages/AdminLogin";
 import NotFound from "./pages/NotFound";
 import { useAuth } from './context/AuthContext';
 import { Navigate } from 'react-router-dom';
-
+import DevelopmentBanner from "./components/DevelopmentBanner";
+import Forums from "./pages/Forums";
 
 function App() {
   const { user } = useAuth();
   return (
     <>
       <Header />
+      <DevelopmentBanner />
 
       <Routes>
         {/* Landing page: hero + blogs */}
@@ -63,6 +66,9 @@ function App() {
         {/* Manual Part Picker */}
         <Route path="/manual" element={<ManualPartPicker />} />
 
+        {/* Parts Pages by Category */}
+        <Route path="/parts/:category" element={<PartsPage />} />
+
         {/* High-level nav pages (100vh placeholders) */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
@@ -70,6 +76,7 @@ function App() {
         <Route path="/drones" element={<Drones />} />
         <Route path="/ThreeDPrinting" element={<ThreeDPrinting />} />
         <Route path="/products" element={<ProductsRoot />} />
+        <Route path="/forums" element={<Forums />} />
 
         {/* Product detail pages */}
         <Route path="/products/prebuilt" element={<PrebuiltPCs />} />

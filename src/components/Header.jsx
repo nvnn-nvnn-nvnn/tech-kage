@@ -19,21 +19,22 @@ function Header() {
   const [showAuth, setShowAuth] = useState(false);
 
   const navItems = [
-    { label: "Home",         path: "/" },
-    { label: "Budgeting",    path: "/builder" },
-    { label: "Part Picker",  path: "/manual" },
-    { label: "Products",     path: null, hasDropdown: true },
+    { label: "Home", path: "/" },
+    { label: "Budgeting", path: "/builder" },
+    { label: "Part Picker", path: "/manual" },
+    { label: "Products", path: null, hasDropdown: true },
     { label: "Raspberry PI", path: "/raspberry" },
-    { label: "Drones",       path: "/drones" },
-    { label: "3D Printing",  path: "/ThreeDPrinting" },
-    { label: "Blog",         path: "/blog" },
-    { label: "Contact",      path: "/contact" },
+    { label: "Drones", path: "/drones" },
+    { label: "3D Printing", path: "/ThreeDPrinting" },
+    { label: "Forums", path: "/forums" },
+    { label: "Blog", path: "/blog" },
+    { label: "Contact", path: "/contact" },
   ];
 
   const productDropdownItems = [
-    { label: "Prebuilt PCs",         path: "/products/prebuilt" },
-    { label: "Desktop Accessories",  path: "/products/accessories" },
-    { label: "RubberDucky",          path: "/products/rubberducky" },
+    { label: "Prebuilt PCs", path: "/products/prebuilt" },
+    { label: "Desktop Accessories", path: "/products/accessories" },
+    { label: "RubberDucky", path: "/products/rubberducky" },
   ];
 
   useEffect(() => {
@@ -110,17 +111,17 @@ function Header() {
         {/* ── LEFT ── */}
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <button
-          type="button"
-          onClick={() => navigate("/")}
-          style={{
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-            padding: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+            type="button"
+            onClick={() => navigate("/")}
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
             <img src={techKageLogo} alt="Tech Kage Logo" style={{ width: 40, height: 40 }} />
           </button>
@@ -166,7 +167,7 @@ function Header() {
                           background: "#050608", borderRadius: 8,
                           border: "1px solid rgba(15,217,128,0.35)",
                           boxShadow: "0 10px 30px rgba(0,0,0,0.65)",
-                          padding: 6, zIndex: 1000,
+                          padding: 6, zIndex: 9999,
                           opacity: productsDropdownVisible ? 1 : 0,
                           transform: productsDropdownVisible ? "translateY(0)" : "translateY(-4px)",
                           transition: "opacity 0.2s ease-out, transform 0.2s ease-out",
@@ -289,11 +290,11 @@ function Header() {
               {isMobile ? "LOGIN" : "Log In"}
             </button>
           )}
-          
+
 
           {isMobile && (
             <button onClick={() => setMenuOpen(true)} style={{ display: "flex", flexDirection: "column", gap: 4, background: "none", border: "none", cursor: "pointer", padding: 6 }}>
-              {[0,1,2].map(i => <span key={i} style={{ width: 20, height: 2, background: "#0FD980", borderRadius: 2 }} />)}
+              {[0, 1, 2].map(i => <span key={i} style={{ width: 20, height: 2, background: "#0FD980", borderRadius: 2 }} />)}
             </button>
           )}
         </div>
@@ -350,8 +351,8 @@ function Header() {
               return (
                 <button key={item.label} onClick={() => { navigate(item.path); setMenuOpen(false); }}
                   style={{ width: "100%", textAlign: "left", padding: "12px 14px", fontSize: 11, borderRadius: 8, border: `1px solid ${isActive ? "rgba(15,217,128,0.5)" : "transparent"}`, background: isActive ? "rgba(15,217,128,0.08)" : "transparent", color: isActive ? "#0FD980" : "#E5FDF3", letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", fontWeight: isActive ? 700 : 400, transition: "all 0.15s" }}
-                  onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = "rgba(15,217,128,0.06)"; e.currentTarget.style.color = "#0FD980"; e.currentTarget.style.borderColor = "rgba(15,217,128,0.2)"; }}}
-                  onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#E5FDF3"; e.currentTarget.style.borderColor = "transparent"; }}}
+                  onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = "rgba(15,217,128,0.06)"; e.currentTarget.style.color = "#0FD980"; e.currentTarget.style.borderColor = "rgba(15,217,128,0.2)"; } }}
+                  onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#E5FDF3"; e.currentTarget.style.borderColor = "transparent"; } }}
                 >
                   {item.label}
                 </button>
@@ -382,7 +383,7 @@ function Header() {
             </button>
 
             <button onClick={() => { navigate("/cart"); setMenuOpen(false); }}
-              style={{width: "100%", padding: "12px", fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", borderRadius: 8, border: "1px solid rgba(15,217,128,0.9)", background: "#0FD980", color: "#050608", cursor: "pointer", boxShadow: "0 4px 16px rgba(15,217,128,0.25)", transition: "all 0.2s" }}
+              style={{ width: "100%", padding: "12px", fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", borderRadius: 8, border: "1px solid rgba(15,217,128,0.9)", background: "#0FD980", color: "#050608", cursor: "pointer", boxShadow: "0 4px 16px rgba(15,217,128,0.25)", transition: "all 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.background = "#1BF08E"}
               onMouseLeave={e => e.currentTarget.style.background = "#0FD980"}
             >
@@ -390,7 +391,7 @@ function Header() {
             </button>
 
             {user && (
-              <button onClick={() => {  signOut(); navigate("/"); setMenuOpen(false); } }
+              <button onClick={() => { signOut(); navigate("/"); setMenuOpen(false); }}
                 style={{ width: "100%", padding: "10px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", borderRadius: 8, border: "1px solid rgba(255,100,100,0.2)", background: "transparent", color: "rgba(255,100,100,0.6)", cursor: "pointer", fontFamily: "'JetBrains Mono', monospace", transition: "all 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,100,100,0.08)"; e.currentTarget.style.color = "#FF6B6B"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(255,100,100,0.6)"; }}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const T = {
     bg: "#050608",
@@ -81,118 +82,11 @@ const sampleParts = {
     ],
 };
 
-// ─── Modal ───────────────────────────────────────────────────────────────────
-function PartModal({ category, onSelect, onClose }) {
-    const parts = sampleParts[category.id] || [];
-
-    return (
-        <div
-            onClick={onClose}
-            style={{
-                position: "fixed", inset: 0, zIndex: 100,
-                background: "rgba(0,0,0,0.75)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                backdropFilter: "blur(4px)",
-            }}
-        >
-            <div
-                onClick={e => e.stopPropagation()}
-                style={{
-                    background: "#0D0F14",
-                    border: `1px solid ${T.border}`,
-                    borderRadius: "12px",
-                    width: "min(640px, 96vw)",
-                    maxHeight: "80vh",
-                    overflowY: "auto",
-                    boxShadow: `0 0 60px rgba(0,0,0,0.8), 0 0 0 1px ${T.greenGlow}`,
-                }}
-            >
-                {/* Modal header */}
-                <div style={{
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    padding: "1.25rem 1.5rem",
-                    borderBottom: `1px solid ${T.border}`,
-                    position: "sticky", top: 0, background: "#0D0F14", zIndex: 1,
-                }}>
-                    <div>
-                        <div style={{ fontSize: "0.75rem", color: T.textDim, fontFamily: T.mono, marginBottom: "2px" }}>SELECT COMPONENT</div>
-                        <div style={{ fontFamily: T.display, color: T.green, fontSize: "1.05rem" }}>{category.icon} {category.name}</div>
-                    </div>
-                    <button onClick={onClose} style={{
-                        background: "transparent", border: `1px solid ${T.border}`,
-                        color: T.textMid, width: 32, height: 32, borderRadius: "25%",
-                        cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center",
-                    }}>×</button>
-                </div>
-
-                {/* Part list */}
-                {parts.length === 0 ? (
-                    <div style={{ padding: "2rem", color: T.textDim, textAlign: "center", fontFamily: T.mono, fontSize: "0.9rem" }}>
-                        No parts available for this category yet.
-                    </div>
-                ) : (
-                    <div style={{ padding: "0.75rem" }}>
-                        {parts.map(part => {
-                            const finalPrice = part.base - part.promo + part.shipping + part.tax;
-                            return (
-                                <button
-                                    key={part.id}
-                                    onClick={() => { onSelect(category.id, part); onClose(); }}
-                                    style={{
-                                        width: "100%", background: "transparent",
-                                        border: `1px solid ${T.border}`, borderRadius: "2px",
-                                        padding: "1rem 1.25rem", marginBottom: "0.5rem",
-                                        cursor: "pointer", textAlign: "left", color: T.text,
-                                        fontFamily: T.mono, display: "flex", justifyContent: "space-between", alignItems: "center",
-                                        transition: "all 0.15s",
-                                    }}
-                                    onMouseEnter={e => {
-                                        e.currentTarget.style.background = T.greenDim;
-                                        e.currentTarget.style.borderColor = T.green;
-                                    }}
-                                    onMouseLeave={e => {
-                                        e.currentTarget.style.background = "transparent";
-                                        e.currentTarget.style.borderColor = T.border;
-                                    }}
-                                >
-                                    <div>
-                                        <div style={{ fontWeight: 600, marginBottom: "4px" }}>{part.name}</div>
-                                        <div style={{ fontSize: "0.78rem", color: T.textDim }}>
-                                            {part.where} · {" "}
-                                            <span style={{ color: part.avail.includes("Stock") || part.avail === "Digital" ? T.green : "#f0a500" }}>
-                                                {part.avail}
-                                            </span>
-                                            {part.promo > 0 && (
-                                                <span style={{ marginLeft: "0.5rem", color: T.green }}>
-                                                    −${part.promo} promo
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
-                                    <div style={{ textAlign: "right", flexShrink: 0, marginLeft: "1rem" }}>
-                                        <div style={{ fontWeight: 700, fontSize: "1.05rem" }}>${finalPrice.toFixed(2)}</div>
-                                        {part.promo > 0 && (
-                                            <div style={{ fontSize: "0.75rem", color: T.textDim, textDecoration: "line-through" }}>
-                                                ${part.base}
-                                            </div>
-                                        )}
-                                    </div>
-                                </button>
-                            );
-                        })}
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-}
-
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function PartPicker() {
+    const navigate = useNavigate();
     const [selections, setSelections] = useState({});
-    const [modalCategory, setModalCategory] = useState(null);
     const [catalog, setCatalog] = useState({})
-
 
     const selectPart = (catId, part) => setSelections(prev => ({ ...prev, [catId]: part }));
     const removePart = (catId) => setSelections(prev => { const n = { ...prev }; delete n[catId]; return n; });
@@ -312,7 +206,7 @@ export default function PartPicker() {
                                         </div>
                                     ) : (
                                         <button
-                                            onClick={() => hasParts && setModalCategory(cat)}
+                                            onClick={() => hasParts && navigate(`/parts/${cat.id}`)}
                                             style={{
                                                 background: "transparent", border: "none",
                                                 color: hasParts ? T.blue : T.textDim,
@@ -385,14 +279,6 @@ export default function PartPicker() {
                 </div>
             </div>
 
-            {/* ── Modal ── */}
-            {modalCategory && (
-                <PartModal
-                    category={modalCategory}
-                    onSelect={selectPart}
-                    onClose={() => setModalCategory(null)}
-                />
-            )}
         </div>
     );
 }
