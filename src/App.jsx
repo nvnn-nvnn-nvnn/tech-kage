@@ -29,6 +29,7 @@ import BlogDetail from "./pages/BlogDetail";
 import Placeholder from "./components/Placeholder";
 import ManualPartPicker from "./pages/ManualPartPicker";
 import PartsPage from "./components/parts-components/PartsPage";
+import PartDetail from "./pages/PartDetail";
 import Careers from "./pages/Careers";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -65,6 +66,9 @@ function App() {
 
         {/* Manual Part Picker */}
         <Route path="/manual" element={<ManualPartPicker />} />
+
+        {/* Part Detail Page (must come before /parts/:category) */}
+        <Route path="/parts/:category/:id" element={<PartDetail />} />
 
         {/* Parts Pages by Category */}
         <Route path="/parts/:category" element={<PartsPage />} />

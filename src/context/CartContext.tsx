@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 import { supabase } from "../lib/supabase";
 import { useAuth } from "./AuthContext";
 
-export type CartItemType = "custom_build" | "prebuild";
+export type CartItemType = "custom_build" | "prebuild" | "part";
 
 export interface CartItem {
   id: string;
@@ -23,6 +23,7 @@ interface CartContextType {
   history: CartItem[];
   addBuild: (build: any, price: number, config: any, name: string) => void;
   addPrebuild: (prebuild: Omit<CartItem, "id" | "type" | "addedAt" | "quantity">) => void;
+  addPart: (part: { name: string; price: number; category: string; partId: string; specs?: any }) => void;
   removeItem: (id: string) => void;
   clearCart: () => void;
   clearHistory: () => void;
@@ -166,6 +167,35 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const addPart = async (part: { name: string; price: number; category: string; partId: string; specs?: any }) => {
+    const exists = items.find(i => i.sku === `${part.category}-${part.partId}`);
+    if (exists) {
+      updateQuantity(exists.id, exists.quantity + 1);
+      return;
+    }
+
+    const item: CartItem = {
+      id: generateId(),
+      type: "part",
+      name: part.name,
+      price: part.price,
+      sku: `${part.category}-${part.partId}`,
+      specs: part.specs || `${part.category}`,
+      quantity: 1,
+      addedAt: new Date().toISOString(),
+    };
+
+    setItems(prev => [...prev, item]);
+
+    if (user) {
+      await supabase.from("cart_items").insert({
+        user_id: user.id,
+        item_id: item.id,
+        item_data: item,
+      });
+    }
+  };
+
   const removeItem = async (id: string) => {
     setItems(prev => prev.filter(i => i.id !== id));
     if (user) {
@@ -194,7 +224,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   };
 
-
   const clearHistory = () => {
     setHistory([]);
     localStorage.removeItem("cart_history");
@@ -205,7 +234,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   return (
     <CartContext.Provider value={{
-      items, history, addBuild, addPrebuild, removeItem, updateQuantity, clearCart, clearHistory, cartCount, cartTotal,
+      items, history, addBuild, addPrebuild, addPart, removeItem, updateQuantity, clearCart, clearHistory, cartCount, cartTotal,
     }}>
       {children}
     </CartContext.Provider>

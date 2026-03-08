@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useBuilder } from "../context/BuilderContext";
 
 const T = {
     bg: "#050608",
@@ -20,17 +20,17 @@ const T = {
 };
 
 const initialCategories = [
-    { id: "cpu", name: "CPU", icon: "⚡" },
-    { id: "cpu-cooler", name: "CPU Cooler", icon: "❄️" },
-    { id: "motherboard", name: "Motherboard", icon: "🔌" },
-    { id: "memory", name: "Memory", icon: "💾" },
-    { id: "storage", name: "Storage", icon: "💿" },
-    { id: "videocard", name: "Video Card", icon: "🎮" },
-    { id: "case", name: "Case", icon: "🖥️" },
-    { id: "powersupply", name: "Power Supply", icon: "⚙️" },
-    { id: "os", name: "Operating System", icon: "💻" },
-    { id: "monitor", name: "Monitor", icon: "🖨️" },
-    { id: "accessories", name: "Accessories", icon: "🖱️" },
+    { id: "cpu", name: "CPU", icon: "" },
+    { id: "cpu-cooler", name: "CPU Cooler", icon: "" },
+    { id: "motherboard", name: "Motherboard", icon: "" },
+    { id: "memory", name: "Memory", icon: "" },
+    { id: "storage", name: "Storage", icon: "" },
+    { id: "videocard", name: "Video Card", icon: "" },
+    { id: "case", name: "Case", icon: "" },
+    { id: "powersupply", name: "Power Supply", icon: "" },
+    { id: "os", name: "Operating System", icon: "" },
+    { id: "monitor", name: "Monitor", icon: "" },
+    { id: "accessories", name: "Accessories", icon: "" },
 ];
 
 const sampleParts = {
@@ -85,14 +85,7 @@ const sampleParts = {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function PartPicker() {
     const navigate = useNavigate();
-    const [selections, setSelections] = useState({});
-    const [catalog, setCatalog] = useState({})
-
-    const selectPart = (catId, part) => setSelections(prev => ({ ...prev, [catId]: part }));
-    const removePart = (catId) => setSelections(prev => { const n = { ...prev }; delete n[catId]; return n; });
-
-    const total = Object.values(selections).reduce((sum, p) => sum + (p.base - p.promo + p.shipping + p.tax), 0);
-    const selectedCount = Object.keys(selections).length;
+    const { selections, removePart, total, selectedCount } = useBuilder();
 
     return (
         <div style={{ minHeight: "100vh", background: T.bg, color: T.text, fontFamily: T.mono, padding: "2.5rem 1.25rem" }}>
@@ -103,7 +96,7 @@ export default function PartPicker() {
         ::-webkit-scrollbar-thumb { background: rgba(15,217,128,0.3); border-radius: 3px; }
       `}</style>
 
-            <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            <div style={{ maxWidth: "100%", margin: "0 auto" }}>
 
                 {/* ── Header ── */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "2rem" }}>
@@ -181,16 +174,48 @@ export default function PartPicker() {
                                 {/* Component label */}
                                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                                     <span style={{ fontSize: "1rem" }}>{cat.icon}</span>
-                                    <span style={{ fontSize: "0.82rem", color: part ? T.green : T.textMid, fontWeight: 500 }}>
+                                    <button
+                                        onClick={() => navigate(`/parts/${cat.id}`)}
+                                        style={{
+                                            background: "transparent",
+                                            border: "none",
+                                            padding: 0,
+                                            cursor: "pointer",
+                                            fontSize: "0.82rem",
+                                            color: part ? T.green : T.textMid,
+                                            fontWeight: 500,
+                                            fontFamily: "inherit",
+                                            transition: "opacity 0.15s",
+                                        }}
+                                        onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+                                        onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+                                    >
                                         {cat.name}
-                                    </span>
+                                    </button>
                                 </div>
 
                                 {/* Selection */}
                                 <div>
                                     {part ? (
                                         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-                                            <span style={{ fontSize: "0.9rem", fontWeight: 500 }}>{part.name}</span>
+                                            <button
+                                                onClick={() => navigate(`/parts/${cat.id}/${part.id}`)}
+                                                style={{
+                                                    background: "transparent",
+                                                    border: "none",
+                                                    padding: 0,
+                                                    cursor: "pointer",
+                                                    fontSize: "0.9rem",
+                                                    fontWeight: 500,
+                                                    color: T.text,
+                                                    fontFamily: "inherit",
+                                                    transition: "color 0.15s",
+                                                }}
+                                                onMouseEnter={e => (e.currentTarget.style.color = T.green)}
+                                                onMouseLeave={e => (e.currentTarget.style.color = T.text)}
+                                            >
+                                                {part.name}
+                                            </button>
                                             <span style={{
                                                 fontSize: "0.7rem", color: T.textDim,
                                                 background: "rgba(255,255,255,0.05)", borderRadius: "4px", padding: "1px 6px",
