@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import CPU from "../../parts/CPU";
+import CPU from "../../parts/cpu";
 import CPUCooler from "../../parts/cpu-cooler";
 import Motherboard from "../../parts/motherboard";
 import Memory from "../../parts/memory";
@@ -7,7 +7,6 @@ import InternalHardDrive from "../../parts/internal-hard-drive";
 import VideoCard from "../../parts/video-card";
 import Case from "../../parts/case";
 import PSU from "../../parts/powersupply";
-
 
 
 // PartsList will contain the parts information. 
