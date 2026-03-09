@@ -95,7 +95,7 @@ function transformPart(part, index, category) {
 }
 
 // Limit to first 50 parts per category for performance
-const LIMIT = 75;
+const LIMIT = 175;
 
 export const sampleParts = {
     cpu: cpuData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'cpu')),

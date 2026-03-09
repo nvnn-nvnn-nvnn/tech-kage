@@ -877,10 +877,10 @@ function ResultsStep({ config }) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const totalPrice = Object.values({ ...config.generatedBuild, ...localBuild }).reduce((sum, part) => {
+  const totalPrice = Math.round(Object.values({ ...config.generatedBuild, ...localBuild }).reduce((sum, part) => {
     const price = parseFloat(String(part.price ?? part.priceNumeric ?? 0).replace(/[^0-9.]/g, '')) || 0;
     return sum + price;
-  }, 0);
+  }, 0) * 100) / 100;
 
   const handlePartSwap = (category, newPart) => {
     setLocalBuild(prev => ({ ...prev, [category]: newPart }));
@@ -1249,10 +1249,10 @@ function SolidBtn({ label }) {
 
 function ExportModal({ config, currentBuild, onClose }) {
   const buildData = currentBuild || {};
-  const totalPrice = Object.values(currentBuild).reduce((sum, part) => {
+  const totalPrice = Math.round(Object.values(currentBuild).reduce((sum, part) => {
     const price = parseFloat(String(part.price ?? part.priceNumeric ?? 0).replace(/[^0-9.]/g, '')) || 0;
     return sum + price;
-  }, 0);
+  }, 0) * 100) / 100;
 
   const copyToClipboard = () => {
     const text = `PC BUILD - ${config.performance?.toUpperCase() || 'CUSTOM'} ($${totalPrice})\n${'━'.repeat(40)}\n\n${Object.entries(buildData).map(([category, part]) => `${category.padEnd(12)} ${part.name}\n${' '.repeat(12)} ${part.price}`).join('\n\n')}\n\n${'━'.repeat(40)}\nTOTAL: $${totalPrice}\n\nBudget: $${config.budget} · Use Case: ${config.usage?.join(', ') || 'General'} · Performance: ${config.performance || 'N/A'}`;
