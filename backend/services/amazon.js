@@ -2,7 +2,7 @@
 
 async function enrichBuild(buildData) {
   const enriched = {};
-  const { getPartByName, getDefaultPart } = require('./partsCatalog');
+  const { getPartByName, getDefaultPart } = require('./partsLoader');
 
   for (const [category, part] of Object.entries(buildData)) {
     try {

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useBuilder } from "../context/BuilderContext";
+import { sampleParts } from "../data/partsLoader";
 
 const T = {
     bg: "#050608",
@@ -25,7 +26,7 @@ const initialCategories = [
     { id: "motherboard", name: "Motherboard", icon: "" },
     { id: "memory", name: "Memory", icon: "" },
     { id: "storage", name: "Storage", icon: "" },
-    { id: "videocard", name: "Video Card", icon: "" },
+    { id: "video-card", name: "Video Card", icon: "" },
     { id: "case", name: "Case", icon: "" },
     { id: "powersupply", name: "Power Supply", icon: "" },
     { id: "os", name: "Operating System", icon: "" },
@@ -33,54 +34,54 @@ const initialCategories = [
     { id: "accessories", name: "Accessories", icon: "" },
 ];
 
-const sampleParts = {
-    cpu: [
-        { id: "c1", name: "AMD Ryzen 7 7800X3D", base: 449, promo: 30, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "c2", name: "Intel Core i7-14700K", base: 409, promo: 0, shipping: 8, tax: 0, avail: "In Stock", where: "Newegg" },
-        { id: "c3", name: "AMD Ryzen 5 7600X", base: 249, promo: 20, shipping: 0, tax: 0, avail: "In Stock", where: "B&H" },
-    ],
-    "cpu-cooler": [
-        { id: "cc1", name: "Noctua NH-D15 chromax.black", base: 109, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "cc2", name: "Corsair iCUE H150i Elite", base: 189, promo: 15, shipping: 0, tax: 0, avail: "In Stock", where: "Best Buy" },
-    ],
-    motherboard: [
-        { id: "m1", name: "ASUS ROG Strix X670E-F", base: 379, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
-        { id: "m2", name: "MSI MAG B650 Tomahawk", base: 199, promo: 10, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-    ],
-    memory: [
-        { id: "r1", name: "G.Skill Trident Z5 32GB DDR5-6000", base: 119, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "r2", name: "Corsair Vengeance 32GB DDR5-5200", base: 99, promo: 5, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
-    ],
-    storage: [
-        { id: "s1", name: "Samsung 990 Pro 2TB NVMe", base: 159, promo: 20, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "s2", name: "WD Black SN850X 1TB", base: 99, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "B&H" },
-    ],
-    videocard: [
-        { id: "g1", name: "GeForce RTX 5080 16GB", base: 1199, promo: 50, shipping: 0, tax: 0, avail: "Pre-order", where: "Best Buy" },
-        { id: "g2", name: "Radeon RX 7900 XTX 24GB", base: 949, promo: 100, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
-        { id: "g3", name: "GeForce RTX 4070 Ti Super", base: 799, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-    ],
-    case: [
-        { id: "ca1", name: "Fractal Design Torrent", base: 189, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "ca2", name: "Lian Li PC-O11 Dynamic EVO", base: 149, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
-    ],
-    powersupply: [
-        { id: "p1", name: "Seasonic Prime TX-1000 80+ Titanium", base: 249, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "p2", name: "Corsair RM1000x 80+ Gold", base: 179, promo: 20, shipping: 0, tax: 0, avail: "In Stock", where: "Best Buy" },
-    ],
-    os: [
-        { id: "o1", name: "Microsoft Windows 11 Home", base: 139, promo: 0, shipping: 0, tax: 0, avail: "Digital", where: "Microsoft" },
-        { id: "o2", name: "Microsoft Windows 11 Pro", base: 199, promo: 0, shipping: 0, tax: 0, avail: "Digital", where: "Microsoft" },
-    ],
-    monitor: [
-        { id: "mo1", name: 'LG 27GP950-B 4K 144Hz 27"', base: 799, promo: 100, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "mo2", name: 'Samsung Odyssey G7 32" QHD 240Hz', base: 649, promo: 50, shipping: 0, tax: 0, avail: "In Stock", where: "Best Buy" },
-    ],
-    accessories: [
-        { id: "ac1", name: "Logitech G Pro X Superlight 2", base: 159, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-        { id: "ac2", name: "Keychron Q1 Pro Mechanical Keyboard", base: 199, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Keychron" },
-    ],
-};
+// const sampleParts = {
+//     cpu: [
+//         { id: "c1", name: "AMD Ryzen 7 7800X3D", base: 449, promo: 30, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "c2", name: "Intel Core i7-14700K", base: 409, promo: 0, shipping: 8, tax: 0, avail: "In Stock", where: "Newegg" },
+//         { id: "c3", name: "AMD Ryzen 5 7600X", base: 249, promo: 20, shipping: 0, tax: 0, avail: "In Stock", where: "B&H" },
+//     ],
+//     "cpu-cooler": [
+//         { id: "cc1", name: "Noctua NH-D15 chromax.black", base: 109, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "cc2", name: "Corsair iCUE H150i Elite", base: 189, promo: 15, shipping: 0, tax: 0, avail: "In Stock", where: "Best Buy" },
+//     ],
+//     motherboard: [
+//         { id: "m1", name: "ASUS ROG Strix X670E-F", base: 379, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
+//         { id: "m2", name: "MSI MAG B650 Tomahawk", base: 199, promo: 10, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//     ],
+//     memory: [
+//         { id: "r1", name: "G.Skill Trident Z5 32GB DDR5-6000", base: 119, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "r2", name: "Corsair Vengeance 32GB DDR5-5200", base: 99, promo: 5, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
+//     ],
+//     storage: [
+//         { id: "s1", name: "Samsung 990 Pro 2TB NVMe", base: 159, promo: 20, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "s2", name: "WD Black SN850X 1TB", base: 99, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "B&H" },
+//     ],
+//     videocard: [
+//         { id: "g1", name: "GeForce RTX 5080 16GB", base: 1199, promo: 50, shipping: 0, tax: 0, avail: "Pre-order", where: "Best Buy" },
+//         { id: "g2", name: "Radeon RX 7900 XTX 24GB", base: 949, promo: 100, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
+//         { id: "g3", name: "GeForce RTX 4070 Ti Super", base: 799, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//     ],
+//     case: [
+//         { id: "ca1", name: "Fractal Design Torrent", base: 189, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "ca2", name: "Lian Li PC-O11 Dynamic EVO", base: 149, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg" },
+//     ],
+//     powersupply: [
+//         { id: "p1", name: "Seasonic Prime TX-1000 80+ Titanium", base: 249, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "p2", name: "Corsair RM1000x 80+ Gold", base: 179, promo: 20, shipping: 0, tax: 0, avail: "In Stock", where: "Best Buy" },
+//     ],
+//     os: [
+//         { id: "o1", name: "Microsoft Windows 11 Home", base: 139, promo: 0, shipping: 0, tax: 0, avail: "Digital", where: "Microsoft" },
+//         { id: "o2", name: "Microsoft Windows 11 Pro", base: 199, promo: 0, shipping: 0, tax: 0, avail: "Digital", where: "Microsoft" },
+//     ],
+//     monitor: [
+//         { id: "mo1", name: 'LG 27GP950-B 4K 144Hz 27"', base: 799, promo: 100, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "mo2", name: 'Samsung Odyssey G7 32" QHD 240Hz', base: 649, promo: 50, shipping: 0, tax: 0, avail: "In Stock", where: "Best Buy" },
+//     ],
+//     accessories: [
+//         { id: "ac1", name: "Logitech G Pro X Superlight 2", base: 159, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
+//         { id: "ac2", name: "Keychron Q1 Pro Mechanical Keyboard", base: 199, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Keychron" },
+//     ],
+// };
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function PartPicker() {
@@ -96,7 +97,7 @@ export default function PartPicker() {
         ::-webkit-scrollbar-thumb { background: rgba(15,217,128,0.3); border-radius: 3px; }
       `}</style>
 
-            <div style={{ maxWidth: "100%", margin: "0 auto" }}>
+            <div style={{ maxWidth: "75%", margin: "0 auto" }}>
 
                 {/* ── Header ── */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "2rem" }}>

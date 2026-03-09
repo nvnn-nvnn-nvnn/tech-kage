@@ -1,4 +1,4 @@
-const { getPartNamesForCategory, PARTS_CATALOG } = require('./partsCatalog');
+const { getPartNamesForCategory, PARTS_CATALOG } = require('./partsLoader');
 
 // Helper to format parts with prices for Claude
 function formatPartsWithPrices(category) {

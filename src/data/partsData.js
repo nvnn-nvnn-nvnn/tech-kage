@@ -69,7 +69,7 @@ export const sampleParts = {
         { id: "s1", name: "Samsung 990 Pro 2TB NVMe", base: 159, promo: 20, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon", capacity: "2TB", pricePerGb: "$0.07", type: "SSD", cache: "2GB LPDDR4", formFactor: "M.2 2280", interface: "PCIe 4.0 x4" },
         { id: "s2", name: "WD Black SN850X 1TB", base: 99, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "B&H", capacity: "1TB", pricePerGb: "$0.10", type: "SSD", cache: "1GB LPDDR4", formFactor: "M.2 2280", interface: "PCIe 4.0 x4" },
     ],
-    videocard: [
+    "video-card": [
         { id: "g1", name: "GeForce RTX 5080 16GB", base: 1199, promo: 50, shipping: 0, tax: 0, avail: "Pre-order", where: "Best Buy", chipset: "RTX 5080", memory: "16GB GDDR7", coreClock: "2295 MHz", boostClock: "2900 MHz", length: "336mm", color: "Black" },
         { id: "g2", name: "Radeon RX 7900 XTX 24GB", base: 949, promo: 100, shipping: 0, tax: 0, avail: "In Stock", where: "Newegg", chipset: "RX 7900 XTX", memory: "24GB GDDR6", coreClock: "1855 MHz", boostClock: "2500 MHz", length: "287mm", color: "Black" },
         { id: "g3", name: "GeForce RTX 4070 Ti Super", base: 799, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon", chipset: "RTX 4070 Ti Super", memory: "16GB GDDR6X", coreClock: "2340 MHz", boostClock: "2610 MHz", length: "305mm", color: "Black" },

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Searchbar from "../Searchbar";
 import PartsFilter from "./PartsFilter";
-import { sampleParts } from "../../data/partsData";
+import { sampleParts } from "../../data/partsLoader";
 import { useBuilder } from "../../context/BuilderContext";
 
 const T = {
@@ -31,29 +31,11 @@ const COLUMNS = {
         { key: "color", label: "COLOR", align: "center" },
     ],
     motherboard: [
-        { key: "manufacturer", label: "MANUFACTURER", align: "center" },
-        { key: "partNumber", label: "PART #", align: "center" },
-        { key: "socket", label: "SOCKET / CPU", align: "center" },
-        { key: "formFactor", label: "FORM FACTOR", align: "center" },
-        { key: "chipset", label: "CHIPSET", align: "center" },
-        { key: "memoryMax", label: "MEMORY MAX", align: "center" },
-        { key: "memoryType", label: "MEMORY TYPE", align: "center" },
-        { key: "memorySlots", label: "MEMORY SLOTS", align: "center" },
-        { key: "memorySpeed", label: "MEMORY SPEED", align: "center" },
-        { key: "color", label: "COLOR", align: "center" },
-        { key: "pcieX16Slots", label: "PCIE X16 SLOTS", align: "center" },
-        { key: "pcieX1Slots", label: "PCIE X1 SLOTS", align: "center" },
-        { key: "m2Slots", label: "M.2 SLOTS", align: "center" },
-        { key: "sata6Ports", label: "SATA 6.0 GB/S PORTS", align: "center" },
-        { key: "onboardEthernet", label: "ONBOARD ETHERNET", align: "center" },
-        { key: "onboardVideo", label: "ONBOARD VIDEO", align: "center" },
-        { key: "usb20Headers", label: "USB 2.0 HEADERS", align: "center" },
-        { key: "usb32Gen1Headers", label: "USB 3.2 GEN 1 HEADERS", align: "center" },
-        { key: "usb32Gen2Headers", label: "USB 3.2 GEN 2 HEADERS", align: "center" },
-        { key: "supportsECC", label: "SUPPORTS ECC", align: "center" },
-        { key: "wirelessNetworking", label: "WIRELESS NETWORKING", align: "center" },
-        { key: "raidSupport", label: "RAID SUPPORT", align: "center" },
-        { key: "backConnectConnectors", label: "USES BACK-CONNECT CONNECTORS", align: "center" },
+        { key: "socket", label: "Socket / CPU" },
+        { key: "formFactor", label: "Form Factor" },
+        { key: "memoryMax", label: "Memory Max" },
+        { key: "memorySlots", label: "Memory Slots" },
+        { key: "color", label: "Color" },
     ],
     memory: [
         { key: "speed", label: "SPEED", align: "center" },
@@ -111,7 +93,11 @@ export default function PartsList({ partType }) {
 
     useEffect(() => {
         // Load parts for this category
+        console.log('PartsList - partType:', partType);
+        console.log('PartsList - sampleParts keys:', Object.keys(sampleParts));
+        console.log('PartsList - sampleParts[partType]:', sampleParts[partType]);
         const categoryParts = sampleParts[partType] || [];
+        console.log('PartsList - categoryParts length:', categoryParts.length);
         setParts(categoryParts);
         setFilteredParts(categoryParts);
     }, [partType]);
@@ -214,10 +200,10 @@ export default function PartsList({ partType }) {
                 </div>
 
                 {/* Right: Products */}
-                <div style={{ overflow: "hidden" }}>
+                <div style={{ overflowX: "auto" }}>
                     {(() => {
                         const cols = COLUMNS[partType] || [];
-                        const templateColumns = `1fr ${cols.map(() => "140px").join(" ")} 100px 120px`;
+                        const templateColumns = `1fr ${cols.map(() => "100px").join(" ")} 90px 110px`;
 
                         return (
                             <>
@@ -230,7 +216,7 @@ export default function PartsList({ partType }) {
                                     borderBottom: `1px solid ${T.border}`,
                                     fontSize: "0.68rem",
                                     letterSpacing: "0.12em",
-                                    color: T.textDim,
+                                    color: "#fff",
                                     fontWeight: 600,
                                 }}>
                                     <div>NAME</div>

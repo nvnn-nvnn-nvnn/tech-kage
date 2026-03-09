@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { sampleParts } from "../../data/partsData";
+import { sampleParts } from "../../data/partsLoader";
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
 const T = {

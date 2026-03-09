@@ -4,6 +4,7 @@ import CPUCooler from "../../parts/cpu-cooler";
 import Motherboard from "../../parts/motherboard";
 import Memory from "../../parts/memory";
 import InternalHardDrive from "../../parts/internal-hard-drive";
+import Storage from "../../parts/storage";
 import VideoCard from "../../parts/video-card";
 import Case from "../../parts/case";
 import PSU from "../../parts/powersupply";
@@ -21,7 +22,7 @@ export default function PartsPage() {
         "cpu-cooler": <CPUCooler />,
         "motherboard": <Motherboard />,
         "memory": <Memory />,
-        "storage": <InternalHardDrive />,
+        "storage": <Storage />,
         "internal-hard-drive": <InternalHardDrive />,
         "videocard": <VideoCard />,
         "video-card": <VideoCard />,

@@ -3,7 +3,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { PARTS_CATALOG, getDefaultPart } = require('../services/partsCatalog');
+const { PARTS_CATALOG, getDefaultPart } = require('../services/partsLoader');
 const { generateBuild } = require('../services/claude');
 const { enrichBuild } = require('../services/amazon');
 const { buildPrompt } = require('../services/promptBuilder');
