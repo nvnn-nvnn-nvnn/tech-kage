@@ -1,0 +1,1166 @@
+[
+  {
+    "name": "Thermalright Peerless Assassin 120 SE",
+    "price": 34.9,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B09LGY38L4"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III Pro 360",
+    "price": 84.99,
+    "rpm": [
+      600,
+      3000
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D4V9NR9G"
+  },
+  {
+    "name": "Cooler Master Hyper 212 Black Edition",
+    "price": 25.99,
+    "rpm": [
+      650,
+      2000
+    ],
+    "noise_level": [
+      6.5,
+      26
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B07H25KXDG"
+  },
+  {
+    "name": "Thermalright Phantom Spirit 120 SE ARGB",
+    "price": 37.9,
+    "rpm": 1500,
+    "noise_level": 25.6,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0CBLDNTVK"
+  },
+  {
+    "name": "Thermalright Aqua Elite V3",
+    "price": 54.9,
+    "rpm": 1500,
+    "noise_level": 25.6,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D6V7R7N4"
+  },
+  {
+    "name": "Noctua NH-D15 chromax.black",
+    "price": 139.94,
+    "rpm": [
+      300,
+      1500
+    ],
+    "noise_level": [
+      19.2,
+      24.6
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B07Y88BNYZ"
+  },
+  {
+    "name": "NZXT Kraken 360",
+    "price": 179.99,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "Black",
+    "size": 360,
+    "asin": "B0C2JV3D1P"
+  },
+  {
+    "name": "Corsair NAUTILUS 360 RS ARGB",
+    "price": 129.99,
+    "rpm": 2100,
+    "noise_level": 34,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D94H6M8V"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 360 A-RGB",
+    "price": 159.99,
+    "rpm": [
+      200,
+      2000
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "Thermalright Assassin X 120 Refined SE",
+    "price": 17.89,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0BQ4KJT7Z"
+  },
+  {
+    "name": "Cooler Master MasterLiquid 360L Core ARGB",
+    "price": 74.98,
+    "rpm": [
+      350,
+      1750
+    ],
+    "noise_level": 27.2,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0C5R6FF1N"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III Pro A-RGB 360",
+    "price": 93.99,
+    "rpm": [
+      600,
+      3000
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D4V9QJ25"
+  },
+  {
+    "name": "Thermalright Phantom Spirit 120 SE",
+    "price": 35.9,
+    "rpm": 1500,
+    "noise_level": 25.6,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0C5C9Y3YZ"
+  },
+  {
+    "name": "ID-COOLING SE-214-XT ARGB",
+    "price": 17.98,
+    "rpm": [
+      500,
+      1500
+    ],
+    "noise_level": [
+      13.8,
+      30.5
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B09Q62GM9Z"
+  },
+  {
+    "name": "NZXT Kraken 240",
+    "price": 99.99,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "Black",
+    "size": 240,
+    "asin": "B0C2JV3D1P"
+  },
+  {
+    "name": "Thermalright Aqua Elite V3",
+    "price": 44.9,
+    "rpm": 1500,
+    "noise_level": 25.6,
+    "color": "Black",
+    "size": 240,
+    "asin": "B0D6V7R7N4"
+  },
+  {
+    "name": "Thermalright Peerless Assassin 120 SE ARGB",
+    "price": 36.9,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "Black",
+    "size": null,
+    "asin": "B0BQ4KJT7Z"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 360 A-RGB",
+    "price": 149.99,
+    "rpm": [
+      200,
+      2000
+    ],
+    "noise_level": null,
+    "color": "White",
+    "size": 360,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "AMD Wraith Prism",
+    "price": 62.35,
+    "rpm": 2800,
+    "noise_level": 42,
+    "color": null,
+    "size": null,
+    "asin": "B07GKFG3DY"
+  },
+  {
+    "name": "ARCTIC Freezer 36",
+    "price": 44.19,
+    "rpm": [
+      200,
+      1800
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D42R7HZS"
+  },
+  {
+    "name": "Corsair NAUTILUS 360 RS ARGB",
+    "price": 129.99,
+    "rpm": 2100,
+    "noise_level": 34,
+    "color": "White",
+    "size": 360,
+    "asin": "B0D94H6M8V"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III Pro A-RGB 360",
+    "price": 100.49,
+    "rpm": [
+      600,
+      3000
+    ],
+    "noise_level": null,
+    "color": "White",
+    "size": 360,
+    "asin": "B0D4V9QJ25"
+  },
+  {
+    "name": "Thermalright Phantom Spirit EVO",
+    "price": 59.99,
+    "rpm": 2150,
+    "noise_level": 27,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D1G5X7BN"
+  },
+  {
+    "name": "Noctua NH-D15",
+    "price": 129.94,
+    "rpm": [
+      300,
+      1500
+    ],
+    "noise_level": [
+      19.2,
+      24.6
+    ],
+    "color": null,
+    "size": null,
+    "asin": "B00LFX1UDI"
+  },
+  {
+    "name": "be quiet! Dark Rock Pro 5",
+    "price": 99.9,
+    "rpm": [
+      1300,
+      2000
+    ],
+    "noise_level": [
+      8.9,
+      23.3
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B0C5J7SPRY"
+  },
+  {
+    "name": "NZXT Kraken Elite 360 RGB",
+    "price": null,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "White",
+    "size": 360,
+    "asin": "B0C2JWB1YC"
+  },
+  {
+    "name": "NZXT Kraken 360 RGB",
+    "price": 219.99,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "White",
+    "size": 360,
+    "asin": "B0C2JWB1YC"
+  },
+  {
+    "name": "Asus ROG STRIX LC 360 RGB GUNDAM",
+    "price": 1621,
+    "rpm": [
+      800,
+      2500
+    ],
+    "noise_level": 37.6,
+    "color": "White",
+    "size": 360,
+    "asin": "B09C1Z2RBS"
+  },
+  {
+    "name": "Thermalright Frozen Notte ARGB",
+    "price": 55.39,
+    "rpm": 2000,
+    "noise_level": 27.7,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0CQ8GBK42"
+  },
+  {
+    "name": "Thermalright Peerless Assassin 120 SE WHITE ARGB",
+    "price": 36.9,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "White",
+    "size": null,
+    "asin": "B0BV5MGBD7"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III Pro",
+    "price": 70.98,
+    "rpm": [
+      600,
+      3000
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 240,
+    "asin": "B0D4V9NR9G"
+  },
+  {
+    "name": "Corsair iCUE LINK TITAN 360 RX LCD",
+    "price": 194.99,
+    "rpm": [
+      300,
+      2100
+    ],
+    "noise_level": [
+      10,
+      36
+    ],
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D8J2Y3ZM"
+  },
+  {
+    "name": "ID-COOLING FROZN A620 PRO SE",
+    "price": 29.99,
+    "rpm": [
+      300,
+      2000
+    ],
+    "noise_level": 27.2,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D2M5L5JD"
+  },
+  {
+    "name": "Noctua NH-L9x65 chromax.black",
+    "price": 79.95,
+    "rpm": [
+      600,
+      2500
+    ],
+    "noise_level": [
+      14.8,
+      23.6
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B0842T8XW7"
+  },
+  {
+    "name": "Thermalright Assassin King SE ARGB",
+    "price": 19.09,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "White",
+    "size": null,
+    "asin": "B0C2K5D2D3"
+  },
+  {
+    "name": "Corsair iCUE H150i ELITE LCD XT",
+    "price": null,
+    "rpm": [
+      550,
+      2100
+    ],
+    "noise_level": [
+      5,
+      34.1
+    ],
+    "color": "Black",
+    "size": 360,
+    "asin": "B0B2WYY3M2"
+  },
+  {
+    "name": "Lian Li Galahad II Trinity SL-INF",
+    "price": 168.99,
+    "rpm": 2100,
+    "noise_level": 29,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0C5Z4W2S8"
+  },
+  {
+    "name": "NZXT Kraken 360 RGB",
+    "price": 199.99,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "Black",
+    "size": 360,
+    "asin": "B0C2JWB1YC"
+  },
+  {
+    "name": "Noctua NH-L9A-AM5",
+    "price": 49.95,
+    "rpm": [
+      600,
+      2500
+    ],
+    "noise_level": [
+      14.8,
+      23.6
+    ],
+    "color": "Brown / Silver",
+    "size": null,
+    "asin": "B0BQMQKRTJ"
+  },
+  {
+    "name": "Thermalright Assassin X SE",
+    "price": 16.89,
+    "rpm": 2200,
+    "noise_level": 23.85,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0D4P9S2T3"
+  },
+  {
+    "name": "Asus ROG Ryujin III 360 ARGB Extreme",
+    "price": 374.99,
+    "rpm": [
+      1,
+      2800
+    ],
+    "noise_level": 36,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D5Y6R1HP"
+  },
+  {
+    "name": "Thermalright Aqua Elite V3",
+    "price": 54.59,
+    "rpm": 1500,
+    "noise_level": 25.6,
+    "color": "White",
+    "size": 360,
+    "asin": "B0D6V7R7N4"
+  },
+  {
+    "name": "Cooler Master MasterLiquid 240L Core ARGB",
+    "price": 84.99,
+    "rpm": [
+      350,
+      1750
+    ],
+    "noise_level": 27.2,
+    "color": "Black",
+    "size": 240,
+    "asin": "B0C5R5X3J4"
+  },
+  {
+    "name": "Thermalright AQUA ELITE ARGB V4",
+    "price": 60.9,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D6V7R7N4"
+  },
+  {
+    "name": "Lian Li Hydroshift LCD 360S",
+    "price": 179.99,
+    "rpm": [
+      200,
+      2500
+    ],
+    "noise_level": 29.8,
+    "color": "White",
+    "size": 360,
+    "asin": "B0D9WS1B1M"
+  },
+  {
+    "name": "ID-COOLING SE-903-XT",
+    "price": 14.99,
+    "rpm": [
+      500,
+      2200
+    ],
+    "noise_level": 25.8,
+    "color": "Black",
+    "size": null,
+    "asin": "B0CD1W1N1J"
+  },
+  {
+    "name": "Cooler Master Hyper 212 (2023)",
+    "price": 25.99,
+    "rpm": [
+      690,
+      2500
+    ],
+    "noise_level": 32.8,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D5G9Q6P3"
+  },
+  {
+    "name": "Lian Li Hydroshift LCD 360S",
+    "price": 174.49,
+    "rpm": [
+      200,
+      2500
+    ],
+    "noise_level": 29.8,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D9WRX6L7"
+  },
+  {
+    "name": "Cooler Master Hyper 212 Spectrum V3",
+    "price": 16.98,
+    "rpm": [
+      650,
+      1750
+    ],
+    "noise_level": 27.2,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0BQQG3W1G"
+  },
+  {
+    "name": "Noctua NH-L9A-AM5 CHROMAX.BLACK",
+    "price": 59.95,
+    "rpm": [
+      600,
+      2500
+    ],
+    "noise_level": [
+      14.8,
+      23.6
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B0BQMQX7V3"
+  },
+  {
+    "name": "NZXT Kraken 240 RGB",
+    "price": 114.99,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "White",
+    "size": 240,
+    "asin": "B0C2JWB1YC"
+  },
+  {
+    "name": "Corsair NAUTILUS 240 RS ARGB",
+    "price": 99.99,
+    "rpm": 2100,
+    "noise_level": 34,
+    "color": "Black",
+    "size": 240,
+    "asin": "B0D94H6M8V"
+  },
+  {
+    "name": "Deepcool AK620 ZERO DARK",
+    "price": null,
+    "rpm": [
+      500,
+      1850
+    ],
+    "noise_level": 28,
+    "color": "Black",
+    "size": null,
+    "asin": "B0B7F3HQN1"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 240",
+    "price": null,
+    "rpm": [
+      200,
+      1800
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 240,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "NZXT Kraken Elite 360 RGB (2024)",
+    "price": 289.99,
+    "rpm": [
+      500,
+      2400
+    ],
+    "noise_level": 30,
+    "color": "White",
+    "size": 360,
+    "asin": "B0D2MK6NML"
+  },
+  {
+    "name": "Thermalright AXP90-X47",
+    "price": 22.39,
+    "rpm": 2700,
+    "noise_level": 22.4,
+    "color": "Black",
+    "size": null,
+    "asin": "B09HSQJ4K6"
+  },
+  {
+    "name": "MSI MAG CORELIQUID A13",
+    "price": 109.99,
+    "rpm": null,
+    "noise_level": null,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D9QJ4HLQ"
+  },
+  {
+    "name": "Corsair iCUE LINK TITAN 360 RX RGB",
+    "price": 199.95,
+    "rpm": [
+      300,
+      2100
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D8J2Y3ZM"
+  },
+  {
+    "name": "Thermalright Assassin Spirit 120 EVO",
+    "price": 25.39,
+    "rpm": 2000,
+    "noise_level": 28.2,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D2ZDW7H8"
+  },
+  {
+    "name": "Noctua NH-U12A chromax.black",
+    "price": 139.94,
+    "rpm": [
+      450,
+      2000
+    ],
+    "noise_level": [
+      18.8,
+      22.6
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B09CXLKD7V"
+  },
+  {
+    "name": "TRYX PANORAMA SE ARGB",
+    "price": 279.99,
+    "rpm": [
+      500,
+      1850
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D2J7Q7J1"
+  },
+  {
+    "name": "Thermalright Assassin Spirit 120 EVO DARK",
+    "price": 25.9,
+    "rpm": 1850,
+    "noise_level": 27,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D2ZDW7H8"
+  },
+  {
+    "name": "NZXT Kraken Elite 360 RGB",
+    "price": 299.99,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "Black",
+    "size": 360,
+    "asin": "B0C2JWB1YC"
+  },
+  {
+    "name": "Thermalright Peerless Assassin 120 Black",
+    "price": 48.69,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "Black",
+    "size": null,
+    "asin": "B0C5C9Y3YZ"
+  },
+  {
+    "name": "Corsair iCUE LINK TITAN 360 RX LCD",
+    "price": 219.99,
+    "rpm": [
+      300,
+      2100
+    ],
+    "noise_level": [
+      10,
+      36
+    ],
+    "color": "White",
+    "size": 360,
+    "asin": "B0D8J2Y3ZM"
+  },
+  {
+    "name": "Thermalright Assassin X Refined SE ARGB",
+    "price": null,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0BQ4KJT7Z"
+  },
+  {
+    "name": "Noctua NH-U12S chromax.black",
+    "price": 99.95,
+    "rpm": [
+      300,
+      1500
+    ],
+    "noise_level": [
+      18.6,
+      22.4
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B07Y3HNSVF"
+  },
+  {
+    "name": "Thermalright Assassin X 120 R Digital ARGB",
+    "price": 24.9,
+    "rpm": 2000,
+    "noise_level": 29.8,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D4P9S2T3"
+  },
+  {
+    "name": "Thermalright Peerless Assassin 120 White",
+    "price": 47.59,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "White",
+    "size": null,
+    "asin": "B0BV5MGBD7"
+  },
+  {
+    "name": "Lian Li Galahad II Trinity SL-INF",
+    "price": 179.99,
+    "rpm": 2100,
+    "noise_level": 29,
+    "color": "White",
+    "size": 360,
+    "asin": "B0C5Z4W2S8"
+  },
+  {
+    "name": "TRYX PANORAMA SE ARGB",
+    "price": 279.99,
+    "rpm": [
+      500,
+      1850
+    ],
+    "noise_level": null,
+    "color": "White",
+    "size": 360,
+    "asin": "B0D2J7Q7J1"
+  },
+  {
+    "name": "Deepcool AK400",
+    "price": null,
+    "rpm": [
+      500,
+      1850
+    ],
+    "noise_level": 29,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B09ZK6GPFS"
+  },
+  {
+    "name": "Noctua NH-D15 G2",
+    "price": 179.95,
+    "rpm": 1500,
+    "noise_level": 24.8,
+    "color": "Brown / Silver",
+    "size": null,
+    "asin": "B0D5L9X4G2"
+  },
+  {
+    "name": "Corsair NAUTILUS 360 RS",
+    "price": 104.99,
+    "rpm": 2100,
+    "noise_level": 34,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D94H6M8V"
+  },
+  {
+    "name": "ID-COOLING FROZN A410 BLACK",
+    "price": 26.99,
+    "rpm": [
+      500,
+      2000
+    ],
+    "noise_level": 29.85,
+    "color": "Black",
+    "size": null,
+    "asin": "B0D2M5L5JD"
+  },
+  {
+    "name": "be quiet! Dark Rock 5",
+    "price": 72.9,
+    "rpm": 2100,
+    "noise_level": [
+      11.9,
+      29.8
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B0D42X76SH"
+  },
+  {
+    "name": "NZXT Kraken Elite 360 (2024)",
+    "price": 269.99,
+    "rpm": [
+      500,
+      2000
+    ],
+    "noise_level": 30,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D2MK6NML"
+  },
+  {
+    "name": "be quiet! Pure Rock 3",
+    "price": 34.9,
+    "rpm": 2000,
+    "noise_level": [
+      12.4,
+      31.2
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B0D5G9Q6P3"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 280",
+    "price": 129.99,
+    "rpm": [
+      200,
+      1700
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 280,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "Intel E97379-001",
+    "price": 19.98,
+    "rpm": [
+      1200,
+      2800
+    ],
+    "noise_level": 22,
+    "color": "Silver / Black",
+    "size": null,
+    "asin": "B005O65JXI"
+  },
+  {
+    "name": "Noctua NH-D9L",
+    "price": 84.95,
+    "rpm": [
+      400,
+      2000
+    ],
+    "noise_level": [
+      16.3,
+      22.8
+    ],
+    "color": null,
+    "size": null,
+    "asin": "B00VBKSTZ0"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 240 A-RGB",
+    "price": 119.91,
+    "rpm": [
+      200,
+      2000
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 240,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "Noctua NH-L12S",
+    "price": 74.95,
+    "rpm": [
+      450,
+      1850
+    ],
+    "noise_level": [
+      16.8,
+      23.9
+    ],
+    "color": null,
+    "size": null,
+    "asin": "B074DX23QK"
+  },
+  {
+    "name": "Thermalright Assassin X Refined SE RGB V2",
+    "price": 17.29,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0D4P9S2T3"
+  },
+  {
+    "name": "ID-COOLING SE-214-XT ARGB",
+    "price": 17.98,
+    "rpm": [
+      500,
+      1500
+    ],
+    "noise_level": [
+      13.8,
+      30.5
+    ],
+    "color": "White",
+    "size": null,
+    "asin": "B09Q62GM9Z"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 420 A-RGB",
+    "price": 159.99,
+    "rpm": [
+      200,
+      1900
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 420,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "NZXT Kraken 240 RGB",
+    "price": 119.99,
+    "rpm": [
+      500,
+      1800
+    ],
+    "noise_level": [
+      17.9,
+      30.6
+    ],
+    "color": "Black",
+    "size": 240,
+    "asin": "B0C2JWB1YC"
+  },
+  {
+    "name": "Montech HyperFlow ARGB 360",
+    "price": 97.99,
+    "rpm": 2200,
+    "noise_level": 29.1,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "Lian Li Galahad II LCD SL-INF",
+    "price": 259.99,
+    "rpm": null,
+    "noise_level": 29,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0C5Z4W2S8"
+  },
+  {
+    "name": "Noctua NH-D15S chromax.black",
+    "price": 129.94,
+    "rpm": [
+      300,
+      1500
+    ],
+    "noise_level": [
+      19.2,
+      24.6
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B08HYF3D3Z"
+  },
+  {
+    "name": "Thermalright AQUA ELITE ARGB V4",
+    "price": 52.19,
+    "rpm": 1550,
+    "noise_level": 25.6,
+    "color": "White",
+    "size": 360,
+    "asin": "B0D6V7R7N4"
+  },
+  {
+    "name": "Thermalright Peerless Assassin 120 SE V3",
+    "price": 34.9,
+    "rpm": 2000,
+    "noise_level": 29.8,
+    "color": "Black / Silver",
+    "size": null,
+    "asin": "B0BQ4KJT7Z"
+  },
+  {
+    "name": "NZXT Kraken Elite RGB (2025)",
+    "price": 334.99,
+    "rpm": [
+      500,
+      2000
+    ],
+    "noise_level": 34.5,
+    "color": "Black",
+    "size": 420,
+    "asin": "B0D2MK6NML"
+  },
+  {
+    "name": "Cooler Master Hyper 212 RGB Black Edition",
+    "price": 27.88,
+    "rpm": [
+      650,
+      2000
+    ],
+    "noise_level": [
+      8,
+      30
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B07H25KXDG"
+  },
+  {
+    "name": "Thermalright Frozen Notte ARGB",
+    "price": 48.9,
+    "rpm": 2000,
+    "noise_level": 27.7,
+    "color": "White",
+    "size": 240,
+    "asin": "B0CQ8GBK42"
+  },
+  {
+    "name": "Thermalright Assassin X 120 R Digital ARGB",
+    "price": 24.9,
+    "rpm": 2000,
+    "noise_level": 29.8,
+    "color": "White",
+    "size": null,
+    "asin": "B0D4P9S2T3"
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 360",
+    "price": 200,
+    "rpm": [
+      200,
+      1800
+    ],
+    "noise_level": null,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0CRRZJX3B"
+  },
+  {
+    "name": "Thermalright AXP90-X47",
+    "price": 40.9,
+    "rpm": 2700,
+    "noise_level": 22.4,
+    "color": "Orange / Brown",
+    "size": null,
+    "asin": "B09HSQJ4K6"
+  },
+  {
+    "name": "be quiet! Pure Rock Pro 3",
+    "price": 54.9,
+    "rpm": 2000,
+    "noise_level": [
+      14,
+      34.8
+    ],
+    "color": "Black",
+    "size": null,
+    "asin": "B0D5G9Q6P3"
+  },
+  {
+    "name": "TRYX PANORAMA ARGB (2025)",
+    "price": 358.44,
+    "rpm": [
+      500,
+      1850
+    ],
+    "noise_level": 28.87,
+    "color": "Black",
+    "size": 360,
+    "asin": "B0D2J7Q7J1"
+  }
+]

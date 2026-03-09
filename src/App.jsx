@@ -41,6 +41,7 @@ import { useAuth } from './context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import DevelopmentBanner from "./components/DevelopmentBanner";
 import Forums from "./pages/Forums";
+import AmazonManager from "./pages/AmazonManager";
 
 function App() {
   const { user } = useAuth();
@@ -106,6 +107,9 @@ function App() {
         } />
         <Route path="/admin/orders" element={
           user?.email === 'devanlee2nd@gmail.com' ? <AdminOrders /> : <Navigate to="/admin/login" />
+        } />
+        <Route path="/admin/amazon" element={
+          user?.email === 'devanlee2nd@gmail.com' ? <AmazonManager /> : <Navigate to="/admin/login" />
         } />
 
         {/* 404 - Catch all unmatched routes */}

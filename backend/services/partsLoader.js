@@ -58,8 +58,13 @@ function transformToCatalogFormat(part, category) {
 function selectTopParts(data, category, count = 6) {
     if (!data || data.length === 0) return [];
 
-    // Filter out parts with null or 0 price
-    const validParts = data.filter(part => part.price && part.price > 0);
+    // Filter out parts with null or 0 price AND parts without valid ASINs
+    const validParts = data.filter(part =>
+        part.price &&
+        part.price > 0 &&
+        part.asin &&
+        part.asin.trim() !== ""
+    );
 
     if (validParts.length === 0) return [];
 

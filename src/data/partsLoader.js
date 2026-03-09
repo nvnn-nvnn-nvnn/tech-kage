@@ -24,6 +24,7 @@ function transformPart(part, index, category) {
         tax: 0,
         avail: "In Stock",
         where: "Amazon",
+        asin: part.asin || "",
 
         // PartsList fields (for list view)
         cores: part.core_count,
@@ -94,16 +95,21 @@ function transformPart(part, index, category) {
     };
 }
 
-// Limit to first 50 parts per category for performance
+// Filter function to only include parts with valid ASINs
+function filterPartsWithAsin(parts) {
+    return parts.filter(part => part.asin && part.asin.trim() !== "");
+}
+
+// Limit to first 175 parts per category for performance
 const LIMIT = 175;
 
 export const sampleParts = {
-    cpu: cpuData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'cpu')),
-    "cpu-cooler": cpuCoolerData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'cpu-cooler')),
-    motherboard: motherboardData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'motherboard')),
-    memory: memoryData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'memory')),
-    storage: storageData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'storage')),
-    "video-card": videoCardData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'video-card')),
-    case: caseData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'case')),
-    powersupply: powerSupplyData.slice(0, LIMIT).map((p, i) => transformPart(p, i, 'powersupply')),
+    cpu: filterPartsWithAsin(cpuData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'cpu')),
+    "cpu-cooler": filterPartsWithAsin(cpuCoolerData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'cpu-cooler')),
+    motherboard: filterPartsWithAsin(motherboardData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'motherboard')),
+    memory: filterPartsWithAsin(memoryData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'memory')),
+    storage: filterPartsWithAsin(storageData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'storage')),
+    "video-card": filterPartsWithAsin(videoCardData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'video-card')),
+    case: filterPartsWithAsin(caseData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'case')),
+    powersupply: filterPartsWithAsin(powerSupplyData).slice(0, LIMIT).map((p, i) => transformPart(p, i, 'powersupply')),
 };
