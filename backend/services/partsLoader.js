@@ -12,10 +12,10 @@ const cpuCoolerData = require('../data/parts/cpu-cooler.json');
 function transformToCatalogFormat(part, category) {
     // Extract manufacturer from name
     const manufacturer = part.name ? part.name.split(' ')[0] : '';
-    
+
     // Build spec string based on category
     let spec = '';
-    switch(category) {
+    switch (category) {
         case 'CPU':
             spec = `${part.core_count || '?'}-Core · ${part.boost_clock || part.core_clock || '?'}GHz · ${part.microarchitecture || 'Unknown'}`;
             break;
@@ -41,7 +41,7 @@ function transformToCatalogFormat(part, category) {
             spec = `${part.radiator_size || part.fan_rpm || 'Cooling Solution'}`;
             break;
     }
-    
+
     return {
         name: part.name || "Unknown Part",
         price: `$${(part.price || 0).toFixed(2)}`,
@@ -57,19 +57,24 @@ function transformToCatalogFormat(part, category) {
 // Select top parts per category (sorted by price, pick variety)
 function selectTopParts(data, category, count = 6) {
     if (!data || data.length === 0) return [];
-    
+
+    // Filter out parts with null or 0 price
+    const validParts = data.filter(part => part.price && part.price > 0);
+
+    if (validParts.length === 0) return [];
+
     // Sort by price
-    const sorted = [...data].sort((a, b) => (a.price || 0) - (b.price || 0));
-    
+    const sorted = [...validParts].sort((a, b) => (a.price || 0) - (b.price || 0));
+
     // Pick spread across price ranges
     const result = [];
     const step = Math.max(1, Math.floor(sorted.length / count));
-    
+
     for (let i = 0; i < count && i * step < sorted.length; i++) {
         const part = sorted[i * step];
         result.push(transformToCatalogFormat(part, category));
     }
-    
+
     return result;
 }
 
