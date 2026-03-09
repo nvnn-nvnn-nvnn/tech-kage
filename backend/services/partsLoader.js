@@ -1,12 +1,27 @@
 // Backend parts loader - transforms JSON data into AI builder format
-const cpuData = require('../data/parts/cpu.json');
-const videoCardData = require('../data/parts/video-card.json');
-const motherboardData = require('../data/parts/motherboard.json');
-const memoryData = require('../data/parts/memory.json');
-const storageData = require('../data/parts/internal-hard-drive.json');
-const powerSupplyData = require('../data/parts/power-supply.json');
-const caseData = require('../data/parts/case.json');
-const cpuCoolerData = require('../data/parts/cpu-cooler.json');
+// const cpuData = require('../data/parts/cpu.json');
+// const videoCardData = require('../data/parts/video-card.json');
+// const motherboardData = require('../data/parts/motherboard.json');
+// const memoryData = require('../data/parts/memory.json');
+// const storageData = require('../data/parts/internal-hard-drive.json');
+// const powerSupplyData = require('../data/parts/power-supply.json');
+// const caseData = require('../data/parts/case.json');
+// const cpuCoolerData = require('../data/parts/cpu-cooler.json');
+
+const cpuData = require('../json/top100/cpu.json');
+const videoCardData = require('../json/top100/video-card.json');
+const motherboardData = require('../json/top100/motherboard.json');
+const memoryData = require('../json/top100/memory.json');
+const storageData = require('../json/top100/internal-hard-drive.json');
+const powerSupplyData = require('../json/top100/power-supply.json');
+const caseData = require('../json/top100/case.json');
+const cpuCoolerData = require('../json/top100/cpu-cooler.json');
+
+
+
+
+
+
 
 // Transform JSON part to AI builder catalog format
 function transformToCatalogFormat(part, category) {
