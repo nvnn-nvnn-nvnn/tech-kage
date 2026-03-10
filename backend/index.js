@@ -48,6 +48,19 @@ app.get('/health', (req, res) => {
 });
 
 // ─── START ────────────────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
-});
+// Initialize parts catalog before starting server
+const { initializeCatalog } = require('./services/partsLoader');
+
+async function startServer() {
+  try {
+    await initializeCatalog();
+    app.listen(PORT, () => {
+      console.log(`Backend running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Failed to initialize server:', error);
+    process.exit(1);
+  }
+}
+
+startServer();
