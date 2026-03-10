@@ -7,7 +7,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // ─── MIDDLEWARE ───────────────────────────────────────────────────
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://your-frontend.com', // replace with your actual production URL
+  ],
+  credentials: true,
+}));
 
 // ⚠️ Webhook MUST use raw body — register before express.json()
 app.use('/api/webhook', express.raw({ type: 'application/json' }));
