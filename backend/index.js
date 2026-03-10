@@ -12,6 +12,8 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:5174',
     'https://tech-kage.vercel.app',
+    'https://techkage.app',
+    'https://www.techkage.app',
     'https://tech-kage-production.up.railway.app'
   ],
   credentials: true,
