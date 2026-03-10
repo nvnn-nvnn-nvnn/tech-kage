@@ -1,11 +1,37 @@
 // backend/services/priceService.js
 const { supabase } = require('../config/supabase');
 
+// Node Fetch
+
+
+
+
 class PriceService {
     // Fetch price from API (Rainforest, Amazon, etc.)
     async fetchAmazonPrice(asin) {
-        // Call your pricing API here
-        // Return { price, availability, shipping }
+        try {
+            const response = await fetch(`https://api.rainforestapi.com/request?api_key=${process.env.RAINFOREST_API_KEY}&amazon_domain=amazon.com&asin=${asin}&type=product&variant_prices=false&currency=usd&language=en_US&associate_id=techkage-20`);
+
+            if (!response.ok) {
+                throw new Error(`Rainforest API error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // Check if data exists
+            if (!data.product || !data.product.buybox_winner) {
+                return { price: 0, availability: 'Out of Stock', shipping: 0 };
+            }
+
+            return {
+                price: data.product.buybox_winner.price.raw,
+                availability: data.product.buybox_winner.availability.raw,
+                shipping: 0
+            };
+        } catch (error) {
+            console.error(`Error fetching price for ASIN ${asin}:`, error);
+            return { price: 0, availability: 'Unknown', shipping: 0 };
+        }
     }
 
     // Update a single part's price
