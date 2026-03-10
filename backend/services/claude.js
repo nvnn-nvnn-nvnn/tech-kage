@@ -27,14 +27,25 @@ async function generateBuild(userPrompt, budget) {
     // Extract the text response
     const responseText = message.content[0].text;
 
-    // Clean markdown code blocks if present
-    let cleanResponse = responseText.trim();
-    if (cleanResponse.startsWith('```json')) {
-      cleanResponse = cleanResponse.replace(/^```json\s*/, '').replace(/\s*```$/, '');
-    }
 
-    // Parse the JSON
-    const buildData = JSON.parse(cleanResponse);
+    const cleanText = responseText
+      .replace(/```json/g, '')
+      .replace(/```/g, '')
+      .trim();
+
+
+
+    const jsonMatch = cleanText.match(/{[\s\S]*}/);
+    const jsonString = jsonMatch ? jsonMatch[0] : cleanText;
+
+    // Clean markdown code blocks if present
+    // let cleanResponse = responseText.trim();
+    // if (cleanResponse.startsWith('```json')) {
+    //   cleanResponse = cleanResponse.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+    // }
+
+    const buildData = JSON.parse(jsonString);
+
 
     return {
       success: true,
@@ -44,7 +55,7 @@ async function generateBuild(userPrompt, budget) {
 
   } catch (error) {
     console.error("Claude API Error:", error);
-    
+
     // Return a structured error
     return {
       success: false,
