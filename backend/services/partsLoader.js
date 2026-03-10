@@ -1,21 +1,28 @@
-// Backend parts loader - transforms JSON data into AI builder format
-// const cpuData = require('../data/parts/cpu.json');
-// const videoCardData = require('../data/parts/video-card.json');
-// const motherboardData = require('../data/parts/motherboard.json');
-// const memoryData = require('../data/parts/memory.json');
-// const storageData = require('../data/parts/internal-hard-drive.json');
-// const powerSupplyData = require('../data/parts/power-supply.json');
-// const caseData = require('../data/parts/case.json');
-// const cpuCoolerData = require('../data/parts/cpu-cooler.json');
+// Backend parts loader - transforms Supabase data into AI builder format
+const { supabase } = require('../config/supabase');
 
-const cpuData = require('../json/top100/cpu.json');
-const videoCardData = require('../json/top100/video-card.json');
-const motherboardData = require('../json/top100/motherboard.json');
-const memoryData = require('../json/top100/memory.json');
-const storageData = require('../json/top100/internal-hard-drive.json');
-const powerSupplyData = require('../json/top100/power-supply.json');
-const caseData = require('../json/top100/case.json');
-const cpuCoolerData = require('../json/top100/cpu-cooler.json');
+// Load parts from Supabase for a specific category
+async function loadCategoryFromSupabase(category, limit = 100) {
+    const { data, error } = await supabase
+        .from('parts')
+        .select('*, current_prices(*)')
+        .eq('category', category)
+        .not('asin', 'is', null)
+        .limit(limit);
+
+    if (error) {
+        console.error(`Error loading ${category} from Supabase:`, error);
+        return [];
+    }
+
+    // Transform Supabase format to match expected JSON format
+    return data.map(part => ({
+        ...part.specs,
+        name: part.name,
+        asin: part.asin,
+        price: part.current_prices?.[0]?.price || 0
+    }));
+}
 
 
 
@@ -98,17 +105,44 @@ function selectTopParts(data, category, count = 6) {
     return result;
 }
 
-// Build the parts catalog from JSON data
-const PARTS_CATALOG = {
-    CPU: selectTopParts(cpuData, 'CPU', 6),
-    GPU: selectTopParts(videoCardData, 'GPU', 8),
-    MOTHERBOARD: selectTopParts(motherboardData, 'MOTHERBOARD', 6),
-    RAM: selectTopParts(memoryData, 'RAM', 6),
-    STORAGE: selectTopParts(storageData, 'STORAGE', 6),
-    PSU: selectTopParts(powerSupplyData, 'PSU', 6),
-    CASE: selectTopParts(caseData, 'CASE', 6),
-    COOLING: selectTopParts(cpuCoolerData, 'COOLING', 6),
-};
+// Build the parts catalog from Supabase data
+let PARTS_CATALOG = {};
+
+// Initialize catalog from Supabase
+async function initializeCatalog() {
+    console.log('Loading parts catalog from Supabase...');
+
+    const [cpuData, videoCardData, motherboardData, memoryData, storageData, powerSupplyData, caseData, cpuCoolerData] = await Promise.all([
+        loadCategoryFromSupabase('cpu'),
+        loadCategoryFromSupabase('video-card'),
+        loadCategoryFromSupabase('motherboard'),
+        loadCategoryFromSupabase('memory'),
+        loadCategoryFromSupabase('storage'),
+        loadCategoryFromSupabase('powersupply'),
+        loadCategoryFromSupabase('case'),
+        loadCategoryFromSupabase('cpu-cooler')
+    ]);
+
+    PARTS_CATALOG = {
+        CPU: selectTopParts(cpuData, 'CPU', 6),
+        GPU: selectTopParts(videoCardData, 'GPU', 8),
+        MOTHERBOARD: selectTopParts(motherboardData, 'MOTHERBOARD', 6),
+        RAM: selectTopParts(memoryData, 'RAM', 6),
+        STORAGE: selectTopParts(storageData, 'STORAGE', 6),
+        PSU: selectTopParts(powerSupplyData, 'PSU', 6),
+        CASE: selectTopParts(caseData, 'CASE', 6),
+        COOLING: selectTopParts(cpuCoolerData, 'COOLING', 6),
+    };
+
+    console.log('Parts catalog loaded successfully!');
+    return PARTS_CATALOG;
+}
+
+// Initialize on module load
+initializeCatalog().catch(err => {
+    console.error('Failed to initialize parts catalog:', err);
+    PARTS_CATALOG = {}; // Fallback to empty catalog
+});
 
 // Helper functions
 function getPartNamesForCategory(category) {
@@ -129,4 +163,10 @@ function getDefaultPart(category) {
     return PARTS_CATALOG[category]?.[0] || null;
 }
 
-module.exports = { PARTS_CATALOG, getPartNamesForCategory, getPartByName, getDefaultPart };
+module.exports = {
+    PARTS_CATALOG,
+    getPartNamesForCategory,
+    getPartByName,
+    getDefaultPart,
+    initializeCatalog // Export for manual refresh if needed
+};

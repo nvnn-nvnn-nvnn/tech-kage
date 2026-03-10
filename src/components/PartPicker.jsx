@@ -1,6 +1,7 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useBuilder } from "../context/BuilderContext";
-import { sampleParts } from "../data/partsLoader";
+import { getSampleParts } from "../data/partsLoader";
 
 const T = {
     bg: "#050608",
@@ -77,16 +78,19 @@ const initialCategories = [
 //         { id: "mo1", name: 'LG 27GP950-B 4K 144Hz 27"', base: 799, promo: 100, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
 //         { id: "mo2", name: 'Samsung Odyssey G7 32" QHD 240Hz', base: 649, promo: 50, shipping: 0, tax: 0, avail: "In Stock", where: "Best Buy" },
 //     ],
-//     accessories: [
-//         { id: "ac1", name: "Logitech G Pro X Superlight 2", base: 159, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Amazon" },
-//         { id: "ac2", name: "Keychron Q1 Pro Mechanical Keyboard", base: 199, promo: 0, shipping: 0, tax: 0, avail: "In Stock", where: "Keychron" },
-//     ],
-// };
-
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function PartPicker() {
     const navigate = useNavigate();
     const { selections, removePart, total, selectedCount } = useBuilder();
+    const [partsData, setPartsData] = useState({});
+
+    useEffect(() => {
+        const loadParts = async () => {
+            const allParts = await getSampleParts();
+            setPartsData(allParts);
+        };
+        loadParts();
+    }, []);
 
     return (
         <div style={{ minHeight: "100vh", background: T.bg, color: T.text, fontFamily: T.mono, padding: "2.5rem 1.25rem" }}>
@@ -157,7 +161,7 @@ export default function PartPicker() {
                     {initialCategories.map((cat, i) => {
                         const part = selections[cat.id];
                         const finalPrice = part ? (part.base - part.promo + part.shipping + part.tax) : null;
-                        const hasParts = !!(sampleParts[cat.id]?.length);
+                        const hasParts = !!(partsData[cat.id]?.length);
 
                         return (
                             <div

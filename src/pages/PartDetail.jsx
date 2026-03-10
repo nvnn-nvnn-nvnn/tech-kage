@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { sampleParts } from "../data/partsLoader";
+import { getSampleParts } from "../data/partsLoader";
 import { useBuilder } from "../context/BuilderContext";
 
 const T = {
@@ -210,9 +210,31 @@ export default function PartDetail() {
     const navigate = useNavigate();
     const { selectPart, selections } = useBuilder();
     const [added, setAdded] = useState(false);
+    const [part, setPart] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const categoryParts = sampleParts[category] || [];
-    const part = categoryParts.find((p) => p.id === id);
+    useEffect(() => {
+        const loadPart = async () => {
+            const allParts = await getSampleParts();
+            const categoryParts = allParts[category] || [];
+            const foundPart = categoryParts.find((p) => p.id === id);
+            setPart(foundPart);
+            setLoading(false);
+        };
+        loadPart();
+    }, [category, id]);
+
+    if (loading) {
+        return (
+            <div style={{
+                minHeight: "60vh", display: "flex", flexDirection: "column",
+                alignItems: "center", justifyContent: "center", gap: "1rem",
+                color: T.textMid, fontFamily: T.mono,
+            }}>
+                <span style={{ fontSize: "1.5rem" }}>Loading...</span>
+            </div>
+        );
+    }
 
     if (!part) {
         return (
@@ -449,26 +471,39 @@ export default function PartDetail() {
                                 </div>
 
                                 <a
-                                    href="#"
+                                    href={part.asin ? `https://www.amazon.com/dp/${part.asin}` : "#"}
+                                    target={part.asin ? "_blank" : "_self"}
+                                    rel={part.asin ? "noopener noreferrer" : ""}
                                     style={{
                                         display: "block", textAlign: "center",
                                         padding: "0.65rem", borderRadius: 8,
-                                        background: T.greenDim, color: T.green,
-                                        border: `1px solid ${T.green}44`,
+                                        background: part.asin ? T.greenDim : "rgba(255,255,255,0.05)",
+                                        color: part.asin ? T.green : T.textDim,
+                                        border: `1px solid ${part.asin ? T.green + '44' : 'rgba(255,255,255,0.1)'}`,
                                         fontSize: "0.82rem", fontWeight: 600,
                                         textDecoration: "none", letterSpacing: "0.05em",
                                         transition: "all 0.2s",
+                                        cursor: part.asin ? "pointer" : "not-allowed",
                                     }}
                                     onMouseEnter={e => {
-                                        e.currentTarget.style.background = T.greenGlow;
-                                        e.currentTarget.style.borderColor = T.green;
+                                        if (part.asin) {
+                                            e.currentTarget.style.background = T.greenGlow;
+                                            e.currentTarget.style.borderColor = T.green;
+                                        }
                                     }}
                                     onMouseLeave={e => {
-                                        e.currentTarget.style.background = T.greenDim;
-                                        e.currentTarget.style.borderColor = `${T.green}44`;
+                                        if (part.asin) {
+                                            e.currentTarget.style.background = T.greenDim;
+                                            e.currentTarget.style.borderColor = `${T.green}44`;
+                                        }
+                                    }}
+                                    onClick={e => {
+                                        if (!part.asin) {
+                                            e.preventDefault();
+                                        }
                                     }}
                                 >
-                                    View on {part.where} →
+                                    {part.asin ? `View on ${part.where} →` : "Link Unavailable"}
                                 </a>
                             </div>
                         </div>

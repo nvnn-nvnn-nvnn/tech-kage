@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Searchbar from "../Searchbar";
 import PartsFilter from "./PartsFilter";
-import { sampleParts } from "../../data/partsLoader";
+import { getSampleParts } from "../../data/partsLoader";
 import { useBuilder } from "../../context/BuilderContext";
 
 const T = {
@@ -92,14 +92,13 @@ export default function PartsList({ partType }) {
     });
 
     useEffect(() => {
-        // Load parts for this category
-        console.log('PartsList - partType:', partType);
-        console.log('PartsList - sampleParts keys:', Object.keys(sampleParts));
-        console.log('PartsList - sampleParts[partType]:', sampleParts[partType]);
-        const categoryParts = sampleParts[partType] || [];
-        console.log('PartsList - categoryParts length:', categoryParts.length);
-        setParts(categoryParts);
-        setFilteredParts(categoryParts);
+        const loadParts = async () => {
+            const allParts = await getSampleParts();
+            const categoryParts = allParts[partType] || [];
+            setParts(categoryParts);
+            setFilteredParts(categoryParts);
+        };
+        loadParts();
     }, [partType]);
 
     const handleFilterChange = (filters) => {

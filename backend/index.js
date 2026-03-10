@@ -12,7 +12,6 @@ app.use(cors());
 // ⚠️ Webhook MUST use raw body — register before express.json()
 app.use('/api/webhook', express.raw({ type: 'application/json' }));
 
-
 // JSON parser for everything else
 app.use(express.json());
 
@@ -23,6 +22,7 @@ const alternativePart = require('./routes/alternativePart');
 const stripeRoute = require('./routes/stripe');
 const subscribeRoute = require('./routes/subscribe');
 const deleteAccountRoute = require('./routes/deleteAccount');
+const partsRoute = require('./routes/parts');
 
 app.use('/api', webhookRoute);
 app.use('/api', buildRoutes);
@@ -30,6 +30,7 @@ app.use('/api', alternativePart);
 app.use('/api', stripeRoute);
 app.use('/api', subscribeRoute);
 app.use('/api', deleteAccountRoute);
+app.use('/api', partsRoute);
 
 // ─── HEALTH CHECK ────────────────────────────────────────────────
 app.get('/health', (req, res) => {
