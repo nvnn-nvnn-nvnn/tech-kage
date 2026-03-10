@@ -11,7 +11,9 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:5174',
-    'https://your-frontend.com', // replace with your actual production URL
+    'https://tech-kage.vercel.app', // replace with your actual production URL
+    'https://tech-kage-production.up.railway.app'
+
   ],
   credentials: true,
 }));
