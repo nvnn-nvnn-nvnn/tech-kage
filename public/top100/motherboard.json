@@ -7,7 +7,14 @@
     "max_memory": 192,
     "memory_slots": 4,
     "color": "Black / Silver",
-    "asin": "B0DGWQ128D"
+    "asin": "B0DGWQ128D",
+    "chipset": "AMD B650",
+    "memory_type": "DDR5",
+    "m2_slots": 2,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 6"
   },
   {
     "name": "MSI B650 GAMING PLUS WIFI",
@@ -17,7 +24,14 @@
     "max_memory": 192,
     "memory_slots": 4,
     "color": "Black",
-    "asin": "B0CB6XZ7RH"
+    "asin": "B0CB6XZ7RH",
+    "chipset": "AMD B650",
+    "memory_type": "DDR5",
+    "m2_slots": 2,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 6E"
   },
   {
     "name": "MSI MAG B650 TOMAHAWK WIFI",
@@ -27,7 +41,14 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "Black",
-    "asin": "B0BHCCNSRH"
+    "asin": "B0BHCCNSRH",
+    "chipset": "AMD B650",
+    "memory_type": "DDR5",
+    "m2_slots": 2,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 6E"
   },
   {
     "name": "Gigabyte X870E AORUS ELITE WIFI7",
@@ -37,7 +58,14 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "Black",
-    "asin": "B0DGVBM73J"
+    "asin": "B0DGVBM73J",
+    "chipset": "AMD X870E",
+    "memory_type": "DDR5",
+    "m2_slots": 4,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 7"
   },
   {
     "name": "Asus PRIME B550M-A WIFI II",
@@ -47,7 +75,14 @@
     "max_memory": 128,
     "memory_slots": 4,
     "color": "Blue / Silver",
-    "asin": "B0B5M97W1T"
+    "asin": "B0B5M97W1T",
+    "chipset": "AMD B550",
+    "memory_type": "DDR4",
+    "m2_slots": 1,
+    "pcie_x16_slots": 1,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "1 Gb/s",
+    "wireless_networking": "Wi-Fi 6"
   },
   {
     "name": "Gigabyte B650 EAGLE AX",
@@ -57,7 +92,14 @@
     "max_memory": 192,
     "memory_slots": 4,
     "color": "Gray / Black",
-    "asin": "B083TZ68H1"
+    "asin": "B083TZ68H1",
+    "chipset": "AMD B650",
+    "memory_type": "DDR5",
+    "m2_slots": 2,
+    "pcie_x16_slots": 1,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 6E"
   },
   {
     "name": "Asus TUF GAMING B850-PLUS WIFI",
@@ -67,7 +109,14 @@
     "max_memory": 192,
     "memory_slots": 4,
     "color": "Black / Silver",
-    "asin": "B0DPLPLR88"
+    "asin": "B0DPLPLR88",
+    "chipset": "AMD B850",
+    "memory_type": "DDR5",
+    "m2_slots": 3,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 7"
   },
   {
     "name": "ASRock B650M Pro RS WiFi",
@@ -77,7 +126,14 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "Black / Silver",
-    "asin": "B0F3DG1NVW"
+    "asin": "B0F3DG1NVW",
+    "chipset": "AMD B650",
+    "memory_type": "DDR5",
+    "m2_slots": 2,
+    "pcie_x16_slots": 1,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 6E"
   },
   {
     "name": "MSI MAG X870 TOMAHAWK WIFI",
@@ -87,7 +143,14 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "Black",
-    "asin": "B0DG3HK897"
+    "asin": "B0DG3HK897",
+    "chipset": "AMD X870",
+    "memory_type": "DDR5",
+    "m2_slots": 4,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 7"
   },
   {
     "name": "Gigabyte A520M K V2",
@@ -97,7 +160,14 @@
     "max_memory": 64,
     "memory_slots": 2,
     "color": "Brown / Black",
-    "asin": "B0BXFBN121"
+    "asin": "B0BXFBN121",
+    "chipset": "AMD A520",
+    "memory_type": "DDR4",
+    "m2_slots": 1,
+    "pcie_x16_slots": 1,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "1 Gb/s",
+    "wireless_networking": null
   },
   {
     "name": "Asus B650E MAX GAMING WIFI W",
@@ -107,7 +177,14 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "White",
-    "asin": "B0F25ML4CK"
+    "asin": "B0F25ML4CK",
+    "chipset": "AMD B650E",
+    "memory_type": "DDR5",
+    "m2_slots": 3,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 7"
   },
   {
     "name": "MSI PRO B650-S WIFI",
@@ -117,7 +194,14 @@
     "max_memory": 192,
     "memory_slots": 4,
     "color": "Black",
-    "asin": "B0CQHS7PLL"
+    "asin": "B0CQHS7PLL",
+    "chipset": "AMD B650",
+    "memory_type": "DDR5",
+    "m2_slots": 2,
+    "pcie_x16_slots": 1,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 6E"
   },
   {
     "name": "Gigabyte B550M K",
@@ -127,7 +211,14 @@
     "max_memory": 128,
     "memory_slots": 4,
     "color": "Brown / Silver",
-    "asin": "B0BTTZFQTP"
+    "asin": "B0BTTZFQTP",
+    "chipset": "AMD B550",
+    "memory_type": "DDR4",
+    "m2_slots": 1,
+    "pcie_x16_slots": 1,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "1 Gb/s",
+    "wireless_networking": null
   },
   {
     "name": "ASRock B850I Lightning WiFi",
@@ -177,7 +268,14 @@
     "max_memory": 128,
     "memory_slots": 4,
     "color": "Black",
-    "asin": "B0BHN7GGBQ"
+    "asin": "B0BHN7GGBQ",
+    "chipset": "AMD B650",
+    "memory_type": "DDR5",
+    "m2_slots": 2,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 6E"
   },
   {
     "name": "Gigabyte X870 EAGLE WIFI7",
@@ -197,7 +295,14 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "White",
-    "asin": "B0FDL8CFQX"
+    "asin": "B0FDL8CFQX",
+    "chipset": "AMD X870",
+    "memory_type": "DDR5",
+    "m2_slots": 4,
+    "pcie_x16_slots": 2,
+    "sata_6_ports": 4,
+    "onboard_ethernet": "2.5 Gb/s",
+    "wireless_networking": "Wi-Fi 7"
   },
   {
     "name": "MSI B550M PRO-VDH WIFI",

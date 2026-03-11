@@ -14,7 +14,11 @@
     "color": "Black",
     "first_word_latency": 12,
     "cas_latency": 36,
-    "asin": "B0BZHTVHN5"
+    "asin": "B0BZHTVHN5",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "G.Skill Flare X5 32 GB",
@@ -31,7 +35,11 @@
     "color": "Black",
     "first_word_latency": 12,
     "cas_latency": 36,
-    "asin": "B0BFGB2D2Z"
+    "asin": "B0BFGB2D2Z",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Corsair Vengeance LPX 16 GB",
@@ -48,7 +56,11 @@
     "color": "Black / Yellow",
     "first_word_latency": 10,
     "cas_latency": 16,
-    "asin": "B0143UM4TC"
+    "asin": "B0143UM4TC",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.35 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Corsair Vengeance 32 GB",
@@ -65,7 +77,11 @@
     "color": "Black / Gray",
     "first_word_latency": 10,
     "cas_latency": 30,
-    "asin": "B0DJW4PKY3"
+    "asin": "B0DJW4PKY3",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "TEAMGROUP T-Create Expert 32 GB",
@@ -82,7 +98,11 @@
     "color": "Black",
     "first_word_latency": 10,
     "cas_latency": 30,
-    "asin": "B0C4NM8NMC"
+    "asin": "B0C4NM8NMC",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Corsair Vengeance LPX 32 GB",
@@ -99,7 +119,11 @@
     "color": "Black / Yellow",
     "first_word_latency": 10,
     "cas_latency": 18,
-    "asin": "B07RW6Z692"
+    "asin": "B07RW6Z692",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.35 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Crucial Pro Overclocking 32 GB",
@@ -116,7 +140,11 @@
     "color": "Black",
     "first_word_latency": 12,
     "cas_latency": 36,
-    "asin": "B0FQMLKVLS"
+    "asin": "B0FQMLKVLS",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "G.Skill Trident Z5 RGB 64 GB",
@@ -133,7 +161,11 @@
     "color": "Black / Silver",
     "first_word_latency": 10,
     "cas_latency": 32,
-    "asin": "B0BJNTRFMP"
+    "asin": "B0BJNTRFMP",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.35 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Corsair Vengeance RGB 64 GB",
@@ -150,7 +182,11 @@
     "color": "Black",
     "first_word_latency": 10,
     "cas_latency": 30,
-    "asin": "B0BHVFDK3L"
+    "asin": "B0BHVFDK3L",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "TEAMGROUP T-Force Delta RGB 32 GB",
@@ -167,7 +203,11 @@
     "color": "White",
     "first_word_latency": 10,
     "cas_latency": 30,
-    "asin": "B0B3HHB3Z9"
+    "asin": "B0B3HHB3Z9",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "G.Skill Trident Z5 Neo RGB 32 GB",
@@ -218,7 +258,11 @@
     "color": "Black",
     "first_word_latency": 10,
     "cas_latency": 18,
-    "asin": "B082DJ19CK"
+    "asin": "B082DJ19CK",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.35 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Silicon Power GAMING 16 GB",
@@ -337,7 +381,11 @@
     "color": "Black",
     "first_word_latency": 10,
     "cas_latency": 16,
-    "asin": "B0D9PRVBRZ"
+    "asin": "B0D9PRVBRZ",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.35 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Silicon Power Value Gaming 32 GB",
@@ -490,7 +538,11 @@
     "color": "Black / Gray",
     "first_word_latency": 10,
     "cas_latency": 30,
-    "asin": "B0FNRJV6FS"
+    "asin": "B0FNRJV6FS",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.25 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "G.Skill Trident Z RGB 32 GB",
@@ -609,7 +661,11 @@
     "color": "Black / Yellow",
     "first_word_latency": 10,
     "cas_latency": 16,
-    "asin": "B07Y4ZZ7LQ"
+    "asin": "B07Y4ZZ7LQ",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.35 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Crucial Pro 32 GB",
@@ -1323,7 +1379,11 @@
     "color": "Black / Gray",
     "first_word_latency": 15.385,
     "cas_latency": 40,
-    "asin": "B0D9PRVBRZ"
+    "asin": "B0D9PRVBRZ",
+    "form_factor": "288-pin DIMM",
+    "voltage": "1.1 V",
+    "ecc_registered": "Non-ECC / Unbuffered",
+    "heat_spreader": "Yes"
   },
   {
     "name": "Crucial CT2K8G48C40U5 16 GB",

@@ -7,7 +7,15 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "B09LGY38L4",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 265,
+    "radiatorSize": null,
+    "height": 155,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": false,
+    "fanless": false
   },
   {
     "name": "ARCTIC Liquid Freezer III Pro 360",
@@ -20,7 +28,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0F2TRHJX3",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false
   },
   {
     "name": "Cooler Master Hyper 212 Black Edition",
@@ -36,7 +52,15 @@
     "color": "Black",
     "size": null,
     "asin": "B07H9HJLG5",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 150,
+    "radiatorSize": null,
+    "height": 158,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": false,
+    "fanless": false
   },
   {
     "name": "Thermalright Phantom Spirit 120 SE ARGB",
@@ -46,7 +70,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 260,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright Aqua Elite V3",
@@ -56,7 +84,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0CCNTYLP2",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false
   },
   {
     "name": "Noctua NH-D15 chromax.black",
@@ -72,7 +108,15 @@
     "color": "Black",
     "size": null,
     "asin": "B07Y87YHRH",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 140,
+    "height": 165,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": false,
+    "fanless": false,
+    "tdp": 225,
+    "radiatorSize": null
   },
   {
     "name": "NZXT Kraken 360",
@@ -88,7 +132,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0BY3J3ZPZ",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false
   },
   {
     "name": "Corsair NAUTILUS 360 RS ARGB",
@@ -98,7 +150,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0DF7C4YPQ",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false
   },
   {
     "name": "ARCTIC Liquid Freezer III 360 A-RGB",
@@ -111,7 +171,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0CKXCP1LW",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false
   },
   {
     "name": "Thermalright Assassin X 120 Refined SE",
@@ -121,7 +189,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 220,
+    "radiatorSize": null
   },
   {
     "name": "Cooler Master MasterLiquid 360L Core ARGB",
@@ -134,7 +206,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "ARCTIC Liquid Freezer III Pro A-RGB 360",
@@ -147,7 +223,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Phantom Spirit 120 SE",
@@ -157,7 +237,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 260,
+    "radiatorSize": null
   },
   {
     "name": "ID-COOLING SE-214-XT ARGB",
@@ -173,7 +257,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 180,
+    "radiatorSize": null
   },
   {
     "name": "NZXT Kraken 240",
@@ -189,7 +277,15 @@
     "color": "Black",
     "size": 240,
     "asin": "B0BY3HSPXY",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Thermalright Aqua Elite V3",
@@ -199,7 +295,15 @@
     "color": "Black",
     "size": 240,
     "asin": "B0CCNVFXWH",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Thermalright Peerless Assassin 120 SE ARGB",
@@ -209,7 +313,15 @@
     "color": "Black",
     "size": null,
     "asin": "B09SD44SL1",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "height": 155,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": false,
+    "fanless": false,
+    "tdp": 265,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Liquid Freezer III 360 A-RGB",
@@ -222,7 +334,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "AMD Wraith Prism",
@@ -232,7 +348,11 @@
     "color": null,
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "tdp": 105,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Freezer 36",
@@ -245,7 +365,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 200,
+    "radiatorSize": null
   },
   {
     "name": "Corsair NAUTILUS 360 RS ARGB",
@@ -255,7 +379,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "ARCTIC Liquid Freezer III Pro A-RGB 360",
@@ -268,7 +396,15 @@
     "color": "White",
     "size": 360,
     "asin": "B0F2TRN977",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Phantom Spirit EVO",
@@ -278,7 +414,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 260,
+    "radiatorSize": null
   },
   {
     "name": "Noctua NH-D15",
@@ -294,7 +434,15 @@
     "color": null,
     "size": null,
     "asin": "B00L7UZMAK",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 140,
+    "height": 165,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": false,
+    "fanless": false,
+    "tdp": 220,
+    "radiatorSize": null
   },
   {
     "name": "be quiet! Dark Rock Pro 5",
@@ -310,7 +458,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": "120 / 135",
+    "tdp": 270,
+    "radiatorSize": null
   },
   {
     "name": "NZXT Kraken Elite 360 RGB",
@@ -326,7 +478,15 @@
     "color": "White",
     "size": 360,
     "asin": "B0BY3HCW17",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "NZXT Kraken 360 RGB",
@@ -342,7 +502,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Asus ROG STRIX LC 360 RGB GUNDAM",
@@ -355,7 +519,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Frozen Notte ARGB",
@@ -365,7 +533,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Peerless Assassin 120 SE WHITE ARGB",
@@ -375,7 +547,11 @@
     "color": "White",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 265,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Liquid Freezer III Pro",
@@ -388,7 +564,11 @@
     "color": "Black",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Corsair iCUE LINK TITAN 360 RX LCD",
@@ -404,7 +584,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "ID-COOLING FROZN A620 PRO SE",
@@ -417,7 +601,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 260,
+    "radiatorSize": null
   },
   {
     "name": "Noctua NH-L9x65 chromax.black",
@@ -433,7 +621,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "tdp": 95,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright Assassin King SE ARGB",
@@ -443,7 +635,11 @@
     "color": "White",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 200,
+    "radiatorSize": null
   },
   {
     "name": "Corsair iCUE H150i ELITE LCD XT",
@@ -459,7 +655,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Lian Li Galahad II Trinity SL-INF",
@@ -469,7 +669,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "NZXT Kraken 360 RGB",
@@ -485,7 +689,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0BY3FD274",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Noctua NH-L9A-AM5",
@@ -501,7 +713,11 @@
     "color": "Brown / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "tdp": 65,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright Assassin X SE",
@@ -511,7 +727,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 130,
+    "radiatorSize": null
   },
   {
     "name": "Asus ROG Ryujin III 360 ARGB Extreme",
@@ -524,7 +744,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Aqua Elite V3",
@@ -534,7 +758,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Cooler Master MasterLiquid 240L Core ARGB",
@@ -547,7 +775,11 @@
     "color": "Black",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Thermalright AQUA ELITE ARGB V4",
@@ -557,7 +789,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Lian Li Hydroshift LCD 360S",
@@ -570,7 +806,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "ID-COOLING SE-903-XT",
@@ -583,7 +823,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "tdp": 130,
+    "radiatorSize": null
   },
   {
     "name": "Cooler Master Hyper 212 (2023)",
@@ -596,7 +840,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 150,
+    "radiatorSize": null
   },
   {
     "name": "Lian Li Hydroshift LCD 360S",
@@ -609,7 +857,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Cooler Master Hyper 212 Spectrum V3",
@@ -622,7 +874,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 150,
+    "radiatorSize": null
   },
   {
     "name": "Noctua NH-L9A-AM5 CHROMAX.BLACK",
@@ -638,7 +894,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "tdp": 65,
+    "radiatorSize": null
   },
   {
     "name": "NZXT Kraken 240 RGB",
@@ -654,7 +914,11 @@
     "color": "White",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Corsair NAUTILUS 240 RS ARGB",
@@ -664,7 +928,11 @@
     "color": "Black",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Deepcool AK620 ZERO DARK",
@@ -677,7 +945,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 260,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Liquid Freezer III 240",
@@ -690,7 +962,11 @@
     "color": "Black",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "NZXT Kraken Elite 360 RGB (2024)",
@@ -703,7 +979,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright AXP90-X47",
@@ -713,7 +993,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "tdp": 130,
+    "radiatorSize": null
   },
   {
     "name": "MSI MAG CORELIQUID A13",
@@ -723,7 +1007,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": 310,
+    "radiatorSize": 360
   },
   {
     "name": "Corsair iCUE LINK TITAN 360 RX RGB",
@@ -736,7 +1024,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Assassin Spirit 120 EVO",
@@ -746,7 +1038,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 200,
+    "radiatorSize": null
   },
   {
     "name": "Noctua NH-U12A chromax.black",
@@ -762,7 +1058,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 250,
+    "radiatorSize": null
   },
   {
     "name": "TRYX PANORAMA SE ARGB",
@@ -775,7 +1075,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": 280,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Assassin Spirit 120 EVO DARK",
@@ -785,7 +1089,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 200,
+    "radiatorSize": null
   },
   {
     "name": "NZXT Kraken Elite 360 RGB",
@@ -801,7 +1109,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0BY3JPVZY",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Peerless Assassin 120 Black",
@@ -811,7 +1127,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 265,
+    "radiatorSize": null
   },
   {
     "name": "Corsair iCUE LINK TITAN 360 RX LCD",
@@ -827,7 +1147,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Assassin X Refined SE ARGB",
@@ -837,7 +1161,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 220,
+    "radiatorSize": null
   },
   {
     "name": "Noctua NH-U12S chromax.black",
@@ -853,7 +1181,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 158,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright Assassin X 120 R Digital ARGB",
@@ -863,7 +1195,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 200,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright Peerless Assassin 120 White",
@@ -873,7 +1209,11 @@
     "color": "White",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 265,
+    "radiatorSize": null
   },
   {
     "name": "Lian Li Galahad II Trinity SL-INF",
@@ -883,7 +1223,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "TRYX PANORAMA SE ARGB",
@@ -896,7 +1240,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": 280,
+    "radiatorSize": 360
   },
   {
     "name": "Deepcool AK400",
@@ -909,7 +1257,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 220,
+    "radiatorSize": null
   },
   {
     "name": "Noctua NH-D15 G2",
@@ -919,7 +1271,11 @@
     "color": "Brown / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 150,
+    "tdp": 320,
+    "radiatorSize": null
   },
   {
     "name": "Corsair NAUTILUS 360 RS",
@@ -929,7 +1285,15 @@
     "color": "Black",
     "size": 360,
     "asin": "B0DF7B7324",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "height": null,
+    "cpu_socket": "AM4 / AM5 / LGA1700 / LGA1200 / LGA115x",
+    "water_cooled": true,
+    "fanless": false,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "ID-COOLING FROZN A410 BLACK",
@@ -942,7 +1306,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 220,
+    "radiatorSize": null
   },
   {
     "name": "be quiet! Dark Rock 5",
@@ -955,7 +1323,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 135,
+    "tdp": 250,
+    "radiatorSize": null
   },
   {
     "name": "NZXT Kraken Elite 360 (2024)",
@@ -968,7 +1340,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "be quiet! Pure Rock 3",
@@ -981,7 +1357,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 200,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Liquid Freezer III 280",
@@ -994,7 +1374,11 @@
     "color": "Black",
     "size": 280,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 140,
+    "tdp": null,
+    "radiatorSize": 280
   },
   {
     "name": "Intel E97379-001",
@@ -1007,7 +1391,11 @@
     "color": "Silver / Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 80,
+    "tdp": 65,
+    "radiatorSize": null
   },
   {
     "name": "Noctua NH-D9L",
@@ -1023,7 +1411,15 @@
     "color": null,
     "size": null,
     "asin": "B00NXLYE8I",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "height": 125,
+    "cpu_socket": "AM4 / LGA1200 / LGA115x",
+    "water_cooled": false,
+    "fanless": false,
+    "tdp": 95,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Liquid Freezer III 240 A-RGB",
@@ -1036,7 +1432,11 @@
     "color": "Black",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Noctua NH-L12S",
@@ -1052,7 +1452,15 @@
     "color": null,
     "size": null,
     "asin": "B0752M9XZY",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "height": 155,
+    "cpu_socket": "AM4 / LGA1200 / LGA115x",
+    "water_cooled": false,
+    "fanless": false,
+    "tdp": 95,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright Assassin X Refined SE RGB V2",
@@ -1062,7 +1470,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 220,
+    "radiatorSize": null
   },
   {
     "name": "ID-COOLING SE-214-XT ARGB",
@@ -1078,7 +1490,11 @@
     "color": "White",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 180,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Liquid Freezer III 420 A-RGB",
@@ -1091,7 +1507,11 @@
     "color": "Black",
     "size": 420,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 140,
+    "tdp": null,
+    "radiatorSize": 420
   },
   {
     "name": "NZXT Kraken 240 RGB",
@@ -1107,7 +1527,11 @@
     "color": "Black",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Montech HyperFlow ARGB 360",
@@ -1117,7 +1541,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Lian Li Galahad II LCD SL-INF",
@@ -1127,7 +1555,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Noctua NH-D15S chromax.black",
@@ -1143,7 +1575,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 140,
+    "tdp": 220,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright AQUA ELITE ARGB V4",
@@ -1153,7 +1589,11 @@
     "color": "White",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright Peerless Assassin 120 SE V3",
@@ -1163,7 +1603,11 @@
     "color": "Black / Silver",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": 265,
+    "radiatorSize": null
   },
   {
     "name": "NZXT Kraken Elite RGB (2025)",
@@ -1176,7 +1620,11 @@
     "color": "Black",
     "size": 420,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 140,
+    "tdp": null,
+    "radiatorSize": 420
   },
   {
     "name": "Cooler Master Hyper 212 RGB Black Edition",
@@ -1192,7 +1640,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 150,
+    "radiatorSize": null
   },
   {
     "name": "Thermalright Frozen Notte ARGB",
@@ -1202,7 +1654,11 @@
     "color": "White",
     "size": 240,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 2,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 240
   },
   {
     "name": "Thermalright Assassin X 120 R Digital ARGB",
@@ -1212,7 +1668,11 @@
     "color": "White",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 200,
+    "radiatorSize": null
   },
   {
     "name": "ARCTIC Liquid Freezer III 360",
@@ -1225,7 +1685,11 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": null,
+    "radiatorSize": 360
   },
   {
     "name": "Thermalright AXP90-X47",
@@ -1235,7 +1699,11 @@
     "color": "Orange / Brown",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 92,
+    "tdp": 130,
+    "radiatorSize": null
   },
   {
     "name": "be quiet! Pure Rock Pro 3",
@@ -1248,7 +1716,11 @@
     "color": "Black",
     "size": null,
     "asin": "",
-    "cooling_type": "air"
+    "cooling_type": "air",
+    "fanCount": 1,
+    "fanSize": 120,
+    "tdp": 210,
+    "radiatorSize": null
   },
   {
     "name": "TRYX PANORAMA ARGB (2025)",
@@ -1261,6 +1733,10 @@
     "color": "Black",
     "size": 360,
     "asin": "",
-    "cooling_type": "liquid"
+    "cooling_type": "liquid",
+    "fanCount": 3,
+    "fanSize": 120,
+    "tdp": 280,
+    "radiatorSize": 360
   }
 ]

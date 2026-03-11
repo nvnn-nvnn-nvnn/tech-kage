@@ -8,7 +8,10 @@
     "cache": 2048,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0BHJF2VRN"
+    "asin": "B0BHJF2VRN",
+    "nvme": true,
+    "read_speed": 7450,
+    "write_speed": 6900
   },
   {
     "name": "Crucial P3 Plus 1TB",
@@ -19,7 +22,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0B25NXWC7"
+    "asin": "B0B25NXWC7",
+    "nvme": true,
+    "read_speed": 5000,
+    "write_speed": 3600
   },
   {
     "name": "Crucial P3 Plus 2TB",
@@ -30,7 +36,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0B25ML2FH"
+    "asin": "B0B25ML2FH",
+    "nvme": true,
+    "read_speed": 5000,
+    "write_speed": 4200
   },
   {
     "name": "Kingston NV3",
@@ -41,7 +50,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0DBR3DZWG"
+    "asin": "B0DBR3DZWG",
+    "nvme": true,
+    "read_speed": 6000,
+    "write_speed": 4000
   },
   {
     "name": "Samsung 990 EVO Plus 1TB",
@@ -52,7 +64,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 5.0 X2",
-    "asin": "B0DHLFWBQ1"
+    "asin": "B0DHLFWBQ1",
+    "nvme": true,
+    "read_speed": 7250,
+    "write_speed": 6300
   },
   {
     "name": "Silicon Power UD90 2TB",
@@ -63,7 +78,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0B996CJ64"
+    "asin": "B0B996CJ64",
+    "nvme": true,
+    "read_speed": 5000,
+    "write_speed": 4800
   },
   {
     "name": "Samsung 990 EVO Plus",
@@ -74,7 +92,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 5.0 X2",
-    "asin": "B0DHLCRF91"
+    "asin": "B0DHLCRF91",
+    "nvme": true,
+    "read_speed": 7250,
+    "write_speed": 6300
   },
   {
     "name": "Seagate Barracuda Compute",
@@ -96,7 +117,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0CBSSC21F"
+    "asin": "B0CBSSC21F",
+    "nvme": true,
+    "read_speed": 5000,
+    "write_speed": 4500
   },
   {
     "name": "Western Digital Black SN770",
@@ -107,7 +131,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0DN7CYYSD"
+    "asin": "B0DN7CYYSD",
+    "nvme": true,
+    "read_speed": 5150,
+    "write_speed": 4900
   },
   {
     "name": "Crucial P3 Plus",
@@ -129,7 +156,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0DN6ZQ3PD"
+    "asin": "B0DN6ZQ3PD",
+    "nvme": true,
+    "read_speed": 5150,
+    "write_speed": 4850
   },
   {
     "name": "Western Digital WD_Black SN850X",
@@ -140,7 +170,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0D9WT512W"
+    "asin": "B0D9WT512W",
+    "nvme": true,
+    "read_speed": 7300,
+    "write_speed": 6600
   },
   {
     "name": "Samsung 9100 PRO",
@@ -151,7 +184,10 @@
     "cache": 2048,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 5.0 X4",
-    "asin": "B0DX2DPJZ5"
+    "asin": "B0DX2DPJZ5",
+    "nvme": true,
+    "read_speed": 14500,
+    "write_speed": 13000
   },
   {
     "name": "Kingston NV3",
@@ -184,7 +220,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0B217LZBG"
+    "asin": "B0B217LZBG",
+    "nvme": true,
+    "read_speed": 5000,
+    "write_speed": 4800
   },
   {
     "name": "Western Digital Blue SN580",
@@ -217,7 +256,10 @@
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0D3HDJDNM"
+    "asin": "B0D3HDJDNM",
+    "nvme": true,
+    "read_speed": 5000,
+    "write_speed": 4500
   },
   {
     "name": "Seagate IronWolf Pro",
@@ -723,7 +765,10 @@
     "cache": 2048,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0BHJDY57J"
+    "asin": "B0BHJDY57J",
+    "nvme": true,
+    "read_speed": 7450,
+    "write_speed": 6900
   },
   {
     "name": "Lexar NM790",

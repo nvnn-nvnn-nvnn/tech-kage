@@ -8,7 +8,16 @@
     "boost_clock": 1777,
     "color": "Black",
     "length": 235,
-    "asin": "B08WRVQ4KR"
+    "asin": "B08WRVQ4KR",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "G-Sync",
+    "tdp": 170,
+    "cooling": "Dual Fan",
+    "external_power": "1x 8-pin",
+    "total_slot_width": 2,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Sapphire PULSE",
@@ -19,7 +28,16 @@
     "boost_clock": 3290,
     "color": "Black",
     "length": 240,
-    "asin": "B0F9LN5VZ6"
+    "asin": "B0F9LN5VZ6",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 150,
+    "cooling": "Dual Fan",
+    "external_power": "1x 8-pin",
+    "total_slot_width": 2,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "MSI SHADOW 3X OC",
@@ -30,7 +48,16 @@
     "boost_clock": 2497,
     "color": "Black",
     "length": 303,
-    "asin": "B0DZD6QV9L"
+    "asin": "B0DZD6QV9L",
+    "memory_type": "GDDR7",
+    "interface": "PCIe 5.0 x16",
+    "frame_sync": "G-Sync",
+    "tdp": 300,
+    "cooling": "Triple Fan",
+    "external_power": "1x 16-pin",
+    "total_slot_width": 2.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Gigabyte WINDFORCE OC SFF",
@@ -41,7 +68,16 @@
     "boost_clock": 2542,
     "color": "Black",
     "length": 282,
-    "asin": "B0DTQMLX4F"
+    "asin": "B0DTQMLX4F",
+    "memory_type": "GDDR7",
+    "interface": "PCIe 5.0 x16",
+    "frame_sync": "G-Sync",
+    "tdp": 250,
+    "cooling": "Dual Fan",
+    "external_power": "1x 16-pin",
+    "total_slot_width": 2,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Sapphire PULSE 9070",
@@ -52,7 +88,16 @@
     "boost_clock": 2970,
     "color": "Black",
     "length": 320,
-    "asin": "B0DTHMPWFR"
+    "asin": "B0DTHMPWFR",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 300,
+    "cooling": "Triple Fan",
+    "external_power": "2x 8-pin",
+    "total_slot_width": 2.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "ASRock Challenger OC",
@@ -63,7 +108,16 @@
     "boost_clock": 3290,
     "color": "Black / Silver",
     "length": 249,
-    "asin": "B0F8B59WP7"
+    "asin": "B0F8B59WP7",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 150,
+    "cooling": "Dual Fan",
+    "external_power": "1x 8-pin",
+    "total_slot_width": 2,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Gigabyte Radeon RX 9070 XT GAMING 16G",
@@ -74,7 +128,16 @@
     "boost_clock": 2970,
     "color": "Black",
     "length": 288,
-    "asin": "B0F3ZS44MH"
+    "asin": "B0F3ZS44MH",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 300,
+    "cooling": "Triple Fan",
+    "external_power": "2x 8-pin",
+    "total_slot_width": 2.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Asus ROG Astral OC",
@@ -85,7 +148,16 @@
     "boost_clock": 2610,
     "color": "Black / Silver",
     "length": 358,
-    "asin": "B0DS2WQZ2M"
+    "asin": "B0DS2WQZ2M",
+    "memory_type": "GDDR7",
+    "interface": "PCIe 5.0 x16",
+    "frame_sync": "G-Sync",
+    "tdp": 575,
+    "cooling": "Triple Fan",
+    "external_power": "1x 16-pin",
+    "total_slot_width": 3.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "ASRock Challenger D",
@@ -96,7 +168,16 @@
     "boost_clock": null,
     "color": "Black",
     "length": 269,
-    "asin": "B09J8VCFWN"
+    "asin": "B09J8VCFWN",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 132,
+    "cooling": "Dual Fan",
+    "external_power": "1x 8-pin",
+    "total_slot_width": 2,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Asus PRIME OC",
@@ -107,7 +188,16 @@
     "boost_clock": 3030,
     "color": "Black",
     "length": 312,
-    "asin": "B0DRRMZDH6"
+    "asin": "B0DRRMZDH6",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 300,
+    "cooling": "Triple Fan",
+    "external_power": "2x 8-pin",
+    "total_slot_width": 2.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Asus PRIME",
@@ -129,7 +219,16 @@
     "boost_clock": 2505,
     "color": "Black",
     "length": 199,
-    "asin": "B0C7W8GZMJ"
+    "asin": "B0C7W8GZMJ",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "G-Sync",
+    "tdp": 115,
+    "cooling": "Dual Fan",
+    "external_power": "1x 8-pin",
+    "total_slot_width": 2,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Asus PRIME OC 5070",
@@ -151,7 +250,16 @@
     "boost_clock": 2617,
     "color": "Black / Gray",
     "length": 227,
-    "asin": "B0F45QRHQB"
+    "asin": "B0F45QRHQB",
+    "memory_type": "GDDR7",
+    "interface": "PCIe 5.0 x16",
+    "frame_sync": "G-Sync",
+    "tdp": 180,
+    "cooling": "Dual Fan",
+    "external_power": "1x 8-pin",
+    "total_slot_width": 2,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "MSI VENTUS 3X OC",
@@ -162,7 +270,16 @@
     "boost_clock": 2497,
     "color": "Silver / Black",
     "length": 303,
-    "asin": "B0F45Y77MH"
+    "asin": "B0F45Y77MH",
+    "memory_type": "GDDR7",
+    "interface": "PCIe 5.0 x16",
+    "frame_sync": "G-Sync",
+    "tdp": 300,
+    "cooling": "Triple Fan",
+    "external_power": "1x 16-pin",
+    "total_slot_width": 2.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "ASRock Steel Legend",
@@ -173,7 +290,16 @@
     "boost_clock": 2970,
     "color": "White / Gray",
     "length": 298,
-    "asin": "B0F8B462JH"
+    "asin": "B0F8B462JH",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 300,
+    "cooling": "Triple Fan",
+    "external_power": "2x 8-pin",
+    "total_slot_width": 2.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Gigabyte GAMING OC",
@@ -184,7 +310,16 @@
     "boost_clock": null,
     "color": "Black",
     "length": 281,
-    "asin": "B0F91KM1CK"
+    "asin": "B0F91KM1CK",
+    "memory_type": "GDDR6",
+    "interface": "PCIe 4.0 x16",
+    "frame_sync": "FreeSync",
+    "tdp": 150,
+    "cooling": "Triple Fan",
+    "external_power": "1x 8-pin",
+    "total_slot_width": 2.5,
+    "displayport_outputs": 3,
+    "hdmi_outputs": 1
   },
   {
     "name": "Intel Limited Edition",

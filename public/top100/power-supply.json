@@ -7,7 +7,10 @@
     "wattage": 750,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0CC3QBGDL"
+    "asin": "B0CC3QBGDL",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 150
   },
   {
     "name": "MSI MAG A850GL PCIE5",
@@ -17,7 +20,10 @@
     "wattage": 850,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0CB9MSJ5N"
+    "asin": "B0CB9MSJ5N",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 150
   },
   {
     "name": "MSI MAG A650BN",
@@ -27,7 +33,10 @@
     "wattage": 650,
     "modular": false,
     "color": "Black",
-    "asin": "B0991TZ399"
+    "asin": "B0991TZ399",
+    "fanless": false,
+    "fan_size": 120,
+    "length": 140
   },
   {
     "name": "Corsair RM1000e (2023)",
@@ -37,7 +46,10 @@
     "wattage": 1000,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0BVKZ9GCB"
+    "asin": "B0BVKZ9GCB",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 160
   },
   {
     "name": "Corsair RM750e (2025)",
@@ -47,7 +59,10 @@
     "wattage": 750,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0DPR6X7JX"
+    "asin": "B0DPR6X7JX",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 150
   },
   {
     "name": "Corsair RM850e (2025)",
@@ -57,7 +72,10 @@
     "wattage": 850,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0FLFDGTH7"
+    "asin": "B0FLFDGTH7",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 150
   },
   {
     "name": "MSI MAG A550BN",
@@ -67,7 +85,10 @@
     "wattage": 550,
     "modular": false,
     "color": "Black",
-    "asin": "B0991W1HKT"
+    "asin": "B0991W1HKT",
+    "fanless": false,
+    "fan_size": 120,
+    "length": 140
   },
   {
     "name": "Corsair RM850x (2024)",
@@ -77,7 +98,10 @@
     "wattage": 850,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0FLFGG1CC"
+    "asin": "B0FLFGG1CC",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 160
   },
   {
     "name": "Corsair SF1000 (2024)",
@@ -87,7 +111,10 @@
     "wattage": 1000,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0D45RN3KZ"
+    "asin": "B0D45RN3KZ",
+    "fanless": false,
+    "fan_size": 92,
+    "length": 100
   },
   {
     "name": "MSI MAG A650GL",
@@ -97,7 +124,10 @@
     "wattage": 650,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0CGFZVGF9"
+    "asin": "B0CGFZVGF9",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 150
   },
   {
     "name": "Cooler Master MWE Gold 850 - V2",
@@ -107,7 +137,10 @@
     "wattage": 850,
     "modular": "Full",
     "color": "Black",
-    "asin": "B0D68VH8DR"
+    "asin": "B0D68VH8DR",
+    "fanless": false,
+    "fan_size": 120,
+    "length": 160
   },
   {
     "name": "Thermaltake Smart 500W",
@@ -117,7 +150,10 @@
     "wattage": 500,
     "modular": false,
     "color": null,
-    "asin": "B014W3EM2W"
+    "asin": "B014W3EM2W",
+    "fanless": false,
+    "fan_size": 120,
+    "length": 150
   },
   {
     "name": "Corsair SF750 (2024)",
@@ -187,7 +223,10 @@
     "wattage": 850,
     "modular": "Full",
     "color": "White",
-    "asin": "B0CT41HW5J"
+    "asin": "B0CT41HW5J",
+    "fanless": false,
+    "fan_size": 140,
+    "length": 150
   },
   {
     "name": "Corsair RM850",
@@ -207,7 +246,10 @@
     "wattage": 600,
     "modular": false,
     "color": null,
-    "asin": "B014W3EMAO"
+    "asin": "B014W3EMAO",
+    "fanless": false,
+    "fan_size": 120,
+    "length": 150
   },
   {
     "name": "Corsair SF850 (2024)",
@@ -527,7 +569,10 @@
     "wattage": 700,
     "modular": false,
     "color": null,
-    "asin": "B014W3EAX8"
+    "asin": "B014W3EAX8",
+    "fanless": false,
+    "fan_size": 120,
+    "length": 150
   },
   {
     "name": "Lian Li EDGE",
@@ -957,7 +1002,10 @@
     "wattage": 650,
     "modular": "Semi",
     "color": "Black",
-    "asin": "B0CFWQBDXQ"
+    "asin": "B0CFWQBDXQ",
+    "fanless": false,
+    "fan_size": 120,
+    "length": 140
   },
   {
     "name": "be quiet! Power Zone 2",

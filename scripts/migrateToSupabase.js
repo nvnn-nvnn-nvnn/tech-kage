@@ -51,13 +51,16 @@ async function migrateParts() {
             }
 
             try {
+                // Construct name for cases (which use manufacturer + partNumber)
+                const partName = part.name || `${part.manufacturer} ${part.partNumber}`;
+
                 // Insert part
                 const { data: partData, error: partError } = await supabase
                     .from('parts')
                     .insert({
                         category: category.name,
-                        name: part.name,
-                        manufacturer: part.name?.split(' ')[0],
+                        name: partName,
+                        manufacturer: part.manufacturer || partName?.split(' ')[0],
                         asin: part.asin,
                         specs: part // Store all specs as JSONB
                     })
