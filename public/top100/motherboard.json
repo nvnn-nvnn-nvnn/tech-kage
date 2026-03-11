@@ -77,27 +77,27 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "Black / Silver",
-    "asin": ""
+    "asin": "B0F3DG1NVW"
   },
   {
     "name": "MSI MAG X870 TOMAHAWK WIFI",
-    "price": 269.99,
+    "price": 239.99,
     "socket": "AM5",
     "form_factor": "ATX",
     "max_memory": 256,
     "memory_slots": 4,
     "color": "Black",
-    "asin": ""
+    "asin": "B0DG3HK897"
   },
   {
     "name": "Gigabyte A520M K V2",
-    "price": 68.47,
+    "price": 74,
     "socket": "AM4",
     "form_factor": "Micro ATX",
     "max_memory": 64,
     "memory_slots": 2,
     "color": "Brown / Black",
-    "asin": ""
+    "asin": "B0BXFBN121"
   },
   {
     "name": "Asus B650E MAX GAMING WIFI W",
@@ -107,27 +107,27 @@
     "max_memory": 256,
     "memory_slots": 4,
     "color": "White",
-    "asin": ""
+    "asin": "B0F25ML4CK"
   },
   {
     "name": "MSI PRO B650-S WIFI",
-    "price": 135.99,
+    "price": 129.99,
     "socket": "AM5",
     "form_factor": "ATX",
     "max_memory": 192,
     "memory_slots": 4,
     "color": "Black",
-    "asin": ""
+    "asin": "B0CQHS7PLL"
   },
   {
     "name": "Gigabyte B550M K",
-    "price": 99.99,
+    "price": 69.99,
     "socket": "AM4",
     "form_factor": "Micro ATX",
     "max_memory": 128,
     "memory_slots": 4,
     "color": "Brown / Silver",
-    "asin": ""
+    "asin": "B0BTTZFQTP"
   },
   {
     "name": "ASRock B850I Lightning WiFi",

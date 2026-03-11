@@ -11,7 +11,7 @@
   },
   {
     "name": "MSI MAG A850GL PCIE5",
-    "price": 121.99,
+    "price": 118.50,
     "type": "ATX",
     "efficiency": "gold",
     "wattage": 850,
@@ -21,13 +21,13 @@
   },
   {
     "name": "MSI MAG A650BN",
-    "price": 74.98,
+    "price": 59.99,
     "type": "ATX",
     "efficiency": "bronze",
     "wattage": 650,
     "modular": false,
     "color": "Black",
-    "asin": ""
+    "asin": "B0991TZ399"
   },
   {
     "name": "Corsair RM1000e (2023)",
@@ -41,7 +41,7 @@
   },
   {
     "name": "Corsair RM750e (2025)",
-    "price": 99.99,
+    "price": 89.99,
     "type": "ATX",
     "efficiency": null,
     "wattage": 750,
@@ -51,13 +51,13 @@
   },
   {
     "name": "Corsair RM850e (2025)",
-    "price": 119.99,
+    "price": 134.99,
     "type": "ATX",
     "efficiency": null,
     "wattage": 850,
     "modular": "Full",
     "color": "Black",
-    "asin": ""
+    "asin": "B0FLFDGTH7"
   },
   {
     "name": "MSI MAG A550BN",
@@ -67,21 +67,21 @@
     "wattage": 550,
     "modular": false,
     "color": "Black",
-    "asin": ""
+    "asin": "B0991W1HKT"
   },
   {
     "name": "Corsair RM850x (2024)",
-    "price": 144.99,
+    "price": 129.99,
     "type": "ATX",
     "efficiency": null,
     "wattage": 850,
     "modular": "Full",
     "color": "Black",
-    "asin": ""
+    "asin": "B0FLFGG1CC"
   },
   {
     "name": "Corsair SF1000 (2024)",
-    "price": 239.99,
+    "price": 199.99,
     "type": "SFX",
     "efficiency": "platinum",
     "wattage": 1000,
@@ -91,33 +91,33 @@
   },
   {
     "name": "MSI MAG A650GL",
-    "price": 129.94,
+    "price": 89.99,
     "type": "ATX",
     "efficiency": "gold",
     "wattage": 650,
     "modular": "Full",
     "color": "Black",
-    "asin": ""
+    "asin": "B0CGFZVGF9"
   },
   {
     "name": "Cooler Master MWE Gold 850 - V2",
-    "price": 89.99,
+    "price": 94.99,
     "type": "ATX",
     "efficiency": "gold",
     "wattage": 850,
     "modular": "Full",
     "color": "Black",
-    "asin": ""
+    "asin": "B0D68VH8DR"
   },
   {
-    "name": "Thermaltake Smart",
-    "price": 39.95,
+    "name": "Thermaltake Smart 500W",
+    "price": 39.99,
     "type": "ATX",
     "efficiency": "plus",
     "wattage": 500,
     "modular": false,
     "color": null,
-    "asin": ""
+    "asin": "B014W3EM2W"
   },
   {
     "name": "Corsair SF750 (2024)",
@@ -200,14 +200,14 @@
     "asin": ""
   },
   {
-    "name": "Thermaltake Smart",
+    "name": "Thermaltake Smart 600W",
     "price": 44.99,
     "type": "ATX",
     "efficiency": "plus",
     "wattage": 600,
     "modular": false,
     "color": null,
-    "asin": ""
+    "asin": "B014W3EMAO"
   },
   {
     "name": "Corsair SF850 (2024)",
@@ -520,14 +520,14 @@
     "asin": ""
   },
   {
-    "name": "Thermaltake Smart",
+    "name": "Thermaltake Smart 700W",
     "price": 54.99,
     "type": "ATX",
     "efficiency": "plus",
     "wattage": 700,
     "modular": false,
     "color": null,
-    "asin": ""
+    "asin": "B014W3EAX8"
   },
   {
     "name": "Lian Li EDGE",
@@ -950,14 +950,14 @@
     "asin": ""
   },
   {
-    "name": "Thermaltake Smart BM3",
+    "name": "Thermaltake Smart BM3 650w",
     "price": 69.98,
     "type": "ATX",
     "efficiency": "bronze",
     "wattage": 650,
     "modular": "Semi",
     "color": "Black",
-    "asin": ""
+    "asin": "B0CFWQBDXQ"
   },
   {
     "name": "be quiet! Power Zone 2",

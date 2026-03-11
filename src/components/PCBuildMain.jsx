@@ -226,7 +226,7 @@ function TerminalInput({ value, onChange }) {
           <div key={i} style={{ width: 9, height: 9, borderRadius: "50%", background: c, opacity: 0.8 }} />
         ))}
         <span style={{ marginLeft: 8, fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: 1 }}>
-          buildconfig.ai ~
+          techkage.ai ~
         </span>
       </div>
       <div style={{ display: "flex", alignItems: "flex-start", padding: "12px 14px", gap: 8 }}>

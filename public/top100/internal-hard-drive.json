@@ -1,18 +1,18 @@
 [
   {
     "name": "Samsung 990 Pro",
-    "price": 149.99,
+    "price": 199.99,
     "capacity": 2000,
     "price_per_gb": 0.075,
     "type": "SSD",
     "cache": 2048,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0BM459NHM"
+    "asin": "B0BHJF2VRN"
   },
   {
-    "name": "Crucial P3 Plus",
-    "price": 56.95,
+    "name": "Crucial P3 Plus 1TB",
+    "price": 189.00,
     "capacity": 1000,
     "price_per_gb": 0.057,
     "type": "SSD",
@@ -22,8 +22,8 @@
     "asin": "B0B25NXWC7"
   },
   {
-    "name": "Crucial P3 Plus",
-    "price": 113.95,
+    "name": "Crucial P3 Plus 2TB",
+    "price": 299.99,
     "capacity": 2000,
     "price_per_gb": 0.057,
     "type": "SSD",
@@ -33,19 +33,8 @@
     "asin": "B0B25ML2FH"
   },
   {
-    "name": "Samsung 990 Pro",
-    "price": 299.99,
-    "capacity": 4000,
-    "price_per_gb": 0.075,
-    "type": "SSD",
-    "cache": 4096,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0CDJ61VJW"
-  },
-  {
     "name": "Kingston NV3",
-    "price": 58,
+    "price": 164.99,
     "capacity": 1000,
     "price_per_gb": 0.058,
     "type": "SSD",
@@ -55,41 +44,19 @@
     "asin": "B0DBR3DZWG"
   },
   {
-    "name": "Samsung 990 Pro",
-    "price": 99.99,
+    "name": "Samsung 990 EVO Plus 1TB",
+    "price": 164.99,
     "capacity": 1000,
-    "price_per_gb": 0.1,
-    "type": "SSD",
-    "cache": 1024,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0BM42X58C"
-  },
-  {
-    "name": "Samsung 990 EVO Plus",
-    "price": 129.99,
-    "capacity": 2000,
     "price_per_gb": 0.065,
     "type": "SSD",
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 5.0 X2",
-    "asin": "B0DHLCRF91"
+    "asin": "B0DHLFWBQ1"
   },
   {
-    "name": "Western Digital WD_Black SN850X",
-    "price": 154.54,
-    "capacity": 2000,
-    "price_per_gb": 0.077,
-    "type": "SSD",
-    "cache": null,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0B7CMZ3QH"
-  },
-  {
-    "name": "Silicon Power UD90",
-    "price": 92.97,
+    "name": "Silicon Power UD90 2TB",
+    "price": 272.99,
     "capacity": 2000,
     "price_per_gb": 0.046,
     "type": "SSD",
@@ -99,26 +66,15 @@
     "asin": "B0B996CJ64"
   },
   {
-    "name": "Samsung 9100 PRO",
-    "price": 429.99,
-    "capacity": 4000,
-    "price_per_gb": 0.107,
-    "type": "SSD",
-    "cache": 4096,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 5.0 X4",
-    "asin": "B0DX2GJ1YR"
-  },
-  {
     "name": "Samsung 990 EVO Plus",
-    "price": 74.98,
-    "capacity": 1000,
+    "price": 325.68,
+    "capacity": 2000,
     "price_per_gb": 0.075,
     "type": "SSD",
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 5.0 X2",
-    "asin": "B0DHLFWBQ1"
+    "asin": "B0DHLCRF91"
   },
   {
     "name": "Seagate Barracuda Compute",
@@ -129,11 +85,11 @@
     "cache": 256,
     "form_factor": 3.5,
     "interface": "SATA 6.0 Gb/s",
-    "asin": "B075WWN4QJ"
+    "asin": ""
   },
   {
     "name": "Klevv CRAS C910",
-    "price": 57.99,
+    "price": 181.99,
     "capacity": 1000,
     "price_per_gb": 0.058,
     "type": "SSD",
@@ -144,14 +100,14 @@
   },
   {
     "name": "Western Digital Black SN770",
-    "price": 77.98,
+    "price": 204.90,
     "capacity": 1000,
     "price_per_gb": 0.078,
     "type": "SSD",
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": ""
+    "asin": "B0DN7CYYSD"
   },
   {
     "name": "Crucial P3 Plus",
@@ -166,29 +122,18 @@
   },
   {
     "name": "Western Digital Black SN770",
-    "price": 124.99,
+    "price": 379.99,
     "capacity": 2000,
     "price_per_gb": 0.062,
     "type": "SSD",
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": ""
-  },
-  {
-    "name": "Samsung 870 Evo",
-    "price": 92.9,
-    "capacity": 1000,
-    "price_per_gb": 0.093,
-    "type": "SSD",
-    "cache": 1024,
-    "form_factor": 2.5,
-    "interface": "SATA 6.0 Gb/s",
-    "asin": "B08QBJ2YMG"
+    "asin": "B0DN6ZQ3PD"
   },
   {
     "name": "Western Digital WD_Black SN850X",
-    "price": 599.5,
+    "price": 1345.99,
     "capacity": 8000,
     "price_per_gb": 0.075,
     "type": "SSD",
@@ -198,19 +143,8 @@
     "asin": "B0D9WT512W"
   },
   {
-    "name": "Western Digital WD_Black SN850X",
-    "price": 268.35,
-    "capacity": 4000,
-    "price_per_gb": 0.067,
-    "type": "SSD",
-    "cache": null,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 4.0 X4",
-    "asin": ""
-  },
-  {
     "name": "Samsung 9100 PRO",
-    "price": 229.99,
+    "price": 419.99,
     "capacity": 2000,
     "price_per_gb": 0.115,
     "type": "SSD",
@@ -242,26 +176,15 @@
     "asin": ""
   },
   {
-    "name": "Western Digital WD_Black SN850X",
-    "price": 91.69,
-    "capacity": 1000,
-    "price_per_gb": 0.092,
-    "type": "SSD",
-    "cache": null,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 4.0 X4",
-    "asin": ""
-  },
-  {
-    "name": "Silicon Power UD90",
-    "price": 51.99,
+    "name": "Silicon Power UD90 1TB",
+    "price": 159.97,
     "capacity": 1000,
     "price_per_gb": 0.052,
     "type": "SSD",
     "cache": null,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": ""
+    "asin": "B0B217LZBG"
   },
   {
     "name": "Western Digital Blue SN580",
@@ -526,17 +449,6 @@
     "form_factor": 2.5,
     "interface": "SATA 6.0 Gb/s",
     "asin": ""
-  },
-  {
-    "name": "Samsung 9100 PRO",
-    "price": 154.99,
-    "capacity": 1000,
-    "price_per_gb": 0.155,
-    "type": "SSD",
-    "cache": 1024,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 5.0 X4",
-    "asin": "B0DX2G349M"
   },
   {
     "name": "Lexar NM790",
@@ -804,14 +716,14 @@
   },
   {
     "name": "Samsung 990 Pro w/Heatsink",
-    "price": 159.99,
+    "price": 384.30,
     "capacity": 2000,
     "price_per_gb": 0.08,
     "type": "SSD",
     "cache": 2048,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": ""
+    "asin": "B0BHJDY57J"
   },
   {
     "name": "Lexar NM790",
@@ -965,28 +877,6 @@
     "cache": 2048,
     "form_factor": "M.2-2280",
     "interface": "M.2 PCIe 4.0 X4",
-    "asin": ""
-  },
-  {
-    "name": "Samsung 990 Pro w/Heatsink",
-    "price": 315.05,
-    "capacity": 4000,
-    "price_per_gb": 0.079,
-    "type": "SSD",
-    "cache": 4096,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 4.0 X4",
-    "asin": "B0CDJ61VJW"
-  },
-  {
-    "name": "Samsung 9100 PRO w/Heatsink",
-    "price": 449.99,
-    "capacity": 4000,
-    "price_per_gb": 0.112,
-    "type": "SSD",
-    "cache": 4096,
-    "form_factor": "M.2-2280",
-    "interface": "M.2 PCIe 5.0 X4",
     "asin": ""
   },
   {
