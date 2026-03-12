@@ -1,4 +1,8 @@
 import React from "react";
+import gamingPcImage from "../assets/PCTower.jpg";
+// import monitorImage from "../assets/monitor.jpg";
+// import keyboardImage from "../assets/keyboard.jpg";
+// import cpuImage from "../assets/cpu.jpg";
 
 const productCategories = [
   {
@@ -56,7 +60,8 @@ const featuredProducts = [
     id: 1,
     name: "RTX 4080 Super Gaming PC",
     price: "$2,499",
-    image: "https://via.placeholder.com/300x200?text=RTX+4080+Gaming+PC",
+    image: gamingPcImage,
+    link: "https://www.amazon.com/s?k=RTX+4080+Gaming+PC&tag=techkage-20",
     category: "Prebuilt PCs",
     badge: "Bestseller",
     specs: "RTX 4080 Super • Ryzen 7 7800X3D • 32GB DDR5 • 1TB SSD"
@@ -65,7 +70,8 @@ const featuredProducts = [
     id: 2,
     name: "UltraWide 34\" 144Hz Monitor",
     price: "$599",
-    image: "https://via.placeholder.com/300x200?text=34+UltraWide+Monitor",
+    image: gamingPcImage,
+    link: "https://www.amazon.com/s?k=34+inch+ultrawide+144hz+monitor&tag=techkage-20",
     category: "Desktop Accessories",
     badge: "Editor's Pick",
     specs: "3440x1440 • 144Hz • VA Panel • HDR400 • USB-C"
@@ -74,7 +80,8 @@ const featuredProducts = [
     id: 3,
     name: "Mechanical Gaming Keyboard",
     price: "$149",
-    image: "https://via.placeholder.com/300x200?text=Mechanical+Keyboard",
+    image: gamingPcImage,
+    link: "https://www.amazon.com/s?k=mechanical+gaming+keyboard&tag=techkage-20",
     category: "Desktop Accessories",
     badge: "Hot Deal",
     specs: "Cherry MX Red • RGB Backlighting • Aluminum Frame • USB-C"
@@ -83,7 +90,8 @@ const featuredProducts = [
     id: 4,
     name: "AMD Ryzen 9 7950X",
     price: "$549",
-    image: "https://via.placeholder.com/300x200?text=AMD+Ryzen+9+7950X",
+    image: gamingPcImage,
+    link: "https://www.amazon.com/dp/B0BBHD5D8Y?tag=techkage-20",
     category: "PC Components",
     badge: "Top Rated",
     specs: "16-Core • 32-Thread • 4.5GHz Boost • AM5 Socket"
@@ -287,7 +295,7 @@ function ProductsRoot() {
                   }}>
                     {product.specs}
                   </p>
-                  <button style={{
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" style={{
                     width: "100%",
                     padding: "10px",
                     background: "#0FD980",
@@ -297,7 +305,10 @@ function ProductsRoot() {
                     fontSize: "14px",
                     fontWeight: 600,
                     cursor: "pointer",
-                    transition: "all 0.2s"
+                    transition: "all 0.2s",
+                    textDecoration: "none",
+                    display: "inline-block",
+                    textAlign: "center"
                   }}
                     onMouseEnter={(e) => {
                       e.target.style.background = "#0CCF70";
@@ -308,8 +319,8 @@ function ProductsRoot() {
                       e.target.style.transform = "translateY(0)";
                     }}
                   >
-                    View Details
-                  </button>
+                    Buy on Amazon
+                  </a>
                 </div>
               </div>
             ))}

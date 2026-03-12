@@ -1,32 +1,43 @@
 import React from "react";
+import raspberryPi5 from "../assets/rasppi5.webp";
+import raspberryPi4 from "../assets/rasppi4.webp";
+import raspberryPiZero2 from "../assets/rasppi02.jpg";
+import raspberryPiPico from "../assets/rasppipico.webp";
+import mediaServerImage from "../assets/medserver.png";
+import retroGamingImage from "../assets/retrogaming.jpg";
+import smartHomeImage from "../assets/smarthome.jpg";
 
 const raspberryPiModels = [
   {
     name: "Raspberry Pi 5",
     price: "$140",
     specs: "2.4GHz quad-core ARM Cortex-A76 CPU, 4GB/8GB RAM, Gigabit Ethernet, WiFi 6, Bluetooth 5.0",
-    image: "https://www.amazon.com/dp/B0CK2FCG1K?tag=techkage-20",
+    image: raspberryPi5,
+    link: "https://www.amazon.com/dp/B0CK2FCG1K?tag=techkage-20",
     highlights: ["Latest flagship model", "Massive performance boost", "PoE+ support", "PCIe interface"]
   },
   {
     name: "Raspberry Pi 4 Model B",
     price: "$35",
     specs: "1.5GHz quad-core ARM Cortex-A72 CPU, 2GB/4GB/8GB RAM, Gigabit Ethernet, WiFi 5, Bluetooth 5.0",
-    image: "https://www.amazon.com/dp/B081YD3VL5?tag=techkage-20",  // Popular 4GB variant; swap to 8GB if needed: B0899VXM8F
+    image: raspberryPi4,
+    link: "https://www.amazon.com/dp/B081YD3VL5?tag=techkage-20",
     highlights: ["Most popular model", "4K video output", "USB 3.0 ports", "Micro-HDMI dual"]
   },
   {
     name: "Raspberry Pi Zero 2 W",
     price: "$15",
     specs: "1GHz quad-core ARM Cortex-A53 CPU, 512MB RAM, Mini-HDMI, Micro-USB, WiFi, Bluetooth",
-    image: "https://www.amazon.com/dp/B09LH5SBPS?tag=techkage-20",
+    image: raspberryPiZero2,
+    link: "https://www.amazon.com/dp/B09LH5SBPS?tag=techkage-20",
     highlights: ["Ultra-compact", "Wireless connectivity", "Perfect for IoT", "Camera interface"]
   },
   {
     name: "Raspberry Pi Pico",
     price: "$4",
     specs: "133MHz dual-core ARM Cortex-M0+ CPU, 264KB RAM, 25 GPIO pins, Micro-USB",
-    image: "https://www.amazon.com/dp/B08ZSKMJJD?tag=techkage-20",  // Common 3-pack for value; single often B08T1XXF7V or similar
+    image: raspberryPiPico,
+    link: "https://www.amazon.com/dp/B08ZSKMJJD?tag=techkage-20",
     highlights: ["Microcontroller board", "RP2040 chip", "Programmable in C/C++", "Low power consumption"]
   }
 ];
@@ -37,7 +48,8 @@ const projects = [
     description: "Build a complete media streaming server with Plex, Kodi, or Jellyfin for movies, TV shows, and music.",
     difficulty: "Intermediate",
     time: "4-6 hours",
-    image: "https://raspberrytips.com/raspberry-pi-media-center-guide/",
+    link: "https://www.binarytechlabs.com/raspberry-pi-media-server/",
+    image: mediaServerImage,
     tags: ["Streaming", "NAS", "Docker"]
   },
   {
@@ -45,7 +57,8 @@ const projects = [
     description: "Transform your Pi into a retro gaming machine with RetroPie, supporting NES, SNES, Genesis, and more.",
     difficulty: "Beginner",
     time: "2-3 hours",
-    image: "https://www.geeky-gadgets.com/raspberry-pi-retro-gaming-console-build-guide-2025/",
+    image: retroGamingImage,
+    link: "https://www.geeky-gadgets.com/raspberry-pi-retro-gaming-console-build-guide-2025/",
     tags: ["Gaming", "Emulation", "Arcade"]
   },
   {
@@ -53,7 +66,8 @@ const projects = [
     description: "Create a central smart home controller with Home Assistant, MQTT, and various IoT integrations.",
     difficulty: "Advanced",
     time: "6-8 hours",
-    image: "https://www.digitalcitizen.life/how-to-build-your-own-smart-home-hub-with-raspberry-pi/",
+    image: smartHomeImage,
+    link: "https://www.digitalcitizen.life/how-to-build-your-own-smart-home-hub-with-raspberry-pi/",
     tags: ["IoT", "Automation", "MQTT"]
   },
   // {
@@ -101,7 +115,7 @@ function RaspberryPI() {
           Explore projects, tutorials, and resources for the world's most popular single-board computer.
         </p>
 
-        <div style={{
+        {/* <div style={{
           background: "rgba(255,193,7,0.1)",
           border: "1px solid rgba(255,193,7,0.3)",
           borderRadius: "8px",
@@ -110,7 +124,7 @@ function RaspberryPI() {
           color: "#FFC107"
         }}>
           <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
-        </div>
+        </div> */}
 
         <div style={{
           marginBottom: "4rem"
@@ -219,7 +233,7 @@ function RaspberryPI() {
                       ))}
                     </div>
                   </div>
-                  <a href={model.image} target="_blank" rel="noopener noreferrer" style={{
+                  <a href={model.link} target="_blank" rel="noopener noreferrer" style={{
                     width: "100%",
                     padding: "10px",
                     background: "#0FD980",
@@ -351,7 +365,7 @@ function RaspberryPI() {
                       </span>
                     ))}
                   </div>
-                  <a href={project.image} target="_blank" rel="noopener noreferrer" style={{
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" style={{
                     width: "100%",
                     padding: "12px",
                     background: "#0FD980",
@@ -381,7 +395,7 @@ function RaspberryPI() {
           border: "1px solid rgba(15,217,128,0.2)",
           borderRadius: "12px"
         }}>
-          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980" }}>
+          <h3 style={{ fontSize: 24, marginBottom: 24, color: "#0FD980", fontFamily: "'Orbitron', sans-serif", fontWeight: "700" }}>
             Raspberry Pi Resources
           </h3>
           <div style={{

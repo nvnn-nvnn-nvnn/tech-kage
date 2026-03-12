@@ -279,7 +279,7 @@ export default function ThreeDPrinting() {
           border: "1px solid rgba(15,217,128,0.2)",
           borderRadius: 12
         }}>
-          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980" }}>
+          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontFamily: "'Orbitron', sans-serif", fontWeight: "700" }}>
             3D Printing Resources
           </h3>
           <div style={{

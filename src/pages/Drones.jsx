@@ -1,11 +1,15 @@
 import React from "react";
+import djiMavic3Image from "../assets/dji-mav.jpg";
+import djiMini3Image from "../assets/dji-mini.jpg";
+import djiAir2sImage from "../assets/dji-air2.jpg";
 
 const featuredDrones = [
   {
     id: 1,
     name: "DJI Mavic 3 Pro",
-    price: "$2,199",
-    image: "https://www.amazon.com/dp/B0BYHSDY4C?tag=techkage-20",
+    price: "$2,979",
+    image: djiMavic3Image,
+    link: "https://www.amazon.com/dp/B0BYHSDY4C?tag=techkage-20",
     specs: {
       camera: "4/3 CMOS Hasselblad",
       video: "5.1K/50fps, 4K/120fps",
@@ -19,8 +23,9 @@ const featuredDrones = [
   {
     id: 2,
     name: "DJI Mini 3 Pro",
-    price: "$669",
-    image: "https://www.amazon.com/dp/B09WDBDGBZ?tag=techkage-20",
+    price: "$1295",
+    image: djiMini3Image,
+    link: "https://www.amazon.com/dp/B09WDBDGBZ?tag=techkage-20",
     specs: {
       camera: "1/1.3\" CMOS",
       video: "4K/60fps, 2.7K/60fps",
@@ -34,8 +39,9 @@ const featuredDrones = [
   {
     id: 3,
     name: "DJI Air 2S",
-    price: "$999",
-    image: "https://www.amazon.com/dp/B096GYH52L?tag=techkage-20",
+    price: "Expensive",
+    image: djiAir2sImage,
+    link: "https://www.amazon.com/dp/B096GYH52L?tag=techkage-20",
     specs: {
       camera: "1\" CMOS",
       video: "5.4K/30fps, 4K/60fps",
@@ -112,7 +118,7 @@ function Drones() {
           Explore the latest in drone technology, from aerial photography to industrial applications.
         </p>
 
-        <div style={{
+        {/* <div style={{
           background: "rgba(255,193,7,0.1)",
           border: "1px solid rgba(255,193,7,0.3)",
           borderRadius: "8px",
@@ -121,7 +127,7 @@ function Drones() {
           color: "#FFC107"
         }}>
           <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
-        </div>
+        </div> */}
 
         <div style={{
           display: "grid",
@@ -253,7 +259,7 @@ function Drones() {
                   </ul>
                 </div>
 
-                <a href={drone.image} target="_blank" rel="noopener noreferrer" style={{
+                <a href={drone.link} target="_blank" rel="noopener noreferrer" style={{
                   width: "100%",
                   padding: "12px",
                   background: "#0FD980",
@@ -283,7 +289,7 @@ function Drones() {
           borderRadius: "12px",
           textAlign: "center"
         }}>
-          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980" }}>
+          <h3 style={{ fontSize: 24, marginBottom: 16, color: "#0FD980", fontFamily: "'Orbitron', sans-serif", fontWeight: "700", }}>
             Drone Categories
           </h3>
           <div style={{

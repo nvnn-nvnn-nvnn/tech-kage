@@ -174,6 +174,7 @@ function Header() {
               onClick={() => navigate("/")}
               style={{
                 // background: "linear-gradient(135deg, #0FD980, rgba(15,217,128,0.4))",
+                background: "transparent",
                 border: "none",
                 cursor: "pointer",
                 padding: 0,
@@ -183,7 +184,7 @@ function Header() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: "0 4px 14px rgba(15,217,128,0.25)",
+                // boxShadow: "0 4px 14px rgba(15,217,128,0.25)",
                 flexShrink: 0,
               }}
             >

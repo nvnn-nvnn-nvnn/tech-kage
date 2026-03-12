@@ -93,7 +93,7 @@ function RubberDucky() {
               {productInfo.description}
             </p>
 
-            <div style={{
+            {/* <div style={{
               background: "rgba(255,193,7,0.1)",
               border: "1px solid rgba(255,193,7,0.3)",
               borderRadius: "8px",
@@ -102,7 +102,9 @@ function RubberDucky() {
               color: "#FFC107"
             }}>
               <strong>Note:</strong> Purchasing functionality is currently not implemented. This page is for demonstration purposes only.
-            </div>
+            </div> */}
+
+
             <div style={{ marginBottom: "24px" }}>
               <span style={{
                 fontSize: "32px",
@@ -120,7 +122,7 @@ function RubberDucky() {
                 $59.99
               </span>
             </div>
-            <button style={{
+            {/* <button style={{
               padding: "16px 32px",
               background: "#0FD980",
               color: "#000",
@@ -142,29 +144,37 @@ function RubberDucky() {
               }}
             >
               Add to Cart
-            </button>
-            <button style={{
-              padding: "16px 32px",
-              background: "transparent",
-              color: "#0FD980",
-              border: "1px solid #0FD980",
-              borderRadius: "8px",
-              fontSize: "16px",
-              fontWeight: 600,
-              cursor: "pointer",
-              transition: "all 0.2s"
-            }}
-              onMouseEnter={(e) => {
-                e.target.style.background = "rgba(15,217,128,0.1)";
-                e.target.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = "transparent";
-                e.target.style.transform = "translateY(0)";
-              }}
+            </button> */}
+            <a
+              href="https://shop.hak5.org/products/usb-rubber-ducky"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
             >
-              Learn More
-            </button>
+              <button
+                style={{
+                  padding: "16px 32px",
+                  background: "transparent",
+                  color: "#0FD980",
+                  border: "1px solid #0FD980",
+                  borderRadius: "8px",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  transition: "all 0.2s"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = "rgba(15,217,128,0.1)";
+                  e.target.style.transform = "translateY(-1px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = "transparent";
+                  e.target.style.transform = "translateY(0)";
+                }}
+              >
+                Learn More
+              </button>
+            </a>
           </div>
           <div>
             <img
@@ -431,17 +441,19 @@ function RubberDucky() {
             justifyContent: "center",
             flexWrap: "wrap"
           }}>
-            <button style={{
-              padding: "12px 24px",
-              background: "#0FD980",
-              color: "#000",
-              border: "none",
-              borderRadius: "8px",
-              fontSize: "14px",
-              fontWeight: 600,
-              cursor: "pointer",
-              transition: "all 0.2s"
-            }}
+            <button
+              onClick={() => window.open("https://docs.hak5.org/hak5-usb-rubber-ducky/usb-rubber-ducky-by-hak5/", "_blank", "noopener,noreferrer")}
+              style={{
+                padding: "12px 24px",
+                background: "#0FD980",
+                color: "#000",
+                border: "none",
+                borderRadius: "8px",
+                fontSize: "14px",
+                fontWeight: 600,
+                cursor: "pointer",
+                transition: "all 0.2s"
+              }}
               onMouseEnter={(e) => {
                 e.target.style.background = "#0CCF70";
                 e.target.style.transform = "translateY(-1px)";
