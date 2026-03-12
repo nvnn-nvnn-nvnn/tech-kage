@@ -309,26 +309,38 @@ const BuildModal = ({ build, onClose }: { build: any; onClose: () => void }) => 
             Created: {new Date(build.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
           </div>
           <h3 style={{ color: "#0FD980", margin: '20px 0 12px', fontSize: 25, letterSpacing: 0.5, fontFamily: "'Orbitron', sans-serif", fontWeight: 700 }}>Build Parts</h3>
-          {Object.entries(build.build_data || {}).map(([key, value]: [string, any]) => (
-            <div key={key} style={{ marginBottom: 14, padding: '14px 16px', background: 'rgba(255,255,255,0.02)', border: `1px solid ${T.border}`, borderRadius: 8 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-                <span style={{ fontSize: 10, letterSpacing: 1.5, color: T.textDim, fontWeight: 600, textTransform: 'uppercase' }}>
-                  {key.replace(/_/g, ' ')}
-                </span>
-                <span style={{ fontSize: 15, fontWeight: 700, color: T.green }}>{value?.price || '—'}</span>
+          {Object.entries(build.build_data || {}).map(([key, value]: [string, any]) => {
+            // Map manual builder keys to AI builder keys for generatedBuild lookup
+            const categoryMap: Record<string, string> = {
+              'cpu': 'CPU', 'video-card': 'GPU', 'powersupply': 'PSU',
+              'memory': 'RAM', 'case': 'CASE', 'cpu-cooler': 'COOLING',
+              'storage': 'STORAGE', 'motherboard': 'MOTHERBOARD'
+            };
+            const aiKey = categoryMap[key] || key.toUpperCase();
+            const generatedPart = build.config?.generatedBuild?.[aiKey];
+            const amazonLink = generatedPart?.link || (value?.asin ? `https://www.amazon.com/dp/${value.asin}?tag=techkage-20` : "#");
+
+            return (
+              <div key={key} style={{ marginBottom: 14, padding: '14px 16px', background: 'rgba(255,255,255,0.02)', border: `1px solid ${T.border}`, borderRadius: 8 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
+                  <span style={{ fontSize: 10, letterSpacing: 1.5, color: T.textDim, fontWeight: 600, textTransform: 'uppercase' }}>
+                    {key.replace(/_/g, ' ')}
+                  </span>
+                  <span style={{ fontSize: 15, fontWeight: 700, color: T.green }}>{value?.price || '—'}</span>
+                </div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: T.text, marginBottom: 4 }}>
+                  <a href={amazonLink} target="_blank" rel="noopener noreferrer"
+                    style={{ color: T.green, textDecoration: "none" }}
+                    onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
+                    onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+                  >
+                    {value?.name || 'Unnamed part'}
+                  </a>
+                </div>
+                {value?.spec && <div style={{ fontSize: 12, color: T.textMid, lineHeight: 1.4 }}>{value.spec}</div>}
               </div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: T.text, marginBottom: 4 }}>
-                <a href={value?.link || "#"} target="_blank" rel="noopener noreferrer"
-                  style={{ color: T.green, textDecoration: "none" }}
-                  onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-                  onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
-                >
-                  {value?.name || 'Unnamed part'}
-                </a>
-              </div>
-              {value?.spec && <div style={{ fontSize: 12, color: T.textMid, lineHeight: 1.4 }}>{value.spec}</div>}
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* ── FOOTER (fixed) ── */}

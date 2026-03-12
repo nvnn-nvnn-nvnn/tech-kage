@@ -122,3 +122,12 @@
   100% { background-position: 0% 50%; }
 }
 
+/* Header spacer - responsive height for fixed header */
+.header-spacer {
+  height: 88px;
+}
+@media (max-width: 767px) {
+  .header-spacer {
+    height: 64px;
+  }
+}

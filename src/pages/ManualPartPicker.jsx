@@ -63,6 +63,9 @@ export default function ManualPartPicker() {
         }}>
           Hand-pick every component for your custom PC build. Compare prices, check availability, and build your perfect system.
         </p>
+        <p>
+
+        </p>
       </div>
 
       {/* Content */}

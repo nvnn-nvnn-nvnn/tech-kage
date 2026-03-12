@@ -48,7 +48,9 @@ function App() {
   return (
     <>
       <Header />
-      <DevelopmentBanner />
+      {/* Spacer for fixed header (88px desktop, 64px mobile) */}
+      <div style={{ height: 88, background: "#050608" }} className="header-spacer" />
+      {/* <DevelopmentBanner /> */}
 
       <Routes>
         {/* Landing page: hero + blogs */}

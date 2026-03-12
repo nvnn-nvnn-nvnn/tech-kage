@@ -74,6 +74,43 @@ export function BuilderProvider({ children }) {
         throw new Error("A build with this name already exists");
       }
 
+      // Map manual builder categories to AI builder categories
+      const categoryMap = {
+        'cpu': 'CPU',
+        'video-card': 'GPU',
+        'powersupply': 'PSU',
+        'memory': 'RAM',
+        'case': 'CASE',
+        'cpu-cooler': 'COOLING',
+        'storage': 'STORAGE',
+        'motherboard': 'MOTHERBOARD'
+      };
+
+      // Build generatedBuild object with actual part data
+      const generatedBuild = {};
+
+      Object.keys(categoryMap).forEach(manualKey => {
+        const aiKey = categoryMap[manualKey];
+        const part = selections[manualKey];
+
+        if (part && part.asin) {
+          generatedBuild[aiKey] = {
+            asin: part.asin,
+            name: part.name || "",
+            spec: part.spec || "",
+            link: `https://www.amazon.com/dp/${part.asin}?tag=techkage-20`
+          };
+        } else {
+          // Empty placeholder if part not selected
+          generatedBuild[aiKey] = {
+            asin: "",
+            name: "",
+            spec: "",
+            link: ""
+          };
+        }
+      });
+
       // Save to Supabase (matching PCbuilder.jsx schema)
       const { data, error } = await supabase
         .from("saved_builds")
@@ -82,7 +119,11 @@ export function BuilderProvider({ children }) {
           build_name: buildName.trim(),
           build_data: selections,
           total_price: total,
-          config: { type: "manual", description: description.trim() }
+          config: {
+            type: "manual",
+            description: description.trim(),
+            generatedBuild: generatedBuild
+          }
         })
         .select()
         .single();
