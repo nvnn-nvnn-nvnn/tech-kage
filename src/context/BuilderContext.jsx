@@ -1,10 +1,11 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { supabase } from "../lib/supabase";
 
 const BuilderContext = createContext(undefined);
 
 export function BuilderProvider({ children }) {
-  const { user, session } = useAuth();
+  const { user } = useAuth();
   const [selections, setSelections] = useState(() => {
     try {
       const saved = localStorage.getItem("tk_builder_selections");
@@ -57,34 +58,41 @@ export function BuilderProvider({ children }) {
     }
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
+      // Check for duplicate build name
+      const { data: existing, error: existingError } = await supabase
+        .from("saved_builds")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("build_name", buildName.trim())
+        .maybeSingle();
 
-      if (!session?.access_token) {
-        throw new Error("No valid session found");
+      if (existingError) {
+        throw new Error("Error checking for existing build");
       }
 
-      const response = await fetch(`${API_URL}/api/builds`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${session.access_token}`
-        },
-        body: JSON.stringify({
+      if (existing) {
+        throw new Error("A build with this name already exists");
+      }
+
+      // Save to Supabase (matching PCbuilder.jsx schema)
+      const { data, error } = await supabase
+        .from("saved_builds")
+        .insert({
+          user_id: user.id,
           build_name: buildName.trim(),
-          description: description.trim(),
-          parts: selections,
-          total_price: total
+          build_data: selections,
+          total_price: total,
+          config: { type: "manual", description: description.trim() }
         })
-      });
+        .select()
+        .single();
 
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || "Failed to save build");
+      if (error) {
+        throw new Error(error.message || "Failed to save build");
       }
 
-      const savedBuild = await response.json();
-      setSavedBuilds(prev => [savedBuild, ...prev]);
-      return savedBuild;
+      setSavedBuilds(prev => [data, ...prev]);
+      return data;
     } catch (error) {
       console.error("Error saving build:", error);
       throw error;
@@ -92,29 +100,25 @@ export function BuilderProvider({ children }) {
   };
 
   const loadBuild = (build) => {
-    setSelections(build.parts || {});
+    setSelections(build.build_data || build.parts || {});
   };
 
   const fetchSavedBuilds = async () => {
     if (!user) return;
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
+      const { data, error } = await supabase
+        .from("saved_builds")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
 
-      if (!session?.access_token) {
+      if (error) {
+        console.error("Error fetching builds:", error);
         return;
       }
 
-      const response = await fetch(`${API_URL}/api/builds`, {
-        headers: {
-          "Authorization": `Bearer ${session.access_token}`
-        }
-      });
-
-      if (response.ok) {
-        const builds = await response.json();
-        setSavedBuilds(builds);
-      }
+      setSavedBuilds(data || []);
     } catch (error) {
       console.error("Error fetching builds:", error);
     }

@@ -76,7 +76,17 @@ router.post('/generate-build', async (req, res) => {
       for (const [category] of sorted) {
         if (totalPrice <= config.budget) break;
 
-        const catalogParts = PARTS_CATALOG[category]
+        // Map category to PARTS_CATALOG key (uppercase)
+        const catalogKey = category.toUpperCase();
+        const catalogPartsRaw = PARTS_CATALOG[catalogKey];
+
+        // Skip if category not found in catalog
+        if (!catalogPartsRaw || catalogPartsRaw.length === 0) {
+          console.log(`Category ${category} (${catalogKey}) not found in catalog, skipping`);
+          continue;
+        }
+
+        const catalogParts = catalogPartsRaw
           .filter(p => p.name !== enrichedBuild[category].name)
           .sort((a, b) => a.priceNumeric - b.priceNumeric);
 
