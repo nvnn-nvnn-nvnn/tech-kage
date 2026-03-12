@@ -33,6 +33,7 @@ const stripeRoute = require('./routes/stripe');
 const subscribeRoute = require('./routes/subscribe');
 const deleteAccountRoute = require('./routes/deleteAccount');
 const partsRoute = require('./routes/parts');
+const savedBuildsRoute = require('./routes/savedBuilds');
 
 app.use('/api', webhookRoute);
 app.use('/api', buildRoutes);
@@ -41,6 +42,7 @@ app.use('/api', stripeRoute);
 app.use('/api', subscribeRoute);
 app.use('/api', deleteAccountRoute);
 app.use('/api', partsRoute);
+app.use('/api', savedBuildsRoute);
 
 // ─── HEALTH CHECK ────────────────────────────────────────────────
 app.get('/health', (req, res) => {

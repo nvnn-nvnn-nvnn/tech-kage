@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useBuilder } from "../context/BuilderContext";
+import { useAuth } from "../hooks/useAuth";
 import { getSampleParts } from "../data/partsLoader";
 
 const T = {
@@ -81,8 +82,13 @@ const initialCategories = [
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function PartPicker() {
     const navigate = useNavigate();
-    const { selections, removePart, total, selectedCount } = useBuilder();
+    const { user } = useAuth();
+    const { selections, removePart, total, selectedCount, saveBuild } = useBuilder();
     const [partsData, setPartsData] = useState({});
+    const [showSaveModal, setShowSaveModal] = useState(false);
+    const [buildName, setBuildName] = useState("");
+    const [buildDescription, setBuildDescription] = useState("");
+    const [saveStatus, setSaveStatus] = useState("");
 
     useEffect(() => {
         const loadParts = async () => {
@@ -91,6 +97,32 @@ export default function PartPicker() {
         };
         loadParts();
     }, []);
+
+    const handleSaveBuild = async () => {
+        if (!user) {
+            setSaveStatus("Please log in to save builds");
+            return;
+        }
+
+        if (!buildName.trim()) {
+            setSaveStatus("Build name is required");
+            return;
+        }
+
+        try {
+            setSaveStatus("Saving...");
+            await saveBuild(buildName, buildDescription);
+            setSaveStatus("Build saved successfully!");
+            setTimeout(() => {
+                setShowSaveModal(false);
+                setBuildName("");
+                setBuildDescription("");
+                setSaveStatus("");
+            }, 1500);
+        } catch (error) {
+            setSaveStatus(error.message || "Failed to save build");
+        }
+    };
 
     return (
         <div style={{ minHeight: "100vh", background: T.bg, color: T.text, fontFamily: T.mono, padding: "2.5rem 1.25rem" }}>
@@ -300,6 +332,30 @@ export default function PartPicker() {
                         <div style={{ textAlign: "right", fontFamily: T.display, fontSize: "1.1rem", color: T.green }}>
                             ${total.toFixed(2)}
                         </div>
+                        <div style={{ textAlign: "right" }}>
+                            {selectedCount > 0 && (
+                                <button
+                                    onClick={() => setShowSaveModal(true)}
+                                    style={{
+                                        background: T.green,
+                                        border: "none",
+                                        color: "#050608",
+                                        fontSize: "0.75rem",
+                                        fontWeight: 700,
+                                        padding: "0.5rem 1rem",
+                                        borderRadius: "6px",
+                                        cursor: "pointer",
+                                        fontFamily: T.mono,
+                                        letterSpacing: "0.05em",
+                                        transition: "all 0.2s",
+                                    }}
+                                    onMouseEnter={e => e.currentTarget.style.background = "#1BF08E"}
+                                    onMouseLeave={e => e.currentTarget.style.background = T.green}
+                                >
+                                    SAVE BUILD 💾
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </div>
 
@@ -308,6 +364,111 @@ export default function PartPicker() {
                     * Prices and availability are illustrative. Always verify before purchasing.
                 </div>
             </div>
+
+            {/* Save Build Modal */}
+            {showSaveModal && (
+                <div style={{
+                    position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    zIndex: 9999, backdropFilter: "blur(4px)",
+                }} onClick={() => setShowSaveModal(false)}>
+                    <div style={{
+                        background: T.card, borderRadius: "12px",
+                        border: `1px solid ${T.border}`,
+                        padding: "2rem", maxWidth: "500px", width: "90%",
+                        boxShadow: `0 20px 60px rgba(0,0,0,0.5)`,
+                    }} onClick={e => e.stopPropagation()}>
+                        <h2 style={{
+                            margin: "0 0 1.5rem", fontSize: "1.5rem",
+                            color: T.green, fontFamily: T.display,
+                        }}>Save Your Build</h2>
+
+                        <div style={{ marginBottom: "1rem" }}>
+                            <label style={{
+                                display: "block", marginBottom: "0.5rem",
+                                fontSize: "0.85rem", color: T.textMid,
+                            }}>Build Name *</label>
+                            <input
+                                type="text"
+                                value={buildName}
+                                onChange={e => setBuildName(e.target.value)}
+                                placeholder="e.g., Gaming Beast 2026"
+                                style={{
+                                    width: "100%", padding: "0.75rem",
+                                    background: T.bg, border: `1px solid ${T.border}`,
+                                    borderRadius: "6px", color: T.text,
+                                    fontSize: "0.9rem", fontFamily: T.mono,
+                                }}
+                            />
+                        </div>
+
+                        <div style={{ marginBottom: "1.5rem" }}>
+                            <label style={{
+                                display: "block", marginBottom: "0.5rem",
+                                fontSize: "0.85rem", color: T.textMid,
+                            }}>Description (optional)</label>
+                            <textarea
+                                value={buildDescription}
+                                onChange={e => setBuildDescription(e.target.value)}
+                                placeholder="Add notes about your build..."
+                                rows={3}
+                                style={{
+                                    width: "100%", padding: "0.75rem",
+                                    background: T.bg, border: `1px solid ${T.border}`,
+                                    borderRadius: "6px", color: T.text,
+                                    fontSize: "0.9rem", fontFamily: T.mono,
+                                    resize: "vertical",
+                                }}
+                            />
+                        </div>
+
+                        {saveStatus && (
+                            <div style={{
+                                padding: "0.75rem", marginBottom: "1rem",
+                                background: saveStatus.includes("success") ? "rgba(15,217,128,0.1)" : "rgba(255,107,107,0.1)",
+                                border: `1px solid ${saveStatus.includes("success") ? T.green : T.red}`,
+                                borderRadius: "6px", fontSize: "0.85rem",
+                                color: saveStatus.includes("success") ? T.green : T.red,
+                            }}>
+                                {saveStatus}
+                            </div>
+                        )}
+
+                        <div style={{ display: "flex", gap: "0.75rem", justifyContent: "flex-end" }}>
+                            <button
+                                onClick={() => {
+                                    setShowSaveModal(false);
+                                    setBuildName("");
+                                    setBuildDescription("");
+                                    setSaveStatus("");
+                                }}
+                                style={{
+                                    padding: "0.65rem 1.25rem", fontSize: "0.85rem",
+                                    background: "transparent", border: `1px solid ${T.border}`,
+                                    color: T.textMid, borderRadius: "6px",
+                                    cursor: "pointer", fontFamily: T.mono,
+                                }}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleSaveBuild}
+                                disabled={saveStatus === "Saving..."}
+                                style={{
+                                    padding: "0.65rem 1.25rem", fontSize: "0.85rem",
+                                    background: T.green, border: "none",
+                                    color: "#050608", borderRadius: "6px",
+                                    cursor: saveStatus === "Saving..." ? "not-allowed" : "pointer",
+                                    fontFamily: T.mono, fontWeight: 700,
+                                    opacity: saveStatus === "Saving..." ? 0.6 : 1,
+                                }}
+                            >
+                                {saveStatus === "Saving..." ? "Saving..." : "Save Build"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </div>
     );

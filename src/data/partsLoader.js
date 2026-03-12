@@ -6,6 +6,9 @@ function transformPart(part, index, category) {
     const specs = part.specs || part;
     const currentPrice = part.current_price?.[0];
 
+    // Use ASIN as the ID for URL routing
+    // const id = part.asin || part.id || `${category[0]}${index + 1}`;
+
     // Extract manufacturer from name (first word)
     const manufacturer = part.manufacturer || (part.name ? part.name.split(' ')[0] : null);
 

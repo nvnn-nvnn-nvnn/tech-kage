@@ -1,5 +1,5 @@
 // Add partType as a prop parameter
-function Searchbar({ partType }) {
+function Searchbar({ partType, searchQuery, setSearchQuery }) {
 
     // Define the T theme constant
     const T = {
@@ -30,6 +30,8 @@ function Searchbar({ partType }) {
             <input
                 type="text"
                 placeholder={`Search ${displayName}...`}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
                     width: "100%",
                     padding: "0.5rem",

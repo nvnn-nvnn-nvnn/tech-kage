@@ -8,6 +8,10 @@ function Header() {
   const [hoveredNav, setHoveredNav] = useState(null);
   const [showProductsDropdown, setShowProductsDropdown] = useState(false);
   const [productsDropdownVisible, setProductsDropdownVisible] = useState(false);
+  // Technology dropshow
+  const [showTechnologyDropdown, setShowTechnologyDropdown] = useState(false);
+  const [technologyDropdownVisible, setTechnologyDropdownVisible] = useState(false);
+
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const hideTimeoutRef = useRef(null);
@@ -23,9 +27,10 @@ function Header() {
     { label: "Budgeting", path: "/builder" },
     { label: "Part Picker", path: "/manual" },
     { label: "Products", path: null, hasDropdown: true },
-    { label: "Raspberry PI", path: "/raspberry" },
-    { label: "Drones", path: "/drones" },
-    { label: "3D Printing", path: "/ThreeDPrinting" },
+    { label: "Technology", path: null, hasDropdown: true },
+    // { label: "Raspberry PI", path: "/raspberry" },
+    // { label: "Drones", path: "/drones" },
+    // { label: "3D Printing", path: "/ThreeDPrinting" },
     { label: "Forums", path: "/forums" },
     { label: "Blog", path: "/blog" },
     { label: "Contact", path: "/contact" },
@@ -35,6 +40,13 @@ function Header() {
     { label: "Prebuilt PCs", path: "/products/prebuilt" },
     { label: "Desktop Accessories", path: "/products/accessories" },
     { label: "RubberDucky", path: "/products/rubberducky" },
+  ];
+
+
+  const technologyDropdownItems = [
+    { label: "Raspberry PI", path: "/raspberry" },
+    { label: "Drones", path: "/drones" },
+    { label: "3D Printing", path: "/ThreeDPrinting" },
   ];
 
   useEffect(() => {
@@ -67,6 +79,26 @@ function Header() {
       setTimeout(() => setShowProductsDropdown(false), 220);
     }, 180);
   };
+
+  // Technology open / close
+
+  const openTechnologyDropdown = () => {
+    if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
+    setShowTechnologyDropdown(true);
+    requestAnimationFrame(() => setTechnologyDropdownVisible(true));
+  };
+
+
+  const closeTechnologyDropdown = () => {
+    if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
+    hideTimeoutRef.current = setTimeout(() => {
+      setTechnologyDropdownVisible(false);
+      setTimeout(() => setShowTechnologyDropdown(false), 220);
+    }, 180);
+  };
+
+
+
 
   const navPillStyle = (label, isActive) => ({
     padding: "4px 10px",
@@ -153,15 +185,22 @@ function Header() {
                       </button>
                     );
                   }
+
+                  // Determine which dropdown functions to use based on label
+                  const openFunc = item.label === "Products" ? openDropdown : openTechnologyDropdown;
+                  const closeFunc = item.label === "Products" ? closeDropdown : closeTechnologyDropdown;
+
                   return (
                     <div key={item.label} style={{ position: "relative", display: "inline-block" }}
-                      onMouseEnter={() => { setHoveredNav(item.label); openDropdown(); }}
-                      onMouseLeave={() => { setHoveredNav(null); closeDropdown(); }}
+                      onMouseEnter={() => { setHoveredNav(item.label); openFunc(); }}
+                      onMouseLeave={() => { setHoveredNav(null); closeFunc(); }}
                     >
                       <button type="button" style={navPillStyle(item.label, false)}>
                         {item.label} ▾
                       </button>
-                      {showProductsDropdown && (
+
+                      {/* Products Dropdown */}
+                      {item.label === "Products" && showProductsDropdown && (
                         <div style={{
                           position: "absolute", top: "130%", left: 0, minWidth: 200,
                           background: "#050608", borderRadius: 8,
@@ -176,6 +215,32 @@ function Header() {
                           {productDropdownItems.map((d) => (
                             <button key={d.label} type="button"
                               onClick={() => { navigate(d.path); setHoveredNav(null); setProductsDropdownVisible(false); setShowProductsDropdown(false); }}
+                              style={{ display: "block", width: "100%", textAlign: "left", padding: "8px 10px", fontSize: 10, borderRadius: 6, border: "none", background: "transparent", color: "#E5FDF3", letterSpacing: 1.2, textTransform: "uppercase", cursor: "pointer", transition: "background 0.15s, color 0.15s" }}
+                              onMouseEnter={e => { e.currentTarget.style.background = "rgba(15,217,128,0.16)"; e.currentTarget.style.color = "#0FD980"; }}
+                              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#E5FDF3"; }}
+                            >
+                              {d.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Technology Dropdown */}
+                      {item.label === "Technology" && showTechnologyDropdown && (
+                        <div style={{
+                          position: "absolute", top: "130%", left: 0, minWidth: 200,
+                          background: "#050608", borderRadius: 8,
+                          border: "1px solid rgba(15,217,128,0.35)",
+                          boxShadow: "0 10px 30px rgba(0,0,0,0.65)",
+                          padding: 6, zIndex: 9999,
+                          opacity: technologyDropdownVisible ? 1 : 0,
+                          transform: technologyDropdownVisible ? "translateY(0)" : "translateY(-4px)",
+                          transition: "opacity 0.2s ease-out, transform 0.2s ease-out",
+                          pointerEvents: technologyDropdownVisible ? "auto" : "none",
+                        }}>
+                          {technologyDropdownItems.map((d) => (
+                            <button key={d.label} type="button"
+                              onClick={() => { navigate(d.path); setHoveredNav(null); setTechnologyDropdownVisible(false); setShowTechnologyDropdown(false); }}
                               style={{ display: "block", width: "100%", textAlign: "left", padding: "8px 10px", fontSize: 10, borderRadius: 6, border: "none", background: "transparent", color: "#E5FDF3", letterSpacing: 1.2, textTransform: "uppercase", cursor: "pointer", transition: "background 0.15s, color 0.15s" }}
                               onMouseEnter={e => { e.currentTarget.style.background = "rgba(15,217,128,0.16)"; e.currentTarget.style.color = "#0FD980"; }}
                               onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#E5FDF3"; }}
