@@ -27,6 +27,7 @@ const COLUMNS = {
     "cpu-cooler": [
         { key: "rpm", label: "FAN RPM", align: "center" },
         { key: "noiseLevel", label: "NOISE LEVEL", align: "center" },
+        { key: "cooling_type", label: "COOLING TYPE", align: "center" },
         { key: "radiatorSize", label: "RADIATOR SIZE", align: "center" },
         { key: "color", label: "COLOR", align: "center" },
     ],
@@ -225,6 +226,18 @@ export default function PartsList({ partType }) {
             filtered = filtered.filter(part => {
                 const partColor = (part.color || '').toLowerCase();
                 return filters.color.some(c => partColor.includes(c.toLowerCase()));
+            });
+        }
+        if (filters.cooling_type?.length > 0) {
+            filtered = filtered.filter(part => {
+                const coolingType = (part.cooling_type || part.coolingType || part.type || '').toLowerCase();
+                return filters.cooling_type.some(ct => coolingType.includes(ct.toLowerCase()));
+            });
+        }
+        if (filters.size?.length > 0) {
+            filtered = filtered.filter(part => {
+                const size = (part.radiatorSize || part.radiator_size || part.size || '').toLowerCase();
+                return filters.size.some(s => size.includes(s.toLowerCase()));
             });
         }
 

@@ -44,7 +44,11 @@ router.post('/generate-build', async (req, res) => {
     const validatedBuild = {};
     for (const [category, part] of Object.entries(claudeResponse.build)) {
       const catalogParts = PARTS_CATALOG[category] || [];
-      const isValid = catalogParts.some(p => p.name.toLowerCase() === part.name.toLowerCase());
+      const isValid = catalogParts.some(p => {
+        const catalogName = p.name.toLowerCase();
+        const claudeName = part.name.toLowerCase();
+        return catalogName.includes(claudeName) || claudeName.includes(catalogName);
+      });
       if (isValid) {
         validatedBuild[category] = part;
       } else {

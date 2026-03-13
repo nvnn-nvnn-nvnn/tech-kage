@@ -207,40 +207,74 @@ export default function PartPicker() {
 
                         {/* Total row */}
                         <div style={{
-                            display: "grid",
-                            gridTemplateColumns: "160px 1fr 90px 100px 120px 100px",
-                            alignItems: "center",
                             padding: "1rem 1.25rem",
                             background: "rgba(15,217,128,0.06)",
                             borderTop: `1px solid ${T.border}`,
                         }}>
-                            <div style={{ gridColumn: "1 / 4", fontSize: "0.75rem", letterSpacing: "0.1em", color: T.textDim }}>ESTIMATED TOTAL</div>
-                            <div style={{ textAlign: "right", fontSize: "0.82rem", color: T.green }}>
-                                {Object.values(selections).reduce((s, p) => s + p.promo, 0) > 0
-                                    ? `−$${Object.values(selections).reduce((s, p) => s + p.promo, 0)}`
-                                    : "—"}
+                            <div style={{
+                                display: "grid",
+                                gridTemplateColumns: "160px 1fr 90px 100px 120px",
+                                alignItems: "center",
+                                marginBottom: "1rem"
+                            }}>
+                                <div style={{ gridColumn: "1 / 4", fontSize: "0.75rem", letterSpacing: "0.1em", color: T.textDim }}>ESTIMATED TOTAL</div>
+                                <div style={{ textAlign: "right", fontSize: "0.82rem", color: T.green }}>
+                                    {Object.values(selections).reduce((s, p) => s + p.promo, 0) > 0
+                                        ? `−$${Object.values(selections).reduce((s, p) => s + p.promo, 0)}`
+                                        : "—"}
+                                </div>
+                                <div style={{ textAlign: "right", fontFamily: T.display, fontSize: "1.1rem", color: T.green }}>${total.toFixed(2)}</div>
                             </div>
-                            <div style={{ textAlign: "right", fontFamily: T.display, fontSize: "1.1rem", color: T.green }}>${total.toFixed(2)}</div>
-                            <div style={{ textAlign: "right" }}>
-                                {selectedCount > 0 && (
-                                    <button onClick={() => setShowSaveModal(true)} style={{
-                                        background: T.green,
+
+                            {selectedCount > 0 && (
+                                <div style={{ display: "flex", gap: "0.5rem", justifyContent: "flex-end" }}>
+                                    <button onClick={() => {
+                                        const asins = Object.values(selections)
+                                            .filter(part => part.asin)
+                                            .map(part => part.asin)
+                                            .join(',');
+                                        if (asins) {
+                                            window.open(`https://www.amazon.com/gp/aws/cart/add.html?AssociateTag=techkage-20&ASIN.1=${asins.split(',')[0]}&Quantity.1=1${asins.split(',').slice(1).map((asin, i) => `&ASIN.${i + 2}=${asin}&Quantity.${i + 2}=1`).join('')}`, "_blank");
+                                        } else {
+                                            alert("No products with Amazon links in your build");
+                                        }
+                                    }} style={{
+                                        background: "#FF9900",
                                         border: "none",
-                                        color: "#050608",
+                                        color: "#000",
                                         fontSize: "0.75rem",
-                                        fontWeight: 700, padding: "0.5rem 1rem",
+                                        fontWeight: 700,
+                                        padding: "0.5rem 1rem",
                                         borderRadius: "6px",
                                         cursor: "pointer",
                                         fontFamily: T.mono,
                                         letterSpacing: "0.05em",
                                         transition: "all 0.2s",
-                                        marginLeft: "1.5rem"
+                                        whiteSpace: "nowrap"
+                                    }}
+                                        onMouseEnter={e => e.currentTarget.style.background = "#FFB84D"}
+                                        onMouseLeave={e => e.currentTarget.style.background = "#FF9900"}
+                                    >🛒 BUY ON AMAZON</button>
+
+                                    <button onClick={() => setShowSaveModal(true)} style={{
+                                        background: T.green,
+                                        border: "none",
+                                        color: "#050608",
+                                        fontSize: "0.75rem",
+                                        fontWeight: 700,
+                                        padding: "0.5rem 1rem",
+                                        borderRadius: "6px",
+                                        cursor: "pointer",
+                                        fontFamily: T.mono,
+                                        letterSpacing: "0.05em",
+                                        transition: "all 0.2s",
+                                        whiteSpace: "nowrap"
                                     }}
                                         onMouseEnter={e => e.currentTarget.style.background = "#1BF08E"}
                                         onMouseLeave={e => e.currentTarget.style.background = T.green}
                                     >SAVE BUILD 💾</button>
-                                )}
-                            </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}
