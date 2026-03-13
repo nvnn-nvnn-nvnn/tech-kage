@@ -3,6 +3,8 @@ const { supabase } = require('../config/supabase');
 
 // Load parts from Supabase for a specific category
 async function loadCategoryFromSupabase(category, limit = 100) {
+    console.log(`[partsLoader] Loading ${category} from Supabase...`);
+
     const { data, error } = await supabase
         .from('parts')
         .select('*, current_prices(*)')
@@ -11,17 +13,27 @@ async function loadCategoryFromSupabase(category, limit = 100) {
         .limit(limit);
 
     if (error) {
-        console.error(`Error loading ${category} from Supabase:`, error);
+        console.error(`[partsLoader] ERROR loading ${category}:`, error);
+        return [];
+    }
+
+    console.log(`[partsLoader] ${category}: Found ${data?.length || 0} parts`);
+
+    if (!data || data.length === 0) {
+        console.warn(`[partsLoader] WARNING: No parts found for category "${category}"`);
         return [];
     }
 
     // Transform Supabase format to match expected JSON format
-    return data.map(part => ({
+    const transformed = data.map(part => ({
         ...part.specs,
         name: part.name,
         asin: part.asin,
         price: part.current_prices?.[0]?.price || 0
     }));
+
+    console.log(`[partsLoader] ${category} sample:`, transformed[0]?.name, '$' + transformed[0]?.price);
+    return transformed;
 }
 
 
@@ -110,7 +122,7 @@ let PARTS_CATALOG = {};
 
 // Initialize catalog from Supabase
 async function initializeCatalog() {
-    console.log('Loading parts catalog from Supabase...');
+    console.log('[initializeCatalog] Starting catalog load from Supabase...');
 
     const [cpuData, videoCardData, motherboardData, memoryData, storageData, powerSupplyData, caseData, cpuCoolerData] = await Promise.all([
         loadCategoryFromSupabase('cpu'),
@@ -123,6 +135,17 @@ async function initializeCatalog() {
         loadCategoryFromSupabase('cpu-cooler')
     ]);
 
+    console.log('[initializeCatalog] Raw data counts:', {
+        cpu: cpuData.length,
+        videoCard: videoCardData.length,
+        motherboard: motherboardData.length,
+        memory: memoryData.length,
+        storage: storageData.length,
+        powerSupply: powerSupplyData.length,
+        case: caseData.length,
+        cpuCooler: cpuCoolerData.length
+    });
+
     PARTS_CATALOG = {
         CPU: selectTopParts(cpuData, 'CPU', 6),
         GPU: selectTopParts(videoCardData, 'GPU', 8),
@@ -134,7 +157,18 @@ async function initializeCatalog() {
         COOLING: selectTopParts(cpuCoolerData, 'COOLING', 6),
     };
 
-    console.log('Parts catalog loaded successfully!');
+    console.log('[initializeCatalog] Final catalog counts:', {
+        CPU: PARTS_CATALOG.CPU.length,
+        GPU: PARTS_CATALOG.GPU.length,
+        MOTHERBOARD: PARTS_CATALOG.MOTHERBOARD.length,
+        RAM: PARTS_CATALOG.RAM.length,
+        STORAGE: PARTS_CATALOG.STORAGE.length,
+        PSU: PARTS_CATALOG.PSU.length,
+        CASE: PARTS_CATALOG.CASE.length,
+        COOLING: PARTS_CATALOG.COOLING.length
+    });
+
+    console.log('[initializeCatalog] Parts catalog loaded successfully!');
     return PARTS_CATALOG;
 }
 
