@@ -189,6 +189,11 @@ function Contact() {
               {/* Form */}
               <form onSubmit={handleSubmit} style={{ padding: "28px 36px 36px", display: "flex", flexDirection: "column", gap: 20 }}>
 
+                {/* Hidden inputs for Web3Forms email configuration */}
+                <input type="hidden" name="subject" value={`New message from ${name}`} />
+                <input type="hidden" name="from_name" value="Tech Kage Contact Form" />
+                <input type="hidden" name="replyto" value={email} />
+
                 <div>
                   <label style={labelStyle}>Name</label>
                   <input
