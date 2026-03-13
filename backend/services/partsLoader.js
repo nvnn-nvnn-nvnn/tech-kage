@@ -138,11 +138,11 @@ async function initializeCatalog() {
     return PARTS_CATALOG;
 }
 
-// Initialize on module load
-initializeCatalog().catch(err => {
-    console.error('Failed to initialize parts catalog:', err);
-    PARTS_CATALOG = {}; // Fallback to empty catalog
-});
+// // Initialize on module load
+// initializeCatalog().catch(err => {
+//     console.error('Failed to initialize parts catalog:', err);
+//     PARTS_CATALOG = {}; // Fallback to empty catalog
+// });
 
 // Helper functions
 function getPartNamesForCategory(category) {
