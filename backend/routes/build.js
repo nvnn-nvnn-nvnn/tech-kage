@@ -3,7 +3,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { PARTS_CATALOG, getDefaultPart } = require('../services/partsLoader');
+const { getCatalog, getDefaultPart } = require('../services/partsLoader');
 const { generateBuild } = require('../services/claude');
 const { enrichBuild } = require('../services/amazon');
 const { buildPrompt } = require('../services/promptBuilder');
@@ -41,9 +41,10 @@ router.post('/generate-build', async (req, res) => {
     console.log("Tokens used:", claudeResponse.tokensUsed);
 
     // Validate that Claude picked valid parts from catalog
+    const CATALOG = getCatalog();
     const validatedBuild = {};
     for (const [category, part] of Object.entries(claudeResponse.build)) {
-      const catalogParts = PARTS_CATALOG[category] || [];
+      const catalogParts = CATALOG[category] || [];
       const isValid = catalogParts.some(p => {
         const catalogName = p.name.toLowerCase();
         const claudeName = part.name.toLowerCase();
@@ -82,7 +83,7 @@ router.post('/generate-build', async (req, res) => {
 
         // Map category to PARTS_CATALOG key (uppercase)
         const catalogKey = category.toUpperCase();
-        const catalogPartsRaw = PARTS_CATALOG[catalogKey];
+        const catalogPartsRaw = CATALOG[catalogKey];
 
         // Skip if category not found in catalog
         if (!catalogPartsRaw || catalogPartsRaw.length === 0) {

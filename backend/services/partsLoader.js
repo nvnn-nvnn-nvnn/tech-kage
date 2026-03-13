@@ -146,16 +146,15 @@ async function initializeCatalog() {
         cpuCooler: cpuCoolerData.length
     });
 
-    PARTS_CATALOG = {
-        CPU: selectTopParts(cpuData, 'CPU', 6),
-        GPU: selectTopParts(videoCardData, 'GPU', 8),
-        MOTHERBOARD: selectTopParts(motherboardData, 'MOTHERBOARD', 6),
-        RAM: selectTopParts(memoryData, 'RAM', 6),
-        STORAGE: selectTopParts(storageData, 'STORAGE', 6),
-        PSU: selectTopParts(powerSupplyData, 'PSU', 6),
-        CASE: selectTopParts(caseData, 'CASE', 6),
-        COOLING: selectTopParts(cpuCoolerData, 'COOLING', 6),
-    };
+    // Mutate the existing object instead of reassigning (preserves imported references)
+    PARTS_CATALOG.CPU = selectTopParts(cpuData, 'CPU', 6);
+    PARTS_CATALOG.GPU = selectTopParts(videoCardData, 'GPU', 8);
+    PARTS_CATALOG.MOTHERBOARD = selectTopParts(motherboardData, 'MOTHERBOARD', 6);
+    PARTS_CATALOG.RAM = selectTopParts(memoryData, 'RAM', 6);
+    PARTS_CATALOG.STORAGE = selectTopParts(storageData, 'STORAGE', 6);
+    PARTS_CATALOG.PSU = selectTopParts(powerSupplyData, 'PSU', 6);
+    PARTS_CATALOG.CASE = selectTopParts(caseData, 'CASE', 6);
+    PARTS_CATALOG.COOLING = selectTopParts(cpuCoolerData, 'COOLING', 6);
 
     console.log('[initializeCatalog] Final catalog counts:', {
         CPU: PARTS_CATALOG.CPU.length,
@@ -178,6 +177,11 @@ async function initializeCatalog() {
 //     PARTS_CATALOG = {}; // Fallback to empty catalog
 // });
 
+// Getter function - always returns current catalog (avoids stale reference issues)
+function getCatalog() {
+    return PARTS_CATALOG;
+}
+
 // Helper functions
 function getPartNamesForCategory(category) {
     return (PARTS_CATALOG[category] || []).map(p => p.name);
@@ -199,8 +203,9 @@ function getDefaultPart(category) {
 
 module.exports = {
     PARTS_CATALOG,
+    getCatalog,
     getPartNamesForCategory,
     getPartByName,
     getDefaultPart,
-    initializeCatalog // Export for manual refresh if needed
+    initializeCatalog
 };

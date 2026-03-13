@@ -1,11 +1,12 @@
-const { getPartNamesForCategory, PARTS_CATALOG } = require('./partsLoader');
+const { getPartNamesForCategory, getCatalog } = require('./partsLoader');
 
 // Helper to format parts with prices for Claude
 function formatPartsWithPrices(category) {
-  const parts = PARTS_CATALOG[category] || [];
+  const catalog = getCatalog();
+  const parts = catalog[category] || [];
   console.log(`[formatPartsWithPrices] ${category}: ${parts.length} parts available`);
   if (parts.length === 0) {
-    console.warn(`WARNING: No parts found for ${category}. PARTS_CATALOG keys:`, Object.keys(PARTS_CATALOG));
+    console.warn(`WARNING: No parts found for ${category}. Catalog keys:`, Object.keys(catalog));
   }
   return parts.map(p => `${p.name} ($${p.priceNumeric})`).join(', ');
 }
