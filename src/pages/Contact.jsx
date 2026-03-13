@@ -192,7 +192,10 @@ function Contact() {
                 <div>
                   <label style={labelStyle}>Name</label>
                   <input
-                    type="text" required value={name}
+                    type="text"
+                    name="name"
+                    required
+                    value={name}
                     onChange={e => setName(e.target.value)}
                     onFocus={() => setFocused("name")}
                     onBlur={() => setFocused(null)}
@@ -204,7 +207,10 @@ function Contact() {
                 <div>
                   <label style={labelStyle}>Email</label>
                   <input
-                    type="email" required value={email}
+                    type="email"
+                    name="email"
+                    required
+                    value={email}
                     onChange={e => setEmail(e.target.value)}
                     onFocus={() => setFocused("email")}
                     onBlur={() => setFocused(null)}
@@ -216,7 +222,9 @@ function Contact() {
                 <div>
                   <label style={labelStyle}>Message</label>
                   <textarea
-                    required value={message}
+                    name="message"
+                    required
+                    value={message}
                     onChange={e => setMessage(e.target.value)}
                     onFocus={() => setFocused("message")}
                     onBlur={() => setFocused(null)}
