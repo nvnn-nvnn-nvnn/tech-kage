@@ -11,10 +11,30 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Swap this with your actual form handler / EmailJS / Supabase later
-    await new Promise(r => setTimeout(r, 1000));
-    setLoading(false);
-    setSubmitted(true);
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "ad2c4b5d-a388-4282-9176-bcceba54b851");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        console.error("Form submission failed:", data);
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputStyle = (field) => ({
@@ -219,8 +239,8 @@ function Contact() {
                     fontFamily: "'JetBrains Mono', monospace",
                     transition: "all 0.2s",
                   }}
-                  onMouseEnter={e => { if (!loading) { e.currentTarget.style.background = "#1BF08E"; e.currentTarget.style.transform = "translateY(-1px)"; }}}
-                  onMouseLeave={e => { if (!loading) { e.currentTarget.style.background = "#0FD980"; e.currentTarget.style.transform = "translateY(0)"; }}}
+                  onMouseEnter={e => { if (!loading) { e.currentTarget.style.background = "#1BF08E"; e.currentTarget.style.transform = "translateY(-1px)"; } }}
+                  onMouseLeave={e => { if (!loading) { e.currentTarget.style.background = "#0FD980"; e.currentTarget.style.transform = "translateY(0)"; } }}
                 >
                   {loading ? "Sending..." : "Send Message →"}
                 </button>
