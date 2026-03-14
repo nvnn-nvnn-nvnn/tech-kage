@@ -16,13 +16,20 @@ function transformPart(part, index, category) {
     return {
         id,
         name: part.name || "Unknown",
-        base: currentPrice?.price || specs.price || 0,
+        // Use new price field from database, fallback to current_price or specs
+        base: part.price || currentPrice?.price || specs.price || 0,
         promo: 0,
         shipping: 0,
         tax: 0,
         avail: currentPrice?.availability || "In Stock",
         where: currentPrice?.retailer || "Amazon",
         asin: part.asin || "",
+
+        // New fields from relevantParts.json
+        image: part.thumbnail_image || null,
+        description: part.description || null,
+        reviews_count: part.reviews_count || 0,
+        amazon_url: part.amazon_url || null,
 
         // Pass through all specs fields directly (they're already in snake_case)
         ...specs,

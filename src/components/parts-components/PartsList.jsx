@@ -95,6 +95,24 @@ export default function PartsList({ partType }) {
     });
     const [searchQuery, setSearchQuery] = useState("");
 
+    // Low to high 
+    const [sortOrder, setSortOrder] = useState("desc");
+
+
+
+    // const descendingOrder = () => {
+    //     setSortOrder("desc");
+    // };
+
+    // const ascendingOrder = () => {
+    //     setSortOrder("asc");
+    // };
+
+
+    const getFinalPrice = (part) => {
+        return part.base - part.promo + part.shipping + part.tax;
+    };
+
     useEffect(() => {
         const check = () => setIsMobile(window.innerWidth < 768);
         check();
@@ -249,6 +267,14 @@ export default function PartsList({ partType }) {
         applyFilters(filters, searchQuery);
     };
 
+    // Sort by price
+    const sortedParts = [...filteredParts].sort((a, b) => {
+        if (sortOrder === "asc") return getFinalPrice(a) - getFinalPrice(b);
+        return getFinalPrice(b) - getFinalPrice(a);
+    });
+
+
+
     const handleSearchChange = (query) => {
         setSearchQuery(query);
         applyFilters(activeFilters, query);
@@ -315,7 +341,7 @@ export default function PartsList({ partType }) {
                     display: isMobile && !showFilters ? "none" : "block",
                     marginBottom: isMobile ? "1rem" : 0,
                 }}>
-                    <PartsFilter partType={partType} onFilterChange={handleFilterChange} />
+                    <PartsFilter partType={partType} onFilterChange={handleFilterChange} sortOrder={sortOrder} onSortChange={setSortOrder} />
                 </div>
 
                 {/* ── Products ── */}
@@ -325,7 +351,7 @@ export default function PartsList({ partType }) {
                     {!isMobile && (
                         <div style={{
                             display: "grid",
-                            gridTemplateColumns: `1fr ${cols.map(() => "100px").join(" ")} 90px 110px`,
+                            gridTemplateColumns: `50px 1fr ${cols.map(() => "100px").join(" ")} 90px 110px`,
                             padding: "0.7rem 1.25rem",
                             background: "rgba(15,217,128,0.06)",
                             borderBottom: `1px solid ${T.border}`,
@@ -334,18 +360,24 @@ export default function PartsList({ partType }) {
                             color: "#fff",
                             fontWeight: 600,
                         }}>
+                            <div></div>
                             <div>NAME</div>
                             {cols.map(col => (
                                 <div key={col.key} style={{ textAlign: col.align }}>{col.label}</div>
                             ))}
-                            <div style={{ textAlign: "right" }}>PRICE</div>
+                            {/* Price column with sort indicator */}
+                            <div style={{ textAlign: "right", cursor: "pointer" }}
+                                onClick={() => setSortOrder(prev => prev === "desc" ? "asc" : "desc")}
+
+                            > PRICE {sortOrder === "desc" ? "↓" : "↑"}
+                            </div>
                             <div style={{ textAlign: "right" }}>ACTION</div>
                         </div>
                     )}
 
                     {/* Rows */}
                     <div style={{ display: "grid", gap: "0.5rem", marginTop: isMobile ? 0 : "0.5rem" }}>
-                        {filteredParts.map(part => {
+                        {sortedParts.map(part => {
                             const finalPrice = part.base - part.promo + part.shipping + part.tax;
                             const isSelected = selections[partType]?.id === part.id;
                             const isAdded = addedParts[part.id];
@@ -365,10 +397,20 @@ export default function PartsList({ partType }) {
                                         }}
                                         onClick={() => navigate(`/parts/${partType}/${part.id}`)}
                                     >
-                                        {/* Name + price row */}
-                                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                                            <div style={{ fontSize: "0.88rem", fontWeight: 600, flex: 1 }}>{part.name}</div>
-                                            <div style={{ fontSize: "0.95rem", fontWeight: 700, color: T.green, flexShrink: 0 }}>${finalPrice.toFixed(2)}</div>
+                                        {/* Image + Name + price row */}
+                                        <div style={{ display: "flex", gap: "0.75rem", marginBottom: "0.5rem" }}>
+                                            {/* Product Image */}
+                                            <div style={{ width: 50, height: 50, borderRadius: "6px", overflow: "hidden", background: "rgba(255,255,255,0.05)", flexShrink: 0 }}>
+                                                {part.image ? (
+                                                    <img src={part.image} alt={part.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                                ) : (
+                                                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: T.textDim, fontSize: "0.55rem" }}>N/A</div>
+                                                )}
+                                            </div>
+                                            <div style={{ flex: 1, minWidth: 0 }}>
+                                                <div style={{ fontSize: "0.88rem", fontWeight: 600, marginBottom: "0.25rem" }}>{part.name}</div>
+                                                <div style={{ fontSize: "0.95rem", fontWeight: 700, color: T.green }}>${finalPrice.toFixed(2)}</div>
+                                            </div>
                                         </div>
 
                                         {/* Spec pills — show first 3 cols only on mobile */}
@@ -423,7 +465,7 @@ export default function PartsList({ partType }) {
                                     key={part.id}
                                     style={{
                                         display: "grid",
-                                        gridTemplateColumns: `1fr ${cols.map(() => "100px").join(" ")} 90px 110px`,
+                                        gridTemplateColumns: `50px 1fr ${cols.map(() => "100px").join(" ")} 90px 110px`,
                                         alignItems: "center",
                                         background: T.card,
                                         border: `1px solid ${T.border}`,
@@ -436,6 +478,14 @@ export default function PartsList({ partType }) {
                                     onMouseEnter={e => { e.currentTarget.style.borderColor = T.green; e.currentTarget.style.transform = "translateY(-2px)"; }}
                                     onMouseLeave={e => { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.transform = "translateY(0)"; }}
                                 >
+                                    {/* Product Image */}
+                                    <div style={{ width: 40, height: 40, borderRadius: "6px", overflow: "hidden", background: "rgba(255,255,255,0.05)" }}>
+                                        {part.image ? (
+                                            <img src={part.image} alt={part.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                        ) : (
+                                            <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: T.textDim, fontSize: "0.6rem" }}>N/A</div>
+                                        )}
+                                    </div>
                                     <div style={{ fontSize: "0.95rem", fontWeight: 600 }}>{part.name}</div>
 
                                     {cols.map(col => (

@@ -265,7 +265,7 @@ const BuildModal = ({ build, onClose }: { build: any; onClose: () => void }) => 
       .map(([category, part]: [string, any]) =>
         `${category.padEnd(14)} ${part?.name || '—'}\n${' '.repeat(14)}${part?.price || '—'}`
       ).join('\n\n');
-    const text = `PC BUILD - ${build.build_name || 'CUSTOM'}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${partsText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTOTAL: $${totalPrice.toFixed(2)}\n\nCreated: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
+    const text = `PC BUILD - ${build.build_name || 'CUSTOM'}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${partsText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTOTAL: $${totalPrice.toFixed(2)}\n\nCreated: ${new Date(build.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}\n\nBuilt using TechKage.app`;
     navigator.clipboard.writeText(text);
     alert('Build copied to clipboard!');
   };

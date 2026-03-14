@@ -57,7 +57,6 @@ const COLUMNS = {
         { key: "tdp", label: "TDP" },
         { key: "radiatorSize", label: "Radiator Size" },
     ],
-
     memory: [
         { key: "manufacturer", label: "Manufacturer" },
         { key: "part_number", label: "Part #" },
@@ -72,33 +71,31 @@ const COLUMNS = {
         { key: "ecc_registered", label: "ECC / Registered" },
         { key: "heat_spreader", label: "Heat Spreader" },
     ],
-
     motherboard: [
-        { key: "manufacturer", label: "MANUFACTURER", align: "center" },
-        { key: "part_number", label: "PART #", align: "center" },
-        { key: "socket", label: "SOCKET / CPU", align: "center" },
-        { key: "form_factor", label: "FORM FACTOR", align: "center" },
-        { key: "chipset", label: "CHIPSET", align: "center" },
-        { key: "max_memory", label: "MEMORY MAX", align: "center" },
-        { key: "memory_type", label: "MEMORY TYPE", align: "center" },
-        { key: "memory_slots", label: "MEMORY SLOTS", align: "center" },
-        { key: "memory_speed", label: "MEMORY SPEED", align: "center" },
-        { key: "color", label: "COLOR", align: "center" },
-        { key: "pcie_x16_slots", label: "PCIE X16 SLOTS", align: "center" },
-        { key: "pcie_x1_slots", label: "PCIE X1 SLOTS", align: "center" },
-        { key: "m2_slots", label: "M.2 SLOTS", align: "center" },
-        { key: "sata_6_ports", label: "SATA 6.0 GB/S PORTS", align: "center" },
-        { key: "onboard_ethernet", label: "ONBOARD ETHERNET", align: "center" },
-        { key: "onboard_video", label: "ONBOARD VIDEO", align: "center" },
-        { key: "usb_20_headers", label: "USB 2.0 HEADERS", align: "center" },
-        { key: "usb_32_gen1_headers", label: "USB 3.2 GEN 1 HEADERS", align: "center" },
-        { key: "usb_32_gen2_headers", label: "USB 3.2 GEN 2 HEADERS", align: "center" },
-        { key: "supports_ecc", label: "SUPPORTS ECC", align: "center" },
-        { key: "wireless_networking", label: "WIRELESS NETWORKING", align: "center" },
-        { key: "raid_support", label: "RAID SUPPORT", align: "center" },
-        { key: "back_connect_connectors", label: "USES BACK-CONNECT CONNECTORS", align: "center" },
+        { key: "manufacturer", label: "Manufacturer" },
+        { key: "part_number", label: "Part #" },
+        { key: "socket", label: "Socket / CPU" },
+        { key: "form_factor", label: "Form Factor" },
+        { key: "chipset", label: "Chipset" },
+        { key: "max_memory", label: "Memory Max" },
+        { key: "memory_type", label: "Memory Type" },
+        { key: "memory_slots", label: "Memory Slots" },
+        { key: "memory_speed", label: "Memory Speed" },
+        { key: "color", label: "Color" },
+        { key: "pcie_x16_slots", label: "PCIe x16 Slots" },
+        { key: "pcie_x1_slots", label: "PCIe x1 Slots" },
+        { key: "m2_slots", label: "M.2 Slots" },
+        { key: "sata_6_ports", label: "SATA 6.0 Gb/s Ports" },
+        { key: "onboard_ethernet", label: "Onboard Ethernet" },
+        { key: "onboard_video", label: "Onboard Video" },
+        { key: "usb_20_headers", label: "USB 2.0 Headers" },
+        { key: "usb_32_gen1_headers", label: "USB 3.2 Gen 1 Headers" },
+        { key: "usb_32_gen2_headers", label: "USB 3.2 Gen 2 Headers" },
+        { key: "supports_ecc", label: "Supports ECC" },
+        { key: "wireless_networking", label: "Wireless Networking" },
+        { key: "raid_support", label: "RAID Support" },
+        { key: "back_connect_connectors", label: "Uses Back-Connect Connectors" },
     ],
-
     storage: [
         { key: "manufacturer", label: "Manufacturer" },
         { key: "part_number", label: "Part #" },
@@ -111,7 +108,6 @@ const COLUMNS = {
         { key: "read_speed", label: "Read Speed" },
         { key: "write_speed", label: "Write Speed" },
     ],
-
     "video-card": [
         { key: "manufacturer", label: "Manufacturer" },
         { key: "part_number", label: "Part #" },
@@ -133,7 +129,6 @@ const COLUMNS = {
         { key: "displayport_outputs", label: "DisplayPort Outputs" },
         { key: "hdmi_outputs", label: "HDMI Outputs" },
     ],
-
     powersupply: [
         { key: "manufacturer", label: "Manufacturer" },
         { key: "part_number", label: "Part #" },
@@ -147,7 +142,7 @@ const COLUMNS = {
         { key: "fan_size", label: "Fan Size" },
         { key: "atx_4pin_connectors", label: "ATX 4-pin Connectors" },
         { key: "eps_8pin_connectors", label: "EPS 8-pin Connectors" },
-        { key: "pcie_16pin_12vhpwr_connectors", label: "PCIe 16-pin 12VHPWR/12V-2x6 Connectors" },
+        { key: "pcie_16pin_12vhpwr_connectors", label: "PCIe 16-pin 12VHPWR Connectors" },
         { key: "pcie_12pin_connectors", label: "PCIe 12-pin Connectors" },
         { key: "pcie_8pin_connectors", label: "PCIe 8-pin Connectors" },
         { key: "pcie_6plus2pin_connectors", label: "PCIe 6+2-pin Connectors" },
@@ -219,6 +214,14 @@ export default function PartDetail() {
     const [added, setAdded] = useState(false);
     const [part, setPart] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
+    }, []);
 
     useEffect(() => {
         const loadPart = async () => {
@@ -233,11 +236,7 @@ export default function PartDetail() {
 
     if (loading) {
         return (
-            <div style={{
-                minHeight: "60vh", display: "flex", flexDirection: "column",
-                alignItems: "center", justifyContent: "center", gap: "1rem",
-                color: T.textMid, fontFamily: T.mono,
-            }}>
+            <div style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", color: T.textMid, fontFamily: T.mono }}>
                 <span style={{ fontSize: "1.5rem" }}>Loading...</span>
             </div>
         );
@@ -245,11 +244,7 @@ export default function PartDetail() {
 
     if (!part) {
         return (
-            <div style={{
-                minHeight: "60vh", display: "flex", flexDirection: "column",
-                alignItems: "center", justifyContent: "center", gap: "1rem",
-                color: T.textMid, fontFamily: T.mono,
-            }}>
+            <div style={{ minHeight: "60vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem", color: T.textMid, fontFamily: T.mono }}>
                 <span style={{ fontSize: "3rem" }}>404</span>
                 <p>Part not found.</p>
                 <button onClick={() => navigate(-1)} style={backBtnStyle}>← Go back</button>
@@ -275,101 +270,165 @@ export default function PartDetail() {
             background: T.bg,
             color: T.text,
             fontFamily: T.mono,
-            padding: "2rem 1rem",
+            padding: isMobile ? "1rem 0.75rem" : "2rem 1rem",
         }}>
             <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
-                <nav style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "2rem", fontSize: "0.78rem", color: T.textDim }}>
-                    <button onClick={() => navigate(-1)} style={backBtnStyle}>
-                        ← Back
-                    </button>
-                    <span>/</span>
-                    <span style={{ color: T.textMid }}>{categoryLabel}</span>
-                    <span>/</span>
-                    <span style={{ color: T.text }}>{part.name}</span>
+                {/* ── Breadcrumb ── */}
+                <nav style={{
+                    display: "flex", alignItems: "center", gap: "0.5rem",
+                    marginBottom: isMobile ? "1rem" : "2rem",
+                    fontSize: isMobile ? "0.7rem" : "0.78rem",
+                    color: T.textDim, flexWrap: "wrap",
+                }}>
+                    <button onClick={() => navigate(-1)} style={backBtnStyle}>← Back</button>
+                    {!isMobile && (
+                        <>
+                            <span>/</span>
+                            <span style={{ color: T.textMid }}>{categoryLabel}</span>
+                            <span>/</span>
+                            <span style={{ color: T.text, maxWidth: 300, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{part.name}</span>
+                        </>
+                    )}
                 </nav>
 
+                {/* ── Hero card ── */}
                 <div style={{
                     background: T.card,
                     border: `1px solid ${T.border}`,
                     borderRadius: 12,
-                    padding: "2rem 2.5rem",
-                    marginBottom: "1.5rem",
+                    padding: isMobile ? "1rem" : "2rem 2.5rem",
+                    marginBottom: "1.25rem",
                     position: "relative",
                     overflow: "hidden",
                 }}>
-                    <div style={{
-                        position: "absolute", top: 0, left: 0, right: 0,
-                        height: 2, background: `linear-gradient(90deg, ${T.green}, transparent)`,
-                    }} />
+                    {/* green accent bar */}
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${T.green}, transparent)` }} />
 
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "2rem", flexWrap: "wrap" }}>
-                        <div style={{ flex: "1 1 300px" }}>
-                            <div style={{
-                                fontSize: "0.68rem", letterSpacing: "0.15em", fontWeight: 700,
-                                color: T.green, marginBottom: "0.5rem", textTransform: "uppercase",
-                            }}>
-                                {categoryLabel}
-                            </div>
-                            <h1 style={{ fontSize: "1.6rem", fontWeight: 800, margin: "0 0 1rem", lineHeight: 1.25 }}>
-                                {part.name}
-                            </h1>
-                            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
-                                <AvailBadge avail={part.avail} />
-                                {part.mpn && (
-                                    <span style={{ fontSize: "0.72rem", color: T.textDim, fontFamily: T.mono }}>
-                                        MPN: {part.mpn}
-                                    </span>
-                                )}
-                            </div>
-                        </div>
-
-                        <div style={{
-                            display: "flex", flexDirection: "column", alignItems: "flex-end",
-                            gap: "0.75rem", flex: "0 0 auto",
-                        }}>
-                            <div style={{ textAlign: "right" }}>
-                                <div style={{ fontSize: "2.25rem", fontWeight: 800, color: T.green, lineHeight: 1 }}>
-                                    {finalPrice > 0 ? `$${finalPrice.toFixed(2)}` : "—"}
+                    {/* Mobile: stacked layout */}
+                    {isMobile ? (
+                        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                            {/* Image + name row */}
+                            <div style={{ display: "flex", gap: "0.85rem", alignItems: "flex-start" }}>
+                                <div style={{ width: 120, height: 120, borderRadius: 8, overflow: "hidden", background: "rgba(255,255,255,0.05)", border: `1px solid ${T.border}`, flexShrink: 0 }}>
+                                    {part.image ? (
+                                        <img src={part.image} alt={part.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                                    ) : (
+                                        <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: T.textDim, fontSize: "0.65rem" }}>No Image</div>
+                                    )}
                                 </div>
-                                {part.promo > 0 && (
-                                    <div style={{ fontSize: "0.78rem", color: T.textDim, marginTop: "0.25rem" }}>
-                                        <span style={{ textDecoration: "line-through" }}>${part.base.toFixed(2)}</span>
-                                        <span style={{ color: T.green, marginLeft: "0.4rem" }}>−${part.promo.toFixed(2)} promo</span>
+                                <div style={{ flex: 1 }}>
+                                    <div style={{ fontSize: "0.6rem", letterSpacing: "0.15em", fontWeight: 700, color: T.green, marginBottom: "0.3rem", textTransform: "uppercase" }}>
+                                        {categoryLabel}
                                     </div>
+                                    <h1 style={{ fontSize: "0.95rem", fontWeight: 800, margin: "0 0 0.5rem", lineHeight: 1.3 }}>
+                                        {part.name}
+                                    </h1>
+                                    <AvailBadge avail={part.avail} />
+                                </div>
+                            </div>
+
+                            {/* Price + button */}
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.75rem" }}>
+                                <div>
+                                    <div style={{ fontSize: "1.6rem", fontWeight: 800, color: T.green, lineHeight: 1 }}>
+                                        {finalPrice > 0 ? `$${finalPrice.toFixed(2)}` : "—"}
+                                    </div>
+                                    {part.promo > 0 && (
+                                        <div style={{ fontSize: "0.68rem", color: T.textDim, marginTop: "0.2rem" }}>
+                                            <span style={{ textDecoration: "line-through" }}>${part.base.toFixed(2)}</span>
+                                            <span style={{ color: T.green, marginLeft: "0.35rem" }}>−${part.promo.toFixed(2)}</span>
+                                        </div>
+                                    )}
+                                </div>
+                                <button
+                                    onClick={handleAdd}
+                                    style={{
+                                        padding: "0.6rem 1.25rem",
+                                        background: isSelected ? "rgba(15,217,128,0.25)" : (added ? "rgba(15,217,128,0.15)" : T.green),
+                                        color: (isSelected || added) ? T.green : "#000",
+                                        border: (isSelected || added) ? `1px solid ${T.green}` : "none",
+                                        borderRadius: 8, fontSize: "0.8rem", fontWeight: 700,
+                                        cursor: "pointer", fontFamily: T.mono, letterSpacing: "0.05em",
+                                        transition: "all 0.2s", whiteSpace: "nowrap",
+                                    }}
+                                >
+                                    {isSelected ? "✓ Selected" : (added ? "✓ Added" : "Add to Build")}
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        /* Desktop: side by side layout */
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "2rem", flexWrap: "wrap" }}>
+                            {/* Image */}
+                            <div style={{ width: 240, height: 240, borderRadius: 12, overflow: "hidden", background: "rgba(255,255,255,0.05)", border: `1px solid ${T.border}`, flexShrink: 0 }}>
+                                {part.image ? (
+                                    <img src={part.image} alt={part.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                                ) : (
+                                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: T.textDim, fontSize: "0.75rem" }}>No Image</div>
                                 )}
                             </div>
-                            <button
-                                onClick={handleAdd}
-                                style={{
-                                    padding: "0.7rem 2rem",
-                                    background: isSelected ? "rgba(15,217,128,0.25)" : (added ? "rgba(15,217,128,0.15)" : T.green),
-                                    color: (isSelected || added) ? T.green : "#000",
-                                    border: (isSelected || added) ? `1px solid ${T.green}` : "none",
-                                    borderRadius: 8,
-                                    fontSize: "0.9rem",
-                                    fontWeight: 700,
-                                    cursor: "pointer",
-                                    fontFamily: T.mono,
-                                    letterSpacing: "0.05em",
-                                    transition: "all 0.2s",
-                                    minWidth: 140,
-                                }}
-                            >
-                                {isSelected ? "✓ Selected" : (added ? "✓ Added" : "Add to Build")}
-                            </button>
+
+                            {/* Name + badges */}
+                            <div style={{ flex: "1 1 300px" }}>
+                                <div style={{ fontSize: "0.68rem", letterSpacing: "0.15em", fontWeight: 700, color: T.green, marginBottom: "0.5rem", textTransform: "uppercase" }}>
+                                    {categoryLabel}
+                                </div>
+                                <h1 style={{ fontSize: "1.6rem", fontWeight: 800, margin: "0 0 1rem", lineHeight: 1.25 }}>
+                                    {part.name}
+                                </h1>
+                                <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+                                    <AvailBadge avail={part.avail} />
+                                    {part.mpn && (
+                                        <span style={{ fontSize: "0.72rem", color: T.textDim }}>MPN: {part.mpn}</span>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Price + button */}
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.75rem", flexShrink: 0 }}>
+                                <div style={{ textAlign: "right" }}>
+                                    <div style={{ fontSize: "2.25rem", fontWeight: 800, color: T.green, lineHeight: 1 }}>
+                                        {finalPrice > 0 ? `$${finalPrice.toFixed(2)}` : "—"}
+                                    </div>
+                                    {part.promo > 0 && (
+                                        <div style={{ fontSize: "0.78rem", color: T.textDim, marginTop: "0.25rem" }}>
+                                            <span style={{ textDecoration: "line-through" }}>${part.base.toFixed(2)}</span>
+                                            <span style={{ color: T.green, marginLeft: "0.4rem" }}>−${part.promo.toFixed(2)} promo</span>
+                                        </div>
+                                    )}
+                                </div>
+                                <button
+                                    onClick={handleAdd}
+                                    style={{
+                                        padding: "0.7rem 2rem",
+                                        background: isSelected ? "rgba(15,217,128,0.25)" : (added ? "rgba(15,217,128,0.15)" : T.green),
+                                        color: (isSelected || added) ? T.green : "#000",
+                                        border: (isSelected || added) ? `1px solid ${T.green}` : "none",
+                                        borderRadius: 8, fontSize: "0.9rem", fontWeight: 700,
+                                        cursor: "pointer", fontFamily: T.mono, letterSpacing: "0.05em",
+                                        transition: "all 0.2s", minWidth: 140,
+                                    }}
+                                >
+                                    {isSelected ? "✓ Selected" : (added ? "✓ Added" : "Add to Build")}
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "1.5rem", alignItems: "start" }}>
+                {/* ── Body: specs + sidebar ── */}
+                <div style={{
+                    display: "grid",
+                    gridTemplateColumns: isMobile ? "1fr" : "1fr 340px",
+                    gap: "1.25rem",
+                    alignItems: "start",
+                }}>
 
-                    <div style={{
-                        background: T.card, border: `1px solid ${T.border}`,
-                        borderRadius: 12, overflow: "hidden",
-                    }}>
+                    {/* ── Specifications ── */}
+                    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, overflow: "hidden" }}>
                         <div style={{
-                            padding: "1rem 1.5rem",
+                            padding: "0.85rem 1.25rem",
                             borderBottom: `1px solid ${T.border}`,
                             fontSize: "0.68rem", letterSpacing: "0.12em",
                             fontWeight: 700, color: T.textDim, textTransform: "uppercase",
@@ -384,16 +443,18 @@ export default function PartDetail() {
                                         key={spec.key}
                                         style={{
                                             display: "grid",
-                                            gridTemplateColumns: "180px 1fr",
-                                            padding: "0.85rem 1.5rem",
+                                            // Mobile: label above value; Desktop: side by side
+                                            gridTemplateColumns: isMobile ? "1fr" : "180px 1fr",
+                                            padding: isMobile ? "0.65rem 1rem" : "0.85rem 1.5rem",
                                             borderBottom: i < specs.length - 1 ? `1px solid ${T.border}` : "none",
                                             background: i % 2 === 0 ? "transparent" : "rgba(255,255,255,0.015)",
+                                            gap: isMobile ? "0.15rem" : 0,
                                         }}
                                     >
-                                        <div style={{ fontSize: "0.78rem", color: T.textDim, fontWeight: 600, letterSpacing: "0.04em" }}>
+                                        <div style={{ fontSize: isMobile ? "0.65rem" : "0.78rem", color: T.textDim, fontWeight: 600, letterSpacing: "0.04em", textTransform: isMobile ? "uppercase" : "none" }}>
                                             {spec.label}
                                         </div>
-                                        <div style={{ fontSize: "0.88rem", color: val ? T.text : T.textDim }}>
+                                        <div style={{ fontSize: isMobile ? "0.82rem" : "0.88rem", color: val ? T.text : T.textDim }}>
                                             {val || "—"}
                                         </div>
                                     </div>
@@ -402,21 +463,16 @@ export default function PartDetail() {
                         </div>
                     </div>
 
+                    {/* ── Sidebar: Price + Where to Buy ── */}
+                    {/* On mobile this renders below specs naturally */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
 
-                        <div style={{
-                            background: T.card, border: `1px solid ${T.border}`,
-                            borderRadius: 12, overflow: "hidden",
-                        }}>
-                            <div style={{
-                                padding: "1rem 1.5rem",
-                                borderBottom: `1px solid ${T.border}`,
-                                fontSize: "0.68rem", letterSpacing: "0.12em",
-                                fontWeight: 700, color: T.textDim, textTransform: "uppercase",
-                            }}>
+                        {/* Price Breakdown */}
+                        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, overflow: "hidden" }}>
+                            <div style={{ padding: "0.85rem 1.25rem", borderBottom: `1px solid ${T.border}`, fontSize: "0.68rem", letterSpacing: "0.12em", fontWeight: 700, color: T.textDim, textTransform: "uppercase" }}>
                                 Price Breakdown
                             </div>
-                            <div style={{ padding: "1rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                            <div style={{ padding: "1rem 1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                                 {[
                                     { label: "Base Price", value: part.base, always: true },
                                     { label: "Promo / Coupon", value: -part.promo, always: false },
@@ -426,10 +482,7 @@ export default function PartDetail() {
                                     if (!row.always && row.value === 0) return null;
                                     const isDiscount = row.value < 0;
                                     return (
-                                        <div key={row.label} style={{
-                                            display: "flex", justifyContent: "space-between",
-                                            fontSize: "0.85rem",
-                                        }}>
+                                        <div key={row.label} style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem" }}>
                                             <span style={{ color: T.textMid }}>{row.label}</span>
                                             <span style={{ color: isDiscount ? T.green : row.value === 0 ? T.textDim : T.text, fontWeight: isDiscount ? 600 : 400 }}>
                                                 {row.value === 0
@@ -448,25 +501,16 @@ export default function PartDetail() {
                             </div>
                         </div>
 
-                        <div style={{
-                            background: T.card, border: `1px solid ${T.border}`,
-                            borderRadius: 12, overflow: "hidden",
-                        }}>
-                            <div style={{
-                                padding: "1rem 1.5rem",
-                                borderBottom: `1px solid ${T.border}`,
-                                fontSize: "0.68rem", letterSpacing: "0.12em",
-                                fontWeight: 700, color: T.textDim, textTransform: "uppercase",
-                            }}>
-                                Where to Buy | Merchants
+                        {/* Where to Buy */}
+                        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, overflow: "hidden" }}>
+                            <div style={{ padding: "0.85rem 1.25rem", borderBottom: `1px solid ${T.border}`, fontSize: "0.68rem", letterSpacing: "0.12em", fontWeight: 700, color: T.textDim, textTransform: "uppercase" }}>
+                                Where to Buy
                             </div>
-                            <div style={{ padding: "1rem 1.5rem" }}>
+                            <div style={{ padding: "1rem 1.25rem" }}>
                                 <div style={{
                                     display: "flex", alignItems: "center", justifyContent: "space-between",
-                                    background: retailer.bg,
-                                    border: `1px solid ${retailer.color}33`,
-                                    borderRadius: 8, padding: "0.85rem 1rem",
-                                    marginBottom: "0.75rem",
+                                    background: retailer.bg, border: `1px solid ${retailer.color}33`,
+                                    borderRadius: 8, padding: "0.85rem 1rem", marginBottom: "0.75rem",
                                 }}>
                                     <div>
                                         <div style={{ fontSize: "0.95rem", fontWeight: 700, color: retailer.color }}>{part.where}</div>
@@ -486,45 +530,31 @@ export default function PartDetail() {
                                         padding: "0.65rem", borderRadius: 8,
                                         background: part.asin ? T.greenDim : "rgba(255,255,255,0.05)",
                                         color: part.asin ? T.green : T.textDim,
-                                        border: `1px solid ${part.asin ? T.green + '44' : 'rgba(255,255,255,0.1)'}`,
+                                        border: `1px solid ${part.asin ? T.green + "44" : "rgba(255,255,255,0.1)"}`,
                                         fontSize: "0.82rem", fontWeight: 600,
                                         textDecoration: "none", letterSpacing: "0.05em",
                                         transition: "all 0.2s",
                                         cursor: part.asin ? "pointer" : "not-allowed",
                                     }}
-                                    onMouseEnter={e => {
-                                        if (part.asin) {
-                                            e.currentTarget.style.background = T.greenGlow;
-                                            e.currentTarget.style.borderColor = T.green;
-                                        }
-                                    }}
-                                    onMouseLeave={e => {
-                                        if (part.asin) {
-                                            e.currentTarget.style.background = T.greenDim;
-                                            e.currentTarget.style.borderColor = `${T.green}44`;
-                                        }
-                                    }}
-                                    onClick={e => {
-                                        if (!part.asin) {
-                                            e.preventDefault();
-                                        }
-                                    }}
+                                    onMouseEnter={e => { if (part.asin) { e.currentTarget.style.background = T.greenGlow; e.currentTarget.style.borderColor = T.green; } }}
+                                    onMouseLeave={e => { if (part.asin) { e.currentTarget.style.background = T.greenDim; e.currentTarget.style.borderColor = `${T.green}44`; } }}
+                                    onClick={e => { if (!part.asin) e.preventDefault(); }}
                                 >
                                     {part.asin ? `View on ${part.where} →` : "Link Unavailable"}
                                 </a>
                             </div>
                         </div>
 
+                        {/* Note */}
                         <div style={{
                             background: "rgba(15,217,128,0.04)",
                             border: `1px solid ${T.green}22`,
                             borderRadius: 12, padding: "1rem 1.25rem",
-                            fontSize: "0.78rem", color: T.textDim, lineHeight: 1.6,
+                            fontSize: "0.75rem", color: T.textDim, lineHeight: 1.6,
                         }}>
                             <span style={{ color: T.green, fontWeight: 700 }}>ℹ Note: </span>
                             Prices and availability are updated periodically and may vary. Always confirm final price at checkout.
                         </div>
-
                     </div>
                 </div>
             </div>

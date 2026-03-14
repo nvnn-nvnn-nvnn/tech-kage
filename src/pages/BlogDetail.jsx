@@ -33,7 +33,11 @@ const blogPosts = [
       <p>With years of experience in the PC building community, TechKage stands out for its commitment to quality, accuracy, and user experience. Our team of experts tests every component and provides unbiased recommendations based on real data.</p>
       
       <h2>Get Started Today</h2>
+           
       <p>Ready to build your dream PC? Start with our PC builder tool and explore our extensive blog for the latest tech news, reviews, and tips. Join the TechKage community and elevate your PC building experience.</p>
+      <p>Happy Building!</p>
+      <p>- Devv</p>
+    
     `
   }
 ];

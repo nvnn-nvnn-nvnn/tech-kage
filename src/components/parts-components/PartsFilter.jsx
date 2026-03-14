@@ -15,7 +15,10 @@ const T = {
 
 const FILTER_DATA = {
     cpu: {
-
+        // "price-order": [
+        //     { name: "Ascending", id: "asc" },
+        //     { name: "Descending", id: "desc" }
+        // ],
         rating: [
             { name: "5 Stars", id: "5", popular: true },
             { name: "4 Stars & up", id: "4", popular: true },
@@ -382,12 +385,13 @@ const FILTER_DATA = {
 //     }
 // };
 
-export default function PartsFilter({ partType, onFilterChange }) {
+export default function PartsFilter({ partType, onFilterChange, sortOrder, onSortChange }) {
     const [selectedFilters, setSelectedFilters] = useState({});
 
     const [showAll, setShowAll] = useState({});
 
     const filterConfig = FILTER_DATA[partType] || {};
+
 
     useEffect(() => {
         if (onFilterChange) {
@@ -544,6 +548,68 @@ export default function PartsFilter({ partType, onFilterChange }) {
                     Clear All
                 </button>
             </div>
+
+            {/* Sort Order Section */}
+            {onSortChange && (
+                <div style={{
+                    marginBottom: "1.5rem",
+                    paddingBottom: "1.5rem",
+                    borderBottom: `1px solid ${T.border}`,
+                }}>
+                    <h3 style={{
+                        fontSize: "0.75rem",
+                        letterSpacing: "0.1em",
+                        color: T.textDim,
+                        marginBottom: "0.75rem",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                    }}>
+                        Sort By Price
+                    </h3>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                        <button
+                            onClick={() => onSortChange("asc")}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.5rem",
+                                padding: "0.5rem 0.75rem",
+                                background: sortOrder === "asc" ? "rgba(15,217,128,0.15)" : "transparent",
+                                border: `1px solid ${sortOrder === "asc" ? T.green : T.border}`,
+                                borderRadius: "6px",
+                                color: sortOrder === "asc" ? T.green : T.textMid,
+                                fontSize: "0.85rem",
+                                cursor: "pointer",
+                                transition: "all 0.15s",
+                                fontFamily: T.mono,
+                            }}
+                        >
+                            <span style={{ fontSize: "1rem" }}>{sortOrder === "asc" ? "●" : "○"}</span>
+                            Low to High ↑
+                        </button>
+                        <button
+                            onClick={() => onSortChange("desc")}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.5rem",
+                                padding: "0.5rem 0.75rem",
+                                background: sortOrder === "desc" ? "rgba(15,217,128,0.15)" : "transparent",
+                                border: `1px solid ${sortOrder === "desc" ? T.green : T.border}`,
+                                borderRadius: "6px",
+                                color: sortOrder === "desc" ? T.green : T.textMid,
+                                fontSize: "0.85rem",
+                                cursor: "pointer",
+                                transition: "all 0.15s",
+                                fontFamily: T.mono,
+                            }}
+                        >
+                            <span style={{ fontSize: "1rem" }}>{sortOrder === "desc" ? "●" : "○"}</span>
+                            High to Low ↓
+                        </button>
+                    </div>
+                </div>
+            )}
 
             {/* {renderFilterSection("Manufacturer", "manufacturers", filterConfig.manufacturers)}
             {renderFilterSection("Speed", "speeds", filterConfig.speeds)}

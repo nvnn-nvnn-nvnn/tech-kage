@@ -179,6 +179,14 @@ export default function PartPicker() {
                                     <div>
                                         {part ? (
                                             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
+                                                {/* Product Image */}
+                                                <div style={{ width: 36, height: 36, borderRadius: "6px", overflow: "hidden", background: "rgba(255,255,255,0.05)", flexShrink: 0 }}>
+                                                    {part.image ? (
+                                                        <img src={part.image} alt={part.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                                    ) : (
+                                                        <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: T.textDim, fontSize: "0.5rem" }}>N/A</div>
+                                                    )}
+                                                </div>
                                                 <button onClick={() => navigate(`/parts/${cat.id}/${part.id}`)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", fontSize: "0.9rem", fontWeight: 500, color: T.text, fontFamily: "inherit", transition: "color 0.15s" }}
                                                     onMouseEnter={e => e.currentTarget.style.color = T.green}
                                                     onMouseLeave={e => e.currentTarget.style.color = T.text}

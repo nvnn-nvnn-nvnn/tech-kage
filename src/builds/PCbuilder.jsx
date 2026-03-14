@@ -1255,7 +1255,7 @@ function ExportModal({ config, currentBuild, onClose }) {
   }, 0) * 100) / 100;
 
   const copyToClipboard = () => {
-    const text = `PC BUILD - ${config.performance?.toUpperCase() || 'CUSTOM'} ($${totalPrice})\n${'━'.repeat(40)}\n\n${Object.entries(buildData).map(([category, part]) => `${category.padEnd(12)} ${part.name}\n${' '.repeat(12)} ${part.price}`).join('\n\n')}\n\n${'━'.repeat(40)}\nTOTAL: $${totalPrice}\n\nBudget: $${config.budget} · Use Case: ${config.usage?.join(', ') || 'General'} · Performance: ${config.performance || 'N/A'}`;
+    const text = `PC BUILD - ${config.performance?.toUpperCase() || 'CUSTOM'} ($${totalPrice})\n${'━'.repeat(40)}\n\n${Object.entries(buildData).map(([category, part]) => `${category.padEnd(12)} ${part.name}\n${' '.repeat(12)} ${part.price}`).join('\n\n')}\n\n${'━'.repeat(40)}\nTOTAL: $${totalPrice}\n\nBudget: $${config.budget} · Use Case: ${config.usage?.join(', ') || 'General'} · Performance: ${config.performance || 'N/A'}\n\nBuilt using TechKage.app`;
     navigator.clipboard.writeText(text);
     alert('Build copied to clipboard!');
   };

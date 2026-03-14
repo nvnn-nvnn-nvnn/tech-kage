@@ -23,7 +23,20 @@ function Blog() {
         background: "#050608",
         color: "#f5f5f5",
         fontFamily: "system-ui, -apple-system, sans-serif"
+
       }}
+
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = "translateY(-2px)";
+        e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,217,128,0.2)";
+        e.currentTarget.style.borderColor = "#0FD980";
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.boxShadow = "none";
+        e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+      }}
+
     >
       <style>{`
         .newsletter-form {
@@ -62,7 +75,8 @@ function Blog() {
                   borderRadius: "12px",
                   overflow: "hidden",
                   transition: "all 0.3s ease",
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  color: '#fff'
                 }}
               >
                 <img
