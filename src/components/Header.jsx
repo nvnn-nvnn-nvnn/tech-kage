@@ -209,9 +209,17 @@ function Header() {
                 fontFamily: "system-ui, -apple-system, sans-serif",
               }}
             >
-              TECH <span style={{ color: "#0FD980" }}>KΛGE</span>
+              TECH <span className="matrix-span">KΛGE</span>
             </button>
           </div>
+
+
+          {/* Bottom Glow */}
+          <div style={{
+            position: "absolute", bottom: 0, left: "50%",
+            transform: "translateX(-50%)", width: "60%", height: 1,
+            background: "linear-gradient(90deg, transparent, rgba(15,217,128,0.4), transparent)",
+          }} />
 
           {/* ── CENTER: Nav links (OathNet style) ── */}
           {!isMobile && (

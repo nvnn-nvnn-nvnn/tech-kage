@@ -33,11 +33,11 @@ export default function ManualPartPicker() {
         textAlign: "center",
       }}>
         <div style={{
-          fontSize: 10,
+          fontSize: 15,
           letterSpacing: 4,
           color: T.green,
           marginBottom: 12,
-          fontWeight: 600,
+          fontWeight: 650,
         }}>
           BUILD YOUR DREAM PC
         </div>
