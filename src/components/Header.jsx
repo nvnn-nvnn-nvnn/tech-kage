@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from '../hooks/useAuth';
 import AuthModal from './AuthModal';
 import techKageLogo from '../assets/TechKage.svg';
+import techKageWordLogo from '../assets/techkage word logo fixx.svg';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // HEADER — OathNet-inspired slim layout (h-16 / 64px)
@@ -110,7 +111,7 @@ function Header() {
     background: "transparent",
     border: "none",
     cursor: "pointer",
-    padding: "4px 2px",
+    padding: "8px 8px",
     fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     transition: "color 0.15s ease",
     letterSpacing: 0.2,
@@ -118,6 +119,8 @@ function Header() {
     display: "inline-flex",
     alignItems: "center",
     gap: 4,
+    whiteSpace: "nowrap",
+    flexShrink: 0,
   });
 
   // ── Dropdown panel shared style ──
@@ -167,13 +170,12 @@ function Header() {
         }}>
 
           {/* ── LEFT: Logo + Brand ── */}
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginRight: 40 }}>
             {/* Logo icon container — OathNet style gradient box */}
             <button
               type="button"
               onClick={() => navigate("/")}
               style={{
-                // background: "linear-gradient(135deg, #0FD980, rgba(15,217,128,0.4))",
                 background: "transparent",
                 border: "none",
                 cursor: "pointer",
@@ -184,33 +186,13 @@ function Header() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                // boxShadow: "0 4px 14px rgba(15,217,128,0.25)",
                 flexShrink: 0,
               }}
             >
               <img src={techKageLogo} alt="Tech Kage Logo" style={{ width: 50, height: 50 }} />
             </button>
 
-            {/* Brand name */}
-            <button
-              type="button"
-              onClick={() => navigate("/")}
-              style={{
-                background: "transparent",
-                border: "none",
-                cursor: "pointer",
-                padding: 0,
-                fontSize: isMobile ? 13 : 16,
-                letterSpacing: 5,
-                textTransform: "uppercase",
-                color: "#fff",
-                fontWeight: 700,
-                lineHeight: 1,
-                fontFamily: "system-ui, -apple-system, sans-serif",
-              }}
-            >
-              TECH <span className="matrix-span">KΛGE</span>
-            </button>
+            <img src={techKageWordLogo} alt="Tech Kage Word Logo" style={{ width: 175, height: 175, margin: "0 auto", padding: "5px 0" }} />
           </div>
 
 
@@ -299,7 +281,7 @@ function Header() {
           )}
 
           {/* ── RIGHT: Auth ── */}
-          <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 8 : 12, flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 8 : 12, flexShrink: 0, marginLeft: isMobile ? 0 : 32 }}>
             {user ? (
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
 
@@ -368,34 +350,17 @@ function Header() {
                 </button>
               </div>
             ) : (
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                {/* Login — OathNet plain style */}
+              // ── Login button: only show on desktop; on mobile it lives in the drawer ──
+              !isMobile && (
                 <button
                   type="button"
                   onClick={() => setShowAuth(true)}
                   style={{
-                    padding: "7px 14px", fontSize: 13, fontWeight: 500,
-                    borderRadius: 8, border: "none",
-                    background: "transparent", color: "rgba(255,255,255,0.55)",
-                    cursor: "pointer", transition: "color 0.15s",
-                    fontFamily: "inherit",
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.color = "#fff"}
-                  onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.55)"}
-                >
-                  Login
-                </button>
-
-                {/* Sign Up — OathNet gradient button style, Tech Kage green */}
-                <button
-                  type="button"
-                  onClick={() => setShowAuth(true)}
-                  style={{
-                    padding: isMobile ? "7px 16px" : "8px 20px",
+                    padding: "8px 20px",
                     fontSize: 13, fontWeight: 700,
                     borderRadius: 8,
                     border: "none",
-                    background: "linear-gradient(135deg, #0FD980, #0ab868)",
+                    background: "linear-gradient(135deg, #0FD980, #0FD980)",
                     color: "#050608",
                     cursor: "pointer",
                     boxShadow: "0 4px 14px rgba(15,217,128,0.3)",
@@ -406,9 +371,9 @@ function Header() {
                   onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(15,217,128,0.45)"; }}
                   onMouseLeave={e => { e.currentTarget.style.filter = "brightness(1)"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(15,217,128,0.3)"; }}
                 >
-                  {isMobile ? "Join" : "Get Started"}
+                  Login
                 </button>
-              </div>
+              )
             )}
 
             {/* Mobile hamburger */}
@@ -515,7 +480,7 @@ function Header() {
           <div style={{ padding: "16px 20px", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", gap: 8 }}>
             <button
               onClick={() => { navigate("/builder"); setMenuOpen(false); }}
-              style={{ width: "100%", padding: "11px", fontSize: 13, fontWeight: 700, letterSpacing: 0.5, borderRadius: 8, border: "none", background: "linear-gradient(135deg, #0FD980, #0ab868)", color: "#050608", cursor: "pointer", boxShadow: "0 4px 14px rgba(15,217,128,0.25)", transition: "filter 0.15s" }}
+              style={{ width: "100%", padding: "11px", fontSize: 13, fontWeight: 700, letterSpacing: 0.5, borderRadius: 8, border: "none", background: "linear-gradient(135deg, #0FD980, #0FD980)", color: "#050608", cursor: "pointer", boxShadow: "0 4px 14px rgba(15,217,128,0.25)", transition: "filter 0.15s" }}
               onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
               onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
             >
@@ -529,6 +494,27 @@ function Header() {
             >
               View Cart
             </button>
+
+            {/* ── Login button inside mobile drawer (only shown when logged out) ── */}
+            {!user && (
+              <button
+                onClick={() => { setShowAuth(true); setMenuOpen(false); }}
+                style={{
+                  width: "100%", padding: "11px", fontSize: 13, fontWeight: 700,
+                  letterSpacing: 0.5, borderRadius: 8, border: "none",
+                  background: "linear-gradient(135deg, #0FD980, #0FD980)",
+                  color: "#ffffff", cursor: "pointer",
+                  boxShadow: "0 4px 14px rgba(42,85,232,0.35)",
+                  transition: "filter 0.15s",
+                  fontFamily: "inherit",
+                }}
+                onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
+                onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
+              >
+                Login
+              </button>
+            )}
+
             {user && (
               <button
                 onClick={() => { signOut(); navigate("/"); setMenuOpen(false); }}

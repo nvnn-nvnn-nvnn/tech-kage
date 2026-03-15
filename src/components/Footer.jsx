@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 
 import TechKageLogo from "../assets/TechKage.svg";
+import TechKageWordLogo from "../assets/techkage word logo fixx.svg";
 
 function Footer() {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -155,9 +156,12 @@ function Footer() {
                 fontSize: 16, fontWeight: 800, color: "#050608",
               }}>T</div> */}
               <img src={TechKageLogo} alt="Tech Kage Logo" style={{ width: 40, height: 40 }} />
-              <span style={{ fontSize: 20, fontWeight: 800, letterSpacing: 1, color: "#fff" }}>
+              {/* <span style={{ fontSize: 20, fontWeight: 800, letterSpacing: 1, color: "#fff" }}>
                 TECH KΛGE
-              </span>
+              </span> */}
+              <img src={TechKageWordLogo} alt="Tech Kage Word Logo" style={{ width: 150, height: 50 }} />
+
+
             </div>
             <p style={{
               fontSize: 14, lineHeight: 1.8,

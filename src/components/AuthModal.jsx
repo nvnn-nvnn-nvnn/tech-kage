@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
-
+import techKageWordLogo from '../assets/techkage word logo fixx.svg';
 const T = {
   bg: "#050608",
   green: "#0FD980",
@@ -50,6 +50,8 @@ export default function AuthModal({ onClose, onSuccess }) {
 
   return (
     <>
+
+
       <style>{`
         @keyframes modalFadeIn {
           from { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
@@ -70,7 +72,7 @@ export default function AuthModal({ onClose, onSuccess }) {
         }}
       />
 
-     
+
 
       {/* Modal */}
       <div style={{
@@ -83,6 +85,7 @@ export default function AuthModal({ onClose, onSuccess }) {
         transform: visible ? "translate(-50%, -50%) scale(1)" : "translate(-50%, -48%) scale(0.96)",
         transition: "opacity 0.25s ease, transform 0.25s ease",
       }}>
+        <img src={techKageWordLogo} alt="Tech Kage" style={{ width: "80%", height: "auto", marginBottom: 24, display: "block", margin: "0 auto" }} />
 
         {confirmSent ? (
           <div style={{ textAlign: "center" }}>

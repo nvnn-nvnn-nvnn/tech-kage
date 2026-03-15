@@ -11,11 +11,11 @@ interface AuthContextType {
   signOut: () => Promise<{ error: any }>;
 }
 
-export const AuthContext = createContext < AuthContextType | undefined > (undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState < User | null > (null);
-  const [session, setSession] = useState < Session | null > (null);
+  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -38,6 +38,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signUp = async (email: string, password: string) => {
     const { data, error } = await supabase.auth.signUp({ email, password });
+
+    // Check if user already exists
+    if (error) {
+      if (error.message.includes('already registered') || error.message.includes('User already registered')) {
+        return {
+          data,
+          error: { message: 'An account with this email already exists. Please log in instead.' }
+        };
+      }
+    }
+
     return { data, error };
   };
 
