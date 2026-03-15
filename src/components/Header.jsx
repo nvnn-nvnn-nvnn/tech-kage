@@ -280,78 +280,76 @@ function Header() {
             </nav>
           )}
 
+
           {/* ── RIGHT: Auth ── */}
           <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 8 : 12, flexShrink: 0, marginLeft: isMobile ? 0 : 32 }}>
-            {user ? (
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            {!isMobile && (
+              user ? (
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
 
-                {/* Profile pill */}
-                <button
-                  type="button"
-                  onClick={() => navigate(`/profile/${user.id}`)}
-                  style={{
-                    display: "flex", alignItems: "center", gap: 7,
-                    background: "rgba(15,217,128,0.07)",
-                    border: "1px solid rgba(15,217,128,0.2)",
-                    borderRadius: 8, padding: "6px 12px",
-                    cursor: "pointer", transition: "all 0.18s ease", flexShrink: 0,
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(15,217,128,0.13)"; e.currentTarget.style.borderColor = "rgba(15,217,128,0.45)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(15,217,128,0.07)"; e.currentTarget.style.borderColor = "rgba(15,217,128,0.2)"; }}
-                >
-                  <div style={{
-                    width: 22, height: 22, borderRadius: "50%", flexShrink: 0,
-                    background: "linear-gradient(135deg, #0FD980, rgba(15,217,128,0.3))",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 10, fontWeight: 900, color: "#050608",
-                  }}>
-                    {user.email?.slice(0, 2).toUpperCase()}
-                  </div>
-                  {!isMobile && (
+                  {/* Profile pill */}
+                  <button
+                    type="button"
+                    onClick={() => navigate(`/profile/${user.id}`)}
+                    style={{
+                      display: "flex", alignItems: "center", gap: 7,
+                      background: "rgba(15,217,128,0.07)",
+                      border: "1px solid rgba(15,217,128,0.2)",
+                      borderRadius: 8, padding: "6px 12px",
+                      cursor: "pointer", transition: "all 0.18s ease", flexShrink: 0,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(15,217,128,0.13)"; e.currentTarget.style.borderColor = "rgba(15,217,128,0.45)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(15,217,128,0.07)"; e.currentTarget.style.borderColor = "rgba(15,217,128,0.2)"; }}
+                  >
+                    <div style={{
+                      width: 22, height: 22, borderRadius: "50%", flexShrink: 0,
+                      background: "linear-gradient(135deg, #0FD980, rgba(15,217,128,0.3))",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: 10, fontWeight: 900, color: "#050608",
+                    }}>
+                      {user.email?.slice(0, 2).toUpperCase()}
+                    </div>
                     <span style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", fontFamily: "'JetBrains Mono', monospace", maxWidth: 100, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                       {user.email?.split("@")[0]}
                     </span>
-                  )}
-                </button>
+                  </button>
 
-                {/* Cart */}
-                <button
-                  type="button"
-                  onClick={() => navigate("/cart")}
-                  style={{
-                    padding: "7px 14px", fontSize: 12, fontWeight: 600,
-                    letterSpacing: 0.5,
-                    borderRadius: 8, border: "1px solid rgba(15,217,128,0.35)",
-                    background: "rgba(15,217,128,0.07)", color: "#0FD980",
-                    cursor: "pointer", transition: "all 0.18s ease", flexShrink: 0,
-                    whiteSpace: "nowrap",
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "#0FD980"; e.currentTarget.style.color = "#050608"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(15,217,128,0.07)"; e.currentTarget.style.color = "#0FD980"; }}
-                >
-                  🛒 {!isMobile && "Cart"}
-                </button>
+                  {/* Cart */}
+                  <button
+                    type="button"
+                    onClick={() => navigate("/cart")}
+                    style={{
+                      padding: "7px 14px", fontSize: 12, fontWeight: 600,
+                      letterSpacing: 0.5,
+                      borderRadius: 8, border: "1px solid rgba(15,217,128,0.35)",
+                      background: "rgba(15,217,128,0.07)", color: "#0FD980",
+                      cursor: "pointer", transition: "all 0.18s ease", flexShrink: 0,
+                      whiteSpace: "nowrap",
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "#0FD980"; e.currentTarget.style.color = "#050608"; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(15,217,128,0.07)"; e.currentTarget.style.color = "#0FD980"; }}
+                  >
+                    🛒 Cart
+                  </button>
 
-                {/* Sign out — OathNet plain text style */}
-                <button
-                  type="button"
-                  onClick={async () => { await signOut(); navigate("/"); setMenuOpen(false); }}
-                  style={{
-                    padding: "7px 12px", fontSize: 12, fontWeight: 500,
-                    borderRadius: 8, border: "none",
-                    background: "transparent", color: "rgba(255,255,255,0.3)",
-                    cursor: "pointer", transition: "color 0.15s ease", flexShrink: 0,
-                    whiteSpace: "nowrap",
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.color = "#ff6b6b"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.3)"; }}
-                >
-                  {isMobile ? "Out" : "Sign Out"}
-                </button>
-              </div>
-            ) : (
-              // ── Login button: only show on desktop; on mobile it lives in the drawer ──
-              !isMobile && (
+                  {/* Sign out */}
+                  <button
+                    type="button"
+                    onClick={async () => { await signOut(); navigate("/"); setMenuOpen(false); }}
+                    style={{
+                      padding: "7px 12px", fontSize: 12, fontWeight: 500,
+                      borderRadius: 8, border: "none",
+                      background: "transparent", color: "rgba(255,255,255,0.3)",
+                      cursor: "pointer", transition: "color 0.15s ease", flexShrink: 0,
+                      whiteSpace: "nowrap",
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#ff6b6b"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.3)"; }}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              ) : (
                 <button
                   type="button"
                   onClick={() => setShowAuth(true)}
@@ -408,7 +406,8 @@ function Header() {
           backdropFilter: "blur(16px)",
         }}>
           <div style={{ padding: "20px 20px 16px", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span style={{ fontSize: 13, letterSpacing: 4, color: "#0FD980", textTransform: "uppercase", fontWeight: 700 }}>TECH KΛGE</span>
+            {/* <span style={{ fontSize: 13, letterSpacing: 4, color: "#0FD980", textTransform: "uppercase", fontWeight: 700 }}>TECH KΛGE</span> */}
+            <img src={techKageWordLogo} alt="Tech Kage" style={{ height: 35 }} />
             <button
               onClick={() => setMenuOpen(false)}
               style={{ background: "none", border: "none", cursor: "pointer", color: "rgba(255,255,255,0.4)", fontSize: 18, lineHeight: 1, padding: 4, transition: "color 0.15s" }}
@@ -503,7 +502,8 @@ function Header() {
                   width: "100%", padding: "11px", fontSize: 13, fontWeight: 700,
                   letterSpacing: 0.5, borderRadius: 8, border: "none",
                   background: "linear-gradient(135deg, #0FD980, #0FD980)",
-                  color: "#ffffff", cursor: "pointer",
+                  color: "#050608",
+                  cursor: "pointer",
                   boxShadow: "0 4px 14px rgba(42,85,232,0.35)",
                   transition: "filter 0.15s",
                   fontFamily: "inherit",
