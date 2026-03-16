@@ -19,6 +19,10 @@ const T = {
 };
 
 const COLUMNS = {
+
+
+
+
     cpu: [
         { key: "manufacturer", label: "Manufacturer" },
         { key: "part_number", label: "Part #" },
@@ -28,8 +32,8 @@ const COLUMNS = {
         { key: "socket", label: "Socket" },
         { key: "core_count", label: "Core Count" },
         { key: "thread_count", label: "Thread Count" },
-        { key: "performance_core_clock", label: "Performance Core Clock" },
-        { key: "performance_boost_clock", label: "Performance Core Boost Clock" },
+        { key: "core_clock", label: "Performance Core Clock" },
+        { key: "boost_clock", label: "Performance Core Boost Clock" },
         { key: "l2_cache", label: "L2 Cache" },
         { key: "l3_cache", label: "L3 Cache" },
         { key: "tdp", label: "TDP" },
@@ -438,6 +442,7 @@ export default function PartDetail() {
                         <div>
                             {specs.map((spec, i) => {
                                 const val = part[spec.key];
+                                const display = val === true ? "Yes" : val === false ? "No" : val || "—";
                                 return (
                                     <div
                                         key={spec.key}
@@ -454,8 +459,10 @@ export default function PartDetail() {
                                         <div style={{ fontSize: isMobile ? "0.65rem" : "0.78rem", color: T.textDim, fontWeight: 600, letterSpacing: "0.04em", textTransform: isMobile ? "uppercase" : "none" }}>
                                             {spec.label}
                                         </div>
+
                                         <div style={{ fontSize: isMobile ? "0.82rem" : "0.88rem", color: val ? T.text : T.textDim }}>
-                                            {val || "—"}
+                                            {/* {val || "—"} */}
+                                            {display}
                                         </div>
                                     </div>
                                 );
@@ -522,7 +529,7 @@ export default function PartDetail() {
                                 </div>
 
                                 <a
-                                    href={part.asin ? `https://www.amazon.com/dp/${part.asin}` : "#"}
+                                    href={part.asin ? `https://www.amazon.com/dp/${part.asin}?tag=techkage-20` : "#"}
                                     target={part.asin ? "_blank" : "_self"}
                                     rel={part.asin ? "noopener noreferrer" : ""}
                                     style={{

@@ -40,9 +40,35 @@ export default function AuthModal({ onClose, onSuccess }) {
       if (error) setError(error.message);
       else { onSuccess?.(); handleClose(); }
     } else {
-      const { error } = await signUp(email, password);
-      if (error) setError(error.message);
-      else setConfirmSent(true);
+
+
+      const { data, error } = await signUp(email, password);
+
+
+      // if (error) {
+
+      //   const isDuplicate =
+      //     error.message?.toLowerCase().includes('already registered') ||
+      //     error.message?.toLowerCase().includes('user already exists') ||
+      //     error.message?.toLowerCase().includes('already been registered');
+
+      //   if (isDuplicate) {
+      //     setError('This email is already registered. Please log in instead.');
+      //   } else {
+      //     setError(error.message);
+      //   }
+      // } else {
+      //   setConfirmSent(true);
+      // }
+
+
+      if (error) {
+        setError(error.message);
+      } else if (data?.user?.identities?.length === 0) {
+        setError('An account with this email already exists. Try logging in instead.');
+      } else {
+        setConfirmSent(true);
+      }
     }
 
     setLoading(false);

@@ -111,7 +111,7 @@ function Header() {
     background: "transparent",
     border: "none",
     cursor: "pointer",
-    padding: "8px 8px",
+    padding: "8px 12px",
     fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     transition: "color 0.15s ease",
     letterSpacing: 0.2,
@@ -170,7 +170,7 @@ function Header() {
         }}>
 
           {/* ── LEFT: Logo + Brand ── */}
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginRight: 40 }}>
+          <div style={{ display: "flex", flexDirection: "flex-start", alignItems: "center", gap: 10, flexShrink: 0 }}>
             {/* Logo icon container — OathNet style gradient box */}
             <button
               type="button"
@@ -192,7 +192,7 @@ function Header() {
               <img src={techKageLogo} alt="Tech Kage Logo" style={{ width: 50, height: 50 }} />
             </button>
 
-            <img src={techKageWordLogo} alt="Tech Kage Word Logo" style={{ width: 175, height: 175, margin: "0 auto", padding: "5px 0" }} />
+            <img src={techKageWordLogo} alt="Tech Kage Word Logo" style={{ width: 150, height: 150, margin: "0 auto", padding: "5px 0" }} />
           </div>
 
 
@@ -205,7 +205,7 @@ function Header() {
 
           {/* ── CENTER: Nav links (OathNet style) ── */}
           {!isMobile && (
-            <nav style={{ display: "flex", alignItems: "center", gap: 28 }}>
+            <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 28 }}>
               {navItems.map((item) => {
                 const isActive = item.path && location.pathname === item.path;
 
