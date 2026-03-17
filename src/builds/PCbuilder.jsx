@@ -1110,7 +1110,7 @@ function ResultsStep({ config }) {
       <CompatibilityAlert compatibility={config.compatibility} />
 
 
-      <div style={{ marginTop: 28, padding: "12px 16px", background: T.greenFaint, border: `1px solid rgba(15,217,128,0.2)`, borderRadius: 8, display: "flex", gap: 12, alignItems: "flex-start" }}>
+      {/* <div style={{ marginTop: 28, padding: "12px 16px", background: T.greenFaint, border: `1px solid rgba(15,217,128,0.2)`, borderRadius: 8, display: "flex", gap: 12, alignItems: "flex-start" }}>
         <span style={{ color: T.green, fontSize: 14, marginTop: 1 }}>✓</span>
         <div>
           <div style={{ fontSize: 10, color: T.green, letterSpacing: 2, marginBottom: 4, fontWeight: 600 }}>COMPATIBILITY VERIFIED</div>
@@ -1120,7 +1120,7 @@ function ResultsStep({ config }) {
 
       <div style={{ marginTop: 20, textAlign: "center", fontSize: 11, color: T.textDim, lineHeight: 1.4 }}>
         💡 Affiliate Disclosure: As an Amazon Associate, we earn from qualifying purchases. This helps support the site at no extra cost to you.
-      </div>
+      </div> */}
 
     </div>
   );
