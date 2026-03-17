@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext';
 import { supabase } from '../lib/supabase';
 import TechKageLogo from '../assets/TechKage.svg';
 import { createPortal } from "react-dom";
-import CompatibilityAlert from "../components/CompatbilityAlert";
+import CompatibilityAlert from "../components/CompatibilityAlert";
 
 // ─── THEME ───────────────────────────────────────────────────────
 const T = {
