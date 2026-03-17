@@ -7,6 +7,7 @@ const { getCatalog, getDefaultPart } = require('../services/partsLoader');
 const { generateBuild } = require('../services/claude');
 const { enrichBuild } = require('../services/amazon');
 const { buildPrompt } = require('../services/promptBuilder');
+const { CompatibilityChecker } = require('../services/compatibilityChecker');
 
 router.post('/generate-build', async (req, res) => {
   try {
@@ -63,6 +64,19 @@ router.post('/generate-build', async (req, res) => {
     console.log("Enriching with Amazon data...");
     const enrichedBuild = await enrichBuild(validatedBuild);
 
+    // Adding Compatibility Check
+    console.log("Validating build compatibility...");
+    const checker = new CompatibilityChecker();
+    const compatibilityResult = checker.validateBuild(enrichedBuild);
+    console.log("Compatibility check:", compatibilityResult);
+
+    if (!compatibilityResult.isValid) {
+      console.warn("Build has compatibility issues:", compatibilityResult.errors);
+    }
+    if (compatibilityResult.warnings.length > 0) {
+      console.warn("Build has compatibility warnings:", compatibilityResult.warnings);
+    }
+
     // Step 4: Calculate total and enforce budget
     let totalPrice = Object.values(enrichedBuild)
       .reduce((sum, part) => sum + (part.priceNumeric || 0), 0);
@@ -116,7 +130,8 @@ router.post('/generate-build', async (req, res) => {
           build: enrichedBuild,
           totalPrice,
           budgetWarning: `This build comes in at $${totalPrice.toFixed(2)}, which is $${difference.toFixed(2)} over your $${config.budget} budget.`,
-          difference: difference
+          difference: difference,
+          compatibilityResult: compatibilityResult
         });
       }
     }
@@ -128,6 +143,7 @@ router.post('/generate-build', async (req, res) => {
       totalPrice,
       tokensUsed: claudeResponse.tokensUsed,
       config,
+      compatibilityResult: compatibilityResult
     });
 
   } catch (error) {

@@ -6,6 +6,7 @@ import { useCart } from '../context/CartContext';
 import { supabase } from '../lib/supabase';
 import TechKageLogo from '../assets/TechKage.svg';
 import { createPortal } from "react-dom";
+import CompatibilityAlert from "../components/CompatbilityAlert";
 
 // ─── THEME ───────────────────────────────────────────────────────
 const T = {
@@ -1106,6 +1107,8 @@ function ResultsStep({ config }) {
       </div>
 
       <BuildAnalytics config={config} generatedBuild={{ ...config.generatedBuild, ...localBuild }} />
+      <CompatibilityAlert compatibility={config.compatibility} />
+
 
       <div style={{ marginTop: 28, padding: "12px 16px", background: T.greenFaint, border: `1px solid rgba(15,217,128,0.2)`, borderRadius: 8, display: "flex", gap: 12, alignItems: "flex-start" }}>
         <span style={{ color: T.green, fontSize: 14, marginTop: 1 }}>✓</span>
@@ -1434,7 +1437,8 @@ export default function PCBuilder() {
             ...c,
             generatedBuild: data.build,
             totalPrice: data.totalPrice,
-            budgetWarning: data.budgetWarning || null
+            budgetWarning: data.budgetWarning || null,
+            compatibility: data.compatibilityResult || null
           }));
           setDone(true);
 
