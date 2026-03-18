@@ -107,7 +107,7 @@ router.post('/generate-build', async (req, res) => {
 
         if (error.type === "ram_slots") {
           const compatibleMoboSlots = CATALOG.MOTHERBOARD.find(mobo =>
-            mobo.ram_slots >= enrichedBuild.RAM.modules &&
+            mobo.memory_slots >= enrichedBuild.RAM.modules &&
             mobo.socket === enrichedBuild.CPU.socket
           )
 
@@ -135,7 +135,7 @@ router.post('/generate-build', async (req, res) => {
         }
 
 
-        if (error.type === "PSU") {
+        if (error.type === "psu") {
           // PSU SWAPPING
 
           const cpuTdp = enrichedBuild.CPU.tdp;
@@ -143,10 +143,10 @@ router.post('/generate-build', async (req, res) => {
           const systemOverhed = 100;  // 100W overhead for other components
           const totalTdp = cpuTdp + gpuTdp + systemOverhed;
 
-          const reccomended = Math.ceil((totalTdp + systemOverhed) * 1.2);
+          const reccomended = Math.ceil((totalTdp) * 1.2);
 
 
-          const compatiblePSU = CATALOG.psu.find(psu =>
+          const compatiblePSU = CATALOG.PSU.find(psu =>
             psu.wattage >= reccomended
           );
 
@@ -184,9 +184,11 @@ router.post('/generate-build', async (req, res) => {
     }
 
     // rebuild with proper specifications
-    const rebuiltBuild = checker.validatedBuild(enrichedBuild);
+    const revalidated = checker.validateBuild(enrichedBuild);
 
+    console.log("After Auto Fix:", revalidated)
 
+    compatibilityResult = revalidated;
 
 
     if (compatibilityResult.warnings.length > 0) {
