@@ -77,14 +77,25 @@ function transformToCatalogFormat(part, category) {
     }
 
     return {
+        // name: part.name || "Unknown Part",
+        // price: `$${(part.price || 0).toFixed(2)}`,
+        // priceNumeric: part.price || 0,
+        // badge: manufacturer.toUpperCase(),
+        // spec: spec,
+        // rating: 4.5, // Default rating
+        // asin: part.asin || "UNKNOWN",
+        // reason: `${manufacturer} ${category.toLowerCase()} option with solid performance and value.`
+
+        ...part,
         name: part.name || "Unknown Part",
         price: `$${(part.price || 0).toFixed(2)}`,
         priceNumeric: part.price || 0,
         badge: manufacturer.toUpperCase(),
-        spec: spec,
-        rating: 4.5, // Default rating
+        spec: spec,        // This will override part.spec if it exists
+        rating: 4.5,
         asin: part.asin || "UNKNOWN",
         reason: `${manufacturer} ${category.toLowerCase()} option with solid performance and value.`
+
     };
 }
 

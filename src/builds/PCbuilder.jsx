@@ -1106,8 +1106,10 @@ function ResultsStep({ config }) {
         ))}
       </div>
 
-      <BuildAnalytics config={config} generatedBuild={{ ...config.generatedBuild, ...localBuild }} />
       <CompatibilityAlert compatibility={config.compatibility} />
+
+      <BuildAnalytics config={config} generatedBuild={{ ...config.generatedBuild, ...localBuild }} />
+
 
 
       {/* <div style={{ marginTop: 28, padding: "12px 16px", background: T.greenFaint, border: `1px solid rgba(15,217,128,0.2)`, borderRadius: 8, display: "flex", gap: 12, alignItems: "flex-start" }}>

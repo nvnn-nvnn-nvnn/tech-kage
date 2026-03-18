@@ -110,6 +110,10 @@ class CompatibilityChecker {
     const ramSpeed = memory.speed || null;
     const moboMaxSpeed = motherboard.max_memory_speed || null;
 
+    // Edgecase
+
+    if (!memory || !motherboard) return;
+
     if (!ramSpeed || !moboMaxSpeed) {
       this.warnings.push({
         type: 'ram',
