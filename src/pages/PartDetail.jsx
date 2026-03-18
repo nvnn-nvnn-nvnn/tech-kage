@@ -74,6 +74,7 @@ const COLUMNS = {
         { key: "voltage", label: "Voltage" },
         { key: "ecc_registered", label: "ECC / Registered" },
         { key: "heat_spreader", label: "Heat Spreader" },
+        { key: "memory_type", label: "Memory Type" },
     ],
     motherboard: [
         { key: "manufacturer", label: "Manufacturer" },

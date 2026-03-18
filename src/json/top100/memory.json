@@ -2,14 +2,10 @@
   {
     "name": "Corsair Vengeance RGB 32 GB",
     "price": 94.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.968,
     "color": "Black",
     "first_word_latency": 12,
@@ -19,14 +15,10 @@
   {
     "name": "G.Skill Flare X5 32 GB",
     "price": 89.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.812,
     "color": "Black",
     "first_word_latency": 12,
@@ -36,14 +28,10 @@
   {
     "name": "Corsair Vengeance LPX 16 GB",
     "price": 45.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 2.874,
     "color": "Black / Yellow",
     "first_word_latency": 10,
@@ -53,14 +41,10 @@
   {
     "name": "Corsair Vengeance 32 GB",
     "price": 129.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 4.062,
     "color": "Black / Gray",
     "first_word_latency": 10,
@@ -70,14 +54,10 @@
   {
     "name": "TEAMGROUP T-Create Expert 32 GB",
     "price": 98.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.093,
     "color": "Black",
     "first_word_latency": 10,
@@ -87,14 +67,10 @@
   {
     "name": "Corsair Vengeance LPX 32 GB",
     "price": 77.98,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 2.437,
     "color": "Black / Yellow",
     "first_word_latency": 10,
@@ -104,14 +80,10 @@
   {
     "name": "Crucial Pro Overclocking 32 GB",
     "price": 84.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.656,
     "color": "Black",
     "first_word_latency": 12,
@@ -121,14 +93,10 @@
   {
     "name": "G.Skill Trident Z5 RGB 64 GB",
     "price": 234.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.672,
     "color": "Black / Silver",
     "first_word_latency": 10,
@@ -138,14 +106,10 @@
   {
     "name": "Corsair Vengeance RGB 64 GB",
     "price": 229.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.594,
     "color": "Black",
     "first_word_latency": 10,
@@ -155,14 +119,10 @@
   {
     "name": "TEAMGROUP T-Force Delta RGB 32 GB",
     "price": 105.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.312,
     "color": "White",
     "first_word_latency": 10,
@@ -172,14 +132,10 @@
   {
     "name": "G.Skill Trident Z5 Neo RGB 32 GB",
     "price": 119.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.75,
     "color": "Black",
     "first_word_latency": 10,
@@ -189,14 +145,10 @@
   {
     "name": "Patriot Viper Venom 32 GB",
     "price": 85.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.687,
     "color": "Black / White",
     "first_word_latency": 10,
@@ -206,14 +158,10 @@
   {
     "name": "Corsair Vengeance RGB Pro 32 GB",
     "price": 115,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 3.594,
     "color": "Black",
     "first_word_latency": 10,
@@ -223,14 +171,10 @@
   {
     "name": "TEAMGROUP T-Force Delta RGB 32 GB",
     "price": 105.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.312,
     "color": "Black",
     "first_word_latency": 10,
@@ -240,14 +184,10 @@
   {
     "name": "Corsair Vengeance RGB 32 GB",
     "price": 95.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3,
     "color": "White / Silver",
     "first_word_latency": 12,
@@ -257,14 +197,10 @@
   {
     "name": "Silicon Power GAMING 16 GB",
     "price": 32.97,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 2.061,
     "color": "Black / Gray",
     "first_word_latency": 10,
@@ -274,14 +210,10 @@
   {
     "name": "TEAMGROUP T-Force Vulcan Z 16 GB",
     "price": 38.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 2.437,
     "color": "Black",
     "first_word_latency": 10,
@@ -291,14 +223,10 @@
   {
     "name": "Corsair Vengeance LPX 32 GB",
     "price": 71.98,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 2.249,
     "color": "Black / Yellow",
     "first_word_latency": 10,
@@ -308,14 +236,10 @@
   {
     "name": "Kingston FURY Beast 32 GB",
     "price": 122.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.843,
     "color": "Black",
     "first_word_latency": 10,
@@ -325,14 +249,10 @@
   {
     "name": "G.Skill Trident Z5 Neo RGB 64 GB",
     "price": 207.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.25,
     "color": "Black / Silver",
     "first_word_latency": 10,
@@ -342,14 +262,10 @@
   {
     "name": "G.Skill Ripjaws V 32 GB",
     "price": 71.98,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 2.249,
     "color": "Black",
     "first_word_latency": 10,
@@ -359,14 +275,10 @@
   {
     "name": "TEAMGROUP T-Create Expert 32 GB",
     "price": 98.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.093,
     "color": "White",
     "first_word_latency": 10,
@@ -376,14 +288,10 @@
   {
     "name": "G.Skill Flare X5 32 GB",
     "price": 109.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.437,
     "color": "Black",
     "first_word_latency": 10,
@@ -393,14 +301,10 @@
   {
     "name": "Kingston FURY Beast 16 GB",
     "price": 62.93,
-    "speed": [
-      5,
-      5200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 5200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR5",
     "price_per_gb": 3.933,
     "color": "Black",
     "first_word_latency": 15.385,
@@ -410,14 +314,10 @@
   {
     "name": "Corsair Vengeance RGB Pro 16 GB",
     "price": 54.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 3.437,
     "color": "Black",
     "first_word_latency": 10,
@@ -427,14 +327,10 @@
   {
     "name": "Silicon Power Value Gaming 32 GB",
     "price": 90.97,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.843,
     "color": "Black",
     "first_word_latency": 10,
@@ -444,14 +340,10 @@
   {
     "name": "Corsair Vengeance 64 GB",
     "price": 156.28,
-    "speed": [
-      5,
-      5200
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 5200,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 2.442,
     "color": "Black",
     "first_word_latency": 15.385,
@@ -461,14 +353,10 @@
   {
     "name": "G.Skill Flare X5 64 GB",
     "price": 193.98,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.031,
     "color": "Black",
     "first_word_latency": 10,
@@ -478,14 +366,10 @@
   {
     "name": "TEAMGROUP T-Force Vulcan 32 GB",
     "price": 96.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.031,
     "color": "Black",
     "first_word_latency": 10,
@@ -495,14 +379,10 @@
   {
     "name": "Silicon Power GAMING 32 GB",
     "price": 60.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 1.906,
     "color": "Black",
     "first_word_latency": 10,
@@ -512,14 +392,10 @@
   {
     "name": "Corsair Vengeance RGB 32 GB",
     "price": 124.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.906,
     "color": "Gray",
     "first_word_latency": 10,
@@ -529,14 +405,10 @@
   {
     "name": "Patriot Viper Venom 32 GB",
     "price": 76.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.406,
     "color": "Black / White",
     "first_word_latency": 12,
@@ -546,14 +418,10 @@
   {
     "name": "Corsair Dominator Titanium 64 GB",
     "price": 286.44,
-    "speed": [
-      5,
-      6600
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6600,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 4.476,
     "color": "White",
     "first_word_latency": 9.697,
@@ -563,14 +431,10 @@
   {
     "name": "G.Skill Ripjaws V 64 GB",
     "price": 1351.9,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      4,
-      16
-    ],
+    "speed": 3200,
+    "modules": 4,
+    "capacity_gb": 64,
+    "memory_type": "DDR4",
     "price_per_gb": 21.123,
     "color": "Black",
     "first_word_latency": 8.75,
@@ -580,14 +444,10 @@
   {
     "name": "Crucial Pro Overclocking 32 GB",
     "price": 89.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.812,
     "color": "White",
     "first_word_latency": 12,
@@ -597,14 +457,10 @@
   {
     "name": "G.Skill Trident Z5 Royal Neo RGB 32 GB",
     "price": 149.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 4.687,
     "color": "Silver",
     "first_word_latency": 9.333,
@@ -614,14 +470,10 @@
   {
     "name": "Corsair Vengeance 64 GB",
     "price": 199.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.125,
     "color": "Black / Gray",
     "first_word_latency": 10,
@@ -631,14 +483,10 @@
   {
     "name": "G.Skill Trident Z RGB 32 GB",
     "price": 82.99,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 2.593,
     "color": "Black",
     "first_word_latency": 10,
@@ -648,14 +496,10 @@
   {
     "name": "Kingston FURY Beast 16 GB",
     "price": 78.61,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 4.913,
     "color": "Black",
     "first_word_latency": 10,
@@ -665,14 +509,10 @@
   {
     "name": "G.Skill Ripjaws V 16 GB",
     "price": 45.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 2.874,
     "color": "Black",
     "first_word_latency": 10,
@@ -682,14 +522,10 @@
   {
     "name": "Crucial Classic 16 GB",
     "price": 43.99,
-    "speed": [
-      5,
-      5600
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 5600,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR5",
     "price_per_gb": 2.749,
     "color": "Black",
     "first_word_latency": 16.429,
@@ -699,14 +535,10 @@
   {
     "name": "Silicon Power XPOWER Zenith Gaming 32 GB",
     "price": 86.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.718,
     "color": "White",
     "first_word_latency": 10,
@@ -716,14 +548,10 @@
   {
     "name": "Corsair Vengeance RGB 32 GB",
     "price": 94.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.968,
     "color": "Black",
     "first_word_latency": 11.25,
@@ -733,14 +561,10 @@
   {
     "name": "G.Skill Ripjaws S5 32 GB",
     "price": 109.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.437,
     "color": "Black",
     "first_word_latency": 10,
@@ -750,14 +574,10 @@
   {
     "name": "Corsair Vengeance LPX 64 GB",
     "price": 154.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR4",
     "price_per_gb": 2.422,
     "color": "Black / Yellow",
     "first_word_latency": 10,
@@ -767,14 +587,10 @@
   {
     "name": "Crucial Pro 32 GB",
     "price": 82.99,
-    "speed": [
-      5,
-      5600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 5600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.593,
     "color": "Black",
     "first_word_latency": 16.429,
@@ -784,14 +600,10 @@
   {
     "name": "Kingston FURY Beast RGB 32 GB",
     "price": 134.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 4.218,
     "color": "Black",
     "first_word_latency": 10,
@@ -801,14 +613,10 @@
   {
     "name": "Corsair Dominator Titanium 64 GB",
     "price": 306.23,
-    "speed": [
-      5,
-      6600
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6600,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 4.785,
     "color": "Black",
     "first_word_latency": 9.697,
@@ -818,14 +626,10 @@
   {
     "name": "Crucial Pro 32 GB",
     "price": 78.98,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 2.468,
     "color": "Black",
     "first_word_latency": 13.75,
@@ -835,14 +639,10 @@
   {
     "name": "Patriot Venom 64 GB",
     "price": 157.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 2.469,
     "color": "Black",
     "first_word_latency": 10,
@@ -852,14 +652,10 @@
   {
     "name": "Crucial Pro 64 GB",
     "price": 139.99,
-    "speed": [
-      5,
-      5600
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 5600,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 2.187,
     "color": "Black",
     "first_word_latency": 16.429,
@@ -869,14 +665,10 @@
   {
     "name": "Corsair Vengeance 32 GB",
     "price": 109.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.437,
     "color": "Black",
     "first_word_latency": 12,
@@ -886,14 +678,10 @@
   {
     "name": "Corsair Vengeance RGB 192 GB",
     "price": 614.99,
-    "speed": [
-      5,
-      5200
-    ],
-    "modules": [
-      4,
-      48
-    ],
+    "speed": 5200,
+    "modules": 4,
+    "capacity_gb": 192,
+    "memory_type": "DDR5",
     "price_per_gb": 3.203,
     "color": "Black",
     "first_word_latency": 14.615,
@@ -903,14 +691,10 @@
   {
     "name": "G.Skill Ripjaws V 16 GB",
     "price": 49.99,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 3.124,
     "color": "Black",
     "first_word_latency": 8.889,
@@ -920,14 +704,10 @@
   {
     "name": "Silicon Power XPOWER Zenith Gaming 32 GB",
     "price": 86.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.718,
     "color": "Black",
     "first_word_latency": 10,
@@ -937,14 +717,10 @@
   {
     "name": "TEAMGROUP T-Force Delta RGB 16 GB",
     "price": 50.99,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 3.187,
     "color": "White",
     "first_word_latency": 10,
@@ -954,14 +730,10 @@
   {
     "name": "Kingston FURY Beast 32 GB",
     "price": 115.81,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 3.619,
     "color": "Black",
     "first_word_latency": 10,
@@ -971,14 +743,10 @@
   {
     "name": "Kingston FURY Beast 64 GB",
     "price": 233.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.656,
     "color": "Black",
     "first_word_latency": 10,
@@ -988,14 +756,10 @@
   {
     "name": "G.Skill Trident Z5 RGB 48 GB",
     "price": 259.99,
-    "speed": [
-      5,
-      8400
-    ],
-    "modules": [
-      2,
-      24
-    ],
+    "speed": 8400,
+    "modules": 2,
+    "capacity_gb": 48,
+    "memory_type": "DDR5",
     "price_per_gb": 5.416,
     "color": "Black",
     "first_word_latency": 9.524,
@@ -1005,14 +769,10 @@
   {
     "name": "Patriot Viper Venom 64 GB",
     "price": 189.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 2.969,
     "color": "Black / White",
     "first_word_latency": 10,
@@ -1022,14 +782,10 @@
   {
     "name": "G.Skill Trident Z5 RGB 32 GB",
     "price": 116.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.656,
     "color": "Black",
     "first_word_latency": 10,
@@ -1039,14 +795,10 @@
   {
     "name": "Corsair Vengeance 32 GB",
     "price": 114.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.593,
     "color": "Black / Silver",
     "first_word_latency": 10,
@@ -1056,14 +808,10 @@
   {
     "name": "Timetec PINNACLE Konduit 16 GB",
     "price": 31.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 1.999,
     "color": "Black",
     "first_word_latency": 10,
@@ -1073,14 +821,10 @@
   {
     "name": "Corsair Dominator Titanium 32 GB",
     "price": 180.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 5.656,
     "color": "White",
     "first_word_latency": 10,
@@ -1090,14 +834,10 @@
   {
     "name": "Patriot Viper Steel 32 GB",
     "price": 59.99,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 1.875,
     "color": "Silver / Black",
     "first_word_latency": 10,
@@ -1107,14 +847,10 @@
   {
     "name": "G.Skill Flare X5 64 GB",
     "price": 234.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.672,
     "color": "Black",
     "first_word_latency": 9.333,
@@ -1124,14 +860,10 @@
   {
     "name": "Corsair Vengeance 16 GB",
     "price": 64.98,
-    "speed": [
-      5,
-      5200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 5200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR5",
     "price_per_gb": 4.061,
     "color": "Black",
     "first_word_latency": 15.385,
@@ -1141,14 +873,10 @@
   {
     "name": "G.Skill Ripjaws S5 64 GB",
     "price": 154.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 2.422,
     "color": "Black",
     "first_word_latency": 12,
@@ -1158,14 +886,10 @@
   {
     "name": "Crucial CP2K64G56C46U5 128 GB",
     "price": 299.99,
-    "speed": [
-      5,
-      5600
-    ],
-    "modules": [
-      2,
-      64
-    ],
+    "speed": 5600,
+    "modules": 2,
+    "capacity_gb": 128,
+    "memory_type": "DDR5",
     "price_per_gb": 2.344,
     "color": "Black",
     "first_word_latency": 16.429,
@@ -1175,14 +899,10 @@
   {
     "name": "Timetec PINNACLE Konduit 32 GB",
     "price": null,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": null,
     "color": "White",
     "first_word_latency": 10,
@@ -1192,14 +912,10 @@
   {
     "name": "TEAMGROUP T-Create Expert 32 GB",
     "price": 87.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.75,
     "color": "Black",
     "first_word_latency": 12.667,
@@ -1209,14 +925,10 @@
   {
     "name": "Patriot Viper Venom 32 GB",
     "price": 87.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.75,
     "color": "Black / White",
     "first_word_latency": 10,
@@ -1226,14 +938,10 @@
   {
     "name": "G.Skill Flare X5 32 GB",
     "price": 127.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 4,
     "color": "Black",
     "first_word_latency": 9.333,
@@ -1243,14 +951,10 @@
   {
     "name": "Crucial Pro 32 GB",
     "price": 81.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.562,
     "color": "Black",
     "first_word_latency": 11.875,
@@ -1260,14 +964,10 @@
   {
     "name": "Corsair Vengeance RGB 128 GB",
     "price": 551.99,
-    "speed": [
-      5,
-      5600
-    ],
-    "modules": [
-      4,
-      32
-    ],
+    "speed": 5600,
+    "modules": 4,
+    "capacity_gb": 128,
+    "memory_type": "DDR5",
     "price_per_gb": 4.312,
     "color": "Black",
     "first_word_latency": 14.286,
@@ -1277,14 +977,10 @@
   {
     "name": "Corsair Vengeance RGB Pro SL 32 GB",
     "price": 109.99,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 3.437,
     "color": "White / Black",
     "first_word_latency": 10,
@@ -1294,14 +990,10 @@
   {
     "name": "Corsair Dominator Titanium 96 GB",
     "price": 424.99,
-    "speed": [
-      5,
-      6600
-    ],
-    "modules": [
-      2,
-      48
-    ],
+    "speed": 6600,
+    "modules": 2,
+    "capacity_gb": 96,
+    "memory_type": "DDR5",
     "price_per_gb": 4.427,
     "color": "Black",
     "first_word_latency": 9.697,
@@ -1311,14 +1003,10 @@
   {
     "name": "Corsair Vengeance 64 GB",
     "price": 229.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.594,
     "color": "Black / Gray",
     "first_word_latency": 10,
@@ -1328,14 +1016,10 @@
   {
     "name": "Kingston FURY Beast 16 GB",
     "price": 67.98,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR5",
     "price_per_gb": 4.249,
     "color": "Black",
     "first_word_latency": 10,
@@ -1345,14 +1029,10 @@
   {
     "name": "TEAMGROUP T-Create Classic 32 GB",
     "price": 74.99,
-    "speed": [
-      5,
-      5600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 5600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.343,
     "color": "Black",
     "first_word_latency": 16.429,
@@ -1362,14 +1042,10 @@
   {
     "name": "Corsair Vengeance 32 GB",
     "price": 86.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.718,
     "color": "Black",
     "first_word_latency": 12,
@@ -1379,14 +1055,10 @@
   {
     "name": "Patriot Viper Elite 5 RGB 32 GB",
     "price": 102.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.218,
     "color": "White",
     "first_word_latency": 10,
@@ -1396,14 +1068,10 @@
   {
     "name": "TEAMGROUP T-Force Delta RGB 64 GB",
     "price": 184.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 2.89,
     "color": "White",
     "first_word_latency": 12.667,
@@ -1413,14 +1081,10 @@
   {
     "name": "Corsair Vengeance RGB 64 GB",
     "price": 259.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 4.062,
     "color": "White / Silver",
     "first_word_latency": 10,
@@ -1430,14 +1094,10 @@
   {
     "name": "G.Skill Trident Z5 Royal 32 GB",
     "price": 154.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 4.843,
     "color": "White",
     "first_word_latency": 9.375,
@@ -1447,14 +1107,10 @@
   {
     "name": "Kingston FURY Beast 32 GB",
     "price": 106.63,
-    "speed": [
-      5,
-      5600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 5600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.332,
     "color": "Black",
     "first_word_latency": 12.857,
@@ -1464,14 +1120,10 @@
   {
     "name": "Corsair Vengeance RGB 32 GB",
     "price": 96.99,
-    "speed": [
-      5,
-      5200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 5200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 3.031,
     "color": "White",
     "first_word_latency": 15.385,
@@ -1481,14 +1133,10 @@
   {
     "name": "TEAMGROUP T-Force Vulcan Z 32 GB",
     "price": 66.03,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 2.063,
     "color": "Gray",
     "first_word_latency": 10,
@@ -1498,14 +1146,10 @@
   {
     "name": "G.Skill Ripjaws V 32 GB",
     "price": 89.99,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR4",
     "price_per_gb": 2.812,
     "color": "Black",
     "first_word_latency": 8.889,
@@ -1515,14 +1159,10 @@
   {
     "name": "Lexar THOR 16 GB",
     "price": null,
-    "speed": [
-      4,
-      3200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": null,
     "color": "Black",
     "first_word_latency": 10,
@@ -1532,14 +1172,10 @@
   {
     "name": "TEAMGROUP T-Force Delta RGB 16 GB",
     "price": 50.99,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 3.187,
     "color": "Black",
     "first_word_latency": 10,
@@ -1549,14 +1185,10 @@
   {
     "name": "G.Skill Trident Z RGB 16 GB",
     "price": 54.99,
-    "speed": [
-      4,
-      3600
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 3600,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR4",
     "price_per_gb": 3.437,
     "color": "Black",
     "first_word_latency": 10,
@@ -1566,14 +1198,10 @@
   {
     "name": "Kingston FURY Beast RGB 32 GB",
     "price": 141.19,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 4.412,
     "color": "White",
     "first_word_latency": 10,
@@ -1583,14 +1211,10 @@
   {
     "name": "Corsair Vengeance 128 GB",
     "price": 372.99,
-    "speed": [
-      5,
-      6400
-    ],
-    "modules": [
-      2,
-      64
-    ],
+    "speed": 6400,
+    "modules": 2,
+    "capacity_gb": 128,
+    "memory_type": "DDR5",
     "price_per_gb": 2.914,
     "color": "Black",
     "first_word_latency": 13.125,
@@ -1600,14 +1224,10 @@
   {
     "name": "Corsair Vengeance RGB 16 GB",
     "price": 67.98,
-    "speed": [
-      5,
-      5200
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 5200,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR5",
     "price_per_gb": 4.249,
     "color": "Black / Gray",
     "first_word_latency": 15.385,
@@ -1617,14 +1237,10 @@
   {
     "name": "Crucial CT2K8G48C40U5 16 GB",
     "price": 41.99,
-    "speed": [
-      5,
-      4800
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 4800,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR5",
     "price_per_gb": 2.624,
     "color": "Black",
     "first_word_latency": 16.667,
@@ -1634,14 +1250,10 @@
   {
     "name": "G.Skill Trident Z5 Neo 64 GB",
     "price": 204.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      32
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 64,
+    "memory_type": "DDR5",
     "price_per_gb": 3.203,
     "color": "Black / Silver",
     "first_word_latency": 10,
@@ -1651,14 +1263,10 @@
   {
     "name": "Silicon Power XPOWER Pulse Gaming 32 GB",
     "price": 79.97,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 2.499,
     "color": "Black",
     "first_word_latency": 12,
@@ -1668,14 +1276,10 @@
   {
     "name": "Corsair Vengeance RGB 32 GB",
     "price": 147.99,
-    "speed": [
-      5,
-      6000
-    ],
-    "modules": [
-      2,
-      16
-    ],
+    "speed": 6000,
+    "modules": 2,
+    "capacity_gb": 32,
+    "memory_type": "DDR5",
     "price_per_gb": 4.625,
     "color": "Black",
     "first_word_latency": 9.333,
@@ -1685,14 +1289,10 @@
   {
     "name": "Silicon Power SP016GLLTU160N22 16 GB",
     "price": 16.95,
-    "speed": [
-      3,
-      1600
-    ],
-    "modules": [
-      2,
-      8
-    ],
+    "speed": 1600,
+    "modules": 2,
+    "capacity_gb": 16,
+    "memory_type": "DDR3",
     "price_per_gb": 1.059,
     "color": "Green",
     "first_word_latency": 13.75,
