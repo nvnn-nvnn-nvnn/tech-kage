@@ -41,7 +41,8 @@ const COLUMNS = {
     memory: [
         { key: "speed", label: "SPEED", align: "center" },
         { key: "modules", label: "MODULES", align: "center" },
-        { key: "pricePerGb", label: "PRICE / GB", align: "center" },
+        // { key: "pricePerGb", label: "PRICE / GB", align: "center" },
+        { key: "memory_type", label: "MEMEORY TYPE", align: "center" },
         { key: "casLatency", label: "CAS LATENCY", align: "center" },
         { key: "color", label: "COLOR", align: "center" },
     ],

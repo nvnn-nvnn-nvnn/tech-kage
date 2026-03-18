@@ -70,9 +70,125 @@ router.post('/generate-build', async (req, res) => {
     const compatibilityResult = checker.validateBuild(enrichedBuild);
     console.log("Compatibility check:", compatibilityResult);
 
+
+
     if (!compatibilityResult.isValid) {
       console.warn("Build has compatibility issues:", compatibilityResult.errors);
+      for (const error of compatibilityResult.errors) {
+        if (error.type === "socket") {
+
+          // CPU Swaping 
+          const cpu = enrichedBuild.CPU || enrichedBuild.cpu;
+          const currentSocket = cpu?.socket;
+
+          const compatibleMobo = CATALOG.motherboard.find(mobo =>
+            mobo.socket === currentSocket
+          );
+
+          if (compatibleMobo) {
+            console.log("Compatible motherboard found:", compatibleMobo.name);
+            enrichedBuild.MOTHERBOARD = compatibleMobo;
+          }
+        }
+
+        if (error.type === "ram") {
+          // RAM SWAPING
+
+          // const ram = enrichedBuild.RAM || enrichedBuild.ram;
+          const compatibleRam = CATALOG.RAM.find(ram =>
+            ram.memory_type === "DDR5"
+          );
+
+          if (compatibleRam) {
+            console.log("Compatible RAM found:", compatibleRam.name);
+            enrichedBuild.RAM = compatibleRam;
+          }
+        }
+
+        if (error.type === "ram_slots") {
+          const compatibleMoboSlots = CATALOG.MOTHERBOARD.find(mobo =>
+            mobo.ram_slots >= enrichedBuild.RAM.modules &&
+            mobo.socket === enrichedBuild.CPU.socket
+          )
+
+          if (compatibleMoboSlots) {
+            console.log("Compatible motherboard with enough RAM slots found:", compatibleMoboSlots.name);
+            enrichedBuild.MOTHERBOARD = compatibleMoboSlots;
+          }
+        }
+
+
+        if (error.type === "ram_capacity") {
+          // Ram Capacity 
+
+          const compatibleMoboCap = CATALOG.MOTHERBOARD.find(mobo =>
+            mobo.max_memory >= enrichedBuild.RAM.capacity_gb
+          )
+
+          if (compatibleMoboCap) {
+            console.log("Compatible motherboard with enough RAM capacity found:", compatibleMoboCap.name);
+            enrichedBuild.MOTHERBOARD = compatibleMoboCap;
+          }
+
+
+
+        }
+
+
+        if (error.type === "PSU") {
+          // PSU SWAPPING
+
+          const cpuTdp = enrichedBuild.CPU.tdp;
+          const gpuTdp = enrichedBuild.GPU?.tdp || 0;
+          const systemOverhed = 100;  // 100W overhead for other components
+          const totalTdp = cpuTdp + gpuTdp + systemOverhed;
+
+          const reccomended = Math.ceil((totalTdp + systemOverhed) * 1.2);
+
+
+          const compatiblePSU = CATALOG.psu.find(psu =>
+            psu.wattage >= reccomended
+          );
+
+
+          if (compatiblePSU) {
+            console.log("Compatible PSU found:", compatiblePSU.name);
+            enrichedBuild.PSU = compatiblePSU;
+          }
+
+        }
+
+
+        if (error.type === "case") {
+          // Case Swap 
+
+          const caseFormFactor = enrichedBuild.CASE.type;
+          const moboFormFactor = enrichedBuild.MOTHERBOARD.form_factor;
+
+          const compatibleMoboCase = CATALOG.MOTHERBOARD.find(moboItem =>
+            moboItem.form_factor === caseFormFactor
+          );
+
+          if (compatibleMoboCase) {
+            console.log("Compatible case found:", compatibleMoboCase.name);
+            enrichedBuild.CASE = compatibleMoboCase;
+          }
+
+
+
+        }
+
+
+
+      }
     }
+
+    // rebuild with proper specifications
+    const rebuiltBuild = checker.validatedBuild(enrichedBuild);
+
+
+
+
     if (compatibilityResult.warnings.length > 0) {
       console.warn("Build has compatibility warnings:", compatibilityResult.warnings);
     }

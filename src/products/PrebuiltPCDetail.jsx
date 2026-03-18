@@ -192,14 +192,14 @@ function PrebuiltPCDetail() {
               cursor: "pointer",
               transition: "all 0.2s"
             }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#0CCF70";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "#0FD980";
-              e.target.style.transform = "translateY(0)";
-            }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#0CCF70";
+                e.target.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#0FD980";
+                e.target.style.transform = "translateY(0)";
+              }}
             >
               Add to Cart - ${pc.price}
             </button>
