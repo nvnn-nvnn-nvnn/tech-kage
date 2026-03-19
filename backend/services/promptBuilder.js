@@ -167,6 +167,7 @@ Critical rules:
 - Ensure the case form factor matches the motherboard form factor exactly
 - **IMPORTANT: Prefer AMD CPUs with AM5 or AM4 sockets** (Intel CPUs require LGA1700 motherboards, AMD CPUs require AM4 or AM5 motherboards)
 - Default to AMD Ryzen processors unless specifically requested otherwise
+- CRITICAL: Your available motherboards are ALL AMD (AM4 or AM5) only. You MUST pick an AMD CPU. DO NOT pick any Intel CPU under any circumstances. There are no Intel-compatible motherboards available.
 
 REMINDER: Total of all parts must be $${config.budget} or less.
 `.trim();

@@ -159,9 +159,9 @@ async function initializeCatalog() {
     });
 
     // Mutate the existing object instead of reassigning (preserves imported references)
-    PARTS_CATALOG.CPU = selectTopParts(cpuData, 'CPU', 6);
+    PARTS_CATALOG.CPU = selectTopParts(cpuData, 'CPU', 15);
     PARTS_CATALOG.GPU = selectTopParts(videoCardData, 'GPU', 8);
-    PARTS_CATALOG.MOTHERBOARD = selectTopParts(motherboardData, 'MOTHERBOARD', 6);
+    PARTS_CATALOG.MOTHERBOARD = selectTopParts(motherboardData, 'MOTHERBOARD', 15);
     PARTS_CATALOG.RAM = selectTopParts(memoryData, 'RAM', 6);
     PARTS_CATALOG.STORAGE = selectTopParts(storageData, 'STORAGE', 6);
     PARTS_CATALOG.PSU = selectTopParts(powerSupplyData, 'PSU', 6);
