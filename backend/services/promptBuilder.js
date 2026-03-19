@@ -3,7 +3,20 @@ const { getPartNamesForCategory, getCatalog } = require('./partsLoader');
 // Helper to format parts with prices for Claude
 function formatPartsWithPrices(category) {
   const catalog = getCatalog();
-  const parts = catalog[category] || [];
+  let parts = catalog[category] || [];
+
+  // CRITICAL: Filter out Intel CPUs since we only have AMD motherboards
+  if (category === 'CPU') {
+    const intelKeywords = ['Intel', 'Core i3', 'Core i5', 'Core i7', 'Core i9', 'Pentium', 'Celeron'];
+    const beforeCount = parts.length;
+    parts = parts.filter(cpu => {
+      const name = cpu.name.toLowerCase();
+      const hasIntel = intelKeywords.some(keyword => name.includes(keyword.toLowerCase()));
+      return !hasIntel;
+    });
+    console.log(`[formatPartsWithPrices] CPU: Filtered ${beforeCount - parts.length} Intel CPUs, ${parts.length} AMD CPUs remaining`);
+  }
+
   console.log(`[formatPartsWithPrices] ${category}: ${parts.length} parts available`);
   if (parts.length === 0) {
     console.warn(`WARNING: No parts found for ${category}. Catalog keys:`, Object.keys(catalog));
