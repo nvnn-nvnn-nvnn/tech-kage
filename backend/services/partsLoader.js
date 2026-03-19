@@ -29,7 +29,8 @@ async function loadCategoryFromSupabase(category, limit = 100) {
         ...part.specs,
         name: part.name,
         asin: part.asin,
-        price: part.current_prices?.[0]?.price || 0
+        price: part.current_prices?.[0]?.price || 0,
+        thumbnail_image: part.thumbnail_image
     }));
 
     console.log(`[partsLoader] ${category} sample:`, transformed[0]?.name, '$' + transformed[0]?.price);

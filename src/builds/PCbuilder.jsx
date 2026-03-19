@@ -1179,9 +1179,9 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
 
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: isMobile ? 16 : 32 }}>
         <div style={{ display: "flex", gap: isMobile ? 12 : 24, flex: 1 }}>
-          {part.imageUrl && (
+          {currentPart.thumbnail_image && (
             <div style={{ width: isMobile ? 80 : 100, height: isMobile ? 80 : 100, flexShrink: 0, borderRadius: 10, background: "rgba(255,255,255,0.02)", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${T.border}` }}>
-              <img src={currentPart.imageUrl} alt={currentPart.name} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              <img src={currentPart.thumbnail_image} alt={currentPart.name} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
             </div>
           )}
           <div style={{ flex: 1 }}>
