@@ -151,7 +151,7 @@ router.post('/generate-build', async (req, res) => {
           const cpu = enrichedBuild.CPU || enrichedBuild.cpu;
           const currentSocket = cpu?.socket;
 
-          const compatibleMobo = CATALOG.motherboard.find(mobo =>
+          const compatibleMobo = CATALOG.MOTHERBOARD.find(mobo =>
             mobo.socket === currentSocket
           );
 
