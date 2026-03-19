@@ -6,20 +6,20 @@ import {
 } from 'recharts';
 
 const T = {
-  bg:         "#050608",
-  bgCard:     "#0A0C10",
-  bgHover:    "#0E1117",
-  border:     "rgba(255,255,255,0.08)",
-  borderHover:"rgba(255,255,255,0.16)",
-  green:      "#0FD980",
-  greenDim:   "rgba(15,217,128,0.35)",
+  bg: "#050608",
+  bgCard: "#0A0C10",
+  bgHover: "#0E1117",
+  border: "rgba(255,255,255,0.08)",
+  borderHover: "rgba(255,255,255,0.16)",
+  green: "#0FD980",
+  greenDim: "rgba(15,217,128,0.35)",
   greenFaint: "rgba(15,217,128,0.06)",
-  greenGlow:  "rgba(15,217,128,0.18)",
-  text:       "#F0F0F0",
-  textMid:    "rgba(255,255,255,0.55)",
-  textDim:    "rgba(255,255,255,0.3)",
-  textFaint:  "rgba(255,255,255,0.15)",
-  font:       "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  greenGlow: "rgba(15,217,128,0.18)",
+  text: "#F0F0F0",
+  textMid: "rgba(255,255,255,0.55)",
+  textDim: "rgba(255,255,255,0.3)",
+  textFaint: "rgba(255,255,255,0.15)",
+  font: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
 };
 
 export function BuildAnalytics({ config, generatedBuild }) {
@@ -74,45 +74,45 @@ export function BuildAnalytics({ config, generatedBuild }) {
 
   const predictedBenchmarks = {
     cinebench: Math.round(20000 * tierMultipliers[cpuTier]),
-    timeSpy:   Math.round(15000 * tierMultipliers[gpuTier]),
+    timeSpy: Math.round(15000 * tierMultipliers[gpuTier]),
   };
 
   const predictedFPS = {
-    cyberpunk4k:   Math.round(45  * tierMultipliers[gpuTier]),
+    cyberpunk4k: Math.round(45 * tierMultipliers[gpuTier]),
     fortnite1440p: Math.round(180 * tierMultipliers[gpuTier]),
     valorant1080p: Math.round(300 * tierMultipliers[gpuTier]),
   };
 
   let bottleneckScore = 30;
-  if (cpuTier === gpuTier)                          bottleneckScore -= 15;
-  if (cpuTier === 'high' && gpuTier === 'high')     bottleneckScore -= 10;
-  if (cpuTier === 'low'  && gpuTier === 'high')     bottleneckScore += 10;
-  if (cpuTier === 'high' && gpuTier === 'low')      bottleneckScore -= 5;
+  if (cpuTier === gpuTier) bottleneckScore -= 15;
+  if (cpuTier === 'high' && gpuTier === 'high') bottleneckScore -= 10;
+  if (cpuTier === 'low' && gpuTier === 'high') bottleneckScore += 10;
+  if (cpuTier === 'high' && gpuTier === 'low') bottleneckScore -= 5;
   bottleneckScore = Math.max(0, Math.min(100, bottleneckScore));
 
   const bottleneckColor =
     bottleneckScore <= 10 ? '#22c55e' :
-    bottleneckScore <= 20 ? '#eab308' : '#ef4444';
+      bottleneckScore <= 20 ? '#eab308' : '#ef4444';
   const bottleneckLabel =
     bottleneckScore <= 10 ? 'Low' :
-    bottleneckScore <= 20 ? 'Moderate' : 'High';
+      bottleneckScore <= 20 ? 'Moderate' : 'High';
 
   // ─── BUDGET ALLOCATION ─────────────────────────────────────────
   // Covers both uppercase keys (CPU, GPU, MOTHERBOARD) and title-case (Motherboard)
   const categoryColors = {
-    CPU:         '#8b5cf6',
-    GPU:         '#3b82f6',
+    CPU: '#8b5cf6',
+    GPU: '#3b82f6',
     MOTHERBOARD: '#a78bfa',
     Motherboard: '#a78bfa',
-    RAM:         '#fbbf24',
-    STORAGE:     '#f87171',
-    Storage:     '#f87171',
-    PSU:         '#ec4899',
-    CASE:        '#60a5fa',
-    Case:        '#60a5fa',
-    COOLING:     '#06b6d4',
-    Cooling:     '#06b6d4',
-    Other:       '#64748b',
+    RAM: '#fbbf24',
+    STORAGE: '#f87171',
+    Storage: '#f87171',
+    PSU: '#ec4899',
+    CASE: '#60a5fa',
+    Case: '#60a5fa',
+    COOLING: '#06b6d4',
+    Cooling: '#06b6d4',
+    Other: '#64748b',
   };
 
   const buildParts = Object.entries(generatedBuild || {});
@@ -165,40 +165,40 @@ export function BuildAnalytics({ config, generatedBuild }) {
         </div>
 
         {/* ── 2. Bottleneck ── */}
-       <div style={{ background: T.bgCard, borderRadius: 12, border: `1px solid ${T.border}`, padding: 24, boxShadow: '0 4px 20px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ fontSize: 14, fontWeight: 600, color: T.green, marginBottom: 8 }}>Bottleneck Analysis</div>
-      <div style={{ fontSize: 12, color: T.textMid, marginBottom: 16, textAlign: 'center' }}>CPU/GPU balance at 1440p</div>
+        <div style={{ background: T.bgCard, borderRadius: 12, border: `1px solid ${T.border}`, padding: 24, boxShadow: '0 4px 20px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: T.green, marginBottom: 8 }}>Bottleneck Analysis</div>
+          <div style={{ fontSize: 12, color: T.textMid, marginBottom: 16, textAlign: 'center' }}>CPU/GPU balance at 1440p</div>
 
-      {/* Chart only — no label inside */}
-      <ResponsiveContainer width="100%" height={120}>
-        <PieChart>
-          <Pie
-            data={[{ value: bottleneckScore }, { value: 100 - bottleneckScore }]}
-            dataKey="value" cx="50%" cy="100%"
-            startAngle={180} endAngle={0}
-            innerRadius="60%" outerRadius="90%"
-            paddingAngle={4}
-          >
-            <Cell fill={bottleneckColor} />
-            <Cell fill={T.bgHover} />
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
+          {/* Chart only — no label inside */}
+          <ResponsiveContainer width="100%" height={120}>
+            <PieChart>
+              <Pie
+                data={[{ value: bottleneckScore }, { value: 100 - bottleneckScore }]}
+                dataKey="value" cx="50%" cy="100%"
+                startAngle={180} endAngle={0}
+                innerRadius="60%" outerRadius="90%"
+                paddingAngle={4}
+              >
+                <Cell fill={bottleneckColor} />
+                <Cell fill={T.bgHover} />
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
 
-      {/* Label sits naturally below with breathing room */}
-      <div style={{ marginTop: 16, textAlign: 'center' }}>
-        <div style={{ fontSize: 32, fontWeight: 800, color: bottleneckColor, lineHeight: 1 }}>
-          {bottleneckScore}%
+          {/* Label sits naturally below with breathing room */}
+          <div style={{ marginTop: 16, textAlign: 'center' }}>
+            <div style={{ fontSize: 32, fontWeight: 800, color: bottleneckColor, lineHeight: 1 }}>
+              {bottleneckScore}%
+            </div>
+            <div style={{ fontSize: 13, color: T.textMid, marginTop: 6 }}>
+              {bottleneckLabel}
+            </div>
+          </div>
+
+          <p style={{ fontSize: 12, color: T.textDim, textAlign: 'center', marginTop: 12, maxWidth: 280 }}>
+            At 1440p resolution, {bottleneckLabel === 'Low' ? 'your CPU and GPU are well matched.' : 'there may be a slight imbalance between CPU and GPU performance.'}
+          </p>
         </div>
-        <div style={{ fontSize: 13, color: T.textMid, marginTop: 6 }}>
-          {bottleneckLabel}
-        </div>
-      </div>
-
-      <p style={{ fontSize: 12, color: T.textDim, textAlign: 'center', marginTop: 12, maxWidth: 280 }}>
-        At 1440p resolution, {bottleneckLabel === 'Low' ? 'your CPU and GPU are well matched.' : 'there may be a slight imbalance between CPU and GPU performance.'}
-      </p>
-    </div>
 
         {/* ── 3. Budget Allocation ── */}
         <div style={{ background: T.bgCard, borderRadius: 12, border: `1px solid ${T.border}`, padding: 24, boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
@@ -282,8 +282,8 @@ export function BuildAnalytics({ config, generatedBuild }) {
               <div style={{ fontSize: 11, color: T.textDim, marginBottom: 8, fontWeight: 600 }}>GAME PERFORMANCE</div>
               {[
                 { label: 'Cyberpunk 2077 (4K High)', fps: predictedFPS.cyberpunk4k },
-                { label: 'Fortnite (1440p Epic)',    fps: predictedFPS.fortnite1440p },
-                { label: 'Valorant (1080p)',          fps: predictedFPS.valorant1080p },
+                { label: 'Fortnite (1440p Epic)', fps: predictedFPS.fortnite1440p },
+                { label: 'Valorant (1080p)', fps: predictedFPS.valorant1080p },
               ].map(({ label, fps }) => (
                 <div key={label} style={{ marginBottom: 10 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>

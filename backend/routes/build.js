@@ -143,13 +143,12 @@ router.post('/generate-build', async (req, res) => {
         }
 
 
-
         if (error.type === "socket") {
-          const cpu = enrichedBuild.CPU || enrichedBuild.cpu;
-          const currentSocket = cpu?.socket;
+          const motherboard = enrichedBuild.MOTHERBOARD;
+          const currentSocket = motherboard?.socket;
 
           if (!currentSocket) {
-            console.warn("Could not determine CPU socket, skipping socket fix");
+            console.warn("Could not determine motherboard socket, skipping socket fix");
             continue;
           }
 
@@ -158,34 +157,31 @@ router.post('/generate-build', async (req, res) => {
           const intelSockets = ['LGA1700', 'LGA1851', 'LGA1200', 'LGA1151', 'LGA2066'];
           const amdSockets = ['AM5', 'AM4', 'AM3+', 'TR4', 'TRX40'];
 
-          const cpuIsIntel = intelSockets.some(s => normalize(s) === normalize(currentSocket));
-          const cpuIsAMD = amdSockets.some(s => normalize(s) === normalize(currentSocket));
+          const moboIsIntel = intelSockets.some(s => normalize(s) === normalize(currentSocket));
+          const moboIsAMD = amdSockets.some(s => normalize(s) === normalize(currentSocket));
 
-          const compatibleMobo = CATALOG.MOTHERBOARD.find(mobo => {
-            const moboSocket = mobo.socket;
-            if (!moboSocket) return false;
+          const compatibleCPU = CATALOG.CPU.find(cpu => {
+            const cpuSocket = cpu.socket;
+            if (!cpuSocket) return false;
 
-            // Must match exact socket
-            if (normalize(moboSocket) !== normalize(currentSocket)) return false;
+            if (normalize(cpuSocket) !== normalize(currentSocket)) return false;
 
-            // Must also match brand
-            const moboIsIntel = intelSockets.some(s => normalize(s) === normalize(moboSocket));
-            const moboIsAMD = amdSockets.some(s => normalize(s) === normalize(moboSocket));
+            const cpuIsIntel = intelSockets.some(s => normalize(s) === normalize(cpuSocket));
+            const cpuIsAMD = amdSockets.some(s => normalize(s) === normalize(cpuSocket));
 
-            if (cpuIsIntel && !moboIsIntel) return false;
-            if (cpuIsAMD && !moboIsAMD) return false;
+            if (moboIsIntel && !cpuIsIntel) return false;
+            if (moboIsAMD && !cpuIsAMD) return false;
 
             return true;
-          })
+          });
 
-          if (compatibleMobo) {
-            console.log("Compatible motherboard found:", compatibleMobo.name);
-            enrichedBuild.MOTHERBOARD = compatibleMobo;
+          if (compatibleCPU) {
+            console.log("Compatible CPU found:", compatibleCPU.name);
+            enrichedBuild.CPU = compatibleCPU;
           } else {
-            console.warn("No compatible motherboard found for socket:", currentSocket)
+            console.warn("No compatible CPU found for socket:", currentSocket);
           }
-        };
-
+        }
 
 
         // RAM CHECK

@@ -165,7 +165,8 @@ Critical rules:
 - Use current 2024/2025 parts that are actually available for purchase
 - Prefer well-reviewed, reliable brands
 - Ensure the case form factor matches the motherboard form factor exactly
-- Intel CPUs require LGA1700 motherboards, AMD CPUs require AM4 or AM5 motherboards
+- **IMPORTANT: Prefer AMD CPUs with AM5 or AM4 sockets** (Intel CPUs require LGA1700 motherboards, AMD CPUs require AM4 or AM5 motherboards)
+- Default to AMD Ryzen processors unless specifically requested otherwise
 
 REMINDER: Total of all parts must be $${config.budget} or less.
 `.trim();
