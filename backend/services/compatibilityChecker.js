@@ -45,13 +45,11 @@ class CompatibilityChecker {
   // Motherboard socket CPU verify.
 
   checkCpuMotherboardSocket(cpu, motherboard) {
-    if (!cpu || !motherboard) return;  // Can't check if either part is missing
+    if (!cpu || !motherboard) return;
 
-    // Try to get socket from specs (spread onto part from Supabase)
     const cpuSocket = cpu.socket || null;
     const moboSocket = motherboard.socket || null;
 
-    // If either socket is unknown, warn instead of error
     if (!cpuSocket || !moboSocket) {
       this.warnings.push({
         type: 'socket',
@@ -60,9 +58,40 @@ class CompatibilityChecker {
       return;
     }
 
-    // Normalize for comparison (e.g. "LGA 1700" vs "LGA1700")
     const normalize = (s) => s.toString().toUpperCase().replace(/\s/g, '');
 
+    // Determine CPU brand from socket
+    const intelSockets = ['LGA1700', 'LGA1851', 'LGA1200', 'LGA1151', 'LGA2066'];
+    const amdSockets = ['AM5', 'AM4', 'AM3+', 'TR4', 'TRX40'];
+
+    const normalizedCpuSocket = normalize(cpuSocket);
+    const normalizedMoboSocket = normalize(moboSocket);
+
+    const cpuIsIntel = intelSockets.some(s => normalize(s) === normalizedCpuSocket);
+    const cpuIsAMD = amdSockets.some(s => normalize(s) === normalizedCpuSocket);
+    const moboIsIntel = intelSockets.some(s => normalize(s) === normalizedMoboSocket);
+    const moboIsAMD = amdSockets.some(s => normalize(s) === normalizedMoboSocket);
+
+    // Brand mismatch — Intel CPU on AMD board or vice versa
+    if (cpuIsIntel && moboIsAMD) {
+      this.errors.push({
+        type: 'socket',
+        message: `Intel CPU (${cpuSocket}) cannot be used with AMD motherboard (${moboSocket})`,
+        parts: { cpu: cpu.name, motherboard: motherboard.name }
+      });
+      return;
+    }
+
+    if (cpuIsAMD && moboIsIntel) {
+      this.errors.push({
+        type: 'socket',
+        message: `AMD CPU (${cpuSocket}) cannot be used with Intel motherboard (${moboSocket})`,
+        parts: { cpu: cpu.name, motherboard: motherboard.name }
+      });
+      return;
+    }
+
+    // Same brand but wrong socket generation
     if (normalize(cpuSocket) !== normalize(moboSocket)) {
       this.errors.push({
         type: 'socket',
@@ -71,7 +100,6 @@ class CompatibilityChecker {
       });
     }
   }
-
   // RAM type verify. DDR5 vs DDR4 + Motherboard RAM slot support
 
   checkRAMCompatibility(memory, motherboard) {

@@ -144,42 +144,92 @@ router.post('/generate-build', async (req, res) => {
 
 
 
-
         if (error.type === "socket") {
-
-          // CPU Swaping 
           const cpu = enrichedBuild.CPU || enrichedBuild.cpu;
           const currentSocket = cpu?.socket;
 
-          const compatibleMobo = CATALOG.MOTHERBOARD.find(mobo =>
-            mobo.socket === currentSocket
-          );
+          if (!currentSocket) {
+            console.warn("Could not determine CPU socket, skipping socket fix");
+            continue;
+          }
+
+          const normalize = (s) => s?.toString().toUpperCase().replace(/\s/g, '');
+
+          const intelSockets = ['LGA1700', 'LGA1851', 'LGA1200', 'LGA1151', 'LGA2066'];
+          const amdSockets = ['AM5', 'AM4', 'AM3+', 'TR4', 'TRX40'];
+
+          const cpuIsIntel = intelSockets.some(s => normalize(s) === normalize(currentSocket));
+          const cpuIsAMD = amdSockets.some(s => normalize(s) === normalize(currentSocket));
+
+          const compatibleMobo = CATALOG.MOTHERBOARD.find(mobo => {
+            const moboSocket = mobo.socket;
+            if (!moboSocket) return false;
+
+            // Must match exact socket
+            if (normalize(moboSocket) !== normalize(currentSocket)) return false;
+
+            // Must also match brand
+            const moboIsIntel = intelSockets.some(s => normalize(s) === normalize(moboSocket));
+            const moboIsAMD = amdSockets.some(s => normalize(s) === normalize(moboSocket));
+
+            if (cpuIsIntel && !moboIsIntel) return false;
+            if (cpuIsAMD && !moboIsAMD) return false;
+
+            return true;
+          })
 
           if (compatibleMobo) {
             console.log("Compatible motherboard found:", compatibleMobo.name);
             enrichedBuild.MOTHERBOARD = compatibleMobo;
+          } else {
+            console.warn("No compatible motherboard found for socket:", currentSocket)
           }
-        }
+        };
 
+
+
+        // RAM CHECK
         if (error.type === "ram") {
-          // RAM SWAPING
+          // RAM SWAPPING
+          // FIX: Match RAM to motherboard's memory_type instead of hardcoding DDR5
+          // This ensures compatibility when motherboard only supports DDR4
+          const moboMemoryType = enrichedBuild.MOTHERBOARD?.memory_type;
 
-          // const ram = enrichedBuild.RAM || enrichedBuild.ram;
           const compatibleRam = CATALOG.RAM.find(ram =>
-            ram.memory_type === "DDR5"
+            ram.memory_type === moboMemoryType
           );
 
           if (compatibleRam) {
             console.log("Compatible RAM found:", compatibleRam.name);
             enrichedBuild.RAM = compatibleRam;
+          } else {
+            console.warn("No compatible RAM found for memory type:", moboMemoryType);
           }
         }
 
         if (error.type === "ram_slots") {
-          const compatibleMoboSlots = CATALOG.MOTHERBOARD.find(mobo =>
-            mobo.memory_slots >= enrichedBuild.RAM.modules &&
-            mobo.socket === enrichedBuild.CPU.socket
-          )
+          // FIX: Added brand validation (Intel vs AMD) to socket check
+          const cpuSocket = enrichedBuild.CPU?.socket;
+          const normalize = (s) => s?.toString().toUpperCase().replace(/\s/g, '');
+          const intelSockets = ['LGA1700', 'LGA1851', 'LGA1200', 'LGA1151', 'LGA2066'];
+          const amdSockets = ['AM5', 'AM4', 'AM3+', 'TR4', 'TRX40'];
+
+          const cpuIsIntel = intelSockets.some(s => normalize(s) === normalize(cpuSocket));
+          const cpuIsAMD = amdSockets.some(s => normalize(s) === normalize(cpuSocket));
+
+          const compatibleMoboSlots = CATALOG.MOTHERBOARD.find(mobo => {
+            if (mobo.memory_slots < enrichedBuild.RAM.modules) return false;
+            if (normalize(mobo.socket) !== normalize(cpuSocket)) return false;
+
+            // Verify brand match
+            const moboIsIntel = intelSockets.some(s => normalize(s) === normalize(mobo.socket));
+            const moboIsAMD = amdSockets.some(s => normalize(s) === normalize(mobo.socket));
+
+            if (cpuIsIntel && !moboIsIntel) return false;
+            if (cpuIsAMD && !moboIsAMD) return false;
+
+            return true;
+          });
 
           if (compatibleMoboSlots) {
             console.log("Compatible motherboard with enough RAM slots found:", compatibleMoboSlots.name);
@@ -189,19 +239,34 @@ router.post('/generate-build', async (req, res) => {
 
 
         if (error.type === "ram_capacity") {
-          // Ram Capacity 
+          // Ram Capacity
+          // FIX: Added socket and brand compatibility checks to prevent Intel/AMD mismatch
+          const cpuSocket = enrichedBuild.CPU?.socket;
+          const normalize = (s) => s?.toString().toUpperCase().replace(/\s/g, '');
+          const intelSockets = ['LGA1700', 'LGA1851', 'LGA1200', 'LGA1151', 'LGA2066'];
+          const amdSockets = ['AM5', 'AM4', 'AM3+', 'TR4', 'TRX40'];
 
-          const compatibleMoboCap = CATALOG.MOTHERBOARD.find(mobo =>
-            mobo.max_memory >= enrichedBuild.RAM.capacity_gb
-          )
+          const cpuIsIntel = intelSockets.some(s => normalize(s) === normalize(cpuSocket));
+          const cpuIsAMD = amdSockets.some(s => normalize(s) === normalize(cpuSocket));
+
+          const compatibleMoboCap = CATALOG.MOTHERBOARD.find(mobo => {
+            if (mobo.max_memory < enrichedBuild.RAM.capacity_gb) return false;
+            if (normalize(mobo.socket) !== normalize(cpuSocket)) return false;
+
+            // Verify brand match
+            const moboIsIntel = intelSockets.some(s => normalize(s) === normalize(mobo.socket));
+            const moboIsAMD = amdSockets.some(s => normalize(s) === normalize(mobo.socket));
+
+            if (cpuIsIntel && !moboIsIntel) return false;
+            if (cpuIsAMD && !moboIsAMD) return false;
+
+            return true;
+          });
 
           if (compatibleMoboCap) {
             console.log("Compatible motherboard with enough RAM capacity found:", compatibleMoboCap.name);
             enrichedBuild.MOTHERBOARD = compatibleMoboCap;
           }
-
-
-
         }
 
 
