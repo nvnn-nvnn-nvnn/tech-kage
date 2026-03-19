@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useBuilder } from "../context/BuilderContext";
 import { useAuth } from "../hooks/useAuth";
 import { getSampleParts } from "../data/partsLoader";
-import { CompatiblityChecker } from '../services/compatibilityChecker';
 
 const T = {
     bg: "#050608",
@@ -33,8 +32,8 @@ const initialCategories = [
     { id: "case", name: "Case", icon: "" },
     { id: "powersupply", name: "Power Supply", icon: "" },
     { id: "os", name: "Operating System", icon: "" },
-    { id: "monitor", name: "Monitor", icon: "" },
-    { id: "accessories", name: "Accessories", icon: "" },
+    // { id: "monitor", name: "Monitor", icon: "" },
+    // { id: "accessories", name: "Accessories", icon: "" },
 ];
 
 export default function PartPicker() {
