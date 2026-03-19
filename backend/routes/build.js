@@ -294,7 +294,7 @@ router.post('/generate-build', async (req, res) => {
     }
 
     // rebuild with proper specifications
-    revalidated = checker.validateBuild(enrichedBuild);
+    let revalidated = checker.validateBuild(enrichedBuild);
 
     console.log("After Auto Fix:", revalidated)
 
@@ -312,45 +312,45 @@ router.post('/generate-build', async (req, res) => {
     console.log("Part prices:", Object.values(enrichedBuild).map(p => ({ name: p.name, price: p.priceNumeric })));
     console.log(`Budget check: $${totalPrice} > $${config.budget} = ${totalPrice > config.budget}`);
 
-    // if (totalPrice > config.budget) {
-    //   console.warn(`Build over budget: $${totalPrice}, enforcing $${config.budget}`);
-
-    //   // Sort categories by price descending — swap most expensive first
-    //   const sorted = Object.entries(enrichedBuild)
-    //     .sort(([, a], [, b]) => b.priceNumeric - a.priceNumeric);
-
-    //   for (const [category] of sorted) {
-    //     if (totalPrice <= config.budget) break;
-
-    //     // Map category to PARTS_CATALOG key (uppercase)
-    //     const catalogKey = category.toUpperCase();
-    //     const catalogPartsRaw = CATALOG[catalogKey];
-
-    //     // Skip if category not found in catalog
-    //     if (!catalogPartsRaw || catalogPartsRaw.length === 0) {
-    //       console.log(`Category ${category} (${catalogKey}) not found in catalog, skipping`);
-    //       continue;
-    //     }
-
-    //     const catalogParts = catalogPartsRaw
-    //       .filter(p => p.name !== enrichedBuild[category].name)
-    //       .sort((a, b) => a.priceNumeric - b.priceNumeric);
-
-    //     for (const cheaper of catalogParts) {
-    //       const saving = enrichedBuild[category].priceNumeric - cheaper.priceNumeric;
-    //       if (saving > 0) {
-    //         console.log(`Swapping ${category}: ${enrichedBuild[category].name} → ${cheaper.name} (saves $${saving})`);
-    //         enrichedBuild[category] = cheaper;
-    //         totalPrice -= saving;
-    //         if (totalPrice <= config.budget) break;
-    //       }
-    //     }
-    //   }
-
-    //   console.log(`Final total after enforcement: $${totalPrice}`);
-
-    // If still over budget after swaps, return build with warning
     if (totalPrice > config.budget) {
+      //   console.warn(`Build over budget: $${totalPrice}, enforcing $${config.budget}`);
+
+      //   // Sort categories by price descending — swap most expensive first
+      //   const sorted = Object.entries(enrichedBuild)
+      //     .sort(([, a], [, b]) => b.priceNumeric - a.priceNumeric);
+
+      //   for (const [category] of sorted) {
+      //     if (totalPrice <= config.budget) break;
+
+      //     // Map category to PARTS_CATALOG key (uppercase)
+      //     const catalogKey = category.toUpperCase();
+      //     const catalogPartsRaw = CATALOG[catalogKey];
+
+      //     // Skip if category not found in catalog
+      //     if (!catalogPartsRaw || catalogPartsRaw.length === 0) {
+      //       console.log(`Category ${category} (${catalogKey}) not found in catalog, skipping`);
+      //       continue;
+      //     }
+
+      //     const catalogParts = catalogPartsRaw
+      //       .filter(p => p.name !== enrichedBuild[category].name)
+      //       .sort((a, b) => a.priceNumeric - b.priceNumeric);
+
+      //     for (const cheaper of catalogParts) {
+      //       const saving = enrichedBuild[category].priceNumeric - cheaper.priceNumeric;
+      //       if (saving > 0) {
+      //         console.log(`Swapping ${category}: ${enrichedBuild[category].name} → ${cheaper.name} (saves $${saving})`);
+      //         enrichedBuild[category] = cheaper;
+      //         totalPrice -= saving;
+      //         if (totalPrice <= config.budget) break;
+      //       }
+      //     }
+      //   }
+
+      //   console.log(`Final total after enforcement: $${totalPrice}`);
+
+      // If still over budget after swaps, return build with warning
+      //   if (totalPrice > config.budget) {
       const difference = totalPrice - config.budget;
       return res.json({
         success: true,
@@ -361,29 +361,30 @@ router.post('/generate-build', async (req, res) => {
         compatibilityResult: compatibilityResult
       });
     }
-  }
 
     // Return everything to frontend
     console.log("Final build links:", Object.entries(enrichedBuild).map(([cat, part]) =>
-    `${cat}: ${part.link || 'NO LINK'} (ASIN: ${part.asin || 'NO ASIN'})`
-  ).join(', '));
+      `${cat}: ${part.link || 'NO LINK'} (ASIN: ${part.asin || 'NO ASIN'})`
+    ).join(', '));
 
-  res.json({
-    success: true,
-    build: enrichedBuild,
-    totalPrice,
-    tokensUsed: claudeResponse.tokensUsed,
-    config,
-    compatibilityResult: compatibilityResult
-  });
+    res.json({
+      success: true,
+      build: enrichedBuild,
+      totalPrice,
+      tokensUsed: claudeResponse.tokensUsed,
+      config,
+      compatibilityResult: compatibilityResult
+    });
 
-} catch (error) {
-  console.error("Build generation error:", error);
-  res.status(500).json({
-    success: false,
-    error: error.message
-  });
-}
+  } catch (error) {
+    console.error("Build generation error:", error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
 });
+
+
 
 module.exports = router;

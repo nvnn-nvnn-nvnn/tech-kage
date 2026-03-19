@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useBuilder } from "../context/BuilderContext";
 import { useAuth } from "../hooks/useAuth";
 import { getSampleParts } from "../data/partsLoader";
+import { CompatiblityChecker } from '../services/compatibilityChecker';
 
 const T = {
     bg: "#050608",
