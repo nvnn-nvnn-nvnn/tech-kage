@@ -75,6 +75,31 @@ router.post('/generate-build', async (req, res) => {
     if (!compatibilityResult.isValid) {
       console.warn("Build has compatibility issues:", compatibilityResult.errors);
       for (const error of compatibilityResult.errors) {
+
+
+
+        if (error.type === "case") {
+          // Case Swap 
+
+          const caseFormFactor = enrichedBuild.CASE.type;
+          const moboFormFactor = enrichedBuild.MOTHERBOARD.form_factor;
+
+          const compatibleMoboCase = CATALOG.MOTHERBOARD.find(moboItem =>
+            moboItem.form_factor === caseFormFactor
+          );
+
+          if (compatibleMoboCase) {
+            console.log("Compatible case found:", compatibleMoboCase.name);
+            enrichedBuild.MOTHERBOARD = compatibleMoboCase;
+          }
+
+
+
+        }
+
+
+
+
         if (error.type === "socket") {
 
           // CPU Swaping 
@@ -158,25 +183,6 @@ router.post('/generate-build', async (req, res) => {
 
         }
 
-
-        if (error.type === "case") {
-          // Case Swap 
-
-          const caseFormFactor = enrichedBuild.CASE.type;
-          const moboFormFactor = enrichedBuild.MOTHERBOARD.form_factor;
-
-          const compatibleMoboCase = CATALOG.MOTHERBOARD.find(moboItem =>
-            moboItem.form_factor === caseFormFactor
-          );
-
-          if (compatibleMoboCase) {
-            console.log("Compatible case found:", compatibleMoboCase.name);
-            enrichedBuild.CASE = compatibleMoboCase;
-          }
-
-
-
-        }
 
 
 

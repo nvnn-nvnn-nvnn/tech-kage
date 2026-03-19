@@ -164,6 +164,7 @@ Critical rules:
 - Do NOT exceed the budget
 - Use current 2024/2025 parts that are actually available for purchase
 - Prefer well-reviewed, reliable brands
+- Ensure the case form factor matches the motherboard form factor exactly
 
 REMINDER: Total of all parts must be $${config.budget} or less.
 `.trim();
