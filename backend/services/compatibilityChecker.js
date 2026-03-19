@@ -205,37 +205,50 @@ class CompatibilityChecker {
     if (!pcCase || !motherboard) return;
 
     const caseType = pcCase.type || null;           // "Mid Tower", "Full Tower"
+
+
     const moboFormFactor = motherboard.form_factor || null; // "ATX", "Micro ATX"
 
-    if (!caseType || !moboFormFactor) {
-      this.warnings.push({
-        type: 'case',
-        message: 'Could not verify case/motherboard compatibility'
-      });
-      return;
-    }
 
-    // Compatibility map
-    const fits = {
-      'Full Tower': ['E-ATX', 'ATX', 'Micro ATX', 'Mini-ITX'],
-      'ATX Full Tower': ['E-ATX', 'ATX', 'Micro ATX', 'Mini-ITX'],
-      'Mid Tower': ['ATX', 'Micro ATX', 'Mini-ITX'],
-      'ATX Mid Tower': ['ATX', 'Micro ATX', 'Mini-ITX'],
-      'Mini Tower': ['Micro ATX', 'Mini-ITX'],
-      'MicroATX Mini Tower': ['Micro ATX', 'Mini-ITX'],
-      'MicroATX': ['Micro ATX', 'Mini-ITX'],
-      'Mini-ITX': ['Mini-ITX']
-    };
+    // string verification:
 
-    const compatible = fits[caseType]?.includes(moboFormFactor);
+    // function normalizeFormFactor(str) {
+    //   return str?.toLowerCase().replace(/[\s\-\/]+/g, '') ?? '';
+    // }
 
-    if (!compatible) {
-      this.errors.push({
-        type: 'case',
-        message: `Case type (${caseType}) may not fit motherboard form factor (${moboFormFactor})`,
-        parts: { case: pcCase.name, motherboard: motherboard.name }
-      });
-    }
+    // if (!caseType || !moboFormFactor) {
+    //   this.warnings.push({
+    //     type: 'case',
+    //     message: 'Could not verify case/motherboard compatibility'
+    //   });
+    //   return;
+    // }
+
+    // // Compatibility map
+    // const fits = {
+    //   'Full Tower': ['E-ATX', 'ATX', 'Micro ATX', 'Mini-ITX'],
+    //   'ATX Full Tower': ['E-ATX', 'ATX', 'Micro ATX', 'Mini-ITX'],
+    //   'Mid Tower': ['ATX', 'Micro ATX', 'Mini-ITX'],
+    //   'ATX Mid Tower': ['ATX', 'Micro ATX', 'Mini-ITX'],
+    //   'Mini Tower': ['Micro ATX', 'Mini-ITX'],
+    //   'MicroATX Mini Tower': ['Micro ATX', 'Mini-ITX'],
+    //   'MicroATX': ['Micro ATX', 'Mini-ITX'],
+    //   'Mini-ITX': ['Mini-ITX']
+    // };
+
+
+
+    // const compatible = fits[caseType]?.includes(moboFormFactor);
+
+    // New compatible check
+
+    // if (!compatible) {
+    //   this.errors.push({
+    //     type: 'case',
+    //     message: `Case type (${caseType}) may not fit motherboard form factor (${moboFormFactor})`,
+    //     parts: { case: pcCase.name, motherboard: motherboard.name }
+    //   });
+    // }
   }
 
 }

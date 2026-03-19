@@ -67,7 +67,7 @@ router.post('/generate-build', async (req, res) => {
     // Adding Compatibility Check
     console.log("Validating build compatibility...");
     const checker = new CompatibilityChecker();
-    const compatibilityResult = checker.validateBuild(enrichedBuild);
+    let compatibilityResult = checker.validateBuild(enrichedBuild);
     console.log("Compatibility check:", compatibilityResult);
 
 
@@ -78,23 +78,68 @@ router.post('/generate-build', async (req, res) => {
 
 
 
-        if (error.type === "case") {
-          // Case Swap 
+        // if (error.type === "case") {
+        //   // Case Swap 
 
+        //   const caseFormFactor = enrichedBuild.CASE.type;
+        //   const moboFormFactor = enrichedBuild.MOTHERBOARD.form_factor;
+
+        //   // Verify what it has.. 
+
+
+
+        //   const compatibleMoboCase = CATALOG.MOTHERBOARD.find(moboItem =>
+        //     moboItem.form_factor === caseFormFactor
+        //   );
+
+        //   if (compatibleMoboCase) {
+        //     console.log("Compatible case found:", compatibleMoboCase.name);
+        //     enrichedBuild.MOTHERBOARD = compatibleMoboCase;
+        //   }
+
+
+
+        // }
+
+
+        if (error.type === "case") {
           const caseFormFactor = enrichedBuild.CASE.type;
           const moboFormFactor = enrichedBuild.MOTHERBOARD.form_factor;
 
-          const compatibleMoboCase = CATALOG.MOTHERBOARD.find(moboItem =>
-            moboItem.form_factor === caseFormFactor
-          );
+          const caseStr = caseFormFactor.toLowerCase();
 
-          if (compatibleMoboCase) {
-            console.log("Compatible case found:", compatibleMoboCase.name);
-            enrichedBuild.MOTHERBOARD = compatibleMoboCase;
+          let caseTier;
+          if (caseStr.includes("full")) caseTier = "full";
+          else if (caseStr.includes("mid")) caseTier = "mid";
+          else if (caseStr.includes("microatx") || caseStr.includes("micro atx")) caseTier = "micro";
+          else if (caseStr.includes("mini itx")) caseTier = "mini";
+
+          const tierCompatibility = {
+            full: ["ATX", "Micro ATX", "Mini ITX"],
+            mid: ["ATX", "Micro ATX", "Mini ITX"],
+            micro: ["Micro ATX", "Mini ITX"],
+            mini: ["Mini ITX"]
+          };
+
+          const allowedFormFactors = tierCompatibility[caseTier];
+
+          if (!allowedFormFactors) {
+            console.warn("Could not determine case tier for:", caseFormFactor);
+            continue;
           }
 
+          const moboIsCompatible = allowedFormFactors.includes(moboFormFactor);
 
+          if (!moboIsCompatible) {
+            const compatibleMobo = CATALOG.MOTHERBOARD.find(mobo =>
+              allowedFormFactors.includes(mobo.form_factor)
+            );
 
+            if (compatibleMobo) {
+              console.log("Compatible motherboard found:", compatibleMobo.name);
+              enrichedBuild.MOTHERBOARD = compatibleMobo;
+            }
+          }
         }
 
 
@@ -190,7 +235,7 @@ router.post('/generate-build', async (req, res) => {
     }
 
     // rebuild with proper specifications
-    const revalidated = checker.validateBuild(enrichedBuild);
+    revalidated = checker.validateBuild(enrichedBuild);
 
     console.log("After Auto Fix:", revalidated)
 
