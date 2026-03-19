@@ -294,8 +294,6 @@ router.post('/generate-build', async (req, res) => {
         }
 
 
-
-
       }
     }
 
@@ -305,7 +303,6 @@ router.post('/generate-build', async (req, res) => {
     console.log("After Auto Fix:", revalidated)
 
     compatibilityResult = revalidated;
-
 
     if (compatibilityResult.warnings.length > 0) {
       console.warn("Build has compatibility warnings:", compatibilityResult.warnings);
@@ -371,6 +368,10 @@ router.post('/generate-build', async (req, res) => {
     }
 
     // Return everything to frontend
+    console.log("Final build links:", Object.entries(enrichedBuild).map(([cat, part]) =>
+      `${cat}: ${part.link || 'NO LINK'} (ASIN: ${part.asin || 'NO ASIN'})`
+    ).join(', '));
+
     res.json({
       success: true,
       build: enrichedBuild,
