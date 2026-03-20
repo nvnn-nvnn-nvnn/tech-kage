@@ -9,16 +9,7 @@ const { enrichBuild } = require('../services/amazon');
 const { buildPrompt } = require('../services/promptBuilder');
 const { CompatibilityChecker } = require('../services/compatibilityChecker');
 
-const CATEGORY_MAP = {
-  GPU: 'video-card',
-  PSU: 'powersupply',
-  RAM: 'memory',
-  CPU: 'cpu',
-  MOTHERBOARD: 'motherboard',
-  STORAGE: 'storage',
-  CASE: 'case',
-  COOLING: 'cpu-cooler'
-};
+
 
 router.post('/generate-build', async (req, res) => {
   try {
@@ -74,7 +65,7 @@ router.post('/generate-build', async (req, res) => {
     // Step 3: Enrich with Amazon data
     console.log("Enriching with Amazon data...");
     const enrichedBuild = await enrichBuild(validatedBuild);
-    console.log('catalogPart:', JSON.stringify(catalogPart, null, 2));
+
 
     // Adding Compatibility Check
     console.log("Validating build compatibility...");

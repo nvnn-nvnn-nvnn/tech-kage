@@ -25,28 +25,6 @@ async function enrichBuild(buildData) {
 
       const finalPart = catalogPart || getDefaultPart(category);
 
-      // Final Part
-      const response = await fetch(`${process.env.API_URL}/api/parts/${category.toLowerCase()}`);
-      const allParts = await response.json();
-
-      const matched = allParts.find(p =>
-        p.name?.toLowerCase().includes(finalPart.name?.toLowerCase()) ||
-        finalPart.name?.toLowerCase().includes(p.name?.toLowerCase())
-      );
-
-      const supabaseId = matched?.id || null;
-
-      // Validate ASIN format (should be 10 alphanumeric characters)
-      const isValidAsin = finalPart?.asin && /^[A-Z0-9]{10}$/.test(finalPart.asin);
-
-      if (!isValidAsin && finalPart?.asin) {
-        console.warn(`[enrichBuild] Invalid ASIN for ${category} - ${finalPart.name}: ${finalPart.asin}`);
-      }
-
-      if (!finalPart) {
-        console.error(`[enrichBuild] CRITICAL: No part data available for ${category}`);
-      }
-
       const CATEGORY_MAP = {
         GPU: 'video-card',
         PSU: 'powersupply',
@@ -60,6 +38,30 @@ async function enrichBuild(buildData) {
 
 
       const mappedCategory = CATEGORY_MAP[category] || category.toLowerCase();
+
+      // Final Part
+      const response = await fetch(`${process.env.API_URL}/api/parts/${mappedCategory.toLowerCase()}`);
+      const allParts = await response.json();
+
+      const matched = allParts.find(p =>
+        p.name?.toLowerCase().includes(finalPart.name?.toLowerCase()) ||
+        finalPart.name?.toLowerCase().includes(p.name?.toLowerCase())
+      );
+
+      let supabaseId = matched?.id || null;
+
+      // Validate ASIN format (should be 10 alphanumeric characters)
+      const isValidAsin = finalPart?.asin && /^[A-Z0-9]{10}$/.test(finalPart.asin);
+
+      if (!isValidAsin && finalPart?.asin) {
+        console.warn(`[enrichBuild] Invalid ASIN for ${category} - ${finalPart.name}: ${finalPart.asin}`);
+      }
+
+      if (!finalPart) {
+        console.error(`[enrichBuild] CRITICAL: No part data available for ${category}`);
+      }
+
+
 
       enriched[mappedCategory] = {
         ...part,
