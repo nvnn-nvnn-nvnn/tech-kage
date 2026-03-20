@@ -47,7 +47,21 @@ async function enrichBuild(buildData) {
         console.error(`[enrichBuild] CRITICAL: No part data available for ${category}`);
       }
 
-      enriched[category] = {
+      const CATEGORY_MAP = {
+        GPU: 'video-card',
+        PSU: 'powersupply',
+        RAM: 'memory',
+        CPU: 'cpu',
+        MOTHERBOARD: 'motherboard',
+        STORAGE: 'storage',
+        CASE: 'case',
+        COOLING: 'cpu-cooler'
+      };
+
+
+      const mappedCategory = CATEGORY_MAP[category] || category.toLowerCase();
+
+      enriched[mappedCategory] = {
         ...part,
         ...finalPart,
         // Generate affiliate link only if ASIN is valid

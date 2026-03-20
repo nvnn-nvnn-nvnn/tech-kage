@@ -1160,12 +1160,32 @@ function ResultsStep({ config }) {
 
 // ─── PART ROW ────────────────────────────────────────────────────
 
+
+
+
 function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
   const [hover, setHover] = useState(false);
   const [currentPart, setCurrentPart] = useState(part);
   const [loadingAlt, setLoadingAlt] = useState(false);
   // Navigation
-  const partDetailUrl = `/parts/${category}/${currentPart.id}`;
+
+
+  const CATEGORY_MAP = {
+    GPU: 'video-card',
+    PSU: 'powersupply',
+    RAM: 'memory',
+    CPU: 'cpu',
+    MOTHERBOARD: 'motherboard',
+    STORAGE: 'storage',
+    CASE: 'case',
+    COOLING: 'cpu-cooler'
+  };
+
+
+  const mappedCategory = CATEGORY_MAP[category] || category.toLowerCase();
+  const partDetailUrl = `/parts/${mappedCategory}/${currentPart.id}`;
+
+
 
   console.log("DEBUG - Category:", category);
   console.log("DEBUG - currentPart.id:", currentPart.id);
@@ -1173,6 +1193,8 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
   console.log(currentPart);
 
   useEffect(() => { setCurrentPart(part); }, [part]);
+
+
 
   console.log("PART DATA:", currentPart);
 
@@ -1193,6 +1215,8 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
   //     setLoadingAlt(false);
   //   }
   // };
+
+
 
   return (
     <div
@@ -1221,16 +1245,17 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
           )}
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 8 }}>
-              <h3 style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700, color: T.text, margin: 0, letterSpacing: -0.2 }}>{currentPart.name}</h3>
+
 
               <Link
-                to={`/parts/${category}/${currentPart.id}`}
-                style={{ textDecoration: 'none', color: 'inherit' }}
+                to={partDetailUrl}
+                style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
               >
-                <Badge text={currentPart.badge} green={isTop} />
+                <h3 style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700, color: T.text, margin: 0, letterSpacing: -0.2 }}>{currentPart.name}</h3>
+
               </Link>
 
-
+              <Badge text={currentPart.badge} green={isTop} />
 
 
             </div>
