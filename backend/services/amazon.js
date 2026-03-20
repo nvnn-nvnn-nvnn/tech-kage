@@ -3,7 +3,7 @@
 const { createClient } = require('@supabase/supabase-js');
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
 
-const { m } = require('framer-motion');
+// const { m } = require('framer-motion');
 
 async function enrichBuild(buildData) {
   const enriched = {};
