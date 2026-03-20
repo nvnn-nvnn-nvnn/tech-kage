@@ -1,13 +1,14 @@
-
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -16,6 +17,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -35,17 +37,27 @@
   color: #888;
 }
 
+.backBtnStyle {
+  background: "transparent";
+  border: "none";
+  color: "rgba(240,240,242,0.5)";
+  cursor: "pointer";
+  font-family: "'JetBrains Mono', monospace";
+  font-size: "0.78rem";
+  padding: 0;
+  transition: "color 0.15s";
+}
+
+
 
 
 .matrix-span {
-  background: linear-gradient(
-    135deg,
-    #00ff41 0%,
-    #39ff14 25%,
-    #00e676 50%,
-    #69ff47 75%,
-    #00ff41 100%
-  );
+  background: linear-gradient(135deg,
+      #00ff41 0%,
+      #39ff14 25%,
+      #00e676 50%,
+      #69ff47 75%,
+      #00ff41 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -53,27 +65,26 @@
   /* Optional: animated shimmer effect */
   background-size: 200% 200%;
   animation: matrixShimmer 3s ease infinite;
-  
+
   /* Optional: subtle glow */
   filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6));
 }
 
 
 
-  
+
 .price-span {
-  background: linear-gradient(
-    135deg,
-    #00ff41 0%,
-    #39ff14 25%,
-    #00e676 50%,
-    #69ff47 75%,
-    #00ff41 100%
-  );
+  background: linear-gradient(135deg,
+      #00ff41 0%,
+      #39ff14 25%,
+      #00e676 50%,
+      #69ff47 75%,
+      #00ff41 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;                    /* fallback for non-webkit browsers */
+  color: transparent;
+  /* fallback for non-webkit browsers */
 
   /* Animated shimmer effect */
   background-size: 200% 200%;
@@ -89,14 +100,12 @@
 
 
 .build-span {
-  background: linear-gradient(
-    135deg,
-    #00ff41 0%,
-    #39ff14 25%,
-    #00e676 50%,
-    #69ff47 75%,
-    #00ff41 100%
-  );
+  background: linear-gradient(135deg,
+      #00ff41 0%,
+      #39ff14 25%,
+      #00e676 50%,
+      #69ff47 75%,
+      #00ff41 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -117,15 +126,24 @@
 
 
 @keyframes matrixShimmer {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Header spacer - responsive height for fixed header */
 .header-spacer {
   height: 88px;
 }
+
 @media (max-width: 767px) {
   .header-spacer {
     height: 64px;

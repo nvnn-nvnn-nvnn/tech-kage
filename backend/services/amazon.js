@@ -1,5 +1,10 @@
 // amazon.js
 
+const { createClient } = require('@supabase/supabase-js');
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
+
+const { m } = require('framer-motion');
+
 async function enrichBuild(buildData) {
   const enriched = {};
   const { getPartByName, getDefaultPart } = require('./partsLoader');
@@ -19,6 +24,17 @@ async function enrichBuild(buildData) {
       }
 
       const finalPart = catalogPart || getDefaultPart(category);
+
+      // Final Part
+      const response = await fetch(`${process.env.API_URL}/api/parts/${category.toLowerCase()}`);
+      const allParts = await response.json();
+
+      const matched = allParts.find(p =>
+        p.name?.toLowerCase().includes(finalPart.name?.toLowerCase()) ||
+        finalPart.name?.toLowerCase().includes(p.name?.toLowerCase())
+      );
+
+      const supabaseId = matched?.id || null;
 
       // Validate ASIN format (should be 10 alphanumeric characters)
       const isValidAsin = finalPart?.asin && /^[A-Z0-9]{10}$/.test(finalPart.asin);
@@ -40,7 +56,8 @@ async function enrichBuild(buildData) {
           : null,
         reason: part.reason,
         // Add flag if link is missing
-        linkStatus: isValidAsin ? 'valid' : 'missing'
+        linkStatus: isValidAsin ? 'valid' : 'missing',
+        id: supabaseId || null
       };
 
     } catch (error) {
@@ -48,7 +65,8 @@ async function enrichBuild(buildData) {
       enriched[category] = {
         ...part,
         link: null,
-        linkStatus: 'error'
+        linkStatus: 'error',
+        id: supabaseId || null
       };
     }
   }

@@ -16,6 +16,17 @@ const T = {
     mono: "'JetBrains Mono', monospace",
 };
 
+const backBtnStyle = {
+    background: "transparent",
+    border: "none",
+    color: "rgba(240,240,242,0.5)",
+    cursor: "pointer",
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: "0.78rem",
+    padding: 0,
+    transition: "color 0.15s",
+};
+
 const COLUMNS = {
     cpu: [
         { key: "cores", label: "CORES", align: "center" },
@@ -292,7 +303,20 @@ export default function PartsList({ partType }) {
     const cols = COLUMNS[partType] || [];
 
     return (
+
+
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: isMobile ? "0.75rem" : "1rem" }}>
+
+
+            <nav style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "2rem", fontSize: "0.78rem", color: T.textDim }}>
+                <button onClick={() => navigate(-1)} style={backBtnStyle}>
+                    ← Back
+                </button>
+                <span>/</span>
+                <span style={{ color: T.text }}>{partType}</span>
+            </nav>
+
+
 
             {/* ── Header ── */}
             <div style={{ marginBottom: "1rem" }}>
@@ -530,5 +554,8 @@ export default function PartsList({ partType }) {
                 </div>
             </div>
         </div>
+
     );
+
 }
+

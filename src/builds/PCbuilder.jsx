@@ -1,13 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { BuildAnalytics } from "../build-components/BuildAnalytics";
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useCart } from '../context/CartContext';
 import { supabase } from '../lib/supabase';
 import TechKageLogo from '../assets/TechKage.svg';
 import { createPortal } from "react-dom";
+import { useParams } from "react-router-dom";
 import CompatibilityAlert from "../components/CompatibilityAlert";
-
+import { sampleParts } from "../data/partsLoader";
 // ─── THEME ───────────────────────────────────────────────────────
 const T = {
   bg: "#050608",
@@ -869,7 +870,36 @@ function ResultsStep({ config }) {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+
+  // Item navigation
+  // const { category, id } = useParams < { category: string; id: string } > ();
+
   const { addBuild } = useCart();
+
+
+
+  // Item Navigation Assitance
+
+  // const categoryParts = sampleParts[category] ?? [];
+  // const part = categoryParts.find((p) => p.id == id);
+
+  // const [categoryParts, setCategoryParts] = useState({});
+
+
+  // useEffect(() => {
+  //   getSampleParts().then(parts => {
+  //     setCategoryParts(parts);
+  //   });
+
+
+  // }, []);
+
+
+  // const part = categoryParts[category]?.find(p => p.id === id);
+
+
+
+
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -1134,30 +1164,35 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
   const [hover, setHover] = useState(false);
   const [currentPart, setCurrentPart] = useState(part);
   const [loadingAlt, setLoadingAlt] = useState(false);
+  // Navigation
+  const partDetailUrl = `/parts/${category}/${currentPart.id}`;
 
+  console.log("DEBUG - Category:", category);
+  console.log("DEBUG - currentPart.id:", currentPart.id);
+  console.log("DEBUG - Generated URL:", partDetailUrl);
   console.log(currentPart);
 
   useEffect(() => { setCurrentPart(part); }, [part]);
 
   console.log("PART DATA:", currentPart);
 
-  const fetchAlternative = async (type) => {
-    setLoadingAlt(true);
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/alternative-part`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ category, currentPart, type, config: buildConfig }),
-      });
-      const data = await res.json();
-      if (data.success) { setCurrentPart(data.part); onPartSwap(category, data.part); }
-      else console.error('Alternative part failed:', data.error);
-    } catch (err) {
-      console.error('Network error:', err);
-    } finally {
-      setLoadingAlt(false);
-    }
-  };
+  // const fetchAlternative = async (type) => {
+  //   setLoadingAlt(true);
+  //   try {
+  //     const res = await fetch(`${import.meta.env.VITE_API_URL}/api/alternative-part`, {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ category, currentPart, type, config: buildConfig }),
+  //     });
+  //     const data = await res.json();
+  //     if (data.success) { setCurrentPart(data.part); onPartSwap(category, data.part); }
+  //     else console.error('Alternative part failed:', data.error);
+  //   } catch (err) {
+  //     console.error('Network error:', err);
+  //   } finally {
+  //     setLoadingAlt(false);
+  //   }
+  // };
 
   return (
     <div
@@ -1181,13 +1216,23 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
         <div style={{ display: "flex", gap: isMobile ? 12 : 24, flex: 1 }}>
           {currentPart.thumbnail_image && (
             <div style={{ width: isMobile ? 80 : 100, height: isMobile ? 80 : 100, flexShrink: 0, borderRadius: 10, background: "rgba(255,255,255,0.02)", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${T.border}` }}>
-              <img src={currentPart.thumbnail_image} alt={currentPart.name} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              <img src={currentPart.thumbnail_image} alt={currentPart.name} style={{ maxWidth: "150%", maxHeight: "150%", objectFit: "contain", padding: "15%", }} />
             </div>
           )}
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 8 }}>
               <h3 style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700, color: T.text, margin: 0, letterSpacing: -0.2 }}>{currentPart.name}</h3>
-              <Badge text={currentPart.badge} green={isTop} />
+
+              <Link
+                to={`/parts/${category}/${currentPart.id}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <Badge text={currentPart.badge} green={isTop} />
+              </Link>
+
+
+
+
             </div>
             <div style={{ fontSize: 15, color: T.textMid, marginBottom: 12, letterSpacing: 0.1 }}>{currentPart.spec}</div>
             {currentPart.reason && (
@@ -1212,14 +1257,14 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
         </div>
       </div>
 
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: 16, marginTop: 24, paddingTop: 16, borderTop: `1px solid ${T.border}`, fontSize: 13, color: T.textMid }}>
+      {/* <div style={{ display: "flex", justifyContent: "flex-start", gap: 16, marginTop: 24, paddingTop: 16, borderTop: `1px solid ${T.border}`, fontSize: 13, color: T.textMid }}>
         <button onClick={() => fetchAlternative('better')} disabled={loadingAlt} style={{ background: "none", border: "none", color: T.green, fontWeight: 500, cursor: "pointer", padding: "4px 8px", borderRadius: 6, transition: "all 0.18s ease", fontFamily: "'Orbitron', sans-serif" }} onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }} onMouseLeave={(e) => { e.currentTarget.style.color = T.green; }}>
           {loadingAlt ? 'Finding...' : 'Find Better Alternative'}
         </button>
         <button onClick={() => fetchAlternative('cheaper')} disabled={loadingAlt} style={{ background: "none", border: "none", color: "#ffaa44", fontWeight: 500, cursor: "pointer", padding: "4px 8px", borderRadius: 6, transition: "all 0.18s ease", fontFamily: "'Orbitron', sans-serif" }} onMouseEnter={(e) => { e.currentTarget.style.color = "#ffd399"; }} onMouseLeave={(e) => { e.currentTarget.style.color = "#ffaa44"; }}>
           {loadingAlt ? 'Finding...' : 'Find More Budget Friendly Alternative'}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
