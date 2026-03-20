@@ -62,6 +62,19 @@ const USAGE_OPTIONS = [
 const EXISTING_PARTS = ["CPU", "GPU", "MOTHERBOARD", "RAM", "STORAGE", "PSU", "CASE", "CPU COOLER", "MONITOR", "OS"];
 const PART_CATEGORIES = ["CPU", "GPU", "MOTHERBOARD", "RAM", "STORAGE", "PSU", "CASE", "COOLING"];
 
+// fOR FRONTEND
+const CATEGORY_MAP = {
+  GPU: 'video-card',
+  PSU: 'powersupply',
+  RAM: 'memory',
+  CPU: 'cpu',
+  MOTHERBOARD: 'motherboard',
+  STORAGE: 'storage',
+  CASE: 'case',
+  COOLING: 'cpu-cooler'
+};
+
+
 /*
 const MOCK_PARTS = {
   CPU: [
@@ -863,6 +876,7 @@ function ResultsStep({ config }) {
   const [activeTab, setActiveTab] = useState(0);
   const [showExportModal, setShowExportModal] = useState(false);
   const cat = PART_CATEGORIES[activeTab];
+  const mappedCat = CATEGORY_MAP[cat] || cat.toLowerCase();
 
   const [localBuild, setLocalBuild] = useState({});
   const [saveStatus, setSaveStatus] = useState(null);
@@ -918,9 +932,11 @@ function ResultsStep({ config }) {
   };
 
   const buildData = config.generatedBuild;
-  const parts = localBuild[cat]
-    ? [localBuild[cat]]
-    : (buildData && buildData[cat] ? [buildData[cat]] : []);
+
+  // PARTS! (mapped to backend categories)
+  const parts = localBuild[mappedCat]
+    ? [localBuild[mappedCat]]
+    : (buildData && buildData[mappedCat] ? [buildData[mappedCat]] : []);
 
   const isUpgrade = config.mode === "upgrade";
 
@@ -1236,7 +1252,7 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: T.green, opacity: 0.8, borderRadius: "12px 0 0 12px" }} />
       )}
 
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: isMobile ? 16 : 32 }}>
+      <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", alignItems: "flex-start", justifyContent: "space-between", gap: isMobile ? 16 : 32 }}>
         <div style={{ display: "flex", gap: isMobile ? 12 : 24, flex: 1 }}>
           {currentPart.thumbnail_image && (
             <div style={{ width: isMobile ? 80 : 100, height: isMobile ? 80 : 100, flexShrink: 0, borderRadius: 10, background: "rgba(255,255,255,0.02)", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${T.border}` }}>

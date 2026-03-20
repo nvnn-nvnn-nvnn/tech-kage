@@ -1,5 +1,6 @@
 import React from "react";
 import PartPicker from "../components/PartPicker";
+import ExportBuild from "../components/Manual-build-components/ExportBuild";
 
 const T = {
   bg: "#050608",

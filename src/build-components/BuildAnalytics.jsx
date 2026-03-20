@@ -99,22 +99,34 @@ export function BuildAnalytics({ config, generatedBuild }) {
 
   // ─── BUDGET ALLOCATION ─────────────────────────────────────────
   // Covers both uppercase keys (CPU, GPU, MOTHERBOARD) and title-case (Motherboard)
-  const categoryColors = {
-    CPU: '#8b5cf6',
-    GPU: '#3b82f6',
-    MOTHERBOARD: '#a78bfa',
-    Motherboard: '#a78bfa',
-    RAM: '#fbbf24',
-    STORAGE: '#f87171',
-    Storage: '#f87171',
-    PSU: '#ec4899',
-    CASE: '#60a5fa',
-    Case: '#60a5fa',
-    COOLING: '#06b6d4',
-    Cooling: '#06b6d4',
-    Other: '#64748b',
-  };
+  // const categoryColors = {
+  //   CPU: '#8b5cf6',
+  //   GPU: '#3b82f6',
+  //   MOTHERBOARD: '#a78bfa',
+  //   Motherboard: '#a78bfa',
+  //   RAM: '#fbbf24',
+  //   STORAGE: '#f87171',
+  //   Storage: '#f87171',
+  //   PSU: '#ec4899',
+  //   CASE: '#60a5fa',
+  //   Case: '#60a5fa',
+  //   COOLING: '#06b6d4',
+  //   Cooling: '#06b6d4',
+  //   Other: '#64748b',
+  // };
 
+
+  const categoryColors = {
+    'cpu': '#8b5cf6',
+    'video-card': '#3b82f6',
+    'motherboard': '#a78bfa',
+    'memory': '#fbbf24',
+    'storage': '#f87171',
+    'powersupply': '#ec4899',
+    'case': '#60a5fa',
+    'cpu-cooler': '#06b6d4',
+    'other': '#64748b',
+  };
   const buildParts = Object.entries(generatedBuild || {});
 
   const budgetData = buildParts

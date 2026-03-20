@@ -42,6 +42,7 @@ import { Navigate } from 'react-router-dom';
 import DevelopmentBanner from "./components/DevelopmentBanner";
 import Forums from "./pages/Forums";
 import AmazonManager from "./pages/AmazonManager";
+import ExportBuild from "./components/Manual-build-components/ExportBuild";
 
 function App() {
   const { user } = useAuth();

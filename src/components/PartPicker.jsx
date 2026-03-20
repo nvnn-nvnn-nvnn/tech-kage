@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useBuilder } from "../context/BuilderContext";
 import { useAuth } from "../hooks/useAuth";
 import { getSampleParts } from "../data/partsLoader";
+import ExportBuild from "./Manual-build-components/ExportBuild";
 
 const T = {
     bg: "#050608",
@@ -98,30 +99,39 @@ export default function PartPicker() {
             <div style={{ maxWidth: isMobile ? "100%" : "75%", margin: "0 auto" }}>
 
                 {/* ── Header ── */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.5rem", gap: "1rem" }}>
-                    <div>
-                        <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: T.textDim, marginBottom: "4px" }}>
-                            SYSTEM CONFIGURATOR
+
+
+                <div style={{ marginBottom: "1.5rem", displa: "flex", flexDirection: "column" }}>
+
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.5rem", gap: "1rem" }}>
+                        <div>
+                            <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: T.textDim, marginBottom: "4px" }}>
+                                SYSTEM CONFIGURATOR
+                            </div>
+                            <h1 style={{ margin: 0, fontFamily: T.display, fontSize: isMobile ? "1.1rem" : "1.6rem", color: T.green, lineHeight: 1 }}>
+                                Custom PC Build
+                            </h1>
                         </div>
-                        <h1 style={{ margin: 0, fontFamily: T.display, fontSize: isMobile ? "1.1rem" : "1.6rem", color: T.green, lineHeight: 1 }}>
-                            Custom PC Build
-                        </h1>
+                        <div style={{
+                            background: T.greenDim,
+                            border: `1px solid ${T.green}`,
+                            borderRadius: "10px",
+                            padding: isMobile ? "0.5rem 0.75rem" : "0.75rem 1.25rem",
+                            textAlign: "right",
+                            flexShrink: 0,
+                        }}>
+                            <div style={{ fontSize: "0.65rem", color: T.textDim, marginBottom: "2px" }}>
+                                {selectedCount} / {initialCategories.length}
+                            </div>
+                            <div style={{ fontFamily: T.display, fontSize: isMobile ? "1rem" : "1.4rem", color: T.green }}>
+                                ${total.toFixed(2)}
+                            </div>
+                        </div>
+
+                        {/* Export Build Information */}
+
                     </div>
-                    <div style={{
-                        background: T.greenDim,
-                        border: `1px solid ${T.green}`,
-                        borderRadius: "10px",
-                        padding: isMobile ? "0.5rem 0.75rem" : "0.75rem 1.25rem",
-                        textAlign: "right",
-                        flexShrink: 0,
-                    }}>
-                        <div style={{ fontSize: "0.65rem", color: T.textDim, marginBottom: "2px" }}>
-                            {selectedCount} / {initialCategories.length}
-                        </div>
-                        <div style={{ fontFamily: T.display, fontSize: isMobile ? "1rem" : "1.4rem", color: T.green }}>
-                            ${total.toFixed(2)}
-                        </div>
-                    </div>
+                    <ExportBuild />
                 </div>
 
                 {/* ── Table — desktop ── */}

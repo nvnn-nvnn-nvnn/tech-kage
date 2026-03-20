@@ -86,6 +86,9 @@ const COLUMNS = {
         { key: "sidePanel", label: "SIDE PANEL", align: "center" },
         { key: "external525Bays", label: "EXT 3.5 BAYS", align: "center" },
     ],
+    os: [
+
+    ],
 };
 
 export default function PartsList({ partType }) {

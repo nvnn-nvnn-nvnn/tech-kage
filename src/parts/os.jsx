@@ -11,7 +11,7 @@ const T = {
     display: "'Orbitron', sans-serif",
 };
 
-export default function OS() {
+export default function Os() {
     return (
         <div style={{
             minHeight: "100vh",
