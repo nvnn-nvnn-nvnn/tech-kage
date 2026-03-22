@@ -142,17 +142,16 @@ function transformToCatalogFormat(part, category) {
 function selectTopParts(data, category, count = 6) {
     if (!data || data.length === 0) return [];
 
-    // Filter out parts with null or 0 price AND parts without valid ASINs
+    // BUILDCORES: Temporarily allow parts without prices (BuildCores doesn't have pricing yet)
+    // Filter out parts without valid ASINs only
     const validParts = data.filter(part =>
-        part.price &&
-        part.price > 0 &&
         part.asin &&
         part.asin.trim() !== ""
     );
 
     if (validParts.length === 0) return [];
 
-    // Sort by price
+    // Sort by price (parts without price will be 0)
     const sorted = [...validParts].sort((a, b) => (a.price || 0) - (b.price || 0));
 
     // Pick spread across price ranges

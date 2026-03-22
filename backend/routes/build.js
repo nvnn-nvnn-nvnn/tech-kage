@@ -58,7 +58,12 @@ router.post('/generate-build', async (req, res) => {
       } else {
         console.log(`Invalid part for ${category}: ${part.name}, using default`);
         const defaultPart = getDefaultPart(category);
-        validatedBuild[category] = { name: defaultPart.name, reason: "Default choice - Claude picked invalid part" };
+        if (defaultPart) {
+          validatedBuild[category] = { name: defaultPart.name, reason: "Default choice - Claude picked invalid part" };
+        } else {
+          console.error(`ERROR: No default part available for ${category}. Catalog may be empty!`);
+          validatedBuild[category] = { name: part.name, reason: part.reason }; // Use Claude's choice as fallback
+        }
       }
     }
 
