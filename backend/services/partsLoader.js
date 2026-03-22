@@ -1,39 +1,77 @@
 // Backend parts loader - transforms Supabase data into AI builder format
 const { supabase } = require('../config/supabase');
 
-// Load parts from Supabase for a specific category
+// ORIGINAL: Load parts from old 'parts' table (COMMENTED OUT - using BuildCores now)
+// async function loadCategoryFromSupabase(category, limit = 100) {
+//     console.log(`[partsLoader] Loading ${category} from Supabase...`);
+
+//     const { data, error } = await supabase
+//         .from('parts')
+//         .select('*, current_prices(*)')
+//         .eq('category', category)
+//         .not('asin', 'is', null)
+//         .limit(limit);
+
+//     if (error) {
+//         console.error(`[partsLoader] ERROR loading ${category}:`, error);
+//         return [];
+//     }
+
+//     console.log(`[partsLoader] ${category}: Found ${data?.length || 0} parts`);
+
+//     if (!data || data.length === 0) {
+//         console.warn(`[partsLoader] WARNING: No parts found for category "${category}"`);
+//         return [];
+//     }
+
+//     // Transform Supabase format to match expected JSON format
+//     const transformed = data.map(part => ({
+//         ...part.specs,
+//         name: part.name,
+//         asin: part.asin,
+//         price: part.current_prices?.[0]?.price || 0,
+//         thumbnail_image: part.thumbnail_image
+//     }));
+
+//     console.log(`[partsLoader] ${category} sample:`, transformed[0]?.name, '$' + transformed[0]?.price);
+//     return transformed;
+// }
+
+// NEW: Load parts from BuildCores database
 async function loadCategoryFromSupabase(category, limit = 100) {
-    console.log(`[partsLoader] Loading ${category} from Supabase...`);
+    console.log(`[partsLoader] Loading ${category} from BuildCores database...`);
 
     const { data, error } = await supabase
-        .from('parts')
-        .select('*, current_prices(*)')
+        .from('buildcores_parts')
+        .select('*')
         .eq('category', category)
-        .not('asin', 'is', null)
         .limit(limit);
 
     if (error) {
-        console.error(`[partsLoader] ERROR loading ${category}:`, error);
+        console.error(`[partsLoader] ERROR loading ${category} from BuildCores:`, error);
         return [];
     }
 
-    console.log(`[partsLoader] ${category}: Found ${data?.length || 0} parts`);
+    console.log(`[partsLoader] BuildCores ${category}: Found ${data?.length || 0} parts`);
 
     if (!data || data.length === 0) {
-        console.warn(`[partsLoader] WARNING: No parts found for category "${category}"`);
+        console.warn(`[partsLoader] WARNING: No BuildCores parts found for category "${category}"`);
         return [];
     }
 
-    // Transform Supabase format to match expected JSON format
+    // Transform BuildCores format to match expected JSON format
     const transformed = data.map(part => ({
         ...part.specs,
         name: part.name,
-        asin: part.asin,
-        price: part.current_prices?.[0]?.price || 0,
-        thumbnail_image: part.thumbnail_image
+        asin: part.amazon_sku, // BuildCores uses amazon_sku instead of asin
+        price: 0, // BuildCores doesn't have prices - will need to add later
+        thumbnail_image: null, // BuildCores doesn't have images - will need to add later
+        buildcores_id: part.buildcores_id, // Keep UUID for routing
+        manufacturer: part.manufacturer,
+        series: part.series
     }));
 
-    console.log(`[partsLoader] ${category} sample:`, transformed[0]?.name, '$' + transformed[0]?.price);
+    console.log(`[partsLoader] BuildCores ${category} sample:`, transformed[0]?.name);
     return transformed;
 }
 

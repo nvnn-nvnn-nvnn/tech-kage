@@ -5,7 +5,8 @@ function formatPartsWithPrices(category) {
   const catalog = getCatalog();
   let parts = catalog[category] || [];
 
-  // CRITICAL: Filter out Intel CPUs since we only have AMD motherboards
+  // BUILDCORES: Filter out Intel CPUs since we only have AMD motherboards in our catalog
+  // (BuildCores has both Intel and AMD, but our motherboard selection is AMD-only)
   if (category === 'CPU') {
     const intelKeywords = ['Intel', 'Core i3', 'Core i5', 'Core i7', 'Core i9', 'Pentium', 'Celeron'];
     const beforeCount = parts.length;
@@ -14,7 +15,7 @@ function formatPartsWithPrices(category) {
       const hasIntel = intelKeywords.some(keyword => name.includes(keyword.toLowerCase()));
       return !hasIntel;
     });
-    console.log(`[formatPartsWithPrices] CPU: Filtered ${beforeCount - parts.length} Intel CPUs, ${parts.length} AMD CPUs remaining`);
+    console.log(`[BuildCores] CPU: Filtered ${beforeCount - parts.length} Intel CPUs, ${parts.length} AMD CPUs remaining`);
   }
 
   console.log(`[formatPartsWithPrices] ${category}: ${parts.length} parts available`);
