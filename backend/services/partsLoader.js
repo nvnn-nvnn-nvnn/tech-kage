@@ -39,39 +39,37 @@ const { supabase } = require('../config/supabase');
 
 // NEW: Load parts from BuildCores database
 async function loadCategoryFromSupabase(category, limit = 100) {
-    console.log(`[partsLoader] Loading ${category} from BuildCores database...`);
+    console.log(`[partsLoader] Loading ${category} from Supabase...`);
 
     const { data, error } = await supabase
-        .from('buildcores_parts')
-        .select('*')
+        .from('parts')
+        .select('*, current_prices(*)')
         .eq('category', category)
+        .not('asin', 'is', null)
         .limit(limit);
 
     if (error) {
-        console.error(`[partsLoader] ERROR loading ${category} from BuildCores:`, error);
+        console.error(`[partsLoader] ERROR loading ${category}:`, error);
         return [];
     }
 
-    console.log(`[partsLoader] BuildCores ${category}: Found ${data?.length || 0} parts`);
+    console.log(`[partsLoader] ${category}: Found ${data?.length || 0} parts`);
 
     if (!data || data.length === 0) {
-        console.warn(`[partsLoader] WARNING: No BuildCores parts found for category "${category}"`);
+        console.warn(`[partsLoader] WARNING: No parts found for category "${category}"`);
         return [];
     }
 
-    // Transform BuildCores format to match expected JSON format
+    // Transform Supabase format to match expected JSON format
     const transformed = data.map(part => ({
         ...part.specs,
         name: part.name,
-        asin: part.amazon_sku, // BuildCores uses amazon_sku instead of asin
-        price: 0, // BuildCores doesn't have prices - will need to add later
-        thumbnail_image: null, // BuildCores doesn't have images - will need to add later
-        buildcores_id: part.buildcores_id, // Keep UUID for routing
-        manufacturer: part.manufacturer,
-        series: part.series
+        asin: part.asin,
+        price: part.current_prices?.[0]?.price || 0,
+        thumbnail_image: part.thumbnail_image
     }));
 
-    console.log(`[partsLoader] BuildCores ${category} sample:`, transformed[0]?.name);
+    console.log(`[partsLoader] ${category} sample:`, transformed[0]?.name, '$' + transformed[0]?.price);
     return transformed;
 }
 
@@ -142,9 +140,10 @@ function transformToCatalogFormat(part, category) {
 function selectTopParts(data, category, count = 6) {
     if (!data || data.length === 0) return [];
 
-    // BUILDCORES: Temporarily allow parts without prices (BuildCores doesn't have pricing yet)
-    // Filter out parts without valid ASINs only
+    // Filter out parts with null or 0 price AND parts without valid ASINs
     const validParts = data.filter(part =>
+        part.price &&
+        part.price > 0 &&
         part.asin &&
         part.asin.trim() !== ""
     );
