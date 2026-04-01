@@ -9,17 +9,8 @@ router.get('/parts/:category', async (req, res) => {
     const { category } = req.params;
 
     const { data, error } = await supabase
-        .from('parts')
-        .select(`
-            *,
-            current_prices (
-                retailer,
-                price,
-                availability,
-                product_url,
-                last_updated
-            )
-        `)
+        .from('buildcores_parts')
+        .select('*')
         .eq('category', category)
         .order('name');
 
