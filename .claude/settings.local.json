@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json; d=json.load\\(open\\(''c:/Users/Devan Chuyen Lee/Documents/Tech Kage/tech-kage-pc-build/src/json/motherboard.json''\\)\\); print\\(list\\(d[0].keys\\(\\)\\)\\)\")",
+      "Bash(node -e \"const d=require\\(''./src/json/motherboard.json''\\); console.log\\(Object.keys\\(d[0]\\)\\)\")"
+    ]
+  }
+}

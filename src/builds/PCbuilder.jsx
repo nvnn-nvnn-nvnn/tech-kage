@@ -873,7 +873,15 @@ function LoadingScreen({ isUpgrade }) {
 function ResultsStep({ config }) {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(() => {
+    try {
+      const saved = localStorage.getItem("activeTab");
+      return saved !== null ? parseInt(saved, 10) : 0;
+    } catch {
+      return 0; // localStorage not available
+    }
+  });
+
   const [showExportModal, setShowExportModal] = useState(false);
   const cat = PART_CATEGORIES[activeTab];
   const mappedCat = CATEGORY_MAP[cat] || cat.toLowerCase();
@@ -926,6 +934,18 @@ function ResultsStep({ config }) {
     const price = parseFloat(String(part.price ?? part.priceNumeric ?? 0).replace(/[^0-9.]/g, '')) || 0;
     return sum + price;
   }, 0) * 100) / 100;
+
+  // UseEffect for Active Tab
+
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("activeTab", String(activeTab));
+    } catch {
+      // localStorage not available
+    }
+  }, [activeTab]);
+
 
   const handlePartSwap = (category, newPart) => {
     setLocalBuild(prev => ({ ...prev, [category]: newPart }));
@@ -1148,7 +1168,7 @@ function ResultsStep({ config }) {
 
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {parts.map((part, i) => (
-          <PartRow key={i} part={part} isTop={i === 0} category={cat} buildConfig={config} onPartSwap={handlePartSwap} isMobile={isMobile} />
+          <PartRow key={part.id || part.asin || i} part={part} isTop={i === 0} category={cat} buildConfig={config} onPartSwap={handlePartSwap} isMobile={isMobile} />
         ))}
       </div>
 
@@ -1186,33 +1206,12 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
   // Navigation
 
 
-  const CATEGORY_MAP = {
-    GPU: 'video-card',
-    PSU: 'powersupply',
-    RAM: 'memory',
-    CPU: 'cpu',
-    MOTHERBOARD: 'motherboard',
-    STORAGE: 'storage',
-    CASE: 'case',
-    COOLING: 'cpu-cooler'
-  };
-
-
   const mappedCategory = CATEGORY_MAP[category] || category.toLowerCase();
   const partDetailUrl = `/parts/${mappedCategory}/${currentPart.id}`;
 
 
 
-  console.log("DEBUG - Category:", category);
-  console.log("DEBUG - currentPart.id:", currentPart.id);
-  console.log("DEBUG - Generated URL:", partDetailUrl);
-  console.log(currentPart);
-
   useEffect(() => { setCurrentPart(part); }, [part]);
-
-
-
-  console.log("PART DATA:", currentPart);
 
   // const fetchAlternative = async (type) => {
   //   setLoadingAlt(true);
@@ -1256,7 +1255,7 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
         <div style={{ display: "flex", gap: isMobile ? 12 : 24, flex: 1 }}>
           {currentPart.thumbnail_image && (
             <div style={{ width: isMobile ? 80 : 100, height: isMobile ? 80 : 100, flexShrink: 0, borderRadius: 10, background: "rgba(255,255,255,0.02)", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${T.border}` }}>
-              <img src={currentPart.thumbnail_image} alt={currentPart.name} style={{ maxWidth: "150%", maxHeight: "150%", objectFit: "contain", padding: "15%", }} />
+              <img src={currentPart.thumbnail_image} alt={currentPart.name} style={{ maxWidth: "150%", maxHeight: "150%", objectFit: "contain", padding: "15%", }} onError={(e) => { e.currentTarget.style.display = "none"; }} />
             </div>
           )}
           <div style={{ flex: 1 }}>
@@ -1285,7 +1284,7 @@ function PartRow({ part, isTop, category, buildConfig, onPartSwap, isMobile }) {
                   <span key={s} style={{ fontSize: 16, color: s <= Math.round(currentPart.rating || 0) ? T.green : "rgba(255,255,255,0.12)" }}>★</span>
                 ))}
               </div>
-              <span style={{ fontSize: 13, color: T.textMid, fontWeight: 500 }}>{part.rating || "—"}</span>
+              <span style={{ fontSize: 13, color: T.textMid, fontWeight: 500 }}>{currentPart.rating || "—"}</span>
             </div>
           </div>
         </div>
@@ -1477,6 +1476,14 @@ export default function PCBuilder() {
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [step, done, config]);
+
+
+
+  // Chosen Parts Tab 
+
+  useEffect(() => {
+
+  }, []);
 
   const isUpgrade = config.mode === "upgrade";
   const steps = isUpgrade ? UPGRADE_STEPS : BUILD_STEPS;

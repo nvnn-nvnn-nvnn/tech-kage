@@ -83,33 +83,6 @@ router.post('/generate-build', async (req, res) => {
     if (!compatibilityResult.isValid) {
       console.warn("Build has compatibility issues:", compatibilityResult.errors);
       for (const error of compatibilityResult.errors) {
-
-
-
-        // if (error.type === "case") {
-        //   // Case Swap 
-
-        //   const caseFormFactor = enrichedBuild.CASE.type;
-        //   const moboFormFactor = enrichedBuild.MOTHERBOARD.form_factor;
-
-        //   // Verify what it has.. 
-
-
-
-        //   const compatibleMoboCase = CATALOG.MOTHERBOARD.find(moboItem =>
-        //     moboItem.form_factor === caseFormFactor
-        //   );
-
-        //   if (compatibleMoboCase) {
-        //     console.log("Compatible case found:", compatibleMoboCase.name);
-        //     enrichedBuild.MOTHERBOARD = compatibleMoboCase;
-        //   }
-
-
-
-        // }
-
-
         if (error.type === "case") {
           const caseFormFactor = enrichedBuild.CASE.type;
           const moboFormFactor = enrichedBuild.MOTHERBOARD.form_factor;
@@ -194,14 +167,23 @@ router.post('/generate-build', async (req, res) => {
 
         // RAM CHECK
         if (error.type === "ram") {
-          // RAM SWAPPING
-          // FIX: Match RAM to motherboard's memory_type instead of hardcoding DDR5
-          // This ensures compatibility when motherboard only supports DDR4
-          const moboMemoryType = enrichedBuild.MOTHERBOARD?.memory_type;
+          // Match RAM DDR generation to motherboard.
+          // memory_type field may not exist — derive DDR gen from speed array [gen, mhz].
+          const moboMemoryType = enrichedBuild.MOTHERBOARD?.memory_type || null;
+          const moboSocket = enrichedBuild.MOTHERBOARD?.socket || '';
+          const normalize = (s) => s?.toString().toUpperCase().replace(/\s/g, '');
+          const am5Sockets = ['AM5'];
+          const moboIsAM5 = am5Sockets.some(s => normalize(s) === normalize(moboSocket));
 
-          const compatibleRam = CATALOG.RAM.find(ram =>
-            ram.memory_type === moboMemoryType
-          );
+          const compatibleRam = CATALOG.RAM.find(ram => {
+            if (moboMemoryType && ram.memory_type) {
+              return ram.memory_type === moboMemoryType;
+            }
+            // Fall back to speed array: [gen, mhz] — AM5 needs DDR5 (gen=5), AM4 needs DDR4 (gen=4)
+            const ramGen = Array.isArray(ram.speed) ? ram.speed[0] : null;
+            if (!ramGen) return false;
+            return moboIsAM5 ? ramGen === 5 : ramGen === 4;
+          });
 
           if (compatibleRam) {
             console.log("Compatible RAM found:", compatibleRam.name);
