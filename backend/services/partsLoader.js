@@ -42,10 +42,10 @@ async function loadCategoryFromSupabase(category, limit = 100) {
     console.log(`[partsLoader] Loading ${category} from Supabase...`);
 
     const { data, error } = await supabase
-        .from('buildcores_parts')
-        .select('*')
+        .from('parts')
+        .select('*, current_prices(*)')
         .eq('category', category)
-        .not('amazon_sku', 'is', null)
+        .not('asin', 'is', null)
         .limit(limit);
 
     if (error) {
@@ -64,9 +64,9 @@ async function loadCategoryFromSupabase(category, limit = 100) {
     const transformed = data.map(part => ({
         ...part.specs,
         name: part.name,
-        asin: part.amazon_sku,
-        price: 0,
-        thumbnail_image: part.thumbnail_image || null
+        asin: part.asin,
+        price: part.current_prices?.[0]?.price || 0,
+        thumbnail_image: part.thumbnail_image
     }));
 
     console.log(`[partsLoader] ${category} sample:`, transformed[0]?.name, '$' + transformed[0]?.price);

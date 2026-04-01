@@ -9,8 +9,17 @@ router.get('/parts/:category', async (req, res) => {
     const { category } = req.params;
 
     const { data, error } = await supabase
-        .from('buildcores_parts')
-        .select('*')
+        .from('parts')
+        .select(`
+            *,
+            current_prices (
+                retailer,
+                price,
+                availability,
+                product_url,
+                last_updated
+            )
+        `)
         .eq('category', category)
         .order('name');
 
